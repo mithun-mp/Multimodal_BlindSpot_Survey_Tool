@@ -1,0 +1,8 @@
+{
+  "model_id": "textattack/albert-base-v2-SST-2",
+  "status": "FAILED",
+  "completed_at": 1790138043.780697,
+  "error": "Model 'textattack/albert-base-v2-SST-2' pipeline is not loaded (load error: `tiktoken` is required to read a `tiktoken` file. Install it with `pip install tiktoken`.) and allow_fallback=False.",
+  "probes_done": 0,
+  "total_probes": 0
+}

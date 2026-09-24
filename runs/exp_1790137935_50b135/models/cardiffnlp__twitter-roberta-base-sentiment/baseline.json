@@ -1,0 +1,29 @@
+{
+  "The film was amazing,me and family enjoyed it well": {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "seed_text": "The film was amazing,me and family enjoyed it well",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.991986808489251,
+      "formatted_confidence": "99.20%",
+      "probabilities": {
+        "NEGATIVE": 0.0014772927072254597,
+        "NEUTRAL": 0.006535898803523522,
+        "POSITIVE": 0.991986808489251
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.15%",
+        "NEUTRAL": "0.65%",
+        "POSITIVE": "99.20%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.15%\nNEUTRAL    [                    ]   0.65%\nPOSITIVE   [====================]  99.20%",
+      "raw_logits": null,
+      "latency_ms": 358.94140000164043,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "latency_ms": 358.94140000164043
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "All Glitters are not Gold": {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "seed_text": "All Glitters are not Gold",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.5215889341768923,
+      "formatted_confidence": "52.16%",
+      "probabilities": {
+        "NEGATIVE": 0.5215889341768923,
+        "NEUTRAL": 0.45122773547835754,
+        "POSITIVE": 0.027183330344750165
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "52.16%",
+        "NEUTRAL": "45.12%",
+        "POSITIVE": "2.72%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [==========          ]  52.16%\nNEUTRAL    [=========           ]  45.12%\nPOSITIVE   [=                   ]   2.72%",
+      "raw_logits": null,
+      "latency_ms": 140.38909999726457,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "latency_ms": 140.38909999726457
+  }
+}

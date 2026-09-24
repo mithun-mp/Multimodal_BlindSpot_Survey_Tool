@@ -1,0 +1,8 @@
+{
+  "model_id": "textattack/albert-base-v2-SST-2",
+  "status": "COMPLETED",
+  "completed_at": 1790189181.463657,
+  "error": null,
+  "probes_done": 7,
+  "total_probes": 7
+}

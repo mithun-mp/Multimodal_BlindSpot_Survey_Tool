@@ -1,0 +1,41 @@
+{
+  "experiment_name": "Multimodel Robustness Audit002",
+  "model_ids": [
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "textattack/albert-base-v2-SST-2",
+    "textattack/bert-base-uncased-SST-2",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "cardiffnlp/twitter-roberta-base-sentiment"
+  ],
+  "seed_texts": [
+    "All Glitters are not Gold"
+  ],
+  "sentence_types": {
+    "All Glitters are not Gold": "literal"
+  },
+  "perturbation_types": [
+    "structure",
+    "synonym_substitution",
+    "negation_removal",
+    "contrast_negative_append",
+    "double_negation",
+    "intensity"
+  ],
+  "explainer_type": "both",
+  "performance_mode": "balanced",
+  "batch_size": null,
+  "random_seed": 42,
+  "confidence_threshold": 0.65,
+  "confidence_sensitivity_threshold_pts": 20.0,
+  "output_dir": "runs",
+  "has_selected_probes": true,
+  "selected_probe_ids": [
+    "prb_d6ee4e67f544",
+    "prb_131f00590c08",
+    "prb_7140a40a75ba",
+    "prb_781b951d1dbb",
+    "prb_e933443e2c93",
+    "prb_38bf63d5b273",
+    "prb_9f9e1dadae1e"
+  ]
+}

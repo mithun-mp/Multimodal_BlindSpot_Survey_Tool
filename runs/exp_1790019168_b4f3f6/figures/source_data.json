@@ -1,0 +1,272 @@
+{
+  "experiment_id": "exp_1790019168_b4f3f6",
+  "generated_at": null,
+  "models": [
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "textattack/albert-base-v2-SST-2",
+    "textattack/bert-base-uncased-SST-2",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "cardiffnlp/twitter-roberta-base-sentiment"
+  ],
+  "pipeline_integrity": {
+    "generated": 7,
+    "selected": 7,
+    "verified": 7,
+    "planned": 7,
+    "total_probes": 7,
+    "model_checks": {
+      "distilbert-base-uncased-finetuned-sst-2-english": {
+        "generated": 7,
+        "selected": 7,
+        "verified": 7,
+        "planned": 7,
+        "executed": 7,
+        "analyzed": 7,
+        "reported": 7,
+        "integrity_verified": true
+      },
+      "textattack/albert-base-v2-SST-2": {
+        "generated": 7,
+        "selected": 7,
+        "verified": 7,
+        "planned": 7,
+        "executed": 7,
+        "analyzed": 7,
+        "reported": 7,
+        "integrity_verified": true
+      },
+      "textattack/bert-base-uncased-SST-2": {
+        "generated": 7,
+        "selected": 7,
+        "verified": 7,
+        "planned": 7,
+        "executed": 7,
+        "analyzed": 7,
+        "reported": 7,
+        "integrity_verified": true
+      },
+      "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+        "generated": 7,
+        "selected": 7,
+        "verified": 7,
+        "planned": 7,
+        "executed": 7,
+        "analyzed": 7,
+        "reported": 7,
+        "integrity_verified": true
+      },
+      "cardiffnlp/twitter-roberta-base-sentiment": {
+        "generated": 7,
+        "selected": 7,
+        "verified": 7,
+        "planned": 7,
+        "executed": 7,
+        "analyzed": 7,
+        "reported": 7,
+        "integrity_verified": true
+      }
+    },
+    "all_passed": true
+  },
+  "summary_metrics": {
+    "distilbert-base-uncased-finetuned-sst-2-english": {
+      "total_probes": 7,
+      "flip_rate": 0.14285714285714285,
+      "observed_flip_rate": 0.14285714285714285,
+      "expected_flip_rate": 0.5,
+      "preserve_rate": 1.0,
+      "behavioral_consistency": 0.8571428571428571,
+      "satisfaction_rate": 0.8571428571428571,
+      "confidence_flip_rate": 0.0,
+      "ece": 0.13503547858556364,
+      "transition_matrix": {
+        "NEGATIVE": {
+          "NEGATIVE": 6,
+          "POSITIVE": 1
+        },
+        "POSITIVE": {
+          "NEGATIVE": 0,
+          "POSITIVE": 0
+        }
+      },
+      "confidence_shifts": {
+        "mean_delta_pts": -0.6498164061366115,
+        "median_delta_pts": -0.28778180719074564,
+        "max_drop_pts": 2.1279400989290043,
+        "max_gain_pts": 0.09585655466740617,
+        "num_increased": 3,
+        "num_decreased": 4,
+        "num_unchanged": 0
+      },
+      "failure_counts": {
+        "Blind": 1,
+        "Spurious": 0,
+        "Misweighted": 0,
+        "Undetermined": 0
+      },
+      "analysis_status": "FAILURES_OBSERVED"
+    },
+    "textattack/albert-base-v2-SST-2": {
+      "total_probes": 7,
+      "flip_rate": 0.42857142857142855,
+      "observed_flip_rate": 0.42857142857142855,
+      "expected_flip_rate": 1.0,
+      "preserve_rate": 0.8,
+      "behavioral_consistency": 0.8571428571428571,
+      "satisfaction_rate": 0.8571428571428571,
+      "confidence_flip_rate": 0.14285714285714285,
+      "ece": 0.1771333452960655,
+      "transition_matrix": {
+        "NEGATIVE": {
+          "NEGATIVE": 4,
+          "POSITIVE": 3
+        },
+        "POSITIVE": {
+          "NEGATIVE": 0,
+          "POSITIVE": 0
+        }
+      },
+      "confidence_shifts": {
+        "mean_delta_pts": -3.1964629177454045,
+        "median_delta_pts": 3.0047252055791507,
+        "max_drop_pts": 38.99373938384487,
+        "max_gain_pts": 4.909015583414811,
+        "num_increased": 6,
+        "num_decreased": 1,
+        "num_unchanged": 0
+      },
+      "failure_counts": {
+        "Blind": 0,
+        "Spurious": 1,
+        "Misweighted": 0,
+        "Undetermined": 0
+      },
+      "analysis_status": "FAILURES_OBSERVED"
+    },
+    "textattack/bert-base-uncased-SST-2": {
+      "total_probes": 7,
+      "flip_rate": 0.2857142857142857,
+      "observed_flip_rate": 0.2857142857142857,
+      "expected_flip_rate": 0.5,
+      "preserve_rate": 0.8,
+      "behavioral_consistency": 0.7142857142857143,
+      "satisfaction_rate": 0.7142857142857143,
+      "confidence_flip_rate": 0.0,
+      "ece": 0.22331769718473188,
+      "transition_matrix": {
+        "NEGATIVE": {
+          "NEGATIVE": 5,
+          "POSITIVE": 2
+        },
+        "POSITIVE": {
+          "NEGATIVE": 0,
+          "POSITIVE": 0
+        }
+      },
+      "confidence_shifts": {
+        "mean_delta_pts": -4.828498527418253,
+        "median_delta_pts": -4.821914749818779,
+        "max_drop_pts": 12.02805599494251,
+        "max_gain_pts": 1.271849063125885,
+        "num_increased": 1,
+        "num_decreased": 6,
+        "num_unchanged": 0
+      },
+      "failure_counts": {
+        "Blind": 1,
+        "Spurious": 1,
+        "Misweighted": 0,
+        "Undetermined": 0
+      },
+      "analysis_status": "FAILURES_OBSERVED"
+    },
+    "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+      "total_probes": 7,
+      "flip_rate": 0.42857142857142855,
+      "observed_flip_rate": 0.42857142857142855,
+      "expected_flip_rate": 0.5,
+      "preserve_rate": 0.6,
+      "behavioral_consistency": 0.5714285714285714,
+      "satisfaction_rate": 0.5714285714285714,
+      "confidence_flip_rate": 0.0,
+      "ece": 0.32310794239404245,
+      "transition_matrix": {
+        "NEGATIVE": {
+          "NEGATIVE": 0,
+          "NEUTRAL": 0,
+          "POSITIVE": 0
+        },
+        "NEUTRAL": {
+          "NEGATIVE": 2,
+          "NEUTRAL": 4,
+          "POSITIVE": 1
+        },
+        "POSITIVE": {
+          "NEGATIVE": 0,
+          "NEUTRAL": 0,
+          "POSITIVE": 0
+        }
+      },
+      "confidence_shifts": {
+        "mean_delta_pts": 5.8677676144465405,
+        "median_delta_pts": 5.155727133557997,
+        "max_drop_pts": 6.578096567725217,
+        "max_gain_pts": 21.353160446377938,
+        "num_increased": 4,
+        "num_decreased": 3,
+        "num_unchanged": 0
+      },
+      "failure_counts": {
+        "Blind": 1,
+        "Spurious": 1,
+        "Misweighted": 1,
+        "Undetermined": 0
+      },
+      "analysis_status": "FAILURES_OBSERVED"
+    },
+    "cardiffnlp/twitter-roberta-base-sentiment": {
+      "total_probes": 7,
+      "flip_rate": 0.5714285714285714,
+      "observed_flip_rate": 0.5714285714285714,
+      "expected_flip_rate": 0.5,
+      "preserve_rate": 0.4,
+      "behavioral_consistency": 0.42857142857142855,
+      "satisfaction_rate": 0.42857142857142855,
+      "confidence_flip_rate": 0.0,
+      "ece": 0.43691519896356223,
+      "transition_matrix": {
+        "NEGATIVE": {
+          "NEGATIVE": 3,
+          "NEUTRAL": 3,
+          "POSITIVE": 1
+        },
+        "NEUTRAL": {
+          "NEGATIVE": 0,
+          "NEUTRAL": 0,
+          "POSITIVE": 0
+        },
+        "POSITIVE": {
+          "NEGATIVE": 0,
+          "NEUTRAL": 0,
+          "POSITIVE": 0
+        }
+      },
+      "confidence_shifts": {
+        "mean_delta_pts": 13.395891692824183,
+        "median_delta_pts": 14.181412598268706,
+        "max_drop_pts": 1.9385007798520815,
+        "max_gain_pts": 32.603354170248735,
+        "num_increased": 6,
+        "num_decreased": 1,
+        "num_unchanged": 0
+      },
+      "failure_counts": {
+        "Blind": 1,
+        "Spurious": 2,
+        "Misweighted": 1,
+        "Undetermined": 0
+      },
+      "analysis_status": "FAILURES_OBSERVED"
+    }
+  }
+}

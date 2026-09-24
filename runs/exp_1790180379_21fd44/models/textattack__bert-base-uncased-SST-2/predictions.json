@@ -1,0 +1,436 @@
+[
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_f8cfe5bc91e4",
+    "seed_text": "The movie was great and the acting was top notch.",
+    "perturbed_text": "The movie was not great and the acting was top notch.",
+    "perturbation_type": "negation_insertion",
+    "category": "negation_insertion",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9995554383073304,
+      "formatted_confidence": "99.96%",
+      "probabilities": {
+        "NEGATIVE": 0.000444561692669602,
+        "POSITIVE": 0.9995554383073304
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.04%",
+        "POSITIVE": "99.96%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.04%\nPOSITIVE   [====================]  99.96%",
+      "raw_logits": null,
+      "latency_ms": 123.28479999996489,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.7280095815658569,
+      "formatted_confidence": "72.80%",
+      "probabilities": {
+        "NEGATIVE": 0.7280095815658569,
+        "POSITIVE": 0.27199041843414307
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "72.80%",
+        "POSITIVE": "27.20%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [===============     ]  72.80%\nPOSITIVE   [=====               ]  27.20%",
+      "raw_logits": null,
+      "latency_ms": 35.047685714224436,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9995554383073304,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.7280095815658569,
+    "is_flipped": true,
+    "confidence_delta": -0.27154585674147347,
+    "confidence_delta_pts": -27.15458567414735,
+    "formatted_confidence_delta": "-27.15 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_FLIP",
+    "failure_type": "None",
+    "rationale": "Model correctly flipped prediction from POSITIVE \u2192 NEGATIVE under REVERSE_POLARITY.",
+    "semantic_intent": "REVERSE_POLARITY",
+    "latency_ms": 35.047685714224436
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_93a8a314162b",
+    "seed_text": "The movie was great and the acting was top notch.",
+    "perturbed_text": "It is not impossible that the movie was great and the acting was top notch.",
+    "perturbation_type": "double_negation",
+    "category": "double_negation",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9995554383073304,
+      "formatted_confidence": "99.96%",
+      "probabilities": {
+        "NEGATIVE": 0.000444561692669602,
+        "POSITIVE": 0.9995554383073304
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.04%",
+        "POSITIVE": "99.96%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.04%\nPOSITIVE   [====================]  99.96%",
+      "raw_logits": null,
+      "latency_ms": 123.28479999996489,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9993913848473461,
+      "formatted_confidence": "99.94%",
+      "probabilities": {
+        "NEGATIVE": 0.0006086151526538642,
+        "POSITIVE": 0.9993913848473461
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.06%",
+        "POSITIVE": "99.94%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.06%\nPOSITIVE   [====================]  99.94%",
+      "raw_logits": null,
+      "latency_ms": 35.047685714224436,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9995554383073304,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9993913848473461,
+    "is_flipped": false,
+    "confidence_delta": -0.00016405345998427023,
+    "confidence_delta_pts": -0.016405345998427023,
+    "formatted_confidence_delta": "-0.02 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (POSITIVE \u2192 POSITIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 35.047685714224436
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_655b09534fa8",
+    "seed_text": "The movie was great and the acting was top notch.",
+    "perturbed_text": "The movie was extremely great and the acting was top notch.",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "strengthen",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9995554383073304,
+      "formatted_confidence": "99.96%",
+      "probabilities": {
+        "NEGATIVE": 0.000444561692669602,
+        "POSITIVE": 0.9995554383073304
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.04%",
+        "POSITIVE": "99.96%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.04%\nPOSITIVE   [====================]  99.96%",
+      "raw_logits": null,
+      "latency_ms": 123.28479999996489,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9995864472403296,
+      "formatted_confidence": "99.96%",
+      "probabilities": {
+        "NEGATIVE": 0.00041355275967034863,
+        "POSITIVE": 0.9995864472403296
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.04%",
+        "POSITIVE": "99.96%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.04%\nPOSITIVE   [====================]  99.96%",
+      "raw_logits": null,
+      "latency_ms": 35.047685714224436,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9995554383073304,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9995864472403296,
+    "is_flipped": false,
+    "confidence_delta": 3.1008932999232464e-05,
+    "confidence_delta_pts": 0.0031008932999232464,
+    "formatted_confidence_delta": "+0.00 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (POSITIVE \u2192 POSITIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "STRENGTHEN_POLARITY",
+    "latency_ms": 35.047685714224436
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_ad69074f6902",
+    "seed_text": "The movie was great and the acting was top notch.",
+    "perturbed_text": "The movie was somewhat great and the acting was top notch.",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "weaken",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9995554383073304,
+      "formatted_confidence": "99.96%",
+      "probabilities": {
+        "NEGATIVE": 0.000444561692669602,
+        "POSITIVE": 0.9995554383073304
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.04%",
+        "POSITIVE": "99.96%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.04%\nPOSITIVE   [====================]  99.96%",
+      "raw_logits": null,
+      "latency_ms": 123.28479999996489,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9995924760325059,
+      "formatted_confidence": "99.96%",
+      "probabilities": {
+        "NEGATIVE": 0.00040752396749410325,
+        "POSITIVE": 0.9995924760325059
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.04%",
+        "POSITIVE": "99.96%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.04%\nPOSITIVE   [====================]  99.96%",
+      "raw_logits": null,
+      "latency_ms": 35.047685714224436,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9995554383073304,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9995924760325059,
+    "is_flipped": false,
+    "confidence_delta": 3.703772517549275e-05,
+    "confidence_delta_pts": 0.0037037725175492753,
+    "formatted_confidence_delta": "+0.00 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (POSITIVE \u2192 POSITIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "WEAKEN_POLARITY",
+    "latency_ms": 35.047685714224436
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_0bcfcb23a772",
+    "seed_text": "The movie was great and the acting was top notch.",
+    "perturbed_text": "The film was great and the acting was top notch.",
+    "perturbation_type": "synonym_substitution",
+    "category": "synonym_substitution",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9995554383073304,
+      "formatted_confidence": "99.96%",
+      "probabilities": {
+        "NEGATIVE": 0.000444561692669602,
+        "POSITIVE": 0.9995554383073304
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.04%",
+        "POSITIVE": "99.96%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.04%\nPOSITIVE   [====================]  99.96%",
+      "raw_logits": null,
+      "latency_ms": 123.28479999996489,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9995479808632635,
+      "formatted_confidence": "99.95%",
+      "probabilities": {
+        "NEGATIVE": 0.00045201913673657704,
+        "POSITIVE": 0.9995479808632635
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.05%",
+        "POSITIVE": "99.95%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.05%\nPOSITIVE   [====================]  99.95%",
+      "raw_logits": null,
+      "latency_ms": 35.047685714224436,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9995554383073304,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9995479808632635,
+    "is_flipped": false,
+    "confidence_delta": -7.457444066938379e-06,
+    "confidence_delta_pts": -0.0007457444066938379,
+    "formatted_confidence_delta": "-0.00 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (POSITIVE \u2192 POSITIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 35.047685714224436
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_063fe37511e1",
+    "seed_text": "The movie was great and the acting was top notch.",
+    "perturbed_text": "The movie was great and the acting was top notch, however it was surprisingly bad in comparison.",
+    "perturbation_type": "contrast_negative_append",
+    "category": "contrast_negative_append",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9995554383073304,
+      "formatted_confidence": "99.96%",
+      "probabilities": {
+        "NEGATIVE": 0.000444561692669602,
+        "POSITIVE": 0.9995554383073304
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.04%",
+        "POSITIVE": "99.96%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.04%\nPOSITIVE   [====================]  99.96%",
+      "raw_logits": null,
+      "latency_ms": 123.28479999996489,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.8711706866149502,
+      "formatted_confidence": "87.12%",
+      "probabilities": {
+        "NEGATIVE": 0.8711706866149502,
+        "POSITIVE": 0.1288293133850498
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "87.12%",
+        "POSITIVE": "12.88%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=================   ]  87.12%\nPOSITIVE   [===                 ]  12.88%",
+      "raw_logits": null,
+      "latency_ms": 35.047685714224436,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9995554383073304,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.8711706866149502,
+    "is_flipped": true,
+    "confidence_delta": -0.12838475169238017,
+    "confidence_delta_pts": -12.838475169238016,
+    "formatted_confidence_delta": "-12.84 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_FLIP",
+    "failure_type": "None",
+    "rationale": "Model correctly flipped prediction from POSITIVE \u2192 NEGATIVE under SHIFT_CONTRAST.",
+    "semantic_intent": "SHIFT_CONTRAST",
+    "latency_ms": 35.047685714224436
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_1fa8d2280eef",
+    "seed_text": "The movie was great and the acting was top notch.",
+    "perturbed_text": "The movie was great and the acting was top notch, and the overall storyline was engaging.",
+    "perturbation_type": "contrast_positive_append",
+    "category": "contrast_positive_append",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9995554383073304,
+      "formatted_confidence": "99.96%",
+      "probabilities": {
+        "NEGATIVE": 0.000444561692669602,
+        "POSITIVE": 0.9995554383073304
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.04%",
+        "POSITIVE": "99.96%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.04%\nPOSITIVE   [====================]  99.96%",
+      "raw_logits": null,
+      "latency_ms": 123.28479999996489,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9996102813780496,
+      "formatted_confidence": "99.96%",
+      "probabilities": {
+        "NEGATIVE": 0.0003897186219504026,
+        "POSITIVE": 0.9996102813780496
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.04%",
+        "POSITIVE": "99.96%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.04%\nPOSITIVE   [====================]  99.96%",
+      "raw_logits": null,
+      "latency_ms": 35.047685714224436,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9995554383073304,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9996102813780496,
+    "is_flipped": false,
+    "confidence_delta": 5.484307071923489e-05,
+    "confidence_delta_pts": 0.005484307071923489,
+    "formatted_confidence_delta": "+0.01 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (POSITIVE \u2192 POSITIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 35.047685714224436
+  }
+]

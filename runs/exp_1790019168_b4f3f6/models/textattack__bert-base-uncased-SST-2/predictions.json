@@ -1,0 +1,436 @@
+[
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_d6ee4e67f544",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "All Glitters are Gold",
+    "perturbation_type": "negation_removal",
+    "category": "negation_removal",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9858883967446287,
+      "formatted_confidence": "98.59%",
+      "probabilities": {
+        "NEGATIVE": 0.9858883967446287,
+        "POSITIVE": 0.014111603255371296
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.59%",
+        "POSITIVE": "1.41%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.59%\nPOSITIVE   [                    ]   1.41%",
+      "raw_logits": null,
+      "latency_ms": 146.03409999836003,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9986068873758875,
+      "formatted_confidence": "99.86%",
+      "probabilities": {
+        "NEGATIVE": 0.0013931126241125053,
+        "POSITIVE": 0.9986068873758875
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.14%",
+        "POSITIVE": "99.86%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.14%\nPOSITIVE   [====================]  99.86%",
+      "raw_logits": null,
+      "latency_ms": 130.5259857144847,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9858883967446287,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9986068873758875,
+    "is_flipped": true,
+    "confidence_delta": 0.01271849063125885,
+    "confidence_delta_pts": 1.271849063125885,
+    "formatted_confidence_delta": "+1.27 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_FLIP",
+    "failure_type": "None",
+    "rationale": "Model correctly flipped prediction from NEGATIVE \u2192 POSITIVE under REVERSE_POLARITY.",
+    "semantic_intent": "REVERSE_POLARITY",
+    "latency_ms": 130.5259857144847
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_131f00590c08",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "All Glitters are not entirely non-Gold",
+    "perturbation_type": "double_negation",
+    "category": "double_negation",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9858883967446287,
+      "formatted_confidence": "98.59%",
+      "probabilities": {
+        "NEGATIVE": 0.9858883967446287,
+        "POSITIVE": 0.014111603255371296
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.59%",
+        "POSITIVE": "1.41%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.59%\nPOSITIVE   [                    ]   1.41%",
+      "raw_logits": null,
+      "latency_ms": 146.03409999836003,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.8943861989494025,
+      "formatted_confidence": "89.44%",
+      "probabilities": {
+        "NEGATIVE": 0.10561380105059746,
+        "POSITIVE": 0.8943861989494025
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "10.56%",
+        "POSITIVE": "89.44%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [==                  ]  10.56%\nPOSITIVE   [==================  ]  89.44%",
+      "raw_logits": null,
+      "latency_ms": 130.5259857144847,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9858883967446287,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.8943861989494025,
+    "is_flipped": true,
+    "confidence_delta": -0.09150219779522617,
+    "confidence_delta_pts": -9.150219779522617,
+    "formatted_confidence_delta": "-9.15 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "UNEXPECTED_FLIP",
+    "failure_type": "Spurious",
+    "rationale": "The verified perturbation is meaning-preserving (PRESERVE_MEANING), but the model unexpectedly changed its predicted class (NEGATIVE \u2192 POSITIVE).",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 130.5259857144847
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_7140a40a75ba",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "All Glitters extremely are not Gold",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "strengthen",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9858883967446287,
+      "formatted_confidence": "98.59%",
+      "probabilities": {
+        "NEGATIVE": 0.9858883967446287,
+        "POSITIVE": 0.014111603255371296
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.59%",
+        "POSITIVE": "1.41%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.59%\nPOSITIVE   [                    ]   1.41%",
+      "raw_logits": null,
+      "latency_ms": 146.03409999836003,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9376692492464409,
+      "formatted_confidence": "93.77%",
+      "probabilities": {
+        "NEGATIVE": 0.9376692492464409,
+        "POSITIVE": 0.06233075075355915
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "93.77%",
+        "POSITIVE": "6.23%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=================== ]  93.77%\nPOSITIVE   [=                   ]   6.23%",
+      "raw_logits": null,
+      "latency_ms": 130.5259857144847,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9858883967446287,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9376692492464409,
+    "is_flipped": false,
+    "confidence_delta": -0.04821914749818779,
+    "confidence_delta_pts": -4.821914749818779,
+    "formatted_confidence_delta": "-4.82 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "STRENGTHEN_POLARITY",
+    "latency_ms": 130.5259857144847
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_781b951d1dbb",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "All Glitters somewhat are not Gold",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "weaken",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9858883967446287,
+      "formatted_confidence": "98.59%",
+      "probabilities": {
+        "NEGATIVE": 0.9858883967446287,
+        "POSITIVE": 0.014111603255371296
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.59%",
+        "POSITIVE": "1.41%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.59%\nPOSITIVE   [                    ]   1.41%",
+      "raw_logits": null,
+      "latency_ms": 146.03409999836003,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.928685493235927,
+      "formatted_confidence": "92.87%",
+      "probabilities": {
+        "NEGATIVE": 0.928685493235927,
+        "POSITIVE": 0.07131450676407297
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "92.87%",
+        "POSITIVE": "7.13%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=================== ]  92.87%\nPOSITIVE   [=                   ]   7.13%",
+      "raw_logits": null,
+      "latency_ms": 130.5259857144847,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9858883967446287,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.928685493235927,
+    "is_flipped": false,
+    "confidence_delta": -0.05720290350870172,
+    "confidence_delta_pts": -5.720290350870172,
+    "formatted_confidence_delta": "-5.72 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "WEAKEN_POLARITY",
+    "latency_ms": 130.5259857144847
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_e933443e2c93",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "Entirely Glitters are not Gold",
+    "perturbation_type": "synonym_substitution",
+    "category": "synonym_substitution",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9858883967446287,
+      "formatted_confidence": "98.59%",
+      "probabilities": {
+        "NEGATIVE": 0.9858883967446287,
+        "POSITIVE": 0.014111603255371296
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.59%",
+        "POSITIVE": "1.41%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.59%\nPOSITIVE   [                    ]   1.41%",
+      "raw_logits": null,
+      "latency_ms": 146.03409999836003,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.8656078367952036,
+      "formatted_confidence": "86.56%",
+      "probabilities": {
+        "NEGATIVE": 0.8656078367952036,
+        "POSITIVE": 0.13439216320479647
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "86.56%",
+        "POSITIVE": "13.44%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=================   ]  86.56%\nPOSITIVE   [===                 ]  13.44%",
+      "raw_logits": null,
+      "latency_ms": 130.5259857144847,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9858883967446287,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.8656078367952036,
+    "is_flipped": false,
+    "confidence_delta": -0.1202805599494251,
+    "confidence_delta_pts": -12.02805599494251,
+    "formatted_confidence_delta": "-12.03 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 130.5259857144847
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_38bf63d5b273",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "All Glitters are not Gold, however they do not be reliably.",
+    "perturbation_type": "contrast_negative_append",
+    "category": "contrast_negative_append",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9858883967446287,
+      "formatted_confidence": "98.59%",
+      "probabilities": {
+        "NEGATIVE": 0.9858883967446287,
+        "POSITIVE": 0.014111603255371296
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.59%",
+        "POSITIVE": "1.41%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.59%\nPOSITIVE   [                    ]   1.41%",
+      "raw_logits": null,
+      "latency_ms": 146.03409999836003,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9537623595726665,
+      "formatted_confidence": "95.38%",
+      "probabilities": {
+        "NEGATIVE": 0.9537623595726665,
+        "POSITIVE": 0.046237640427333415
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "95.38%",
+        "POSITIVE": "4.62%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=================== ]  95.38%\nPOSITIVE   [=                   ]   4.62%",
+      "raw_logits": null,
+      "latency_ms": 130.5259857144847,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9858883967446287,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9537623595726665,
+    "is_flipped": false,
+    "confidence_delta": -0.03212603717196216,
+    "confidence_delta_pts": -3.2126037171962163,
+    "formatted_confidence_delta": "-3.21 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "The verified probe introduces a polarity-altering change (SHIFT_CONTRAST), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "semantic_intent": "SHIFT_CONTRAST",
+    "latency_ms": 130.5259857144847
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_9f9e1dadae1e",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "In fact, all Glitters are not Gold",
+    "perturbation_type": "structure",
+    "category": "structure",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9858883967446287,
+      "formatted_confidence": "98.59%",
+      "probabilities": {
+        "NEGATIVE": 0.9858883967446287,
+        "POSITIVE": 0.014111603255371296
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.59%",
+        "POSITIVE": "1.41%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.59%\nPOSITIVE   [                    ]   1.41%",
+      "raw_logits": null,
+      "latency_ms": 146.03409999836003,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9845058551175951,
+      "formatted_confidence": "98.45%",
+      "probabilities": {
+        "NEGATIVE": 0.9845058551175951,
+        "POSITIVE": 0.015494144882404824
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.45%",
+        "POSITIVE": "1.55%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.45%\nPOSITIVE   [                    ]   1.55%",
+      "raw_logits": null,
+      "latency_ms": 130.5259857144847,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9858883967446287,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9845058551175951,
+    "is_flipped": false,
+    "confidence_delta": -0.001382541627033551,
+    "confidence_delta_pts": -0.1382541627033551,
+    "formatted_confidence_delta": "-0.14 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 130.5259857144847
+  }
+]

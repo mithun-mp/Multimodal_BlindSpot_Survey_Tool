@@ -1,0 +1,464 @@
+[
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_d6ee4e67f544",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "All Glitters are Gold",
+    "perturbation_type": "negation_removal",
+    "category": "negation_removal",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.5215889341768923,
+      "formatted_confidence": "52.16%",
+      "probabilities": {
+        "NEGATIVE": 0.5215889341768923,
+        "NEUTRAL": 0.45122773547835754,
+        "POSITIVE": 0.027183330344750165
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "52.16%",
+        "NEUTRAL": "45.12%",
+        "POSITIVE": "2.72%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [==========          ]  52.16%\nNEUTRAL    [=========           ]  45.12%\nPOSITIVE   [=                   ]   2.72%",
+      "raw_logits": null,
+      "latency_ms": 140.38909999726457,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.7269792627853177,
+      "formatted_confidence": "72.70%",
+      "probabilities": {
+        "NEGATIVE": 0.005808373504307048,
+        "NEUTRAL": 0.2672123637103753,
+        "POSITIVE": 0.7269792627853177
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.58%",
+        "NEUTRAL": "26.72%",
+        "POSITIVE": "72.70%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.58%\nNEUTRAL    [=====               ]  26.72%\nPOSITIVE   [===============     ]  72.70%",
+      "raw_logits": null,
+      "latency_ms": 110.02598571420614,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.5215889341768923,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.7269792627853177,
+    "is_flipped": true,
+    "confidence_delta": 0.20539032860842532,
+    "confidence_delta_pts": 20.539032860842532,
+    "formatted_confidence_delta": "+20.54 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_FLIP",
+    "failure_type": "None",
+    "rationale": "Model correctly flipped prediction from NEGATIVE \u2192 POSITIVE under REVERSE_POLARITY.",
+    "semantic_intent": "REVERSE_POLARITY",
+    "latency_ms": 110.02598571420614
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_131f00590c08",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "All Glitters are not entirely non-Gold",
+    "perturbation_type": "double_negation",
+    "category": "double_negation",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.5215889341768923,
+      "formatted_confidence": "52.16%",
+      "probabilities": {
+        "NEGATIVE": 0.5215889341768923,
+        "NEUTRAL": 0.45122773547835754,
+        "POSITIVE": 0.027183330344750165
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "52.16%",
+        "NEUTRAL": "45.12%",
+        "POSITIVE": "2.72%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [==========          ]  52.16%\nNEUTRAL    [=========           ]  45.12%\nPOSITIVE   [=                   ]   2.72%",
+      "raw_logits": null,
+      "latency_ms": 140.38909999726457,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEUTRAL",
+      "confidence": 0.8476224758793797,
+      "formatted_confidence": "84.76%",
+      "probabilities": {
+        "NEGATIVE": 0.06239589769858579,
+        "NEUTRAL": 0.8476224758793797,
+        "POSITIVE": 0.08998162642203451
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "6.24%",
+        "NEUTRAL": "84.76%",
+        "POSITIVE": "9.00%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=                   ]   6.24%\nNEUTRAL    [=================   ]  84.76%\nPOSITIVE   [==                  ]   9.00%",
+      "raw_logits": null,
+      "latency_ms": 110.02598571420614,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.5215889341768923,
+    "perturbed_label": "NEUTRAL",
+    "perturbed_confidence": 0.8476224758793797,
+    "is_flipped": true,
+    "confidence_delta": 0.32603354170248733,
+    "confidence_delta_pts": 32.603354170248735,
+    "formatted_confidence_delta": "+32.60 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "UNEXPECTED_FLIP",
+    "failure_type": "Spurious",
+    "rationale": "The verified perturbation is meaning-preserving (PRESERVE_MEANING), but the model unexpectedly changed its predicted class (NEGATIVE \u2192 NEUTRAL).",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 110.02598571420614
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_7140a40a75ba",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "All Glitters extremely are not Gold",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "strengthen",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.5215889341768923,
+      "formatted_confidence": "52.16%",
+      "probabilities": {
+        "NEGATIVE": 0.5215889341768923,
+        "NEUTRAL": 0.45122773547835754,
+        "POSITIVE": 0.027183330344750165
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "52.16%",
+        "NEUTRAL": "45.12%",
+        "POSITIVE": "2.72%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [==========          ]  52.16%\nNEUTRAL    [=========           ]  45.12%\nPOSITIVE   [=                   ]   2.72%",
+      "raw_logits": null,
+      "latency_ms": 140.38909999726457,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.6018112223359224,
+      "formatted_confidence": "60.18%",
+      "probabilities": {
+        "NEGATIVE": 0.6018112223359224,
+        "NEUTRAL": 0.3753753553561354,
+        "POSITIVE": 0.022813422307942144
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "60.18%",
+        "NEUTRAL": "37.54%",
+        "POSITIVE": "2.28%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [============        ]  60.18%\nNEUTRAL    [========            ]  37.54%\nPOSITIVE   [                    ]   2.28%",
+      "raw_logits": null,
+      "latency_ms": 110.02598571420614,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.5215889341768923,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.6018112223359224,
+    "is_flipped": false,
+    "confidence_delta": 0.0802222881590301,
+    "confidence_delta_pts": 8.02222881590301,
+    "formatted_confidence_delta": "+8.02 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "STRENGTHEN_POLARITY",
+    "latency_ms": 110.02598571420614
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_781b951d1dbb",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "All Glitters somewhat are not Gold",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "weaken",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.5215889341768923,
+      "formatted_confidence": "52.16%",
+      "probabilities": {
+        "NEGATIVE": 0.5215889341768923,
+        "NEUTRAL": 0.45122773547835754,
+        "POSITIVE": 0.027183330344750165
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "52.16%",
+        "NEUTRAL": "45.12%",
+        "POSITIVE": "2.72%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [==========          ]  52.16%\nNEUTRAL    [=========           ]  45.12%\nPOSITIVE   [=                   ]   2.72%",
+      "raw_logits": null,
+      "latency_ms": 140.38909999726457,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEUTRAL",
+      "confidence": 0.5464139228946234,
+      "formatted_confidence": "54.64%",
+      "probabilities": {
+        "NEGATIVE": 0.42037000151142484,
+        "NEUTRAL": 0.5464139228946234,
+        "POSITIVE": 0.03321607559395175
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "42.04%",
+        "NEUTRAL": "54.64%",
+        "POSITIVE": "3.32%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [========            ]  42.04%\nNEUTRAL    [===========         ]  54.64%\nPOSITIVE   [=                   ]   3.32%",
+      "raw_logits": null,
+      "latency_ms": 110.02598571420614,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.5215889341768923,
+    "perturbed_label": "NEUTRAL",
+    "perturbed_confidence": 0.5464139228946234,
+    "is_flipped": true,
+    "confidence_delta": 0.02482498871773109,
+    "confidence_delta_pts": 2.482498871773109,
+    "formatted_confidence_delta": "+2.48 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "UNEXPECTED_FLIP",
+    "failure_type": "Misweighted",
+    "rationale": "Model inverted prediction (NEGATIVE \u2192 NEUTRAL) when presented with a degree modifier (WEAKEN_POLARITY), indicating disproportionately skewed feature weighting.",
+    "semantic_intent": "WEAKEN_POLARITY",
+    "latency_ms": 110.02598571420614
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_e933443e2c93",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "Entirely Glitters are not Gold",
+    "perturbation_type": "synonym_substitution",
+    "category": "synonym_substitution",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.5215889341768923,
+      "formatted_confidence": "52.16%",
+      "probabilities": {
+        "NEGATIVE": 0.5215889341768923,
+        "NEUTRAL": 0.45122773547835754,
+        "POSITIVE": 0.027183330344750165
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "52.16%",
+        "NEUTRAL": "45.12%",
+        "POSITIVE": "2.72%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [==========          ]  52.16%\nNEUTRAL    [=========           ]  45.12%\nPOSITIVE   [=                   ]   2.72%",
+      "raw_logits": null,
+      "latency_ms": 140.38909999726457,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.6634030601595794,
+      "formatted_confidence": "66.34%",
+      "probabilities": {
+        "NEGATIVE": 0.6634030601595794,
+        "NEUTRAL": 0.3171682481850185,
+        "POSITIVE": 0.01942869165540212
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "66.34%",
+        "NEUTRAL": "31.72%",
+        "POSITIVE": "1.94%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=============       ]  66.34%\nNEUTRAL    [======              ]  31.72%\nPOSITIVE   [                    ]   1.94%",
+      "raw_logits": null,
+      "latency_ms": 110.02598571420614,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.5215889341768923,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.6634030601595794,
+    "is_flipped": false,
+    "confidence_delta": 0.14181412598268706,
+    "confidence_delta_pts": 14.181412598268706,
+    "formatted_confidence_delta": "+14.18 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 110.02598571420614
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_38bf63d5b273",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "All Glitters are not Gold, however they do not be reliably.",
+    "perturbation_type": "contrast_negative_append",
+    "category": "contrast_negative_append",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.5215889341768923,
+      "formatted_confidence": "52.16%",
+      "probabilities": {
+        "NEGATIVE": 0.5215889341768923,
+        "NEUTRAL": 0.45122773547835754,
+        "POSITIVE": 0.027183330344750165
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "52.16%",
+        "NEUTRAL": "45.12%",
+        "POSITIVE": "2.72%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [==========          ]  52.16%\nNEUTRAL    [=========           ]  45.12%\nPOSITIVE   [=                   ]   2.72%",
+      "raw_logits": null,
+      "latency_ms": 140.38909999726457,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.700401087302745,
+      "formatted_confidence": "70.04%",
+      "probabilities": {
+        "NEGATIVE": 0.700401087302745,
+        "NEUTRAL": 0.2882066449580708,
+        "POSITIVE": 0.01139226773918423
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "70.04%",
+        "NEUTRAL": "28.82%",
+        "POSITIVE": "1.14%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [==============      ]  70.04%\nNEUTRAL    [======              ]  28.82%\nPOSITIVE   [                    ]   1.14%",
+      "raw_logits": null,
+      "latency_ms": 110.02598571420614,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.5215889341768923,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.700401087302745,
+    "is_flipped": false,
+    "confidence_delta": 0.17881215312585264,
+    "confidence_delta_pts": 17.88121531258526,
+    "formatted_confidence_delta": "+17.88 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "The verified probe introduces a polarity-altering change (SHIFT_CONTRAST), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "semantic_intent": "SHIFT_CONTRAST",
+    "latency_ms": 110.02598571420614
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_9f9e1dadae1e",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "In fact, all Glitters are not Gold",
+    "perturbation_type": "structure",
+    "category": "structure",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.5215889341768923,
+      "formatted_confidence": "52.16%",
+      "probabilities": {
+        "NEGATIVE": 0.5215889341768923,
+        "NEUTRAL": 0.45122773547835754,
+        "POSITIVE": 0.027183330344750165
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "52.16%",
+        "NEUTRAL": "45.12%",
+        "POSITIVE": "2.72%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [==========          ]  52.16%\nNEUTRAL    [=========           ]  45.12%\nPOSITIVE   [=                   ]   2.72%",
+      "raw_logits": null,
+      "latency_ms": 140.38909999726457,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEUTRAL",
+      "confidence": 0.5022039263783715,
+      "formatted_confidence": "50.22%",
+      "probabilities": {
+        "NEGATIVE": 0.4594074350772072,
+        "NEUTRAL": 0.5022039263783715,
+        "POSITIVE": 0.03838863854442124
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "45.94%",
+        "NEUTRAL": "50.22%",
+        "POSITIVE": "3.84%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=========           ]  45.94%\nNEUTRAL    [==========          ]  50.22%\nPOSITIVE   [=                   ]   3.84%",
+      "raw_logits": null,
+      "latency_ms": 110.02598571420614,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.5215889341768923,
+    "perturbed_label": "NEUTRAL",
+    "perturbed_confidence": 0.5022039263783715,
+    "is_flipped": true,
+    "confidence_delta": -0.019385007798520815,
+    "confidence_delta_pts": -1.9385007798520815,
+    "formatted_confidence_delta": "-1.94 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "UNEXPECTED_FLIP",
+    "failure_type": "Spurious",
+    "rationale": "The verified perturbation is meaning-preserving (PRESERVE_MEANING), but the model unexpectedly changed its predicted class (NEGATIVE \u2192 NEUTRAL).",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 110.02598571420614
+  }
+]

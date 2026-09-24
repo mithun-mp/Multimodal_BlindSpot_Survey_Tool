@@ -1,0 +1,27 @@
+{
+  "the way he talked to me was amazing i was in love with his voice": {
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "seed_text": "the way he talked to me was amazing i was in love with his voice",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.99044881349406,
+      "formatted_confidence": "99.04%",
+      "probabilities": {
+        "NEGATIVE": 0.009551186505940003,
+        "POSITIVE": 0.99044881349406
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.96%",
+        "POSITIVE": "99.04%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.96%\nPOSITIVE   [====================]  99.04%",
+      "raw_logits": null,
+      "latency_ms": 44.504999999844586,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "latency_ms": 44.504999999844586
+  }
+}

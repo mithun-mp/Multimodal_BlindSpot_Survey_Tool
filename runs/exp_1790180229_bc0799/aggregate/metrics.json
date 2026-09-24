@@ -1,0 +1,39 @@
+{
+  "textattack/albert-base-v2-SST-2": {
+    "total_probes": 7,
+    "flip_rate": 0.2857142857142857,
+    "observed_flip_rate": 0.2857142857142857,
+    "expected_flip_rate": 1.0,
+    "preserve_rate": 1.0,
+    "behavioral_consistency": 1.0,
+    "satisfaction_rate": 1.0,
+    "confidence_flip_rate": 0.0,
+    "ece": 0.012602717360797988,
+    "transition_matrix": {
+      "NEGATIVE": {
+        "NEGATIVE": 0,
+        "POSITIVE": 0
+      },
+      "POSITIVE": {
+        "NEGATIVE": 2,
+        "POSITIVE": 5
+      }
+    },
+    "confidence_shifts": {
+      "mean_delta_pts": -0.834947162910317,
+      "median_delta_pts": 0.08041144521893084,
+      "max_drop_pts": 4.718552430681822,
+      "max_gain_pts": 0.324546871668685,
+      "num_increased": 4,
+      "num_decreased": 3,
+      "num_unchanged": 0
+    },
+    "failure_counts": {
+      "Blind": 0,
+      "Spurious": 0,
+      "Misweighted": 0,
+      "Undetermined": 0
+    },
+    "analysis_status": "NO_FAILURES_OBSERVED"
+  }
+}

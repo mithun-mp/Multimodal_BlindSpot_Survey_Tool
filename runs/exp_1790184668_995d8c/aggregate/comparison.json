@@ -1,0 +1,693 @@
+{
+  "model_ids": [
+    "cardiffnlp/twitter-roberta-base-sentiment",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "textattack/albert-base-v2-SST-2",
+    "textattack/bert-base-uncased-SST-2"
+  ],
+  "overall_agreement_rate": 0.8142857142857143,
+  "pairwise_agreement": {
+    "cardiffnlp/twitter-roberta-base-sentiment": {
+      "cardiffnlp/twitter-roberta-base-sentiment": 1.0,
+      "cardiffnlp/twitter-roberta-base-sentiment-latest": 0.8571428571428571,
+      "distilbert-base-uncased-finetuned-sst-2-english": 0.7142857142857143,
+      "textattack/albert-base-v2-SST-2": 0.7142857142857143,
+      "textattack/bert-base-uncased-SST-2": 0.7142857142857143
+    },
+    "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+      "cardiffnlp/twitter-roberta-base-sentiment": 0.8571428571428571,
+      "cardiffnlp/twitter-roberta-base-sentiment-latest": 1.0,
+      "distilbert-base-uncased-finetuned-sst-2-english": 0.7142857142857143,
+      "textattack/albert-base-v2-SST-2": 0.7142857142857143,
+      "textattack/bert-base-uncased-SST-2": 0.7142857142857143
+    },
+    "distilbert-base-uncased-finetuned-sst-2-english": {
+      "cardiffnlp/twitter-roberta-base-sentiment": 0.7142857142857143,
+      "cardiffnlp/twitter-roberta-base-sentiment-latest": 0.7142857142857143,
+      "distilbert-base-uncased-finetuned-sst-2-english": 1.0,
+      "textattack/albert-base-v2-SST-2": 1.0,
+      "textattack/bert-base-uncased-SST-2": 1.0
+    },
+    "textattack/albert-base-v2-SST-2": {
+      "cardiffnlp/twitter-roberta-base-sentiment": 0.7142857142857143,
+      "cardiffnlp/twitter-roberta-base-sentiment-latest": 0.7142857142857143,
+      "distilbert-base-uncased-finetuned-sst-2-english": 1.0,
+      "textattack/albert-base-v2-SST-2": 1.0,
+      "textattack/bert-base-uncased-SST-2": 1.0
+    },
+    "textattack/bert-base-uncased-SST-2": {
+      "cardiffnlp/twitter-roberta-base-sentiment": 0.7142857142857143,
+      "cardiffnlp/twitter-roberta-base-sentiment-latest": 0.7142857142857143,
+      "distilbert-base-uncased-finetuned-sst-2-english": 1.0,
+      "textattack/albert-base-v2-SST-2": 1.0,
+      "textattack/bert-base-uncased-SST-2": 1.0
+    }
+  },
+  "fingerprints": {
+    "cardiffnlp/twitter-roberta-base-sentiment": {
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "total_probes": 7,
+      "flip_rate": 0.14285714285714285,
+      "ece": 0.21106631103767365,
+      "satisfaction_rate": 0.8571428571428571,
+      "mean_confidence_shift_pts": -9.743740441669539,
+      "category_flip_rates": {
+        "negation_insertion": 1.0,
+        "double_negation": 0.0,
+        "intensity": 0.0,
+        "synonym_substitution": 0.0,
+        "contrast_negative_append": 0.0,
+        "contrast_positive_append": 0.0
+      },
+      "failure_counts": {
+        "Blind": 1,
+        "Spurious": 0,
+        "Misweighted": 0,
+        "Undetermined": 0,
+        "None": 0
+      }
+    },
+    "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "total_probes": 7,
+      "flip_rate": 0.0,
+      "ece": 0.22388011762393584,
+      "satisfaction_rate": 0.7142857142857143,
+      "mean_confidence_shift_pts": -4.73965375902233,
+      "category_flip_rates": {
+        "negation_insertion": 0.0,
+        "double_negation": 0.0,
+        "intensity": 0.0,
+        "synonym_substitution": 0.0,
+        "contrast_negative_append": 0.0,
+        "contrast_positive_append": 0.0
+      },
+      "failure_counts": {
+        "Blind": 2,
+        "Spurious": 0,
+        "Misweighted": 0,
+        "Undetermined": 0,
+        "None": 0
+      }
+    },
+    "distilbert-base-uncased-finetuned-sst-2-english": {
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "total_probes": 7,
+      "flip_rate": 0.2857142857142857,
+      "ece": 0.0022074433229329893,
+      "satisfaction_rate": 1.0,
+      "mean_confidence_shift_pts": -0.20676782940898095,
+      "category_flip_rates": {
+        "negation_insertion": 1.0,
+        "double_negation": 0.0,
+        "intensity": 0.0,
+        "synonym_substitution": 0.0,
+        "contrast_negative_append": 1.0,
+        "contrast_positive_append": 0.0
+      },
+      "failure_counts": {
+        "Blind": 0,
+        "Spurious": 0,
+        "Misweighted": 0,
+        "Undetermined": 0,
+        "None": 0
+      }
+    },
+    "textattack/albert-base-v2-SST-2": {
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "total_probes": 7,
+      "flip_rate": 0.2857142857142857,
+      "ece": 0.009631898821953366,
+      "satisfaction_rate": 1.0,
+      "mean_confidence_shift_pts": -0.008071231601350768,
+      "category_flip_rates": {
+        "negation_insertion": 1.0,
+        "double_negation": 0.0,
+        "intensity": 0.0,
+        "synonym_substitution": 0.0,
+        "contrast_negative_append": 1.0,
+        "contrast_positive_append": 0.0
+      },
+      "failure_counts": {
+        "Blind": 0,
+        "Spurious": 0,
+        "Misweighted": 0,
+        "Undetermined": 0,
+        "None": 0
+      }
+    },
+    "textattack/bert-base-uncased-SST-2": {
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "total_probes": 7,
+      "flip_rate": 0.2857142857142857,
+      "ece": 0.04421768433727258,
+      "satisfaction_rate": 1.0,
+      "mean_confidence_shift_pts": -4.367121100323694,
+      "category_flip_rates": {
+        "negation_insertion": 1.0,
+        "double_negation": 0.0,
+        "intensity": 0.0,
+        "synonym_substitution": 0.0,
+        "contrast_negative_append": 1.0,
+        "contrast_positive_append": 0.0
+      },
+      "failure_counts": {
+        "Blind": 0,
+        "Spurious": 0,
+        "Misweighted": 0,
+        "Undetermined": 0,
+        "None": 0
+      }
+    }
+  },
+  "failure_summary": {
+    "distilbert-base-uncased-finetuned-sst-2-english": {
+      "Blind": 0,
+      "Spurious": 0,
+      "Misweighted": 0,
+      "Undetermined": 0,
+      "None": 0
+    },
+    "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+      "Blind": 2,
+      "Spurious": 0,
+      "Misweighted": 0,
+      "Undetermined": 0,
+      "None": 0
+    },
+    "cardiffnlp/twitter-roberta-base-sentiment": {
+      "Blind": 1,
+      "Spurious": 0,
+      "Misweighted": 0,
+      "Undetermined": 0,
+      "None": 0
+    },
+    "textattack/bert-base-uncased-SST-2": {
+      "Blind": 0,
+      "Spurious": 0,
+      "Misweighted": 0,
+      "Undetermined": 0,
+      "None": 0
+    },
+    "textattack/albert-base-v2-SST-2": {
+      "Blind": 0,
+      "Spurious": 0,
+      "Misweighted": 0,
+      "Undetermined": 0,
+      "None": 0
+    }
+  },
+  "model_probe_matrix": [
+    {
+      "probe_id": "prb_d97f2ee9eebc",
+      "seed_text": "the way he talked to me was amazing i was in love with his voice",
+      "perturbed_text": "the way he talked to me was not amazing i was in love with his voice",
+      "perturbation_type": "negation_insertion",
+      "expected_flip": true,
+      "expected_semantic_effect": "invert",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9998602349711568,
+          "formatted_orig_confidence": "99.99%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9977562675104849,
+          "formatted_pert_confidence": "99.78%",
+          "is_flipped": true,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.2103967460671985,
+          "formatted_delta": "-0.21 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9855623694998734,
+          "formatted_orig_confidence": "98.56%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.7337892055511475,
+          "formatted_pert_confidence": "73.38%",
+          "is_flipped": false,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": -25.177316394872594,
+          "formatted_delta": "-25.18 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9881454954668213,
+          "formatted_orig_confidence": "98.81%",
+          "perturbed_label": "NEUTRAL",
+          "perturbed_confidence": 0.3787462300435832,
+          "formatted_pert_confidence": "37.87%",
+          "is_flipped": true,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -60.93992654232381,
+          "formatted_delta": "-60.94 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9994535266659644,
+          "formatted_orig_confidence": "99.95%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9846802014548635,
+          "formatted_pert_confidence": "98.47%",
+          "is_flipped": true,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -1.4773325211100974,
+          "formatted_delta": "-1.48 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.99044881349406,
+          "formatted_orig_confidence": "99.04%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9870894716750928,
+          "formatted_pert_confidence": "98.71%",
+          "is_flipped": true,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.3359341818967243,
+          "formatted_delta": "-0.34 percentage points"
+        }
+      }
+    },
+    {
+      "probe_id": "prb_9afd039ce3af",
+      "seed_text": "the way he talked to me was amazing i was in love with his voice",
+      "perturbed_text": "It is not impossible that the way he talked to me was amazing i was in love with his voice",
+      "perturbation_type": "double_negation",
+      "expected_flip": false,
+      "expected_semantic_effect": "preserve",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9998602349711568,
+          "formatted_orig_confidence": "99.99%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9996742506563566,
+          "formatted_pert_confidence": "99.97%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.018598431480021382,
+          "formatted_delta": "-0.02 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9855623694998734,
+          "formatted_orig_confidence": "98.56%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9783001487424589,
+          "formatted_pert_confidence": "97.83%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.7262220757414561,
+          "formatted_delta": "-0.73 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9881454954668213,
+          "formatted_orig_confidence": "98.81%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9837191826907348,
+          "formatted_pert_confidence": "98.37%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.4426312776086516,
+          "formatted_delta": "-0.44 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9994535266659644,
+          "formatted_orig_confidence": "99.95%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9994508862015449,
+          "formatted_pert_confidence": "99.95%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.0002640464419556565,
+          "formatted_delta": "-0.00 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.99044881349406,
+          "formatted_orig_confidence": "99.04%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9805462312258537,
+          "formatted_pert_confidence": "98.05%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.9902582268206284,
+          "formatted_delta": "-0.99 percentage points"
+        }
+      }
+    },
+    {
+      "probe_id": "prb_b0c2ac5f9759",
+      "seed_text": "the way he talked to me was amazing i was in love with his voice",
+      "perturbed_text": "the way he talked to me was extremely amazing i was in love with his voice",
+      "perturbation_type": "intensity",
+      "expected_flip": false,
+      "expected_semantic_effect": "strengthen",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9998602349711568,
+          "formatted_orig_confidence": "99.99%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9998649817509327,
+          "formatted_pert_confidence": "99.99%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.0004746779775910426,
+          "formatted_delta": "+0.00 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9855623694998734,
+          "formatted_orig_confidence": "98.56%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9869924829667084,
+          "formatted_pert_confidence": "98.70%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.14301134668349702,
+          "formatted_delta": "+0.14 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9881454954668213,
+          "formatted_orig_confidence": "98.81%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9895608625588461,
+          "formatted_pert_confidence": "98.96%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.1415367092024833,
+          "formatted_delta": "+0.14 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9994535266659644,
+          "formatted_orig_confidence": "99.95%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9994839320481418,
+          "formatted_pert_confidence": "99.95%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.0030405382177356444,
+          "formatted_delta": "+0.00 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.99044881349406,
+          "formatted_orig_confidence": "99.04%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9948340242075603,
+          "formatted_pert_confidence": "99.48%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.4385210713500287,
+          "formatted_delta": "+0.44 percentage points"
+        }
+      }
+    },
+    {
+      "probe_id": "prb_d71c1a2aaf54",
+      "seed_text": "the way he talked to me was amazing i was in love with his voice",
+      "perturbed_text": "the way he talked to me was somewhat amazing i was in love with his voice",
+      "perturbation_type": "intensity",
+      "expected_flip": false,
+      "expected_semantic_effect": "weaken",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9998602349711568,
+          "formatted_orig_confidence": "99.99%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9998678801832459,
+          "formatted_pert_confidence": "99.99%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.0007645212089069098,
+          "formatted_delta": "+0.00 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9855623694998734,
+          "formatted_orig_confidence": "98.56%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9838064437117131,
+          "formatted_pert_confidence": "98.38%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.17559257881603063,
+          "formatted_delta": "-0.18 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9881454954668213,
+          "formatted_orig_confidence": "98.81%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9866236926030554,
+          "formatted_pert_confidence": "98.66%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.15218028637659087,
+          "formatted_delta": "-0.15 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9994535266659644,
+          "formatted_orig_confidence": "99.95%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9995215889473201,
+          "formatted_pert_confidence": "99.95%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.006806228135569636,
+          "formatted_delta": "+0.01 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.99044881349406,
+          "formatted_orig_confidence": "99.04%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9870802695773897,
+          "formatted_pert_confidence": "98.71%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.3368543916670297,
+          "formatted_delta": "-0.34 percentage points"
+        }
+      }
+    },
+    {
+      "probe_id": "prb_302f35625e29",
+      "seed_text": "the way he talked to me was amazing i was in love with his voice",
+      "perturbed_text": "the style he talked to me was amazing i was in love with his voice",
+      "perturbation_type": "synonym_substitution",
+      "expected_flip": false,
+      "expected_semantic_effect": "preserve",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9998602349711568,
+          "formatted_orig_confidence": "99.99%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9998698922774142,
+          "formatted_pert_confidence": "99.99%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.0009657306257349063,
+          "formatted_delta": "+0.00 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9855623694998734,
+          "formatted_orig_confidence": "98.56%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9841960819803508,
+          "formatted_pert_confidence": "98.42%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.13662875195226132,
+          "formatted_delta": "-0.14 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9881454954668213,
+          "formatted_orig_confidence": "98.81%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9858660860910294,
+          "formatted_pert_confidence": "98.59%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.2279409375791852,
+          "formatted_delta": "-0.23 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9994535266659644,
+          "formatted_orig_confidence": "99.95%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9994941983005945,
+          "formatted_pert_confidence": "99.95%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.004067163463006285,
+          "formatted_delta": "+0.00 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.99044881349406,
+          "formatted_orig_confidence": "99.04%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9939335395890062,
+          "formatted_pert_confidence": "99.39%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.3484726094946211,
+          "formatted_delta": "+0.35 percentage points"
+        }
+      }
+    },
+    {
+      "probe_id": "prb_7f63c77edd80",
+      "seed_text": "the way he talked to me was amazing i was in love with his voice",
+      "perturbed_text": "the way he talked to me was amazing i was in love with his voice, however it was surprisingly unimpressive in comparison.",
+      "perturbation_type": "contrast_negative_append",
+      "expected_flip": true,
+      "expected_semantic_effect": "invert",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9998602349711568,
+          "formatted_orig_confidence": "99.99%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9876407548607183,
+          "formatted_pert_confidence": "98.76%",
+          "is_flipped": true,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -1.2219480110438496,
+          "formatted_delta": "-1.22 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9855623694998734,
+          "formatted_orig_confidence": "98.56%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9147080387482354,
+          "formatted_pert_confidence": "91.47%",
+          "is_flipped": false,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": -7.085433075163805,
+          "formatted_delta": "-7.09 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9881454954668213,
+          "formatted_orig_confidence": "98.81%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.921607755088994,
+          "formatted_pert_confidence": "92.16%",
+          "is_flipped": false,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": -6.653774037782734,
+          "formatted_delta": "-6.65 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9994535266659644,
+          "formatted_orig_confidence": "99.95%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.7082050653757175,
+          "formatted_pert_confidence": "70.82%",
+          "is_flipped": true,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -29.124846129024696,
+          "formatted_delta": "-29.12 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.99044881349406,
+          "formatted_orig_confidence": "99.04%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9934532559094212,
+          "formatted_pert_confidence": "99.35%",
+          "is_flipped": true,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.30044424153612415,
+          "formatted_delta": "+0.30 percentage points"
+        }
+      }
+    },
+    {
+      "probe_id": "prb_eb6c4c25cdf4",
+      "seed_text": "the way he talked to me was amazing i was in love with his voice",
+      "perturbed_text": "the way he talked to me was amazing i was in love with his voice, and it delivered good results in practice.",
+      "perturbation_type": "contrast_positive_append",
+      "expected_flip": false,
+      "expected_semantic_effect": "preserve",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9998602349711568,
+          "formatted_orig_confidence": "99.99%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9998738695003165,
+          "formatted_pert_confidence": "99.99%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.0013634529159700648,
+          "formatted_delta": "+0.00 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9855623694998734,
+          "formatted_orig_confidence": "98.56%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9853684216669368,
+          "formatted_pert_confidence": "98.54%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.01939478329365807,
+          "formatted_delta": "-0.02 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9881454954668213,
+          "formatted_orig_confidence": "98.81%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9888328282746386,
+          "formatted_pert_confidence": "98.88%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.0687332807817298,
+          "formatted_delta": "+0.07 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.9994535266659644,
+          "formatted_orig_confidence": "99.95%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9996403373109102,
+          "formatted_pert_confidence": "99.96%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.018681064494574517,
+          "formatted_delta": "+0.02 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.99044881349406,
+          "formatted_orig_confidence": "99.04%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9956399160620015,
+          "formatted_pert_confidence": "99.56%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.519110256794153,
+          "formatted_delta": "+0.52 percentage points"
+        }
+      }
+    }
+  ]
+}

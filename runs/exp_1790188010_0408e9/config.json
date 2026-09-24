@@ -1,0 +1,41 @@
+{
+  "experiment_name": "Multimodel 0100",
+  "model_ids": [
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "cardiffnlp/twitter-roberta-base-sentiment",
+    "textattack/albert-base-v2-SST-2",
+    "textattack/bert-base-uncased-SST-2"
+  ],
+  "seed_texts": [
+    "The movie was great and the acting was top notch."
+  ],
+  "sentence_types": {
+    "The movie was great and the acting was top notch.": "literal"
+  },
+  "perturbation_types": [
+    "double_negation",
+    "negation_insertion",
+    "synonym_substitution",
+    "contrast_positive_append",
+    "intensity",
+    "contrast_negative_append"
+  ],
+  "explainer_type": "both",
+  "performance_mode": "balanced",
+  "batch_size": null,
+  "random_seed": 42,
+  "confidence_threshold": 0.65,
+  "confidence_sensitivity_threshold_pts": 20.0,
+  "output_dir": "runs",
+  "has_selected_probes": true,
+  "selected_probe_ids": [
+    "prb_f8cfe5bc91e4",
+    "prb_93a8a314162b",
+    "prb_655b09534fa8",
+    "prb_ad69074f6902",
+    "prb_0bcfcb23a772",
+    "prb_063fe37511e1",
+    "prb_1fa8d2280eef"
+  ]
+}

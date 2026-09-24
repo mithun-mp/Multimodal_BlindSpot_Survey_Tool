@@ -1,0 +1,436 @@
+[
+  {
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_d6ee4e67f544",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "All Glitters are Gold",
+    "perturbation_type": "negation_removal",
+    "category": "negation_removal",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9986764997897868,
+      "formatted_confidence": "99.87%",
+      "probabilities": {
+        "NEGATIVE": 0.9986764997897868,
+        "POSITIVE": 0.0013235002102132466
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.87%",
+        "POSITIVE": "0.13%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.87%\nPOSITIVE   [                    ]   0.13%",
+      "raw_logits": null,
+      "latency_ms": 95.44429999732529,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9996350653364608,
+      "formatted_confidence": "99.96%",
+      "probabilities": {
+        "NEGATIVE": 0.00036493466353913144,
+        "POSITIVE": 0.9996350653364608
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.04%",
+        "POSITIVE": "99.96%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.04%\nPOSITIVE   [====================]  99.96%",
+      "raw_logits": null,
+      "latency_ms": 61.52391428570679,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9986764997897868,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9996350653364608,
+    "is_flipped": true,
+    "confidence_delta": 0.0009585655466740617,
+    "confidence_delta_pts": 0.09585655466740617,
+    "formatted_confidence_delta": "+0.10 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_FLIP",
+    "failure_type": "None",
+    "rationale": "Model correctly flipped prediction from NEGATIVE \u2192 POSITIVE under REVERSE_POLARITY.",
+    "semantic_intent": "REVERSE_POLARITY",
+    "latency_ms": 61.52391428570679
+  },
+  {
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_131f00590c08",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "All Glitters are not entirely non-Gold",
+    "perturbation_type": "double_negation",
+    "category": "double_negation",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9986764997897868,
+      "formatted_confidence": "99.87%",
+      "probabilities": {
+        "NEGATIVE": 0.9986764997897868,
+        "POSITIVE": 0.0013235002102132466
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.87%",
+        "POSITIVE": "0.13%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.87%\nPOSITIVE   [                    ]   0.13%",
+      "raw_logits": null,
+      "latency_ms": 95.44429999732529,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9773970988004967,
+      "formatted_confidence": "97.74%",
+      "probabilities": {
+        "NEGATIVE": 0.9773970988004967,
+        "POSITIVE": 0.02260290119950326
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "97.74%",
+        "POSITIVE": "2.26%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  97.74%\nPOSITIVE   [                    ]   2.26%",
+      "raw_logits": null,
+      "latency_ms": 61.52391428570679,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9986764997897868,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9773970988004967,
+    "is_flipped": false,
+    "confidence_delta": -0.021279400989290043,
+    "confidence_delta_pts": -2.1279400989290043,
+    "formatted_confidence_delta": "-2.13 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 61.52391428570679
+  },
+  {
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_7140a40a75ba",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "All Glitters extremely are not Gold",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "strengthen",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9986764997897868,
+      "formatted_confidence": "99.87%",
+      "probabilities": {
+        "NEGATIVE": 0.9986764997897868,
+        "POSITIVE": 0.0013235002102132466
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.87%",
+        "POSITIVE": "0.13%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.87%\nPOSITIVE   [                    ]   0.13%",
+      "raw_logits": null,
+      "latency_ms": 95.44429999732529,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9987942651268433,
+      "formatted_confidence": "99.88%",
+      "probabilities": {
+        "NEGATIVE": 0.9987942651268433,
+        "POSITIVE": 0.0012057348731566479
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.88%",
+        "POSITIVE": "0.12%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.88%\nPOSITIVE   [                    ]   0.12%",
+      "raw_logits": null,
+      "latency_ms": 61.52391428570679,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9986764997897868,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9987942651268433,
+    "is_flipped": false,
+    "confidence_delta": 0.00011776533705654124,
+    "confidence_delta_pts": 0.011776533705654124,
+    "formatted_confidence_delta": "+0.01 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "STRENGTHEN_POLARITY",
+    "latency_ms": 61.52391428570679
+  },
+  {
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_781b951d1dbb",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "All Glitters somewhat are not Gold",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "weaken",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9986764997897868,
+      "formatted_confidence": "99.87%",
+      "probabilities": {
+        "NEGATIVE": 0.9986764997897868,
+        "POSITIVE": 0.0013235002102132466
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.87%",
+        "POSITIVE": "0.13%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.87%\nPOSITIVE   [                    ]   0.13%",
+      "raw_logits": null,
+      "latency_ms": 95.44429999732529,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9957986817178793,
+      "formatted_confidence": "99.58%",
+      "probabilities": {
+        "NEGATIVE": 0.9957986817178793,
+        "POSITIVE": 0.004201318282120653
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.58%",
+        "POSITIVE": "0.42%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.58%\nPOSITIVE   [                    ]   0.42%",
+      "raw_logits": null,
+      "latency_ms": 61.52391428570679,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9986764997897868,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9957986817178793,
+    "is_flipped": false,
+    "confidence_delta": -0.0028778180719074564,
+    "confidence_delta_pts": -0.28778180719074564,
+    "formatted_confidence_delta": "-0.29 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "WEAKEN_POLARITY",
+    "latency_ms": 61.52391428570679
+  },
+  {
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_e933443e2c93",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "Entirely Glitters are not Gold",
+    "perturbation_type": "synonym_substitution",
+    "category": "synonym_substitution",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9986764997897868,
+      "formatted_confidence": "99.87%",
+      "probabilities": {
+        "NEGATIVE": 0.9986764997897868,
+        "POSITIVE": 0.0013235002102132466
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.87%",
+        "POSITIVE": "0.13%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.87%\nPOSITIVE   [                    ]   0.13%",
+      "raw_logits": null,
+      "latency_ms": 95.44429999732529,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9947547361367319,
+      "formatted_confidence": "99.48%",
+      "probabilities": {
+        "NEGATIVE": 0.9947547361367319,
+        "POSITIVE": 0.005245263863268122
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.48%",
+        "POSITIVE": "0.52%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.48%\nPOSITIVE   [                    ]   0.52%",
+      "raw_logits": null,
+      "latency_ms": 61.52391428570679,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9986764997897868,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9947547361367319,
+    "is_flipped": false,
+    "confidence_delta": -0.003921763653054855,
+    "confidence_delta_pts": -0.3921763653054855,
+    "formatted_confidence_delta": "-0.39 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 61.52391428570679
+  },
+  {
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_38bf63d5b273",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "All Glitters are not Gold, however they do not be reliably.",
+    "perturbation_type": "contrast_negative_append",
+    "category": "contrast_negative_append",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9986764997897868,
+      "formatted_confidence": "99.87%",
+      "probabilities": {
+        "NEGATIVE": 0.9986764997897868,
+        "POSITIVE": 0.0013235002102132466
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.87%",
+        "POSITIVE": "0.13%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.87%\nPOSITIVE   [                    ]   0.13%",
+      "raw_logits": null,
+      "latency_ms": 95.44429999732529,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9798354092954734,
+      "formatted_confidence": "97.98%",
+      "probabilities": {
+        "NEGATIVE": 0.9798354092954734,
+        "POSITIVE": 0.02016459070452658
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "97.98%",
+        "POSITIVE": "2.02%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  97.98%\nPOSITIVE   [                    ]   2.02%",
+      "raw_logits": null,
+      "latency_ms": 61.52391428570679,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9986764997897868,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9798354092954734,
+    "is_flipped": false,
+    "confidence_delta": -0.018841090494313373,
+    "confidence_delta_pts": -1.8841090494313373,
+    "formatted_confidence_delta": "-1.88 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "The verified probe introduces a polarity-altering change (SHIFT_CONTRAST), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "semantic_intent": "SHIFT_CONTRAST",
+    "latency_ms": 61.52391428570679
+  },
+  {
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_9f9e1dadae1e",
+    "seed_text": "All Glitters are not Gold",
+    "perturbed_text": "In fact, all Glitters are not Gold",
+    "perturbation_type": "structure",
+    "category": "structure",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9986764997897868,
+      "formatted_confidence": "99.87%",
+      "probabilities": {
+        "NEGATIVE": 0.9986764997897868,
+        "POSITIVE": 0.0013235002102132466
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.87%",
+        "POSITIVE": "0.13%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.87%\nPOSITIVE   [                    ]   0.13%",
+      "raw_logits": null,
+      "latency_ms": 95.44429999732529,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9990330936850591,
+      "formatted_confidence": "99.90%",
+      "probabilities": {
+        "NEGATIVE": 0.9990330936850591,
+        "POSITIVE": 0.0009669063149408685
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.90%",
+        "POSITIVE": "0.10%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.90%\nPOSITIVE   [                    ]   0.10%",
+      "raw_logits": null,
+      "latency_ms": 61.52391428570679,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9986764997897868,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9990330936850591,
+    "is_flipped": false,
+    "confidence_delta": 0.0003565938952723169,
+    "confidence_delta_pts": 0.03565938952723169,
+    "formatted_confidence_delta": "+0.04 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 61.52391428570679
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "experiment_id": "exp_1790178881_6adaa0",
+  "model_ids": [
+    "textattack/albert-base-v2-SST-2"
+  ],
+  "probe_set_id": "pset_1790178867_sel",
+  "probe_set_version": "2.2.0",
+  "selected_probe_ids": [
+    "prb_f8cfe5bc91e4",
+    "prb_93a8a314162b",
+    "prb_655b09534fa8",
+    "prb_ad69074f6902",
+    "prb_0bcfcb23a772",
+    "prb_063fe37511e1",
+    "prb_1fa8d2280eef"
+  ],
+  "probe_versions": {
+    "prb_f8cfe5bc91e4": 1,
+    "prb_93a8a314162b": 1,
+    "prb_655b09534fa8": 1,
+    "prb_ad69074f6902": 1,
+    "prb_0bcfcb23a772": 1,
+    "prb_063fe37511e1": 1,
+    "prb_1fa8d2280eef": 1
+  },
+  "original_text": "The movie was great and the acting was top notch.",
+  "created_at": 1790178882.472117,
+  "sentence_type": "literal",
+  "metadata": {}
+}

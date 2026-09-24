@@ -1,0 +1,41 @@
+{
+  "experiment_name": "Multimodel 003",
+  "model_ids": [
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "textattack/albert-base-v2-SST-2",
+    "textattack/bert-base-uncased-SST-2",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "cardiffnlp/twitter-roberta-base-sentiment"
+  ],
+  "seed_texts": [
+    "I am healthy But still hospitalized"
+  ],
+  "sentence_types": {
+    "I am healthy But still hospitalized": "literal"
+  },
+  "perturbation_types": [
+    "structure",
+    "intensity",
+    "contrast_negative_append",
+    "negation_insertion",
+    "synonym_substitution",
+    "double_negation"
+  ],
+  "explainer_type": "both",
+  "performance_mode": "balanced",
+  "batch_size": null,
+  "random_seed": 42,
+  "confidence_threshold": 0.65,
+  "confidence_sensitivity_threshold_pts": 20.0,
+  "output_dir": "runs",
+  "has_selected_probes": true,
+  "selected_probe_ids": [
+    "prb_a6425d7f08c0",
+    "prb_316dee743245",
+    "prb_1b690ad14693",
+    "prb_d11dba8efe0b",
+    "prb_720eedd5e6c8",
+    "prb_f60ef40b5902",
+    "prb_e6a55be8b972"
+  ]
+}

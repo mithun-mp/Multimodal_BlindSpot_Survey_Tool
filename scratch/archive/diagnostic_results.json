@@ -1,0 +1,620 @@
+[
+  {
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "name": "DistilBERT",
+    "declared_task": "SENTIMENT",
+    "validation_status": "VALID",
+    "validation_reason": "Model passed sentiment registration validation gate.",
+    "architecture": "DistilBertForSequenceClassification",
+    "license": "Apache-2.0",
+    "domain": "Movie Reviews (SST-2)",
+    "parameters_millions": 66.96,
+    "predictions": [
+      {
+        "sentence": "I loved the movie.",
+        "pred_idx": 1,
+        "raw_label": "POSITIVE",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.9998733997344971,
+        "probabilities": [
+          0.0001,
+          0.9999
+        ],
+        "raw_logits": [
+          -4.3203,
+          4.6546
+        ]
+      },
+      {
+        "sentence": "I hated the movie.",
+        "pred_idx": 0,
+        "raw_label": "NEGATIVE",
+        "predicted_label": "NEGATIVE",
+        "confidence": 0.9996870756149292,
+        "probabilities": [
+          0.9997,
+          0.0003
+        ],
+        "raw_logits": [
+          4.4389,
+          -3.6302
+        ]
+      },
+      {
+        "sentence": "The movie was okay.",
+        "pred_idx": 1,
+        "raw_label": "POSITIVE",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.9998013377189636,
+        "probabilities": [
+          0.0002,
+          0.9998
+        ],
+        "raw_logits": [
+          -4.0739,
+          4.4498
+        ]
+      },
+      {
+        "sentence": "I don't think the movie was not entirely without merit.",
+        "pred_idx": 1,
+        "raw_label": "POSITIVE",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.997963547706604,
+        "probabilities": [
+          0.002,
+          0.998
+        ],
+        "raw_logits": [
+          -3.003,
+          3.1915
+        ]
+      },
+      {
+        "sentence": "All that glitters is not gold.",
+        "pred_idx": 0,
+        "raw_label": "NEGATIVE",
+        "predicted_label": "NEGATIVE",
+        "confidence": 0.9982120990753174,
+        "probabilities": [
+          0.9982,
+          0.0018
+        ],
+        "raw_logits": [
+          3.4849,
+          -2.84
+        ]
+      }
+    ],
+    "id2label": {
+      "0": "NEGATIVE",
+      "1": "POSITIVE"
+    },
+    "num_labels": 2
+  },
+  {
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "name": "ALBERT",
+    "declared_task": "SENTIMENT",
+    "validation_status": "VALID",
+    "validation_reason": "Model passed sentiment registration validation gate.",
+    "architecture": "AlbertForSequenceClassification",
+    "license": "Apache-2.0",
+    "domain": "Movie Reviews (SST-2)",
+    "parameters_millions": 11.69,
+    "predictions": [
+      {
+        "sentence": "I loved the movie.",
+        "pred_idx": 1,
+        "raw_label": "LABEL_1",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.999657392501831,
+        "probabilities": [
+          0.0003,
+          0.9997
+        ],
+        "raw_logits": [
+          -4.3404,
+          3.6383
+        ]
+      },
+      {
+        "sentence": "I hated the movie.",
+        "pred_idx": 0,
+        "raw_label": "LABEL_0",
+        "predicted_label": "NEGATIVE",
+        "confidence": 0.9990286827087402,
+        "probabilities": [
+          0.999,
+          0.001
+        ],
+        "raw_logits": [
+          3.2642,
+          -3.6717
+        ]
+      },
+      {
+        "sentence": "The movie was okay.",
+        "pred_idx": 1,
+        "raw_label": "LABEL_1",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.9865080118179321,
+        "probabilities": [
+          0.0135,
+          0.9865
+        ],
+        "raw_logits": [
+          -2.398,
+          1.8941
+        ]
+      },
+      {
+        "sentence": "I don't think the movie was not entirely without merit.",
+        "pred_idx": 1,
+        "raw_label": "LABEL_1",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.8281263113021851,
+        "probabilities": [
+          0.1719,
+          0.8281
+        ],
+        "raw_logits": [
+          -0.7807,
+          0.7917
+        ]
+      },
+      {
+        "sentence": "All that glitters is not gold.",
+        "pred_idx": 0,
+        "raw_label": "LABEL_0",
+        "predicted_label": "NEGATIVE",
+        "confidence": 0.9753739237785339,
+        "probabilities": [
+          0.9754,
+          0.0246
+        ],
+        "raw_logits": [
+          1.7769,
+          -1.9021
+        ]
+      }
+    ],
+    "id2label": {
+      "0": "LABEL_0",
+      "1": "LABEL_1"
+    },
+    "num_labels": 2
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "name": "RoBERTa",
+    "declared_task": "SENTIMENT",
+    "validation_status": "VALID",
+    "validation_reason": "Model passed sentiment registration validation gate.",
+    "architecture": "RobertaForSequenceClassification",
+    "license": "MIT",
+    "domain": "Social Media (Tweets)",
+    "parameters_millions": 124.65,
+    "predictions": [
+      {
+        "sentence": "I loved the movie.",
+        "pred_idx": 2,
+        "raw_label": "positive",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.9804938435554504,
+        "probabilities": [
+          0.0035,
+          0.016,
+          0.9805
+        ],
+        "raw_logits": [
+          -2.3865,
+          -0.8818,
+          3.2361
+        ]
+      },
+      {
+        "sentence": "I hated the movie.",
+        "pred_idx": 0,
+        "raw_label": "negative",
+        "predicted_label": "NEGATIVE",
+        "confidence": 0.9183109402656555,
+        "probabilities": [
+          0.9183,
+          0.0679,
+          0.0138
+        ],
+        "raw_logits": [
+          2.1263,
+          -0.4782,
+          -2.0725
+        ]
+      },
+      {
+        "sentence": "The movie was okay.",
+        "pred_idx": 2,
+        "raw_label": "positive",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.8963215351104736,
+        "probabilities": [
+          0.0079,
+          0.0958,
+          0.8963
+        ],
+        "raw_logits": [
+          -2.4841,
+          0.0082,
+          2.2447
+        ]
+      },
+      {
+        "sentence": "I don't think the movie was not entirely without merit.",
+        "pred_idx": 1,
+        "raw_label": "neutral",
+        "predicted_label": "NEUTRAL",
+        "confidence": 0.4985353350639343,
+        "probabilities": [
+          0.4722,
+          0.4985,
+          0.0292
+        ],
+        "raw_logits": [
+          0.8007,
+          0.8549,
+          -1.9813
+        ]
+      },
+      {
+        "sentence": "All that glitters is not gold.",
+        "pred_idx": 1,
+        "raw_label": "neutral",
+        "predicted_label": "NEUTRAL",
+        "confidence": 0.5112791061401367,
+        "probabilities": [
+          0.4114,
+          0.5113,
+          0.0773
+        ],
+        "raw_logits": [
+          0.347,
+          0.5644,
+          -1.3244
+        ]
+      }
+    ],
+    "id2label": {
+      "0": "negative",
+      "1": "neutral",
+      "2": "positive"
+    },
+    "num_labels": 3
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "name": "BERT",
+    "declared_task": "SENTIMENT",
+    "validation_status": "VALID",
+    "validation_reason": "Model passed sentiment registration validation gate.",
+    "architecture": "BertForSequenceClassification",
+    "license": "Apache-2.0",
+    "domain": "Movie Reviews (SST-2)",
+    "parameters_millions": 109.48,
+    "predictions": [
+      {
+        "sentence": "I loved the movie.",
+        "pred_idx": 1,
+        "raw_label": "LABEL_1",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.999518871307373,
+        "probabilities": [
+          0.0005,
+          0.9995
+        ],
+        "raw_logits": [
+          -3.885,
+          3.7538
+        ]
+      },
+      {
+        "sentence": "I hated the movie.",
+        "pred_idx": 0,
+        "raw_label": "LABEL_0",
+        "predicted_label": "NEGATIVE",
+        "confidence": 0.9990062117576599,
+        "probabilities": [
+          0.999,
+          0.001
+        ],
+        "raw_logits": [
+          3.656,
+          -3.2569
+        ]
+      },
+      {
+        "sentence": "The movie was okay.",
+        "pred_idx": 1,
+        "raw_label": "LABEL_1",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.9928804039955139,
+        "probabilities": [
+          0.0071,
+          0.9929
+        ],
+        "raw_logits": [
+          -2.5852,
+          2.3526
+        ]
+      },
+      {
+        "sentence": "I don't think the movie was not entirely without merit.",
+        "pred_idx": 1,
+        "raw_label": "LABEL_1",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.9827448725700378,
+        "probabilities": [
+          0.0173,
+          0.9827
+        ],
+        "raw_logits": [
+          -2.0995,
+          1.9427
+        ]
+      },
+      {
+        "sentence": "All that glitters is not gold.",
+        "pred_idx": 0,
+        "raw_label": "LABEL_0",
+        "predicted_label": "NEGATIVE",
+        "confidence": 0.9967526197433472,
+        "probabilities": [
+          0.9968,
+          0.0032
+        ],
+        "raw_logits": [
+          3.1218,
+          -2.6049
+        ]
+      }
+    ],
+    "id2label": {
+      "0": "LABEL_0",
+      "1": "LABEL_1"
+    },
+    "num_labels": 2
+  },
+  {
+    "model_id": "jbeno/electra-base-classifier-sentiment",
+    "name": "ELECTRA",
+    "declared_task": "SENTIMENT",
+    "validation_status": "VALID",
+    "validation_reason": "Model passed sentiment registration validation gate.",
+    "architecture": "ElectraClassifier",
+    "license": "Apache-2.0",
+    "domain": "Social/Web Sentiment",
+    "parameters_millions": 109.48,
+    "predictions": [
+      {
+        "sentence": "I loved the movie.",
+        "pred_idx": 0,
+        "raw_label": "negative",
+        "predicted_label": "NEGATIVE",
+        "confidence": 0.3486574590206146,
+        "probabilities": [
+          0.3487,
+          0.3067,
+          0.3447
+        ],
+        "raw_logits": [
+          0.0418,
+          -0.0866,
+          0.0303
+        ]
+      },
+      {
+        "sentence": "I hated the movie.",
+        "pred_idx": 1,
+        "raw_label": "neutral",
+        "predicted_label": "NEUTRAL",
+        "confidence": 0.341227650642395,
+        "probabilities": [
+          0.3283,
+          0.3412,
+          0.3304
+        ],
+        "raw_logits": [
+          -0.0706,
+          -0.032,
+          -0.0642
+        ]
+      },
+      {
+        "sentence": "The movie was okay.",
+        "pred_idx": 0,
+        "raw_label": "negative",
+        "predicted_label": "NEGATIVE",
+        "confidence": 0.3465833365917206,
+        "probabilities": [
+          0.3466,
+          0.3116,
+          0.3418
+        ],
+        "raw_logits": [
+          -0.0088,
+          -0.1151,
+          -0.0227
+        ]
+      },
+      {
+        "sentence": "I don't think the movie was not entirely without merit.",
+        "pred_idx": 2,
+        "raw_label": "positive",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.3685450255870819,
+        "probabilities": [
+          0.3171,
+          0.3143,
+          0.3685
+        ],
+        "raw_logits": [
+          -0.0581,
+          -0.067,
+          0.0921
+        ]
+      },
+      {
+        "sentence": "All that glitters is not gold.",
+        "pred_idx": 2,
+        "raw_label": "positive",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.371663898229599,
+        "probabilities": [
+          0.3117,
+          0.3167,
+          0.3717
+        ],
+        "raw_logits": [
+          -0.0816,
+          -0.0656,
+          0.0945
+        ]
+      }
+    ],
+    "id2label": {
+      "0": "negative",
+      "1": "neutral",
+      "2": "positive"
+    },
+    "num_labels": 3
+  },
+  {
+    "model_id": "sileod/deberta-v3-base-tasksource-sentiment",
+    "name": "DeBERTa-v3",
+    "declared_task": "SENTIMENT",
+    "validation_status": "RUNTIME_INCOMPATIBLE",
+    "validation_reason": "PyTorch JIT incompatibility on Python 3.13: sileod/deberta-v3-base-tasksource-sentiment does not appear to have a file named pytorch_model.bin or model.safetensors.",
+    "architecture": "DebertaV2ForSequenceClassification",
+    "license": "MIT",
+    "domain": "Tasksource Sentiment Benchmarks",
+    "parameters_millions": 86.85,
+    "predictions": [],
+    "id2label": {
+      "0": "negative",
+      "1": "neutral",
+      "2": "positive"
+    },
+    "num_labels": 3,
+    "error": "sileod/deberta-v3-base-tasksource-sentiment does not appear to have a file named pytorch_model.bin or model.safetensors."
+  },
+  {
+    "model_id": "cardiffnlp/twitter-xlm-roberta-base-sentiment",
+    "name": "XLM-R",
+    "declared_task": "SENTIMENT",
+    "validation_status": "INVALID",
+    "validation_reason": "cardiffnlp/twitter-xlm-roberta-base-sentiment does not appear to have a file named pytorch_model.bin or model.safetensors.",
+    "architecture": "XLMRobertaForSequenceClassification",
+    "license": "MIT",
+    "domain": "Multilingual Social Media",
+    "parameters_millions": 278.04,
+    "predictions": [],
+    "id2label": {
+      "0": "negative",
+      "1": "neutral",
+      "2": "positive"
+    },
+    "num_labels": 3,
+    "error": "cardiffnlp/twitter-xlm-roberta-base-sentiment does not appear to have a file named pytorch_model.bin or model.safetensors."
+  },
+  {
+    "model_id": "roberta-base-openai-detector",
+    "name": "RoBERTa OpenAI Detector",
+    "declared_task": "AI_TEXT_DETECTION",
+    "validation_status": "REJECTED_TASK_INCOMPATIBLE",
+    "validation_reason": "Model 'roberta-base-openai-detector' has incompatible task 'AI_TEXT_DETECTION'. Only task 'SENTIMENT' is permitted for sentiment experiments.",
+    "architecture": "RobertaForSequenceClassification",
+    "license": "MIT",
+    "domain": "Synthetic Text Detection",
+    "parameters_millions": 124.65,
+    "predictions": [
+      {
+        "sentence": "I loved the movie.",
+        "pred_idx": 0,
+        "raw_label": "Fake",
+        "predicted_label": "FAKE",
+        "confidence": 0.8961648941040039,
+        "probabilities": [
+          0.8962,
+          0.1038
+        ],
+        "raw_logits": [
+          1.0263,
+          -1.129
+        ]
+      },
+      {
+        "sentence": "I hated the movie.",
+        "pred_idx": 0,
+        "raw_label": "Fake",
+        "predicted_label": "FAKE",
+        "confidence": 0.8246341347694397,
+        "probabilities": [
+          0.8246,
+          0.1754
+        ],
+        "raw_logits": [
+          0.7135,
+          -0.8345
+        ]
+      },
+      {
+        "sentence": "The movie was okay.",
+        "pred_idx": 0,
+        "raw_label": "Fake",
+        "predicted_label": "FAKE",
+        "confidence": 0.9313898086547852,
+        "probabilities": [
+          0.9314,
+          0.0686
+        ],
+        "raw_logits": [
+          1.2637,
+          -1.3445
+        ]
+      },
+      {
+        "sentence": "I don't think the movie was not entirely without merit.",
+        "pred_idx": 0,
+        "raw_label": "Fake",
+        "predicted_label": "FAKE",
+        "confidence": 0.8488208651542664,
+        "probabilities": [
+          0.8488,
+          0.1512
+        ],
+        "raw_logits": [
+          0.8189,
+          -0.9065
+        ]
+      },
+      {
+        "sentence": "All that glitters is not gold.",
+        "pred_idx": 0,
+        "raw_label": "Fake",
+        "predicted_label": "FAKE",
+        "confidence": 0.6106461882591248,
+        "probabilities": [
+          0.6106,
+          0.3894
+        ],
+        "raw_logits": [
+          0.1541,
+          -0.296
+        ]
+      }
+    ],
+    "id2label": {
+      "0": "Fake",
+      "1": "Real"
+    },
+    "num_labels": 2
+  }
+]

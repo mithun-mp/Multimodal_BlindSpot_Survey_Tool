@@ -1,0 +1,14 @@
+{"event_id": "d9cca72d", "event_type": "log", "data": {"level": "INFO", "message": "Starting experiment 'Multimodel Robustness Audit' [exp_1790178339_9653ce]"}, "timestamp": 1790178340.0840917}
+{"event_id": "e3e2bec2", "event_type": "progress", "data": {"progress": 0.05, "step": "Initializing resources"}, "timestamp": 1790178340.0877073}
+{"event_id": "9bf2b5ea", "event_type": "log", "data": {"level": "INFO", "message": "Consuming user-selected canonical SharedProbeSet with 7 probe(s) (no re-generation)"}, "timestamp": 1790178340.0922196}
+{"event_id": "b6bef65f", "event_type": "progress", "data": {"progress": 0.1, "step": "Using verified probe selection"}, "timestamp": 1790178340.0963433}
+{"event_id": "14ee0231", "event_type": "progress", "data": {"progress": 0.15, "step": "Evaluating model [1/1]: textattack/albert-base-v2-SST-2"}, "timestamp": 1790178340.117124}
+{"event_id": "4bcc021b", "event_type": "model_start", "data": {"model_id": "textattack/albert-base-v2-SST-2"}, "timestamp": 1790178340.1212945}
+{"event_id": "66e06e7a", "event_type": "model_status_changed", "data": {"model_id": "textattack/albert-base-v2-SST-2", "status": "LOADING"}, "timestamp": 1790178340.1260915}
+{"event_id": "28e149df", "event_type": "model_status_changed", "data": {"model_id": "textattack/albert-base-v2-SST-2", "status": "RUNNING"}, "timestamp": 1790178359.5949934}
+{"event_id": "44ffd3cf", "event_type": "log", "data": {"level": "ERROR", "message": "Model textattack/albert-base-v2-SST-2 error: Model 'textattack/albert-base-v2-SST-2' pipeline is not loaded (load error: `tiktoken` is required to read a `tiktoken` file. Install it with `pip install tiktoken`.) and allow_fallback=False."}, "timestamp": 1790178359.6175911}
+{"event_id": "0991f966", "event_type": "model_status_changed", "data": {"model_id": "textattack/albert-base-v2-SST-2", "status": "FAILED"}, "timestamp": 1790178359.6188898}
+{"event_id": "57255b0a", "event_type": "progress", "data": {"progress": 0.85, "step": "Computing cross-model comparative metrics"}, "timestamp": 1790178359.6488233}
+{"event_id": "10696340", "event_type": "log", "data": {"level": "WARNING", "message": "Pipeline integrity audit: planned=7 | all_models_passed=False | run_status=FAILED"}, "timestamp": 1790178359.6522136}
+{"event_id": "50120670", "event_type": "progress", "data": {"progress": 0.92, "step": "Generating diagnostic reports & saving run"}, "timestamp": 1790178359.653149}
+{"event_id": "d912b0c1", "event_type": "incomplete", "data": {"experiment_id": "exp_1790178339_9653ce", "run_status": "FAILED", "analysis_status": "NO_VALID_ANALYSIS", "duration_sec": 20.05}, "timestamp": 1790178371.5067294}

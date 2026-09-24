@@ -1,0 +1,41 @@
+{
+  "experiment_name": "Multimodel Robustness Audit",
+  "model_ids": [
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "textattack/albert-base-v2-SST-2",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "textattack/bert-base-uncased-SST-2",
+    "cardiffnlp/twitter-roberta-base-sentiment"
+  ],
+  "seed_texts": [
+    "The film was amazing,me and family enjoyed it well"
+  ],
+  "sentence_types": {
+    "The film was amazing,me and family enjoyed it well": "literal"
+  },
+  "perturbation_types": [
+    "contrast_negative_append",
+    "intensity",
+    "contrast_positive_append",
+    "negation_insertion",
+    "double_negation",
+    "synonym_substitution"
+  ],
+  "explainer_type": "lime",
+  "performance_mode": "balanced",
+  "batch_size": null,
+  "random_seed": 42,
+  "confidence_threshold": 0.65,
+  "confidence_sensitivity_threshold_pts": 20.0,
+  "output_dir": "runs",
+  "has_selected_probes": true,
+  "selected_probe_ids": [
+    "prb_8ecd031cfa51",
+    "prb_e2334bb817ec",
+    "prb_696d0444b6a8",
+    "prb_e39764a89971",
+    "prb_3f29e28d6466",
+    "prb_aa4499ef9818",
+    "prb_f5c7a1a92cfe"
+  ]
+}

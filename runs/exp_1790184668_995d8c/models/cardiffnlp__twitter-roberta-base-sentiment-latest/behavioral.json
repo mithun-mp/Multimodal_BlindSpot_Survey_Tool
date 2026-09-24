@@ -1,0 +1,464 @@
+[
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_d97f2ee9eebc",
+    "seed_text": "the way he talked to me was amazing i was in love with his voice",
+    "perturbed_text": "the way he talked to me was not amazing i was in love with his voice",
+    "perturbation_type": "negation_insertion",
+    "category": "negation_insertion",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9855623694998734,
+      "formatted_confidence": "98.56%",
+      "probabilities": {
+        "NEGATIVE": 0.0038674317202569493,
+        "NEUTRAL": 0.010570198779869583,
+        "POSITIVE": 0.9855623694998734
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.39%",
+        "NEUTRAL": "1.06%",
+        "POSITIVE": "98.56%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.39%\nNEUTRAL    [                    ]   1.06%\nPOSITIVE   [====================]  98.56%",
+      "raw_logits": null,
+      "latency_ms": 148.9438999997219,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.7337892055511475,
+      "formatted_confidence": "73.38%",
+      "probabilities": {
+        "NEGATIVE": 0.07642710208892822,
+        "NEUTRAL": 0.18978369235992432,
+        "POSITIVE": 0.7337892055511475
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "7.64%",
+        "NEUTRAL": "18.98%",
+        "POSITIVE": "73.38%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [==                  ]   7.64%\nNEUTRAL    [====                ]  18.98%\nPOSITIVE   [===============     ]  73.38%",
+      "raw_logits": null,
+      "latency_ms": 272.6324000000854,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9855623694998734,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.7337892055511475,
+    "is_flipped": false,
+    "confidence_delta": -0.25177316394872595,
+    "confidence_delta_pts": -25.177316394872594,
+    "formatted_confidence_delta": "-25.18 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "The verified probe introduces a polarity-altering change (REVERSE_POLARITY), but the model retained the same predicted class (POSITIVE \u2192 POSITIVE).",
+    "semantic_intent": "REVERSE_POLARITY",
+    "latency_ms": 272.6324000000854
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_9afd039ce3af",
+    "seed_text": "the way he talked to me was amazing i was in love with his voice",
+    "perturbed_text": "It is not impossible that the way he talked to me was amazing i was in love with his voice",
+    "perturbation_type": "double_negation",
+    "category": "double_negation",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9855623694998734,
+      "formatted_confidence": "98.56%",
+      "probabilities": {
+        "NEGATIVE": 0.0038674317202569493,
+        "NEUTRAL": 0.010570198779869583,
+        "POSITIVE": 0.9855623694998734
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.39%",
+        "NEUTRAL": "1.06%",
+        "POSITIVE": "98.56%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.39%\nNEUTRAL    [                    ]   1.06%\nPOSITIVE   [====================]  98.56%",
+      "raw_logits": null,
+      "latency_ms": 148.9438999997219,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9783001487424589,
+      "formatted_confidence": "97.83%",
+      "probabilities": {
+        "NEGATIVE": 0.005811534789512671,
+        "NEUTRAL": 0.015888316468028445,
+        "POSITIVE": 0.9783001487424589
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.58%",
+        "NEUTRAL": "1.59%",
+        "POSITIVE": "97.83%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.58%\nNEUTRAL    [                    ]   1.59%\nPOSITIVE   [====================]  97.83%",
+      "raw_logits": null,
+      "latency_ms": 272.6324000000854,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9855623694998734,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9783001487424589,
+    "is_flipped": false,
+    "confidence_delta": -0.007262220757414561,
+    "confidence_delta_pts": -0.7262220757414561,
+    "formatted_confidence_delta": "-0.73 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (POSITIVE \u2192 POSITIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 272.6324000000854
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_b0c2ac5f9759",
+    "seed_text": "the way he talked to me was amazing i was in love with his voice",
+    "perturbed_text": "the way he talked to me was extremely amazing i was in love with his voice",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "strengthen",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9855623694998734,
+      "formatted_confidence": "98.56%",
+      "probabilities": {
+        "NEGATIVE": 0.0038674317202569493,
+        "NEUTRAL": 0.010570198779869583,
+        "POSITIVE": 0.9855623694998734
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.39%",
+        "NEUTRAL": "1.06%",
+        "POSITIVE": "98.56%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.39%\nNEUTRAL    [                    ]   1.06%\nPOSITIVE   [====================]  98.56%",
+      "raw_logits": null,
+      "latency_ms": 148.9438999997219,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9869924829667084,
+      "formatted_confidence": "98.70%",
+      "probabilities": {
+        "NEGATIVE": 0.003924462962543885,
+        "NEUTRAL": 0.00908305407074771,
+        "POSITIVE": 0.9869924829667084
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.39%",
+        "NEUTRAL": "0.91%",
+        "POSITIVE": "98.70%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.39%\nNEUTRAL    [                    ]   0.91%\nPOSITIVE   [====================]  98.70%",
+      "raw_logits": null,
+      "latency_ms": 272.6324000000854,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9855623694998734,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9869924829667084,
+    "is_flipped": false,
+    "confidence_delta": 0.0014301134668349702,
+    "confidence_delta_pts": 0.14301134668349702,
+    "formatted_confidence_delta": "+0.14 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (POSITIVE \u2192 POSITIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "STRENGTHEN_POLARITY",
+    "latency_ms": 272.6324000000854
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_d71c1a2aaf54",
+    "seed_text": "the way he talked to me was amazing i was in love with his voice",
+    "perturbed_text": "the way he talked to me was somewhat amazing i was in love with his voice",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "weaken",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9855623694998734,
+      "formatted_confidence": "98.56%",
+      "probabilities": {
+        "NEGATIVE": 0.0038674317202569493,
+        "NEUTRAL": 0.010570198779869583,
+        "POSITIVE": 0.9855623694998734
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.39%",
+        "NEUTRAL": "1.06%",
+        "POSITIVE": "98.56%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.39%\nNEUTRAL    [                    ]   1.06%\nPOSITIVE   [====================]  98.56%",
+      "raw_logits": null,
+      "latency_ms": 148.9438999997219,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9838064437117131,
+      "formatted_confidence": "98.38%",
+      "probabilities": {
+        "NEGATIVE": 0.003958560802167392,
+        "NEUTRAL": 0.012234995486119513,
+        "POSITIVE": 0.9838064437117131
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.40%",
+        "NEUTRAL": "1.22%",
+        "POSITIVE": "98.38%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.40%\nNEUTRAL    [                    ]   1.22%\nPOSITIVE   [====================]  98.38%",
+      "raw_logits": null,
+      "latency_ms": 272.6324000000854,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9855623694998734,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9838064437117131,
+    "is_flipped": false,
+    "confidence_delta": -0.0017559257881603063,
+    "confidence_delta_pts": -0.17559257881603063,
+    "formatted_confidence_delta": "-0.18 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (POSITIVE \u2192 POSITIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "WEAKEN_POLARITY",
+    "latency_ms": 272.6324000000854
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_302f35625e29",
+    "seed_text": "the way he talked to me was amazing i was in love with his voice",
+    "perturbed_text": "the style he talked to me was amazing i was in love with his voice",
+    "perturbation_type": "synonym_substitution",
+    "category": "synonym_substitution",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9855623694998734,
+      "formatted_confidence": "98.56%",
+      "probabilities": {
+        "NEGATIVE": 0.0038674317202569493,
+        "NEUTRAL": 0.010570198779869583,
+        "POSITIVE": 0.9855623694998734
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.39%",
+        "NEUTRAL": "1.06%",
+        "POSITIVE": "98.56%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.39%\nNEUTRAL    [                    ]   1.06%\nPOSITIVE   [====================]  98.56%",
+      "raw_logits": null,
+      "latency_ms": 148.9438999997219,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9841960819803508,
+      "formatted_confidence": "98.42%",
+      "probabilities": {
+        "NEGATIVE": 0.003940076162117772,
+        "NEUTRAL": 0.011863841857531471,
+        "POSITIVE": 0.9841960819803508
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.39%",
+        "NEUTRAL": "1.19%",
+        "POSITIVE": "98.42%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.39%\nNEUTRAL    [                    ]   1.19%\nPOSITIVE   [====================]  98.42%",
+      "raw_logits": null,
+      "latency_ms": 272.6324000000854,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9855623694998734,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9841960819803508,
+    "is_flipped": false,
+    "confidence_delta": -0.0013662875195226132,
+    "confidence_delta_pts": -0.13662875195226132,
+    "formatted_confidence_delta": "-0.14 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (POSITIVE \u2192 POSITIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 272.6324000000854
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_7f63c77edd80",
+    "seed_text": "the way he talked to me was amazing i was in love with his voice",
+    "perturbed_text": "the way he talked to me was amazing i was in love with his voice, however it was surprisingly unimpressive in comparison.",
+    "perturbation_type": "contrast_negative_append",
+    "category": "contrast_negative_append",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9855623694998734,
+      "formatted_confidence": "98.56%",
+      "probabilities": {
+        "NEGATIVE": 0.0038674317202569493,
+        "NEUTRAL": 0.010570198779869583,
+        "POSITIVE": 0.9855623694998734
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.39%",
+        "NEUTRAL": "1.06%",
+        "POSITIVE": "98.56%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.39%\nNEUTRAL    [                    ]   1.06%\nPOSITIVE   [====================]  98.56%",
+      "raw_logits": null,
+      "latency_ms": 148.9438999997219,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9147080387482354,
+      "formatted_confidence": "91.47%",
+      "probabilities": {
+        "NEGATIVE": 0.020256698584333776,
+        "NEUTRAL": 0.06503526266743084,
+        "POSITIVE": 0.9147080387482354
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "2.03%",
+        "NEUTRAL": "6.50%",
+        "POSITIVE": "91.47%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   2.03%\nNEUTRAL    [=                   ]   6.50%\nPOSITIVE   [==================  ]  91.47%",
+      "raw_logits": null,
+      "latency_ms": 272.6324000000854,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9855623694998734,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9147080387482354,
+    "is_flipped": false,
+    "confidence_delta": -0.07085433075163805,
+    "confidence_delta_pts": -7.085433075163805,
+    "formatted_confidence_delta": "-7.09 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "The verified probe introduces a polarity-altering change (SHIFT_CONTRAST), but the model retained the same predicted class (POSITIVE \u2192 POSITIVE).",
+    "semantic_intent": "SHIFT_CONTRAST",
+    "latency_ms": 272.6324000000854
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_eb6c4c25cdf4",
+    "seed_text": "the way he talked to me was amazing i was in love with his voice",
+    "perturbed_text": "the way he talked to me was amazing i was in love with his voice, and it delivered good results in practice.",
+    "perturbation_type": "contrast_positive_append",
+    "category": "contrast_positive_append",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9855623694998734,
+      "formatted_confidence": "98.56%",
+      "probabilities": {
+        "NEGATIVE": 0.0038674317202569493,
+        "NEUTRAL": 0.010570198779869583,
+        "POSITIVE": 0.9855623694998734
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.39%",
+        "NEUTRAL": "1.06%",
+        "POSITIVE": "98.56%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.39%\nNEUTRAL    [                    ]   1.06%\nPOSITIVE   [====================]  98.56%",
+      "raw_logits": null,
+      "latency_ms": 148.9438999997219,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9853684216669368,
+      "formatted_confidence": "98.54%",
+      "probabilities": {
+        "NEGATIVE": 0.0033656588915594162,
+        "NEUTRAL": 0.011265919441503739,
+        "POSITIVE": 0.9853684216669368
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.34%",
+        "NEUTRAL": "1.13%",
+        "POSITIVE": "98.54%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.34%\nNEUTRAL    [                    ]   1.13%\nPOSITIVE   [====================]  98.54%",
+      "raw_logits": null,
+      "latency_ms": 272.6324000000854,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9855623694998734,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9853684216669368,
+    "is_flipped": false,
+    "confidence_delta": -0.0001939478329365807,
+    "confidence_delta_pts": -0.01939478329365807,
+    "formatted_confidence_delta": "-0.02 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (POSITIVE \u2192 POSITIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 272.6324000000854
+  }
+]

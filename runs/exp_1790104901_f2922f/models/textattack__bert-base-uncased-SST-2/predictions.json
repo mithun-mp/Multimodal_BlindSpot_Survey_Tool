@@ -1,0 +1,436 @@
+[
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_a6425d7f08c0",
+    "seed_text": "I am healthy But still hospitalized",
+    "perturbed_text": "I am not healthy But still hospitalized",
+    "perturbation_type": "negation_insertion",
+    "category": "negation_insertion",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.8186574578285217,
+      "formatted_confidence": "81.87%",
+      "probabilities": {
+        "NEGATIVE": 0.8186574578285217,
+        "POSITIVE": 0.18134254217147827
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "81.87%",
+        "POSITIVE": "18.13%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [================    ]  81.87%\nPOSITIVE   [====                ]  18.13%",
+      "raw_logits": null,
+      "latency_ms": 191.81400000161375,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9938283266476295,
+      "formatted_confidence": "99.38%",
+      "probabilities": {
+        "NEGATIVE": 0.9938283266476295,
+        "POSITIVE": 0.00617167335237046
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.38%",
+        "POSITIVE": "0.62%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.38%\nPOSITIVE   [                    ]   0.62%",
+      "raw_logits": null,
+      "latency_ms": 14.94698571436207,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.8186574578285217,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9938283266476295,
+    "is_flipped": false,
+    "confidence_delta": 0.17517086881910782,
+    "confidence_delta_pts": 17.51708688191078,
+    "formatted_confidence_delta": "+17.52 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "The verified probe introduces a polarity-altering change (REVERSE_POLARITY), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "semantic_intent": "REVERSE_POLARITY",
+    "latency_ms": 14.94698571436207
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_316dee743245",
+    "seed_text": "I am healthy But still hospitalized",
+    "perturbed_text": "It is not impossible that I am healthy But still hospitalized",
+    "perturbation_type": "double_negation",
+    "category": "double_negation",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.8186574578285217,
+      "formatted_confidence": "81.87%",
+      "probabilities": {
+        "NEGATIVE": 0.8186574578285217,
+        "POSITIVE": 0.18134254217147827
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "81.87%",
+        "POSITIVE": "18.13%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [================    ]  81.87%\nPOSITIVE   [====                ]  18.13%",
+      "raw_logits": null,
+      "latency_ms": 191.81400000161375,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9369580815505838,
+      "formatted_confidence": "93.70%",
+      "probabilities": {
+        "NEGATIVE": 0.9369580815505838,
+        "POSITIVE": 0.06304191844941615
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "93.70%",
+        "POSITIVE": "6.30%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=================== ]  93.70%\nPOSITIVE   [=                   ]   6.30%",
+      "raw_logits": null,
+      "latency_ms": 14.94698571436207,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.8186574578285217,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9369580815505838,
+    "is_flipped": false,
+    "confidence_delta": 0.11830062372206207,
+    "confidence_delta_pts": 11.830062372206207,
+    "formatted_confidence_delta": "+11.83 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 14.94698571436207
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_1b690ad14693",
+    "seed_text": "I am healthy But still hospitalized",
+    "perturbed_text": "I am extremely healthy But still hospitalized",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "strengthen",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.8186574578285217,
+      "formatted_confidence": "81.87%",
+      "probabilities": {
+        "NEGATIVE": 0.8186574578285217,
+        "POSITIVE": 0.18134254217147827
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "81.87%",
+        "POSITIVE": "18.13%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [================    ]  81.87%\nPOSITIVE   [====                ]  18.13%",
+      "raw_logits": null,
+      "latency_ms": 191.81400000161375,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.7714763858524253,
+      "formatted_confidence": "77.15%",
+      "probabilities": {
+        "NEGATIVE": 0.7714763858524253,
+        "POSITIVE": 0.22852361414757477
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "77.15%",
+        "POSITIVE": "22.85%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [===============     ]  77.15%\nPOSITIVE   [=====               ]  22.85%",
+      "raw_logits": null,
+      "latency_ms": 14.94698571436207,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.8186574578285217,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.7714763858524253,
+    "is_flipped": false,
+    "confidence_delta": -0.047181071976096445,
+    "confidence_delta_pts": -4.718107197609644,
+    "formatted_confidence_delta": "-4.72 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "STRENGTHEN_POLARITY",
+    "latency_ms": 14.94698571436207
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_d11dba8efe0b",
+    "seed_text": "I am healthy But still hospitalized",
+    "perturbed_text": "I am somewhat healthy But still hospitalized",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "weaken",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.8186574578285217,
+      "formatted_confidence": "81.87%",
+      "probabilities": {
+        "NEGATIVE": 0.8186574578285217,
+        "POSITIVE": 0.18134254217147827
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "81.87%",
+        "POSITIVE": "18.13%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [================    ]  81.87%\nPOSITIVE   [====                ]  18.13%",
+      "raw_logits": null,
+      "latency_ms": 191.81400000161375,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.8725560177481768,
+      "formatted_confidence": "87.26%",
+      "probabilities": {
+        "NEGATIVE": 0.8725560177481768,
+        "POSITIVE": 0.1274439822518232
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "87.26%",
+        "POSITIVE": "12.74%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=================   ]  87.26%\nPOSITIVE   [===                 ]  12.74%",
+      "raw_logits": null,
+      "latency_ms": 14.94698571436207,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.8186574578285217,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.8725560177481768,
+    "is_flipped": false,
+    "confidence_delta": 0.05389855991965509,
+    "confidence_delta_pts": 5.389855991965509,
+    "formatted_confidence_delta": "+5.39 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "WEAKEN_POLARITY",
+    "latency_ms": 14.94698571436207
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_720eedd5e6c8",
+    "seed_text": "I am healthy But still hospitalized",
+    "perturbed_text": "I am goodish But still hospitalized",
+    "perturbation_type": "synonym_substitution",
+    "category": "synonym_substitution",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.8186574578285217,
+      "formatted_confidence": "81.87%",
+      "probabilities": {
+        "NEGATIVE": 0.8186574578285217,
+        "POSITIVE": 0.18134254217147827
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "81.87%",
+        "POSITIVE": "18.13%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [================    ]  81.87%\nPOSITIVE   [====                ]  18.13%",
+      "raw_logits": null,
+      "latency_ms": 191.81400000161375,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9519657244393227,
+      "formatted_confidence": "95.20%",
+      "probabilities": {
+        "NEGATIVE": 0.9519657244393227,
+        "POSITIVE": 0.04803427556067732
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "95.20%",
+        "POSITIVE": "4.80%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=================== ]  95.20%\nPOSITIVE   [=                   ]   4.80%",
+      "raw_logits": null,
+      "latency_ms": 14.94698571436207,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.8186574578285217,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9519657244393227,
+    "is_flipped": false,
+    "confidence_delta": 0.13330826661080097,
+    "confidence_delta_pts": 13.330826661080097,
+    "formatted_confidence_delta": "+13.33 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 14.94698571436207
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_f60ef40b5902",
+    "seed_text": "I am healthy But still hospitalized",
+    "perturbed_text": "I am healthy But still hospitalized, however I could not repeat that performance.",
+    "perturbation_type": "contrast_negative_append",
+    "category": "contrast_negative_append",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.8186574578285217,
+      "formatted_confidence": "81.87%",
+      "probabilities": {
+        "NEGATIVE": 0.8186574578285217,
+        "POSITIVE": 0.18134254217147827
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "81.87%",
+        "POSITIVE": "18.13%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [================    ]  81.87%\nPOSITIVE   [====                ]  18.13%",
+      "raw_logits": null,
+      "latency_ms": 191.81400000161375,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.6056162118911743,
+      "formatted_confidence": "60.56%",
+      "probabilities": {
+        "NEGATIVE": 0.6056162118911743,
+        "POSITIVE": 0.3943837881088257
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "60.56%",
+        "POSITIVE": "39.44%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [============        ]  60.56%\nPOSITIVE   [========            ]  39.44%",
+      "raw_logits": null,
+      "latency_ms": 14.94698571436207,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.8186574578285217,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.6056162118911743,
+    "is_flipped": false,
+    "confidence_delta": -0.2130412459373474,
+    "confidence_delta_pts": -21.30412459373474,
+    "formatted_confidence_delta": "-21.30 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "The verified probe introduces a polarity-altering change (SHIFT_CONTRAST), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "semantic_intent": "SHIFT_CONTRAST",
+    "latency_ms": 14.94698571436207
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_e6a55be8b972",
+    "seed_text": "I am healthy But still hospitalized",
+    "perturbed_text": "In fact, i am healthy But still hospitalized",
+    "perturbation_type": "structure",
+    "category": "structure",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.8186574578285217,
+      "formatted_confidence": "81.87%",
+      "probabilities": {
+        "NEGATIVE": 0.8186574578285217,
+        "POSITIVE": 0.18134254217147827
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "81.87%",
+        "POSITIVE": "18.13%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [================    ]  81.87%\nPOSITIVE   [====                ]  18.13%",
+      "raw_logits": null,
+      "latency_ms": 191.81400000161375,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.6103032645492773,
+      "formatted_confidence": "61.03%",
+      "probabilities": {
+        "NEGATIVE": 0.3896967354507227,
+        "POSITIVE": 0.6103032645492773
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "38.97%",
+        "POSITIVE": "61.03%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [========            ]  38.97%\nPOSITIVE   [============        ]  61.03%",
+      "raw_logits": null,
+      "latency_ms": 14.94698571436207,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.8186574578285217,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.6103032645492773,
+    "is_flipped": true,
+    "confidence_delta": -0.20835419327924443,
+    "confidence_delta_pts": -20.83541932792444,
+    "formatted_confidence_delta": "-20.84 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "UNEXPECTED_FLIP",
+    "failure_type": "Spurious",
+    "rationale": "The verified perturbation is meaning-preserving (PRESERVE_MEANING), but the model unexpectedly changed its predicted class (NEGATIVE \u2192 POSITIVE).",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 14.94698571436207
+  }
+]

@@ -1,0 +1,558 @@
+{
+  "distilbert-base-uncased-finetuned-sst-2-english": {
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "raw_id2label": {
+      "0": "NEGATIVE",
+      "1": "POSITIVE"
+    },
+    "raw_label2id": {
+      "NEGATIVE": 0,
+      "POSITIVE": 1
+    },
+    "num_classes": 2,
+    "architectures": [
+      "DistilBertForSequenceClassification"
+    ],
+    "model_type": "distilbert",
+    "tokenizer_type": "BertTokenizer",
+    "head_type": "Linear",
+    "model_class": "DistilBertForSequenceClassification",
+    "wrapper_labels": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "wrapper_loaded": true,
+    "sentences": [
+      {
+        "sentence": "I loved the movie.",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.9998734688473484,
+        "probabilities": {
+          "NEGATIVE": 0.00012653115265163034,
+          "POSITIVE": 0.9998734688473484
+        },
+        "raw_pipeline_output": [
+          {
+            "label": "POSITIVE",
+            "score": 0.9998733997344971
+          },
+          {
+            "label": "NEGATIVE",
+            "score": 0.00012653114390559494
+          }
+        ]
+      },
+      {
+        "sentence": "I hated the movie.",
+        "predicted_label": "NEGATIVE",
+        "confidence": 0.9996870179491912,
+        "probabilities": {
+          "NEGATIVE": 0.9996870179491912,
+          "POSITIVE": 0.0003129820508087745
+        },
+        "raw_pipeline_output": [
+          {
+            "label": "NEGATIVE",
+            "score": 0.9996870756149292
+          },
+          {
+            "label": "POSITIVE",
+            "score": 0.00031298206886276603
+          }
+        ]
+      },
+      {
+        "sentence": "The movie was okay.",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.9998013318266088,
+        "probabilities": {
+          "NEGATIVE": 0.00019866817339118847,
+          "POSITIVE": 0.9998013318266088
+        },
+        "raw_pipeline_output": [
+          {
+            "label": "POSITIVE",
+            "score": 0.9998013377189636
+          },
+          {
+            "label": "NEGATIVE",
+            "score": 0.00019866817456204444
+          }
+        ]
+      },
+      {
+        "sentence": "I don't think the movie was not entirely without merit.",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.9979634770702345,
+        "probabilities": {
+          "NEGATIVE": 0.002036522929765524,
+          "POSITIVE": 0.9979634770702345
+        },
+        "raw_pipeline_output": [
+          {
+            "label": "POSITIVE",
+            "score": 0.997963547706604
+          },
+          {
+            "label": "NEGATIVE",
+            "score": 0.002036523073911667
+          }
+        ]
+      }
+    ]
+  },
+  "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "raw_id2label": {
+      "0": "negative",
+      "1": "neutral",
+      "2": "positive"
+    },
+    "raw_label2id": {
+      "negative": 0,
+      "neutral": 1,
+      "positive": 2
+    },
+    "num_classes": 3,
+    "architectures": [
+      "RobertaForSequenceClassification"
+    ],
+    "model_type": "roberta",
+    "tokenizer_type": "RobertaTokenizer",
+    "head_type": "RobertaClassificationHead",
+    "model_class": "RobertaForSequenceClassification",
+    "wrapper_labels": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "wrapper_loaded": true,
+    "sentences": [
+      {
+        "sentence": "I loved the movie.",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.9804938581659475,
+        "probabilities": {
+          "NEGATIVE": 0.0035446454367733813,
+          "NEUTRAL": 0.01596149639727915,
+          "POSITIVE": 0.9804938581659475
+        },
+        "raw_pipeline_output": [
+          {
+            "label": "positive",
+            "score": 0.9804938435554504
+          },
+          {
+            "label": "neutral",
+            "score": 0.01596149615943432
+          },
+          {
+            "label": "negative",
+            "score": 0.003544645383954048
+          }
+        ]
+      },
+      {
+        "sentence": "I hated the movie.",
+        "predicted_label": "NEGATIVE",
+        "confidence": 0.9183109548047989,
+        "probabilities": {
+          "NEGATIVE": 0.9183109548047989,
+          "NEUTRAL": 0.06790127712704401,
+          "POSITIVE": 0.013787768068157189
+        },
+        "raw_pipeline_output": [
+          {
+            "label": "negative",
+            "score": 0.9183109402656555
+          },
+          {
+            "label": "neutral",
+            "score": 0.06790127605199814
+          },
+          {
+            "label": "positive",
+            "score": 0.013787767849862576
+          }
+        ]
+      },
+      {
+        "sentence": "The movie was okay.",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.8963215710053477,
+        "probabilities": {
+          "NEGATIVE": 0.007920963075572078,
+          "NEUTRAL": 0.09575746591908023,
+          "POSITIVE": 0.8963215710053477
+        },
+        "raw_pipeline_output": [
+          {
+            "label": "positive",
+            "score": 0.8963215351104736
+          },
+          {
+            "label": "neutral",
+            "score": 0.09575746208429337
+          },
+          {
+            "label": "negative",
+            "score": 0.007920962758362293
+          }
+        ]
+      },
+      {
+        "sentence": "I don't think the movie was not entirely without merit.",
+        "predicted_label": "NEUTRAL",
+        "confidence": 0.49853537406490317,
+        "probabilities": {
+          "NEGATIVE": 0.4722260308144489,
+          "NEUTRAL": 0.49853537406490317,
+          "POSITIVE": 0.029238595120647914
+        },
+        "raw_pipeline_output": [
+          {
+            "label": "neutral",
+            "score": 0.4985353350639343
+          },
+          {
+            "label": "negative",
+            "score": 0.47222599387168884
+          },
+          {
+            "label": "positive",
+            "score": 0.029238592833280563
+          }
+        ]
+      }
+    ]
+  },
+  "textattack/bert-base-uncased-SST-2": {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "raw_id2label": {
+      "0": "LABEL_0",
+      "1": "LABEL_1"
+    },
+    "raw_label2id": {
+      "LABEL_0": 0,
+      "LABEL_1": 1
+    },
+    "num_classes": 2,
+    "architectures": [
+      "BertForSequenceClassification"
+    ],
+    "model_type": "bert",
+    "tokenizer_type": "BertTokenizer",
+    "head_type": "Linear",
+    "model_class": "BertForSequenceClassification",
+    "wrapper_labels": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "wrapper_loaded": true,
+    "sentences": [
+      {
+        "sentence": "I loved the movie.",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.9995188128950023,
+        "probabilities": {
+          "NEGATIVE": 0.0004811871049976993,
+          "POSITIVE": 0.9995188128950023
+        },
+        "raw_pipeline_output": [
+          {
+            "label": "LABEL_1",
+            "score": 0.999518871307373
+          },
+          {
+            "label": "LABEL_0",
+            "score": 0.00048118713311851025
+          }
+        ]
+      },
+      {
+        "sentence": "I hated the movie.",
+        "predicted_label": "NEGATIVE",
+        "confidence": 0.9990061330228168,
+        "probabilities": {
+          "NEGATIVE": 0.9990061330228168,
+          "POSITIVE": 0.0009938669771831549
+        },
+        "raw_pipeline_output": [
+          {
+            "label": "LABEL_0",
+            "score": 0.9990062117576599
+          },
+          {
+            "label": "LABEL_1",
+            "score": 0.0009938670555129647
+          }
+        ]
+      },
+      {
+        "sentence": "The movie was okay.",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.9928803748677189,
+        "probabilities": {
+          "NEGATIVE": 0.007119625132281155,
+          "POSITIVE": 0.9928803748677189
+        },
+        "raw_pipeline_output": [
+          {
+            "label": "LABEL_1",
+            "score": 0.9928804039955139
+          },
+          {
+            "label": "LABEL_0",
+            "score": 0.007119625341147184
+          }
+        ]
+      },
+      {
+        "sentence": "I don't think the movie was not entirely without merit.",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.9827448542649885,
+        "probabilities": {
+          "NEGATIVE": 0.017255145735011516,
+          "POSITIVE": 0.9827448542649885
+        },
+        "raw_pipeline_output": [
+          {
+            "label": "LABEL_1",
+            "score": 0.9827448725700378
+          },
+          {
+            "label": "LABEL_0",
+            "score": 0.01725514605641365
+          }
+        ]
+      }
+    ]
+  },
+  "roberta-base-openai-detector": {
+    "model_id": "roberta-base-openai-detector",
+    "raw_id2label": {
+      "0": "Fake",
+      "1": "Real"
+    },
+    "raw_label2id": {
+      "Fake": 0,
+      "Real": 1
+    },
+    "num_classes": 2,
+    "architectures": [
+      "RobertaForSequenceClassification"
+    ],
+    "model_type": "roberta",
+    "tokenizer_type": "RobertaTokenizer",
+    "head_type": "RobertaClassificationHead",
+    "model_class": "RobertaForSequenceClassification",
+    "wrapper_labels": [
+      "FAKE",
+      "REAL"
+    ],
+    "wrapper_loaded": true,
+    "sentences": [
+      {
+        "sentence": "I loved the movie.",
+        "predicted_label": "FAKE",
+        "confidence": 0.8961649208117998,
+        "probabilities": {
+          "FAKE": 0.8961649208117998,
+          "REAL": 0.10383507918820022
+        },
+        "raw_pipeline_output": [
+          {
+            "label": "Fake",
+            "score": 0.8961648941040039
+          },
+          {
+            "label": "Real",
+            "score": 0.1038350760936737
+          }
+        ]
+      },
+      {
+        "sentence": "I hated the movie.",
+        "predicted_label": "FAKE",
+        "confidence": 0.8246341593454528,
+        "probabilities": {
+          "FAKE": 0.8246341593454528,
+          "REAL": 0.17536584065454724
+        },
+        "raw_pipeline_output": [
+          {
+            "label": "Fake",
+            "score": 0.8246341347694397
+          },
+          {
+            "label": "Real",
+            "score": 0.17536583542823792
+          }
+        ]
+      },
+      {
+        "sentence": "The movie was okay.",
+        "predicted_label": "FAKE",
+        "confidence": 0.9313898086547852,
+        "probabilities": {
+          "FAKE": 0.9313898086547852,
+          "REAL": 0.06861019134521484
+        },
+        "raw_pipeline_output": [
+          {
+            "label": "Fake",
+            "score": 0.9313898086547852
+          },
+          {
+            "label": "Real",
+            "score": 0.06861019134521484
+          }
+        ]
+      },
+      {
+        "sentence": "I don't think the movie was not entirely without merit.",
+        "predicted_label": "FAKE",
+        "confidence": 0.8488208272090184,
+        "probabilities": {
+          "FAKE": 0.8488208272090184,
+          "REAL": 0.15117917279098156
+        },
+        "raw_pipeline_output": [
+          {
+            "label": "Fake",
+            "score": 0.8488208651542664
+          },
+          {
+            "label": "Real",
+            "score": 0.15117917954921722
+          }
+        ]
+      }
+    ]
+  },
+  "cardiffnlp/twitter-roberta-base-sentiment": {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "raw_id2label": {
+      "0": "LABEL_0",
+      "1": "LABEL_1",
+      "2": "LABEL_2"
+    },
+    "raw_label2id": {
+      "LABEL_0": 0,
+      "LABEL_1": 1,
+      "LABEL_2": 2
+    },
+    "num_classes": 3,
+    "architectures": [
+      "RobertaForSequenceClassification"
+    ],
+    "model_type": "roberta",
+    "tokenizer_type": "RobertaTokenizer",
+    "head_type": "RobertaClassificationHead",
+    "model_class": "RobertaForSequenceClassification",
+    "wrapper_labels": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "wrapper_loaded": true,
+    "sentences": [
+      {
+        "sentence": "I loved the movie.",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.9886491570297165,
+        "probabilities": {
+          "NEGATIVE": 0.002643622064950737,
+          "NEUTRAL": 0.008707220905332842,
+          "POSITIVE": 0.9886491570297165
+        },
+        "raw_pipeline_output": [
+          {
+            "label": "LABEL_2",
+            "score": 0.9886491298675537
+          },
+          {
+            "label": "LABEL_1",
+            "score": 0.008707220666110516
+          },
+          {
+            "label": "LABEL_0",
+            "score": 0.0026436219923198223
+          }
+        ]
+      },
+      {
+        "sentence": "I hated the movie.",
+        "predicted_label": "NEGATIVE",
+        "confidence": 0.9781701465232977,
+        "probabilities": {
+          "NEGATIVE": 0.9781701465232977,
+          "NEUTRAL": 0.018208780318851144,
+          "POSITIVE": 0.0036210731578511066
+        },
+        "raw_pipeline_output": [
+          {
+            "label": "LABEL_0",
+            "score": 0.9781700968742371
+          },
+          {
+            "label": "LABEL_1",
+            "score": 0.018208779394626617
+          },
+          {
+            "label": "LABEL_2",
+            "score": 0.0036210729740560055
+          }
+        ]
+      },
+      {
+        "sentence": "The movie was okay.",
+        "predicted_label": "POSITIVE",
+        "confidence": 0.8829888627427632,
+        "probabilities": {
+          "NEGATIVE": 0.008020364612170233,
+          "NEUTRAL": 0.10899077264506654,
+          "POSITIVE": 0.8829888627427632
+        },
+        "raw_pipeline_output": [
+          {
+            "label": "LABEL_2",
+            "score": 0.8829888701438904
+          },
+          {
+            "label": "LABEL_1",
+            "score": 0.10899077355861664
+          },
+          {
+            "label": "LABEL_0",
+            "score": 0.008020364679396152
+          }
+        ]
+      },
+      {
+        "sentence": "I don't think the movie was not entirely without merit.",
+        "predicted_label": "NEUTRAL",
+        "confidence": 0.7141761662631146,
+        "probabilities": {
+          "NEGATIVE": 0.16108932681235627,
+          "NEUTRAL": 0.7141761662631146,
+          "POSITIVE": 0.12473450692452909
+        },
+        "raw_pipeline_output": [
+          {
+            "label": "LABEL_1",
+            "score": 0.7141761183738708
+          },
+          {
+            "label": "LABEL_0",
+            "score": 0.16108931601047516
+          },
+          {
+            "label": "LABEL_2",
+            "score": 0.12473449856042862
+          }
+        ]
+      }
+    ]
+  }
+}

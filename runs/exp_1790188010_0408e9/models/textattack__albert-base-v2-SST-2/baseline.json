@@ -1,0 +1,27 @@
+{
+  "The movie was great and the acting was top notch.": {
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "seed_text": "The movie was great and the acting was top notch.",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9957467542683052,
+      "formatted_confidence": "99.57%",
+      "probabilities": {
+        "NEGATIVE": 0.004253245731694783,
+        "POSITIVE": 0.9957467542683052
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.43%",
+        "POSITIVE": "99.57%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.43%\nPOSITIVE   [====================]  99.57%",
+      "raw_logits": null,
+      "latency_ms": 177.14019999948505,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "latency_ms": 177.14019999948505
+  }
+}

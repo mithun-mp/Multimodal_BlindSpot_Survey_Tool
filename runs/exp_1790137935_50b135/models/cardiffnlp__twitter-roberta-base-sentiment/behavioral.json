@@ -1,0 +1,464 @@
+[
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_8ecd031cfa51",
+    "seed_text": "The film was amazing,me and family enjoyed it well",
+    "perturbed_text": "The film was not amazing,me and family enjoyed it well",
+    "perturbation_type": "negation_insertion",
+    "category": "negation_insertion",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.991986808489251,
+      "formatted_confidence": "99.20%",
+      "probabilities": {
+        "NEGATIVE": 0.0014772927072254597,
+        "NEUTRAL": 0.006535898803523522,
+        "POSITIVE": 0.991986808489251
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.15%",
+        "NEUTRAL": "0.65%",
+        "POSITIVE": "99.20%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.15%\nNEUTRAL    [                    ]   0.65%\nPOSITIVE   [====================]  99.20%",
+      "raw_logits": null,
+      "latency_ms": 358.94140000164043,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.3970462618497766,
+      "formatted_confidence": "39.70%",
+      "probabilities": {
+        "NEGATIVE": 0.3970462618497766,
+        "NEUTRAL": 0.3559276673750679,
+        "POSITIVE": 0.24702607077515548
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "39.70%",
+        "NEUTRAL": "35.59%",
+        "POSITIVE": "24.70%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [========            ]  39.70%\nNEUTRAL    [=======             ]  35.59%\nPOSITIVE   [=====               ]  24.70%",
+      "raw_logits": null,
+      "latency_ms": 33.799228571297135,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.991986808489251,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.3970462618497766,
+    "is_flipped": true,
+    "confidence_delta": -0.5949405466394744,
+    "confidence_delta_pts": -59.49405466394744,
+    "formatted_confidence_delta": "-59.49 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_FLIP",
+    "failure_type": "None",
+    "rationale": "Model correctly flipped prediction from POSITIVE \u2192 NEGATIVE under REVERSE_POLARITY.",
+    "semantic_intent": "REVERSE_POLARITY",
+    "latency_ms": 33.799228571297135
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_e2334bb817ec",
+    "seed_text": "The film was amazing,me and family enjoyed it well",
+    "perturbed_text": "It is not impossible that the film was amazing,me and family enjoyed it well",
+    "perturbation_type": "double_negation",
+    "category": "double_negation",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.991986808489251,
+      "formatted_confidence": "99.20%",
+      "probabilities": {
+        "NEGATIVE": 0.0014772927072254597,
+        "NEUTRAL": 0.006535898803523522,
+        "POSITIVE": 0.991986808489251
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.15%",
+        "NEUTRAL": "0.65%",
+        "POSITIVE": "99.20%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.15%\nNEUTRAL    [                    ]   0.65%\nPOSITIVE   [====================]  99.20%",
+      "raw_logits": null,
+      "latency_ms": 358.94140000164043,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.987605538864715,
+      "formatted_confidence": "98.76%",
+      "probabilities": {
+        "NEGATIVE": 0.0020711642466074583,
+        "NEUTRAL": 0.01032329688867753,
+        "POSITIVE": 0.987605538864715
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.21%",
+        "NEUTRAL": "1.03%",
+        "POSITIVE": "98.76%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.21%\nNEUTRAL    [                    ]   1.03%\nPOSITIVE   [====================]  98.76%",
+      "raw_logits": null,
+      "latency_ms": 33.799228571297135,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.991986808489251,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.987605538864715,
+    "is_flipped": false,
+    "confidence_delta": -0.0043812696245359994,
+    "confidence_delta_pts": -0.43812696245359994,
+    "formatted_confidence_delta": "-0.44 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (POSITIVE \u2192 POSITIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 33.799228571297135
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_696d0444b6a8",
+    "seed_text": "The film was amazing,me and family enjoyed it well",
+    "perturbed_text": "The film extremely was amazing,me and family enjoyed it well",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "strengthen",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.991986808489251,
+      "formatted_confidence": "99.20%",
+      "probabilities": {
+        "NEGATIVE": 0.0014772927072254597,
+        "NEUTRAL": 0.006535898803523522,
+        "POSITIVE": 0.991986808489251
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.15%",
+        "NEUTRAL": "0.65%",
+        "POSITIVE": "99.20%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.15%\nNEUTRAL    [                    ]   0.65%\nPOSITIVE   [====================]  99.20%",
+      "raw_logits": null,
+      "latency_ms": 358.94140000164043,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9911489414001834,
+      "formatted_confidence": "99.11%",
+      "probabilities": {
+        "NEGATIVE": 0.0015028616070421085,
+        "NEUTRAL": 0.007348196992774446,
+        "POSITIVE": 0.9911489414001834
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.15%",
+        "NEUTRAL": "0.73%",
+        "POSITIVE": "99.11%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.15%\nNEUTRAL    [                    ]   0.73%\nPOSITIVE   [====================]  99.11%",
+      "raw_logits": null,
+      "latency_ms": 33.799228571297135,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.991986808489251,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9911489414001834,
+    "is_flipped": false,
+    "confidence_delta": -0.0008378670890676343,
+    "confidence_delta_pts": -0.08378670890676343,
+    "formatted_confidence_delta": "-0.08 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (POSITIVE \u2192 POSITIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "STRENGTHEN_POLARITY",
+    "latency_ms": 33.799228571297135
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_e39764a89971",
+    "seed_text": "The film was amazing,me and family enjoyed it well",
+    "perturbed_text": "The film somewhat was amazing,me and family enjoyed it well",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "weaken",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.991986808489251,
+      "formatted_confidence": "99.20%",
+      "probabilities": {
+        "NEGATIVE": 0.0014772927072254597,
+        "NEUTRAL": 0.006535898803523522,
+        "POSITIVE": 0.991986808489251
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.15%",
+        "NEUTRAL": "0.65%",
+        "POSITIVE": "99.20%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.15%\nNEUTRAL    [                    ]   0.65%\nPOSITIVE   [====================]  99.20%",
+      "raw_logits": null,
+      "latency_ms": 358.94140000164043,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9908329554950968,
+      "formatted_confidence": "99.08%",
+      "probabilities": {
+        "NEGATIVE": 0.0012762307514979133,
+        "NEUTRAL": 0.007890813753405324,
+        "POSITIVE": 0.9908329554950968
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.13%",
+        "NEUTRAL": "0.79%",
+        "POSITIVE": "99.08%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.13%\nNEUTRAL    [                    ]   0.79%\nPOSITIVE   [====================]  99.08%",
+      "raw_logits": null,
+      "latency_ms": 33.799228571297135,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.991986808489251,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9908329554950968,
+    "is_flipped": false,
+    "confidence_delta": -0.0011538529941542697,
+    "confidence_delta_pts": -0.11538529941542697,
+    "formatted_confidence_delta": "-0.12 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (POSITIVE \u2192 POSITIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "WEAKEN_POLARITY",
+    "latency_ms": 33.799228571297135
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_3f29e28d6466",
+    "seed_text": "The film was amazing,me and family enjoyed it well",
+    "perturbed_text": "The cinema was amazing,me and family enjoyed it well",
+    "perturbation_type": "synonym_substitution",
+    "category": "synonym_substitution",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.991986808489251,
+      "formatted_confidence": "99.20%",
+      "probabilities": {
+        "NEGATIVE": 0.0014772927072254597,
+        "NEUTRAL": 0.006535898803523522,
+        "POSITIVE": 0.991986808489251
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.15%",
+        "NEUTRAL": "0.65%",
+        "POSITIVE": "99.20%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.15%\nNEUTRAL    [                    ]   0.65%\nPOSITIVE   [====================]  99.20%",
+      "raw_logits": null,
+      "latency_ms": 358.94140000164043,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9913358639883685,
+      "formatted_confidence": "99.13%",
+      "probabilities": {
+        "NEGATIVE": 0.0014064006904292818,
+        "NEUTRAL": 0.007257735321202213,
+        "POSITIVE": 0.9913358639883685
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.14%",
+        "NEUTRAL": "0.73%",
+        "POSITIVE": "99.13%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.14%\nNEUTRAL    [                    ]   0.73%\nPOSITIVE   [====================]  99.13%",
+      "raw_logits": null,
+      "latency_ms": 33.799228571297135,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.991986808489251,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9913358639883685,
+    "is_flipped": false,
+    "confidence_delta": -0.0006509445008825443,
+    "confidence_delta_pts": -0.06509445008825443,
+    "formatted_confidence_delta": "-0.07 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (POSITIVE \u2192 POSITIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 33.799228571297135
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_aa4499ef9818",
+    "seed_text": "The film was amazing,me and family enjoyed it well",
+    "perturbed_text": "The film was amazing,me and family enjoyed it well, however it was surprisingly unimpressive in comparison.",
+    "perturbation_type": "contrast_negative_append",
+    "category": "contrast_negative_append",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.991986808489251,
+      "formatted_confidence": "99.20%",
+      "probabilities": {
+        "NEGATIVE": 0.0014772927072254597,
+        "NEUTRAL": 0.006535898803523522,
+        "POSITIVE": 0.991986808489251
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.15%",
+        "NEUTRAL": "0.65%",
+        "POSITIVE": "99.20%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.15%\nNEUTRAL    [                    ]   0.65%\nPOSITIVE   [====================]  99.20%",
+      "raw_logits": null,
+      "latency_ms": 358.94140000164043,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9653954847576361,
+      "formatted_confidence": "96.54%",
+      "probabilities": {
+        "NEGATIVE": 0.008715214516202129,
+        "NEUTRAL": 0.025889300726161735,
+        "POSITIVE": 0.9653954847576361
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.87%",
+        "NEUTRAL": "2.59%",
+        "POSITIVE": "96.54%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.87%\nNEUTRAL    [=                   ]   2.59%\nPOSITIVE   [=================== ]  96.54%",
+      "raw_logits": null,
+      "latency_ms": 33.799228571297135,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.991986808489251,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9653954847576361,
+    "is_flipped": false,
+    "confidence_delta": -0.02659132373161488,
+    "confidence_delta_pts": -2.659132373161488,
+    "formatted_confidence_delta": "-2.66 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "The verified probe introduces a polarity-altering change (SHIFT_CONTRAST), but the model retained the same predicted class (POSITIVE \u2192 POSITIVE).",
+    "semantic_intent": "SHIFT_CONTRAST",
+    "latency_ms": 33.799228571297135
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_f5c7a1a92cfe",
+    "seed_text": "The film was amazing,me and family enjoyed it well",
+    "perturbed_text": "The film was amazing,me and family enjoyed it well, and the overall storyline was engaging.",
+    "perturbation_type": "contrast_positive_append",
+    "category": "contrast_positive_append",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.991986808489251,
+      "formatted_confidence": "99.20%",
+      "probabilities": {
+        "NEGATIVE": 0.0014772927072254597,
+        "NEUTRAL": 0.006535898803523522,
+        "POSITIVE": 0.991986808489251
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.15%",
+        "NEUTRAL": "0.65%",
+        "POSITIVE": "99.20%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.15%\nNEUTRAL    [                    ]   0.65%\nPOSITIVE   [====================]  99.20%",
+      "raw_logits": null,
+      "latency_ms": 358.94140000164043,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9923274782712503,
+      "formatted_confidence": "99.23%",
+      "probabilities": {
+        "NEGATIVE": 0.0012896640262515387,
+        "NEUTRAL": 0.006382857702498173,
+        "POSITIVE": 0.9923274782712503
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.13%",
+        "NEUTRAL": "0.64%",
+        "POSITIVE": "99.23%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.13%\nNEUTRAL    [                    ]   0.64%\nPOSITIVE   [====================]  99.23%",
+      "raw_logits": null,
+      "latency_ms": 33.799228571297135,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.991986808489251,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9923274782712503,
+    "is_flipped": false,
+    "confidence_delta": 0.0003406697819993143,
+    "confidence_delta_pts": 0.03406697819993143,
+    "formatted_confidence_delta": "+0.03 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (POSITIVE \u2192 POSITIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 33.799228571297135
+  }
+]
