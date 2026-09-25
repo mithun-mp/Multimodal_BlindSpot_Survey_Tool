@@ -1,0 +1,29 @@
+{
+  "i am healthy but still hospitalized.": {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "seed_text": "i am healthy but still hospitalized.",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "NEUTRAL",
+      "confidence": 0.4838205585586692,
+      "formatted_confidence": "48.38%",
+      "probabilities": {
+        "NEGATIVE": 0.04416995977342369,
+        "NEUTRAL": 0.4838205585586692,
+        "POSITIVE": 0.4720094816679071
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "4.42%",
+        "NEUTRAL": "48.38%",
+        "POSITIVE": "47.20%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=                   ]   4.42%\nNEUTRAL    [==========          ]  48.38%\nPOSITIVE   [=========           ]  47.20%",
+      "raw_logits": null,
+      "latency_ms": 153.0097000013484,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "latency_ms": 153.0097000013484
+  }
+}

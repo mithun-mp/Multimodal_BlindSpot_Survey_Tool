@@ -1,0 +1,1397 @@
+[
+  {
+    "failure_id": "fail_4b81612c",
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_859f5f7bfbf1",
+    "category": "Blind",
+    "severity": "high",
+    "reason": "The verified probe introduces a polarity-altering change (REVERSE_POLARITY), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "details": "The verified probe introduces a polarity-altering change (REVERSE_POLARITY), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "recommendation": "Augment training data and regularize behavior against negation_insertion perturbations to fix Blind failures.",
+    "evidence": {
+      "original_label": "NEGATIVE",
+      "probe_label": "NEGATIVE",
+      "original_confidence": 0.9916283233931735,
+      "probe_confidence": 0.9994071456761066,
+      "confidence_delta_pp": 0.7778822282933029,
+      "label_transition": "NEGATIVE \u2192 NEGATIVE",
+      "is_prediction_flip": false,
+      "expected_effect": "INVERT",
+      "semantic_intent": "REVERSE_POLARITY",
+      "expected_label_relation": "DIFFERENT_LABEL",
+      "expected_confidence_relation": "UNCONSTRAINED",
+      "threshold_pp": 15.0,
+      "jaccard_similarity": 0.1111111111111111,
+      "cosine_alignment": 0.25388687284027,
+      "orig_explanation": {
+        "token_weights": {
+          "am": -0.011013788379815363,
+          "I": -0.12025698263721186,
+          "i": 0.017361090828254266,
+          "Energetic ,": -0.12221400708757439,
+          "still": -4.9205815910634276e-05,
+          "and": -0.00939921815375763,
+          "Healthy": 0.15137217100981806,
+          "But": -0.11669363636611721,
+          "Energetic": 0.15111091969712895,
+          "Hospitalized": 0.15950188203339272
+        },
+        "token_attributions": [
+          {
+            "token": "am",
+            "attribution": -0.011013788379815363,
+            "position": 1
+          },
+          {
+            "token": "I",
+            "attribution": -0.12025698263721186,
+            "position": 2
+          },
+          {
+            "token": "i",
+            "attribution": 0.017361090828254266,
+            "position": 3
+          },
+          {
+            "token": "Energetic ,",
+            "attribution": -0.12221400708757439,
+            "position": 4
+          },
+          {
+            "token": "still",
+            "attribution": -4.9205815910634276e-05,
+            "position": 5
+          },
+          {
+            "token": "and",
+            "attribution": -0.00939921815375763,
+            "position": 6
+          },
+          {
+            "token": "Healthy",
+            "attribution": 0.15137217100981806,
+            "position": 7
+          },
+          {
+            "token": "But",
+            "attribution": -0.11669363636611721,
+            "position": 8
+          },
+          {
+            "token": "Energetic",
+            "attribution": 0.15111091969712895,
+            "position": 9
+          },
+          {
+            "token": "Hospitalized",
+            "attribution": 0.15950188203339272,
+            "position": 10
+          }
+        ],
+        "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+        "text": "I am Healthy and Energetic ,But still i am Hospitalized",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "pert_explanation": {
+        "token_weights": {
+          "am": 0.08752041125755733,
+          "I": -0.0565201247182251,
+          "i": -0.10181155909756041,
+          "and": 0.09724322680455502,
+          "still": 0.09358319835206577,
+          "Healthy": -0.022606105838944207,
+          "But": -0.03248458939401367,
+          "Energetic,": -0.09366491127268094,
+          "not": 0.11041513383547102,
+          "Energetic": 0.07009145785486634,
+          "Hospitalized": 0.05397957132216255
+        },
+        "token_attributions": [
+          {
+            "token": "am",
+            "attribution": 0.08752041125755733,
+            "position": 1
+          },
+          {
+            "token": "I",
+            "attribution": -0.0565201247182251,
+            "position": 2
+          },
+          {
+            "token": "i",
+            "attribution": -0.10181155909756041,
+            "position": 3
+          },
+          {
+            "token": "and",
+            "attribution": 0.09724322680455502,
+            "position": 4
+          },
+          {
+            "token": "still",
+            "attribution": 0.09358319835206577,
+            "position": 5
+          },
+          {
+            "token": "Healthy",
+            "attribution": -0.022606105838944207,
+            "position": 6
+          },
+          {
+            "token": "But",
+            "attribution": -0.03248458939401367,
+            "position": 7
+          },
+          {
+            "token": "Energetic,",
+            "attribution": -0.09366491127268094,
+            "position": 8
+          },
+          {
+            "token": "not",
+            "attribution": 0.11041513383547102,
+            "position": 9
+          },
+          {
+            "token": "Energetic",
+            "attribution": 0.07009145785486634,
+            "position": 10
+          },
+          {
+            "token": "Hospitalized",
+            "attribution": 0.05397957132216255,
+            "position": 11
+          }
+        ],
+        "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+        "text": "I am not Healthy and Energetic,But still i am Hospitalized",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "aligned_tokens": [
+        {
+          "token": "am",
+          "orig_token": "am",
+          "pert_token": "am",
+          "orig_pos": 1,
+          "pert_pos": 1,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.011013788379815363,
+          "pert_val": 0.08752041125755733,
+          "delta": 0.0985341996373727,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "I",
+          "orig_token": "I",
+          "pert_token": "I",
+          "orig_pos": 2,
+          "pert_pos": 2,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 2,
+          "orig_val": -0.12025698263721186,
+          "pert_val": -0.0565201247182251,
+          "delta": 0.06373685791898676,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "i",
+          "orig_token": "i",
+          "pert_token": "i",
+          "orig_pos": 3,
+          "pert_pos": 3,
+          "orig_occ": 2,
+          "pert_occ": 2,
+          "total_occ": 2,
+          "orig_val": 0.017361090828254266,
+          "pert_val": -0.10181155909756041,
+          "delta": -0.11917264992581468,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Energetic ,",
+          "orig_token": "Energetic ,",
+          "pert_token": null,
+          "orig_pos": 4,
+          "pert_pos": null,
+          "orig_occ": 1,
+          "pert_occ": null,
+          "total_occ": 1,
+          "orig_val": -0.12221400708757439,
+          "pert_val": null,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "removed",
+          "is_key_shift": false
+        },
+        {
+          "token": "and",
+          "orig_token": null,
+          "pert_token": "and",
+          "orig_pos": null,
+          "pert_pos": 4,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.09724322680455502,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "still",
+          "orig_token": "still",
+          "pert_token": "still",
+          "orig_pos": 5,
+          "pert_pos": 5,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -4.9205815910634276e-05,
+          "pert_val": 0.09358319835206577,
+          "delta": 0.09363240416797641,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "and",
+          "orig_token": "and",
+          "pert_token": null,
+          "orig_pos": 6,
+          "pert_pos": null,
+          "orig_occ": 1,
+          "pert_occ": null,
+          "total_occ": 1,
+          "orig_val": -0.00939921815375763,
+          "pert_val": null,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "removed",
+          "is_key_shift": false
+        },
+        {
+          "token": "Healthy",
+          "orig_token": "Healthy",
+          "pert_token": "Healthy",
+          "orig_pos": 7,
+          "pert_pos": 6,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.15137217100981806,
+          "pert_val": -0.022606105838944207,
+          "delta": -0.17397827684876227,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": true
+        },
+        {
+          "token": "But",
+          "orig_token": "But",
+          "pert_token": "But",
+          "orig_pos": 8,
+          "pert_pos": 7,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.11669363636611721,
+          "pert_val": -0.03248458939401367,
+          "delta": 0.08420904697210355,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Energetic,",
+          "orig_token": null,
+          "pert_token": "Energetic,",
+          "orig_pos": null,
+          "pert_pos": 8,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.09366491127268094,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "not",
+          "orig_token": null,
+          "pert_token": "not",
+          "orig_pos": null,
+          "pert_pos": 9,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.11041513383547102,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "Energetic",
+          "orig_token": "Energetic",
+          "pert_token": "Energetic",
+          "orig_pos": 9,
+          "pert_pos": 10,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.15111091969712895,
+          "pert_val": 0.07009145785486634,
+          "delta": -0.08101946184226261,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Hospitalized",
+          "orig_token": "Hospitalized",
+          "pert_token": "Hospitalized",
+          "orig_pos": 10,
+          "pert_pos": 11,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.15950188203339272,
+          "pert_val": 0.05397957132216255,
+          "delta": -0.10552231071123017,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        }
+      ]
+    },
+    "traceable_narrative": "The verified probe introduces a polarity-altering change (REVERSE_POLARITY), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "original_sentence": "I am Healthy and Energetic ,But still i am Hospitalized",
+    "perturbed_sentence": "I am not Healthy and Energetic,But still i am Hospitalized",
+    "original_label": "NEGATIVE",
+    "perturbed_label": "NEGATIVE",
+    "original_confidence": 0.9916283233931735,
+    "perturbed_confidence": 0.9994071456761066,
+    "confidence_delta_pts": 0.7778822282933029,
+    "is_flipped": false,
+    "expected_flip": true,
+    "behavioral_outcome": "MISSING_FLIP"
+  },
+  {
+    "failure_id": "fail_cd109bc2",
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_2c66cf98fc1f",
+    "category": "Blind",
+    "severity": "high",
+    "reason": "The verified probe introduces a polarity-altering change (SHIFT_CONTRAST), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "details": "The verified probe introduces a polarity-altering change (SHIFT_CONTRAST), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "recommendation": "Augment training data and regularize behavior against contrast_negative_append perturbations to fix Blind failures.",
+    "evidence": {
+      "original_label": "NEGATIVE",
+      "probe_label": "NEGATIVE",
+      "original_confidence": 0.9916283233931735,
+      "probe_confidence": 0.7951436997907251,
+      "confidence_delta_pp": -19.648462360244846,
+      "label_transition": "NEGATIVE \u2192 NEGATIVE",
+      "is_prediction_flip": false,
+      "expected_effect": "INVERT",
+      "semantic_intent": "SHIFT_CONTRAST",
+      "expected_label_relation": "DIFFERENT_LABEL",
+      "expected_confidence_relation": "UNCONSTRAINED",
+      "threshold_pp": 15.0,
+      "jaccard_similarity": 0.42857142857142855,
+      "cosine_alignment": 0.04068184652976463,
+      "orig_explanation": {
+        "token_weights": {
+          "am": -0.011013788379815363,
+          "I": -0.12025698263721186,
+          "i": 0.017361090828254266,
+          "Energetic ,": -0.12221400708757439,
+          "still": -4.9205815910634276e-05,
+          "and": -0.00939921815375763,
+          "Healthy": 0.15137217100981806,
+          "But": -0.11669363636611721,
+          "Energetic": 0.15111091969712895,
+          "Hospitalized": 0.15950188203339272
+        },
+        "token_attributions": [
+          {
+            "token": "am",
+            "attribution": -0.011013788379815363,
+            "position": 1
+          },
+          {
+            "token": "I",
+            "attribution": -0.12025698263721186,
+            "position": 2
+          },
+          {
+            "token": "i",
+            "attribution": 0.017361090828254266,
+            "position": 3
+          },
+          {
+            "token": "Energetic ,",
+            "attribution": -0.12221400708757439,
+            "position": 4
+          },
+          {
+            "token": "still",
+            "attribution": -4.9205815910634276e-05,
+            "position": 5
+          },
+          {
+            "token": "and",
+            "attribution": -0.00939921815375763,
+            "position": 6
+          },
+          {
+            "token": "Healthy",
+            "attribution": 0.15137217100981806,
+            "position": 7
+          },
+          {
+            "token": "But",
+            "attribution": -0.11669363636611721,
+            "position": 8
+          },
+          {
+            "token": "Energetic",
+            "attribution": 0.15111091969712895,
+            "position": 9
+          },
+          {
+            "token": "Hospitalized",
+            "attribution": 0.15950188203339272,
+            "position": 10
+          }
+        ],
+        "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+        "text": "I am Healthy and Energetic ,But still i am Hospitalized",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "pert_explanation": {
+        "token_weights": {
+          "am": -0.09966877059151653,
+          "Hospitalized,": 0.3032650248417798,
+          "however": -0.07840713591306821,
+          "I": 0.053753578653171194,
+          "i": -0.0010340275480229702,
+          "performance": -0.0017594086102034562,
+          "and": -0.0829106451961058,
+          "still": -0.0010340275480229702,
+          "that": -0.0017594086102034562,
+          "Healthy": 0.08713655562309126,
+          "But": -0.0010340275480229702,
+          "Energetic,": -0.0010340275480229702,
+          "not": 0.05336964142782594,
+          "could": -0.04654325652788156,
+          "Energetic": 0.1733166882925806,
+          "repeat": 0.03642461897327116,
+          "Hospitalized": -0.18068591189522723
+        },
+        "token_attributions": [
+          {
+            "token": "am",
+            "attribution": -0.09966877059151653,
+            "position": 1
+          },
+          {
+            "token": "Hospitalized,",
+            "attribution": 0.3032650248417798,
+            "position": 2
+          },
+          {
+            "token": "however",
+            "attribution": -0.07840713591306821,
+            "position": 3
+          },
+          {
+            "token": "I",
+            "attribution": 0.053753578653171194,
+            "position": 4
+          },
+          {
+            "token": "i",
+            "attribution": -0.0010340275480229702,
+            "position": 5
+          },
+          {
+            "token": "performance",
+            "attribution": -0.0017594086102034562,
+            "position": 6
+          },
+          {
+            "token": "and",
+            "attribution": -0.0829106451961058,
+            "position": 7
+          },
+          {
+            "token": "still",
+            "attribution": -0.0010340275480229702,
+            "position": 8
+          },
+          {
+            "token": "that",
+            "attribution": -0.0017594086102034562,
+            "position": 9
+          },
+          {
+            "token": "Healthy",
+            "attribution": 0.08713655562309126,
+            "position": 10
+          },
+          {
+            "token": "But",
+            "attribution": -0.0010340275480229702,
+            "position": 11
+          },
+          {
+            "token": "Energetic,",
+            "attribution": -0.0010340275480229702,
+            "position": 12
+          },
+          {
+            "token": "not",
+            "attribution": 0.05336964142782594,
+            "position": 13
+          },
+          {
+            "token": "could",
+            "attribution": -0.04654325652788156,
+            "position": 14
+          },
+          {
+            "token": "Energetic",
+            "attribution": 0.1733166882925806,
+            "position": 15
+          },
+          {
+            "token": "repeat",
+            "attribution": 0.03642461897327116,
+            "position": 16
+          },
+          {
+            "token": "Hospitalized",
+            "attribution": -0.18068591189522723,
+            "position": 17
+          }
+        ],
+        "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+        "text": "I am Healthy and Energetic,But still i am Hospitalized, however I could not repeat that performance.",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "aligned_tokens": [
+        {
+          "token": "am",
+          "orig_token": "am",
+          "pert_token": "am",
+          "orig_pos": 1,
+          "pert_pos": 1,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.011013788379815363,
+          "pert_val": -0.09966877059151653,
+          "delta": -0.08865498221170118,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Hospitalized,",
+          "orig_token": null,
+          "pert_token": "Hospitalized,",
+          "orig_pos": null,
+          "pert_pos": 2,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.3032650248417798,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "however",
+          "orig_token": null,
+          "pert_token": "however",
+          "orig_pos": null,
+          "pert_pos": 3,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.07840713591306821,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "I",
+          "orig_token": "I",
+          "pert_token": "I",
+          "orig_pos": 2,
+          "pert_pos": 4,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 2,
+          "orig_val": -0.12025698263721186,
+          "pert_val": 0.053753578653171194,
+          "delta": 0.17401056129038306,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "i",
+          "orig_token": "i",
+          "pert_token": "i",
+          "orig_pos": 3,
+          "pert_pos": 5,
+          "orig_occ": 2,
+          "pert_occ": 2,
+          "total_occ": 2,
+          "orig_val": 0.017361090828254266,
+          "pert_val": -0.0010340275480229702,
+          "delta": -0.018395118376277237,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Energetic ,",
+          "orig_token": "Energetic ,",
+          "pert_token": null,
+          "orig_pos": 4,
+          "pert_pos": null,
+          "orig_occ": 1,
+          "pert_occ": null,
+          "total_occ": 1,
+          "orig_val": -0.12221400708757439,
+          "pert_val": null,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "removed",
+          "is_key_shift": false
+        },
+        {
+          "token": "performance",
+          "orig_token": null,
+          "pert_token": "performance",
+          "orig_pos": null,
+          "pert_pos": 6,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.0017594086102034562,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "and",
+          "orig_token": null,
+          "pert_token": "and",
+          "orig_pos": null,
+          "pert_pos": 7,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.0829106451961058,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "still",
+          "orig_token": "still",
+          "pert_token": "still",
+          "orig_pos": 5,
+          "pert_pos": 8,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -4.9205815910634276e-05,
+          "pert_val": -0.0010340275480229702,
+          "delta": -0.000984821732112336,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "and",
+          "orig_token": "and",
+          "pert_token": null,
+          "orig_pos": 6,
+          "pert_pos": null,
+          "orig_occ": 1,
+          "pert_occ": null,
+          "total_occ": 1,
+          "orig_val": -0.00939921815375763,
+          "pert_val": null,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "removed",
+          "is_key_shift": false
+        },
+        {
+          "token": "that",
+          "orig_token": null,
+          "pert_token": "that",
+          "orig_pos": null,
+          "pert_pos": 9,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.0017594086102034562,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "Healthy",
+          "orig_token": "Healthy",
+          "pert_token": "Healthy",
+          "orig_pos": 7,
+          "pert_pos": 10,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.15137217100981806,
+          "pert_val": 0.08713655562309126,
+          "delta": -0.0642356153867268,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "But",
+          "orig_token": "But",
+          "pert_token": "But",
+          "orig_pos": 8,
+          "pert_pos": 11,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.11669363636611721,
+          "pert_val": -0.0010340275480229702,
+          "delta": 0.11565960881809424,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Energetic,",
+          "orig_token": null,
+          "pert_token": "Energetic,",
+          "orig_pos": null,
+          "pert_pos": 12,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.0010340275480229702,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "not",
+          "orig_token": null,
+          "pert_token": "not",
+          "orig_pos": null,
+          "pert_pos": 13,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.05336964142782594,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "could",
+          "orig_token": null,
+          "pert_token": "could",
+          "orig_pos": null,
+          "pert_pos": 14,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.04654325652788156,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "Energetic",
+          "orig_token": "Energetic",
+          "pert_token": "Energetic",
+          "orig_pos": 9,
+          "pert_pos": 15,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.15111091969712895,
+          "pert_val": 0.1733166882925806,
+          "delta": 0.022205768595451647,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "repeat",
+          "orig_token": null,
+          "pert_token": "repeat",
+          "orig_pos": null,
+          "pert_pos": 16,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.03642461897327116,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "Hospitalized",
+          "orig_token": "Hospitalized",
+          "pert_token": "Hospitalized",
+          "orig_pos": 10,
+          "pert_pos": 17,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.15950188203339272,
+          "pert_val": -0.18068591189522723,
+          "delta": -0.34018779392862,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": true
+        }
+      ]
+    },
+    "traceable_narrative": "The verified probe introduces a polarity-altering change (SHIFT_CONTRAST), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "original_sentence": "I am Healthy and Energetic ,But still i am Hospitalized",
+    "perturbed_sentence": "I am Healthy and Energetic,But still i am Hospitalized, however I could not repeat that performance.",
+    "original_label": "NEGATIVE",
+    "perturbed_label": "NEGATIVE",
+    "original_confidence": 0.9916283233931735,
+    "perturbed_confidence": 0.7951436997907251,
+    "confidence_delta_pts": -19.648462360244846,
+    "is_flipped": false,
+    "expected_flip": true,
+    "behavioral_outcome": "MISSING_FLIP"
+  },
+  {
+    "failure_id": "fail_5b146b27",
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_b84086ecdb68",
+    "category": "Spurious",
+    "severity": "high",
+    "reason": "The verified perturbation is meaning-preserving (PRESERVE_MEANING), but the model unexpectedly changed its predicted class (NEGATIVE \u2192 POSITIVE).",
+    "details": "The verified perturbation is meaning-preserving (PRESERVE_MEANING), but the model unexpectedly changed its predicted class (NEGATIVE \u2192 POSITIVE).",
+    "recommendation": "Augment training data and regularize behavior against contrast_positive_append perturbations to fix Spurious failures.",
+    "evidence": {
+      "original_label": "NEGATIVE",
+      "probe_label": "POSITIVE",
+      "original_confidence": 0.9916283233931735,
+      "probe_confidence": 0.9989295029581321,
+      "confidence_delta_pp": 0.7301179564958571,
+      "label_transition": "NEGATIVE \u2192 POSITIVE",
+      "is_prediction_flip": true,
+      "expected_effect": "PRESERVE",
+      "semantic_intent": "PRESERVE_MEANING",
+      "expected_label_relation": "SAME_LABEL",
+      "expected_confidence_relation": "PRESERVE",
+      "threshold_pp": 15.0,
+      "jaccard_similarity": 0.0,
+      "cosine_alignment": -0.013279503560411063,
+      "orig_explanation": {
+        "token_weights": {
+          "am": -0.011013788379815363,
+          "I": -0.12025698263721186,
+          "i": 0.017361090828254266,
+          "Energetic ,": -0.12221400708757439,
+          "still": -4.9205815910634276e-05,
+          "and": -0.00939921815375763,
+          "Healthy": 0.15137217100981806,
+          "But": -0.11669363636611721,
+          "Energetic": 0.15111091969712895,
+          "Hospitalized": 0.15950188203339272
+        },
+        "token_attributions": [
+          {
+            "token": "am",
+            "attribution": -0.011013788379815363,
+            "position": 1
+          },
+          {
+            "token": "I",
+            "attribution": -0.12025698263721186,
+            "position": 2
+          },
+          {
+            "token": "i",
+            "attribution": 0.017361090828254266,
+            "position": 3
+          },
+          {
+            "token": "Energetic ,",
+            "attribution": -0.12221400708757439,
+            "position": 4
+          },
+          {
+            "token": "still",
+            "attribution": -4.9205815910634276e-05,
+            "position": 5
+          },
+          {
+            "token": "and",
+            "attribution": -0.00939921815375763,
+            "position": 6
+          },
+          {
+            "token": "Healthy",
+            "attribution": 0.15137217100981806,
+            "position": 7
+          },
+          {
+            "token": "But",
+            "attribution": -0.11669363636611721,
+            "position": 8
+          },
+          {
+            "token": "Energetic",
+            "attribution": 0.15111091969712895,
+            "position": 9
+          },
+          {
+            "token": "Hospitalized",
+            "attribution": 0.15950188203339272,
+            "position": 10
+          }
+        ],
+        "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+        "text": "I am Healthy and Energetic ,But still i am Hospitalized",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "pert_explanation": {
+        "token_weights": {
+          "am": -0.015578588844484103,
+          "Hospitalized,": -0.18276025751827524,
+          "I": 0.0014190239693501205,
+          "displayed": 0.11208628018583854,
+          "remarkable": 0.24187135286848357,
+          "i": -0.0010761704048736966,
+          "and": -0.04201682278211431,
+          "still": -0.03192376994615626,
+          "skill": 0.11539771248521605,
+          "Healthy": 0.00449446465399782,
+          "But": -0.03194464378174703,
+          "Energetic,": 0.0038703825181731644,
+          "Hospitalized": -0.039919238725492516
+        },
+        "token_attributions": [
+          {
+            "token": "am",
+            "attribution": -0.015578588844484103,
+            "position": 1
+          },
+          {
+            "token": "Hospitalized,",
+            "attribution": -0.18276025751827524,
+            "position": 2
+          },
+          {
+            "token": "I",
+            "attribution": 0.0014190239693501205,
+            "position": 3
+          },
+          {
+            "token": "displayed",
+            "attribution": 0.11208628018583854,
+            "position": 4
+          },
+          {
+            "token": "remarkable",
+            "attribution": 0.24187135286848357,
+            "position": 5
+          },
+          {
+            "token": "i",
+            "attribution": -0.0010761704048736966,
+            "position": 6
+          },
+          {
+            "token": "and",
+            "attribution": -0.04201682278211431,
+            "position": 7
+          },
+          {
+            "token": "still",
+            "attribution": -0.03192376994615626,
+            "position": 8
+          },
+          {
+            "token": "skill",
+            "attribution": 0.11539771248521605,
+            "position": 9
+          },
+          {
+            "token": "Healthy",
+            "attribution": 0.00449446465399782,
+            "position": 10
+          },
+          {
+            "token": "But",
+            "attribution": -0.03194464378174703,
+            "position": 11
+          },
+          {
+            "token": "Energetic,",
+            "attribution": 0.0038703825181731644,
+            "position": 12
+          },
+          {
+            "token": "Hospitalized",
+            "attribution": -0.039919238725492516,
+            "position": 13
+          }
+        ],
+        "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+        "text": "I am Healthy and Energetic,But still i am Hospitalized, and I displayed remarkable skill.",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "aligned_tokens": [
+        {
+          "token": "am",
+          "orig_token": "am",
+          "pert_token": "am",
+          "orig_pos": 1,
+          "pert_pos": 1,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.011013788379815363,
+          "pert_val": -0.015578588844484103,
+          "delta": -0.00456480046466874,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Hospitalized,",
+          "orig_token": null,
+          "pert_token": "Hospitalized,",
+          "orig_pos": null,
+          "pert_pos": 2,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.18276025751827524,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "I",
+          "orig_token": "I",
+          "pert_token": "I",
+          "orig_pos": 2,
+          "pert_pos": 3,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 2,
+          "orig_val": -0.12025698263721186,
+          "pert_val": 0.0014190239693501205,
+          "delta": 0.12167600660656198,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "displayed",
+          "orig_token": null,
+          "pert_token": "displayed",
+          "orig_pos": null,
+          "pert_pos": 4,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.11208628018583854,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "remarkable",
+          "orig_token": null,
+          "pert_token": "remarkable",
+          "orig_pos": null,
+          "pert_pos": 5,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.24187135286848357,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "i",
+          "orig_token": "i",
+          "pert_token": "i",
+          "orig_pos": 3,
+          "pert_pos": 6,
+          "orig_occ": 2,
+          "pert_occ": 2,
+          "total_occ": 2,
+          "orig_val": 0.017361090828254266,
+          "pert_val": -0.0010761704048736966,
+          "delta": -0.018437261233127965,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Energetic ,",
+          "orig_token": "Energetic ,",
+          "pert_token": null,
+          "orig_pos": 4,
+          "pert_pos": null,
+          "orig_occ": 1,
+          "pert_occ": null,
+          "total_occ": 1,
+          "orig_val": -0.12221400708757439,
+          "pert_val": null,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "removed",
+          "is_key_shift": false
+        },
+        {
+          "token": "and",
+          "orig_token": null,
+          "pert_token": "and",
+          "orig_pos": null,
+          "pert_pos": 7,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.04201682278211431,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "still",
+          "orig_token": "still",
+          "pert_token": "still",
+          "orig_pos": 5,
+          "pert_pos": 8,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -4.9205815910634276e-05,
+          "pert_val": -0.03192376994615626,
+          "delta": -0.03187456413024563,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "and",
+          "orig_token": "and",
+          "pert_token": null,
+          "orig_pos": 6,
+          "pert_pos": null,
+          "orig_occ": 1,
+          "pert_occ": null,
+          "total_occ": 1,
+          "orig_val": -0.00939921815375763,
+          "pert_val": null,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "removed",
+          "is_key_shift": false
+        },
+        {
+          "token": "skill",
+          "orig_token": null,
+          "pert_token": "skill",
+          "orig_pos": null,
+          "pert_pos": 9,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.11539771248521605,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "Healthy",
+          "orig_token": "Healthy",
+          "pert_token": "Healthy",
+          "orig_pos": 7,
+          "pert_pos": 10,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.15137217100981806,
+          "pert_val": 0.00449446465399782,
+          "delta": -0.14687770635582023,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "But",
+          "orig_token": "But",
+          "pert_token": "But",
+          "orig_pos": 8,
+          "pert_pos": 11,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.11669363636611721,
+          "pert_val": -0.03194464378174703,
+          "delta": 0.08474899258437019,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Energetic",
+          "orig_token": "Energetic",
+          "pert_token": null,
+          "orig_pos": 9,
+          "pert_pos": null,
+          "orig_occ": 1,
+          "pert_occ": null,
+          "total_occ": 1,
+          "orig_val": 0.15111091969712895,
+          "pert_val": null,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "removed",
+          "is_key_shift": false
+        },
+        {
+          "token": "Energetic,",
+          "orig_token": null,
+          "pert_token": "Energetic,",
+          "orig_pos": null,
+          "pert_pos": 12,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.0038703825181731644,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "Hospitalized",
+          "orig_token": "Hospitalized",
+          "pert_token": "Hospitalized",
+          "orig_pos": 10,
+          "pert_pos": 13,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.15950188203339272,
+          "pert_val": -0.039919238725492516,
+          "delta": -0.19942112075888524,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": true
+        }
+      ]
+    },
+    "traceable_narrative": "The verified perturbation is meaning-preserving (PRESERVE_MEANING), but the model unexpectedly changed its predicted class (NEGATIVE \u2192 POSITIVE).",
+    "original_sentence": "I am Healthy and Energetic ,But still i am Hospitalized",
+    "perturbed_sentence": "I am Healthy and Energetic,But still i am Hospitalized, and I displayed remarkable skill.",
+    "original_label": "NEGATIVE",
+    "perturbed_label": "POSITIVE",
+    "original_confidence": 0.9916283233931735,
+    "perturbed_confidence": 0.9989295029581321,
+    "confidence_delta_pts": 0.7301179564958571,
+    "is_flipped": true,
+    "expected_flip": false,
+    "behavioral_outcome": "UNEXPECTED_FLIP"
+  }
+]

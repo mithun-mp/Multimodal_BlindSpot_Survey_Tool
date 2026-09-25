@@ -1,0 +1,27 @@
+{
+  "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.": {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9806006495993548,
+      "formatted_confidence": "98.06%",
+      "probabilities": {
+        "NEGATIVE": 0.9806006495993548,
+        "POSITIVE": 0.01939935040064519
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.06%",
+        "POSITIVE": "1.94%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.06%\nPOSITIVE   [                    ]   1.94%",
+      "raw_logits": null,
+      "latency_ms": 40.60270000263699,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "latency_ms": 40.60270000263699
+  }
+}

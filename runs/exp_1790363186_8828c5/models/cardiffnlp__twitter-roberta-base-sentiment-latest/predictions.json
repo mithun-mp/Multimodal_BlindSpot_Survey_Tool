@@ -1,0 +1,464 @@
+[
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_ae5df0ccd318",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the product initially seemed impressively promising, it was not nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbation_type": "negation_insertion",
+    "category": "negation_insertion",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.7954361886636132,
+      "formatted_confidence": "79.54%",
+      "probabilities": {
+        "NEGATIVE": 0.7954361886636132,
+        "NEUTRAL": 0.15564122506154282,
+        "POSITIVE": 0.048922586274843916
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "79.54%",
+        "NEUTRAL": "15.56%",
+        "POSITIVE": "4.89%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [================    ]  79.54%\nNEUTRAL    [===                 ]  15.56%\nPOSITIVE   [=                   ]   4.89%",
+      "raw_logits": null,
+      "latency_ms": 271.2902999992366,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.8179791461216894,
+      "formatted_confidence": "81.80%",
+      "probabilities": {
+        "NEGATIVE": 0.8179791461216894,
+        "NEUTRAL": 0.14340544601711308,
+        "POSITIVE": 0.038615407861197465
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "81.80%",
+        "NEUTRAL": "14.34%",
+        "POSITIVE": "3.86%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [================    ]  81.80%\nNEUTRAL    [===                 ]  14.34%\nPOSITIVE   [=                   ]   3.86%",
+      "raw_logits": null,
+      "latency_ms": 568.0926714282707,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.7954361886636132,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.8179791461216894,
+    "is_flipped": false,
+    "confidence_delta": 0.022542957458076218,
+    "confidence_delta_pts": 2.254295745807622,
+    "formatted_confidence_delta": "+2.25 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "The verified probe introduces a polarity-altering change (REVERSE_POLARITY), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "semantic_intent": "REVERSE_POLARITY",
+    "latency_ms": 568.0926714282707
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_1db9eac5f09d",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "It is not impossible that although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbation_type": "double_negation",
+    "category": "double_negation",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.7954361886636132,
+      "formatted_confidence": "79.54%",
+      "probabilities": {
+        "NEGATIVE": 0.7954361886636132,
+        "NEUTRAL": 0.15564122506154282,
+        "POSITIVE": 0.048922586274843916
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "79.54%",
+        "NEUTRAL": "15.56%",
+        "POSITIVE": "4.89%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [================    ]  79.54%\nNEUTRAL    [===                 ]  15.56%\nPOSITIVE   [=                   ]   4.89%",
+      "raw_logits": null,
+      "latency_ms": 271.2902999992366,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.6529925854797712,
+      "formatted_confidence": "65.30%",
+      "probabilities": {
+        "NEGATIVE": 0.6529925854797712,
+        "NEUTRAL": 0.23845606973505437,
+        "POSITIVE": 0.10855134478517442
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "65.30%",
+        "NEUTRAL": "23.85%",
+        "POSITIVE": "10.86%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=============       ]  65.30%\nNEUTRAL    [=====               ]  23.85%\nPOSITIVE   [==                  ]  10.86%",
+      "raw_logits": null,
+      "latency_ms": 568.0926714282707,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.7954361886636132,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.6529925854797712,
+    "is_flipped": false,
+    "confidence_delta": -0.14244360318384197,
+    "confidence_delta_pts": -14.244360318384198,
+    "formatted_confidence_delta": "-14.24 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 568.0926714282707
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_3701669fda09",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely extremely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "strengthen",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.7954361886636132,
+      "formatted_confidence": "79.54%",
+      "probabilities": {
+        "NEGATIVE": 0.7954361886636132,
+        "NEUTRAL": 0.15564122506154282,
+        "POSITIVE": 0.048922586274843916
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "79.54%",
+        "NEUTRAL": "15.56%",
+        "POSITIVE": "4.89%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [================    ]  79.54%\nNEUTRAL    [===                 ]  15.56%\nPOSITIVE   [=                   ]   4.89%",
+      "raw_logits": null,
+      "latency_ms": 271.2902999992366,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.7666863741972567,
+      "formatted_confidence": "76.67%",
+      "probabilities": {
+        "NEGATIVE": 0.7666863741972567,
+        "NEUTRAL": 0.1694967138059682,
+        "POSITIVE": 0.06381691199677503
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "76.67%",
+        "NEUTRAL": "16.95%",
+        "POSITIVE": "6.38%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [===============     ]  76.67%\nNEUTRAL    [===                 ]  16.95%\nPOSITIVE   [=                   ]   6.38%",
+      "raw_logits": null,
+      "latency_ms": 568.0926714282707,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.7954361886636132,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.7666863741972567,
+    "is_flipped": false,
+    "confidence_delta": -0.028749814466356494,
+    "confidence_delta_pts": -2.8749814466356494,
+    "formatted_confidence_delta": "-2.87 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "STRENGTHEN_POLARITY",
+    "latency_ms": 568.0926714282707
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_5463baf67f97",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely somewhat excellent features, I cannot honestly say that I would recommend it.",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "weaken",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.7954361886636132,
+      "formatted_confidence": "79.54%",
+      "probabilities": {
+        "NEGATIVE": 0.7954361886636132,
+        "NEUTRAL": 0.15564122506154282,
+        "POSITIVE": 0.048922586274843916
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "79.54%",
+        "NEUTRAL": "15.56%",
+        "POSITIVE": "4.89%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [================    ]  79.54%\nNEUTRAL    [===                 ]  15.56%\nPOSITIVE   [=                   ]   4.89%",
+      "raw_logits": null,
+      "latency_ms": 271.2902999992366,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.794332194412765,
+      "formatted_confidence": "79.43%",
+      "probabilities": {
+        "NEGATIVE": 0.794332194412765,
+        "NEUTRAL": 0.15591749316576878,
+        "POSITIVE": 0.04975031242146623
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "79.43%",
+        "NEUTRAL": "15.59%",
+        "POSITIVE": "4.98%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [================    ]  79.43%\nNEUTRAL    [===                 ]  15.59%\nPOSITIVE   [=                   ]   4.98%",
+      "raw_logits": null,
+      "latency_ms": 568.0926714282707,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.7954361886636132,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.794332194412765,
+    "is_flipped": false,
+    "confidence_delta": -0.0011039942508481726,
+    "confidence_delta_pts": -0.11039942508481726,
+    "formatted_confidence_delta": "-0.11 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "WEAKEN_POLARITY",
+    "latency_ms": 568.0926714282707
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_626aac29e48e",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the item initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbation_type": "synonym_substitution",
+    "category": "synonym_substitution",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.7954361886636132,
+      "formatted_confidence": "79.54%",
+      "probabilities": {
+        "NEGATIVE": 0.7954361886636132,
+        "NEUTRAL": 0.15564122506154282,
+        "POSITIVE": 0.048922586274843916
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "79.54%",
+        "NEUTRAL": "15.56%",
+        "POSITIVE": "4.89%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [================    ]  79.54%\nNEUTRAL    [===                 ]  15.56%\nPOSITIVE   [=                   ]   4.89%",
+      "raw_logits": null,
+      "latency_ms": 271.2902999992366,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.8042588557172313,
+      "formatted_confidence": "80.43%",
+      "probabilities": {
+        "NEGATIVE": 0.8042588557172313,
+        "NEUTRAL": 0.15311875775291034,
+        "POSITIVE": 0.04262238652985838
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "80.43%",
+        "NEUTRAL": "15.31%",
+        "POSITIVE": "4.26%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [================    ]  80.43%\nNEUTRAL    [===                 ]  15.31%\nPOSITIVE   [=                   ]   4.26%",
+      "raw_logits": null,
+      "latency_ms": 568.0926714282707,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.7954361886636132,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.8042588557172313,
+    "is_flipped": false,
+    "confidence_delta": 0.008822667053618116,
+    "confidence_delta_pts": 0.8822667053618116,
+    "formatted_confidence_delta": "+0.88 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 568.0926714282707
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_d257d7394e56",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it, however it did not be reliably.",
+    "perturbation_type": "contrast_negative_append",
+    "category": "contrast_negative_append",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.7954361886636132,
+      "formatted_confidence": "79.54%",
+      "probabilities": {
+        "NEGATIVE": 0.7954361886636132,
+        "NEUTRAL": 0.15564122506154282,
+        "POSITIVE": 0.048922586274843916
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "79.54%",
+        "NEUTRAL": "15.56%",
+        "POSITIVE": "4.89%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [================    ]  79.54%\nNEUTRAL    [===                 ]  15.56%\nPOSITIVE   [=                   ]   4.89%",
+      "raw_logits": null,
+      "latency_ms": 271.2902999992366,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.8555746024279604,
+      "formatted_confidence": "85.56%",
+      "probabilities": {
+        "NEGATIVE": 0.8555746024279604,
+        "NEUTRAL": 0.11858402198526402,
+        "POSITIVE": 0.025841375586775635
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "85.56%",
+        "NEUTRAL": "11.86%",
+        "POSITIVE": "2.58%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=================   ]  85.56%\nNEUTRAL    [==                  ]  11.86%\nPOSITIVE   [=                   ]   2.58%",
+      "raw_logits": null,
+      "latency_ms": 568.0926714282707,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.7954361886636132,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.8555746024279604,
+    "is_flipped": false,
+    "confidence_delta": 0.06013841376434714,
+    "confidence_delta_pts": 6.013841376434714,
+    "formatted_confidence_delta": "+6.01 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "The verified probe introduces a polarity-altering change (SHIFT_CONTRAST), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "semantic_intent": "SHIFT_CONTRAST",
+    "latency_ms": 568.0926714282707
+  },
+  {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_cce6e49acab2",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it, and it delivered good results in practice.",
+    "perturbation_type": "contrast_positive_append",
+    "category": "contrast_positive_append",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.7954361886636132,
+      "formatted_confidence": "79.54%",
+      "probabilities": {
+        "NEGATIVE": 0.7954361886636132,
+        "NEUTRAL": 0.15564122506154282,
+        "POSITIVE": 0.048922586274843916
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "79.54%",
+        "NEUTRAL": "15.56%",
+        "POSITIVE": "4.89%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [================    ]  79.54%\nNEUTRAL    [===                 ]  15.56%\nPOSITIVE   [=                   ]   4.89%",
+      "raw_logits": null,
+      "latency_ms": 271.2902999992366,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.4362197518348694,
+      "formatted_confidence": "43.62%",
+      "probabilities": {
+        "NEGATIVE": 0.4362197518348694,
+        "NEUTRAL": 0.2800180912017822,
+        "POSITIVE": 0.2837621569633484
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "43.62%",
+        "NEUTRAL": "28.00%",
+        "POSITIVE": "28.38%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=========           ]  43.62%\nNEUTRAL    [======              ]  28.00%\nPOSITIVE   [======              ]  28.38%",
+      "raw_logits": null,
+      "latency_ms": 568.0926714282707,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.7954361886636132,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.4362197518348694,
+    "is_flipped": false,
+    "confidence_delta": -0.3592164368287438,
+    "confidence_delta_pts": -35.92164368287438,
+    "formatted_confidence_delta": "-35.92 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 568.0926714282707
+  }
+]

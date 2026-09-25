@@ -1,8 +1,0 @@
-{
-  "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
-  "status": "COMPLETED",
-  "completed_at": 1790019215.6720364,
-  "error": null,
-  "probes_done": 7,
-  "total_probes": 7
-}

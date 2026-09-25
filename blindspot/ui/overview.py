@@ -17,18 +17,15 @@ from blindspot.ui.components import render_empty_state
 def render_overview():
     store = RunStore()
     cache = ModelCache.get_shared_cache()
-    specs = ResourceManager.get_system_specs()
+    telemetry = ResourceManager.get_live_telemetry()
     cached_models = cache.cached_model_ids()
 
-    # Read live CPU & RAM usage
-    cpu_pct = 24.0
-    ram_pct = 52.0
-    try:
-        import psutil
-        cpu_pct = psutil.cpu_percent(interval=None)
-        ram_pct = psutil.virtual_memory().percent
-    except Exception:
-        pass
+    cpu = telemetry["cpu"]
+    ram = telemetry["ram"]
+    net = telemetry["network"]
+
+    net_down = f"{net['speed_down_kbps']:.0f} KB/s" if net['speed_down_kbps'] < 1024 else f"{net['speed_down_kbps']/1024:.1f} MB/s"
+    net_up = f"{net['speed_up_kbps']:.0f} KB/s" if net['speed_up_kbps'] < 1024 else f"{net['speed_up_kbps']/1024:.1f} MB/s"
 
     # ==========================================
     # Top Control Center Header & Quick Triggers
@@ -47,7 +44,7 @@ def render_overview():
         unsafe_allow_html=True,
     )
 
-    col_btn1, col_btn2, col_btn3, col_spacer = st.columns([2, 2, 2, 3])
+    col_btn1, col_btn2, col_spacer = st.columns([2, 2, 5])
     with col_btn1:
         if st.button("▶ NEW EXPERIMENT", type="primary", use_container_width=True, key="ov_btn_new_exp"):
             st.session_state["current_page"] = "Experiment"
@@ -58,35 +55,35 @@ def render_overview():
             st.session_state["current_page"] = "Run History"
             st.rerun()
 
-    with col_btn3:
-        if st.button("💻 OPEN CONSOLE", type="secondary", use_container_width=True, key="ov_btn_open_console"):
-            st.session_state["current_page"] = "Console"
-            st.rerun()
-
     # ==========================================
-    # System Hardware & Cache Telemetry
+    # System Hardware & Cache Telemetry Grid
     # ==========================================
     st.markdown(
         """
-        <div style="margin:20px 0 8px 0; font-family:monospace; font-size:0.85rem; font-weight:bold; color:#cbd5e1;">
-            HOST TELEMETRY & RESOURCES
+        <div style="margin:20px 0 8px 0; font-family:monospace; font-size:0.85rem; font-weight:bold; color:#cbd5e1; display:flex; justify-content:space-between; align-items:center;">
+            <span>HOST TELEMETRY & HARDWARE SENSORS</span>
+            <span style="font-size:0.7rem; color:#38bdf8; font-weight:normal;">● LIVE HARDWARE PROBE ACTIVE</span>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-    gpu_label = specs["gpu"]["device_name"] if specs["gpu"]["available"] else "Not detected"
     cache_count = len(cached_models)
     cache_desc = f"{cache_count} model(s) loaded" if cache_count > 0 else "0 models in memory"
 
+    # Single Unified Row: CPU, RAM, Network Speed, Model Cache
     col_s1, col_s2, col_s3, col_s4 = st.columns(4)
     with col_s1:
         st.markdown(
             f"""
-            <div style="background:#141824; border:1px solid #26334d; border-radius:6px; padding:12px 14px; font-family:monospace;">
-                <div style="color:#94a3b8; font-size:0.75rem;">CPU UTILIZATION</div>
-                <div style="color:#f1f5f9; font-size:1.2rem; font-weight:bold; margin-top:4px;">{cpu_pct:.0f}%</div>
-                <div style="color:#64748b; font-size:0.7rem;">{specs['cpu_cores']} Logical Cores</div>
+            <div style="background:#141824; border:1px solid #26334d; border-radius:6px; padding:12px 14px; font-family:monospace; min-height:140px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <span style="color:#94a3b8; font-size:0.75rem;">CPU PROCESSOR</span>
+                    <span style="color:#38bdf8; font-size:0.75rem;">{cpu['logical_cores']} Cores</span>
+                </div>
+                <div style="color:#f1f5f9; font-size:1.35rem; font-weight:bold; margin-top:4px;">{cpu['percent']:.1f}%</div>
+                <div style="color:#cbd5e1; font-size:0.75rem; margin-top:2px;">{cpu['physical_cores']} Physical / {cpu['logical_cores']} Logical</div>
+                <div style="color:#64748b; font-size:0.7rem; margin-top:2px;">Clock: {cpu['frequency_ghz']:.2f} GHz</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -95,10 +92,14 @@ def render_overview():
     with col_s2:
         st.markdown(
             f"""
-            <div style="background:#141824; border:1px solid #26334d; border-radius:6px; padding:12px 14px; font-family:monospace;">
-                <div style="color:#94a3b8; font-size:0.75rem;">MEMORY (RAM)</div>
-                <div style="color:#f1f5f9; font-size:1.2rem; font-weight:bold; margin-top:4px;">{ram_pct:.0f}%</div>
-                <div style="color:#64748b; font-size:0.7rem;">{specs['ram_gb']} GB Host Memory</div>
+            <div style="background:#141824; border:1px solid #26334d; border-radius:6px; padding:12px 14px; font-family:monospace; min-height:140px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <span style="color:#94a3b8; font-size:0.75rem;">HOST MEMORY (RAM)</span>
+                    <span style="color:#10b981; font-size:0.75rem;">Active</span>
+                </div>
+                <div style="color:#f1f5f9; font-size:1.35rem; font-weight:bold; margin-top:4px;">{ram['percent']:.1f}%</div>
+                <div style="color:#cbd5e1; font-size:0.75rem; margin-top:2px;">{ram['used_gb']:.1f} GB Allocated</div>
+                <div style="color:#64748b; font-size:0.7rem; margin-top:2px;">Dynamic OS Memory Pool</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -107,10 +108,16 @@ def render_overview():
     with col_s3:
         st.markdown(
             f"""
-            <div style="background:#141824; border:1px solid #26334d; border-radius:6px; padding:12px 14px; font-family:monospace;">
-                <div style="color:#94a3b8; font-size:0.75rem;">GPU ACCELERATION</div>
-                <div style="color:{'#10b981' if specs['gpu']['available'] else '#94a3b8'}; font-size:1.1rem; font-weight:bold; margin-top:4px;">{gpu_label}</div>
-                <div style="color:#64748b; font-size:0.7rem;">PyTorch Device: {specs.get('pytorch_device', 'cuda' if specs['gpu']['available'] else 'cpu').upper()}</div>
+            <div style="background:#141824; border:1px solid #26334d; border-radius:6px; padding:12px 14px; font-family:monospace; min-height:140px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <span style="color:#94a3b8; font-size:0.75rem;">NETWORK SPEED & I/O</span>
+                    <span style="color:#a855f7; font-size:0.75rem;">Active</span>
+                </div>
+                <div style="color:#f1f5f9; font-size:1.35rem; font-weight:bold; margin-top:4px;">
+                    <span style="color:#38bdf8;">↓ {net_down}</span> &nbsp; <span style="color:#a855f7;">↑ {net_up}</span>
+                </div>
+                <div style="color:#cbd5e1; font-size:0.75rem; margin-top:2px;">In: {net['total_recv_mb']:.1f} MB | Out: {net['total_sent_mb']:.1f} MB</div>
+                <div style="color:#64748b; font-size:0.7rem; margin-top:2px;">Host Network Interface Counters</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -119,10 +126,14 @@ def render_overview():
     with col_s4:
         st.markdown(
             f"""
-            <div style="background:#141824; border:1px solid #26334d; border-radius:6px; padding:12px 14px; font-family:monospace;">
-                <div style="color:#94a3b8; font-size:0.75rem;">MODEL CACHE</div>
-                <div style="color:#38bdf8; font-size:1.2rem; font-weight:bold; margin-top:4px;">{cache_count} / {cache._max_size}</div>
-                <div style="color:#64748b; font-size:0.7rem;">{cache_desc}</div>
+            <div style="background:#141824; border:1px solid #26334d; border-radius:6px; padding:12px 14px; font-family:monospace; min-height:140px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <span style="color:#94a3b8; font-size:0.75rem;">RESIDENT MODEL CACHE</span>
+                    <span style="color:#38bdf8; font-size:0.75rem;">LRU Managed</span>
+                </div>
+                <div style="color:#38bdf8; font-size:1.35rem; font-weight:bold; margin-top:4px;">{cache_count} / {cache._max_size}</div>
+                <div style="color:#cbd5e1; font-size:0.75rem; margin-top:2px;">{cache_desc}</div>
+                <div style="color:#64748b; font-size:0.7rem; margin-top:2px;">Zero-Disk Latency Model Serving</div>
             </div>
             """,
             unsafe_allow_html=True,

@@ -1,0 +1,2084 @@
+[
+  {
+    "failure_id": "fail_d4b06a86",
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_ae5df0ccd318",
+    "category": "Blind",
+    "severity": "high",
+    "reason": "The verified probe introduces a polarity-altering change (REVERSE_POLARITY), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "details": "The verified probe introduces a polarity-altering change (REVERSE_POLARITY), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "recommendation": "Augment training data and regularize behavior against negation_insertion perturbations to fix Blind failures.",
+    "evidence": {
+      "original_label": "NEGATIVE",
+      "probe_label": "NEGATIVE",
+      "original_confidence": 0.9836577094018755,
+      "probe_confidence": 0.9823154807090759,
+      "confidence_delta_pp": -0.13422286927995408,
+      "label_transition": "NEGATIVE \u2192 NEGATIVE",
+      "is_prediction_flip": false,
+      "expected_effect": "INVERT",
+      "semantic_intent": "REVERSE_POLARITY",
+      "expected_label_relation": "DIFFERENT_LABEL",
+      "expected_confidence_relation": "UNCONSTRAINED",
+      "threshold_pp": 15.0,
+      "jaccard_similarity": 0.1111111111111111,
+      "cosine_alignment": 0.5572478655359585,
+      "orig_explanation": {
+        "token_weights": {
+          "cannot": -0.1585146137428736,
+          "reviews": 0.026581073424144144,
+          "initially": 0.016161832285493057,
+          "would": -0.01823261303532764,
+          "nowhere": 0.030159669146003168,
+          "a": 0.02727897580907115,
+          "near": 0.031476603360556396,
+          "Although": 0.011759863085254667,
+          "say": -0.00786241516481263,
+          "honestly": -0.00786241516481263,
+          "as": 0.031476603360556396,
+          "promising,": 0.00018422288692331555,
+          "product": 0.016161832285493057,
+          "I": 0.025116150415723928,
+          "it": -0.017811194282302864,
+          "recommend": -0.01823261303532764,
+          "despite": -0.05480688707857298,
+          "reliable": 0.0007153125938678985,
+          "few": 0.009861572859900539,
+          "seemed": -0.0002443499096346849,
+          "that": -0.00786241516481263,
+          "and": -0.004043506589170918,
+          "excellent": 0.047547916501674725,
+          "glowing": -0.01440600385499335,
+          "suggested,": -0.004043506589170918,
+          "impressively": -0.0002443499096346849,
+          "the": 0.011759863085254667,
+          "features,": -0.0009887739447770336,
+          "features": -0.09562955892406898,
+          "was": 0.045545768120874346,
+          "genuinely": 0.030110689485709618
+        },
+        "token_attributions": [
+          {
+            "token": "cannot",
+            "attribution": -0.1585146137428736,
+            "position": 1
+          },
+          {
+            "token": "reviews",
+            "attribution": 0.026581073424144144,
+            "position": 2
+          },
+          {
+            "token": "initially",
+            "attribution": 0.016161832285493057,
+            "position": 3
+          },
+          {
+            "token": "would",
+            "attribution": -0.01823261303532764,
+            "position": 4
+          },
+          {
+            "token": "nowhere",
+            "attribution": 0.030159669146003168,
+            "position": 5
+          },
+          {
+            "token": "a",
+            "attribution": 0.02727897580907115,
+            "position": 6
+          },
+          {
+            "token": "near",
+            "attribution": 0.031476603360556396,
+            "position": 7
+          },
+          {
+            "token": "Although",
+            "attribution": 0.011759863085254667,
+            "position": 8
+          },
+          {
+            "token": "say",
+            "attribution": -0.00786241516481263,
+            "position": 9
+          },
+          {
+            "token": "honestly",
+            "attribution": -0.00786241516481263,
+            "position": 10
+          },
+          {
+            "token": "as",
+            "attribution": 0.031476603360556396,
+            "position": 11
+          },
+          {
+            "token": "promising,",
+            "attribution": 0.00018422288692331555,
+            "position": 12
+          },
+          {
+            "token": "product",
+            "attribution": 0.016161832285493057,
+            "position": 13
+          },
+          {
+            "token": "I",
+            "attribution": 0.025116150415723928,
+            "position": 14
+          },
+          {
+            "token": "it",
+            "attribution": -0.017811194282302864,
+            "position": 15
+          },
+          {
+            "token": "recommend",
+            "attribution": -0.01823261303532764,
+            "position": 16
+          },
+          {
+            "token": "despite",
+            "attribution": -0.05480688707857298,
+            "position": 17
+          },
+          {
+            "token": "reliable",
+            "attribution": 0.0007153125938678985,
+            "position": 18
+          },
+          {
+            "token": "few",
+            "attribution": 0.009861572859900539,
+            "position": 19
+          },
+          {
+            "token": "seemed",
+            "attribution": -0.0002443499096346849,
+            "position": 20
+          },
+          {
+            "token": "that",
+            "attribution": -0.00786241516481263,
+            "position": 21
+          },
+          {
+            "token": "and",
+            "attribution": -0.004043506589170918,
+            "position": 22
+          },
+          {
+            "token": "excellent",
+            "attribution": 0.047547916501674725,
+            "position": 23
+          },
+          {
+            "token": "glowing",
+            "attribution": -0.01440600385499335,
+            "position": 24
+          },
+          {
+            "token": "suggested,",
+            "attribution": -0.004043506589170918,
+            "position": 25
+          },
+          {
+            "token": "impressively",
+            "attribution": -0.0002443499096346849,
+            "position": 26
+          },
+          {
+            "token": "the",
+            "attribution": 0.011759863085254667,
+            "position": 27
+          },
+          {
+            "token": "features,",
+            "attribution": -0.0009887739447770336,
+            "position": 28
+          },
+          {
+            "token": "features",
+            "attribution": -0.09562955892406898,
+            "position": 29
+          },
+          {
+            "token": "was",
+            "attribution": 0.045545768120874346,
+            "position": 30
+          },
+          {
+            "token": "genuinely",
+            "attribution": 0.030110689485709618,
+            "position": 31
+          }
+        ],
+        "model_id": "textattack/albert-base-v2-SST-2",
+        "text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "pert_explanation": {
+        "token_weights": {
+          "cannot": -0.12021782629530513,
+          "reviews": 0.025581499714358986,
+          "promising": -0.031619563665129864,
+          "initially": 0.016204792103096034,
+          "would": -0.01777148356004189,
+          "nowhere": 0.03278693208824991,
+          "a": 0.027266287988775315,
+          "near": 0.03278693208824991,
+          "Although": 0.05330031468762788,
+          "say": -0.0078750747598469,
+          "not": 0.032656919308307386,
+          "honestly": -0.05100811024029256,
+          "as": 0.004079236395976142,
+          "promising,": 0.00022720190680703117,
+          "product": -0.03875387125602421,
+          "I": 0.015202463273563683,
+          "it": -0.09025223111856709,
+          "recommend": -0.01777148356004189,
+          "despite": 0.027266287988775315,
+          "reliable": 0.004079236395976142,
+          "seemed": -0.00020137088975096928,
+          "few": 0.02000078215048364,
+          "that": 0.019029992439961434,
+          "and": -0.0008228816678944185,
+          "excellent": -0.0010014207667100581,
+          "glowing": 0.029690531932538938,
+          "suggested,": -0.0008228816678944184,
+          "impressively": -0.00020137088975096928,
+          "the": -0.04698168049788109,
+          "features,": -0.0010014207667100581,
+          "was": 0.032656919308307386,
+          "genuinely": 0.02000078215048364
+        },
+        "token_attributions": [
+          {
+            "token": "cannot",
+            "attribution": -0.12021782629530513,
+            "position": 1
+          },
+          {
+            "token": "reviews",
+            "attribution": 0.025581499714358986,
+            "position": 2
+          },
+          {
+            "token": "promising",
+            "attribution": -0.031619563665129864,
+            "position": 3
+          },
+          {
+            "token": "initially",
+            "attribution": 0.016204792103096034,
+            "position": 4
+          },
+          {
+            "token": "would",
+            "attribution": -0.01777148356004189,
+            "position": 5
+          },
+          {
+            "token": "nowhere",
+            "attribution": 0.03278693208824991,
+            "position": 6
+          },
+          {
+            "token": "a",
+            "attribution": 0.027266287988775315,
+            "position": 7
+          },
+          {
+            "token": "near",
+            "attribution": 0.03278693208824991,
+            "position": 8
+          },
+          {
+            "token": "Although",
+            "attribution": 0.05330031468762788,
+            "position": 9
+          },
+          {
+            "token": "say",
+            "attribution": -0.0078750747598469,
+            "position": 10
+          },
+          {
+            "token": "not",
+            "attribution": 0.032656919308307386,
+            "position": 11
+          },
+          {
+            "token": "honestly",
+            "attribution": -0.05100811024029256,
+            "position": 12
+          },
+          {
+            "token": "as",
+            "attribution": 0.004079236395976142,
+            "position": 13
+          },
+          {
+            "token": "promising,",
+            "attribution": 0.00022720190680703117,
+            "position": 14
+          },
+          {
+            "token": "product",
+            "attribution": -0.03875387125602421,
+            "position": 15
+          },
+          {
+            "token": "I",
+            "attribution": 0.015202463273563683,
+            "position": 16
+          },
+          {
+            "token": "it",
+            "attribution": -0.09025223111856709,
+            "position": 17
+          },
+          {
+            "token": "recommend",
+            "attribution": -0.01777148356004189,
+            "position": 18
+          },
+          {
+            "token": "despite",
+            "attribution": 0.027266287988775315,
+            "position": 19
+          },
+          {
+            "token": "reliable",
+            "attribution": 0.004079236395976142,
+            "position": 20
+          },
+          {
+            "token": "seemed",
+            "attribution": -0.00020137088975096928,
+            "position": 21
+          },
+          {
+            "token": "few",
+            "attribution": 0.02000078215048364,
+            "position": 22
+          },
+          {
+            "token": "that",
+            "attribution": 0.019029992439961434,
+            "position": 23
+          },
+          {
+            "token": "and",
+            "attribution": -0.0008228816678944185,
+            "position": 24
+          },
+          {
+            "token": "excellent",
+            "attribution": -0.0010014207667100581,
+            "position": 25
+          },
+          {
+            "token": "glowing",
+            "attribution": 0.029690531932538938,
+            "position": 26
+          },
+          {
+            "token": "suggested,",
+            "attribution": -0.0008228816678944184,
+            "position": 27
+          },
+          {
+            "token": "impressively",
+            "attribution": -0.00020137088975096928,
+            "position": 28
+          },
+          {
+            "token": "the",
+            "attribution": -0.04698168049788109,
+            "position": 29
+          },
+          {
+            "token": "features,",
+            "attribution": -0.0010014207667100581,
+            "position": 30
+          },
+          {
+            "token": "was",
+            "attribution": 0.032656919308307386,
+            "position": 31
+          },
+          {
+            "token": "genuinely",
+            "attribution": 0.02000078215048364,
+            "position": 32
+          }
+        ],
+        "model_id": "textattack/albert-base-v2-SST-2",
+        "text": "Although the product initially seemed impressively promising, it was not nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "aligned_tokens": [
+        {
+          "token": "cannot",
+          "orig_token": "cannot",
+          "pert_token": "cannot",
+          "orig_pos": 1,
+          "pert_pos": 1,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.1585146137428736,
+          "pert_val": -0.12021782629530513,
+          "delta": 0.03829678744756847,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "reviews",
+          "orig_token": "reviews",
+          "pert_token": "reviews",
+          "orig_pos": 2,
+          "pert_pos": 2,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.026581073424144144,
+          "pert_val": 0.025581499714358986,
+          "delta": -0.0009995737097851579,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "promising",
+          "orig_token": null,
+          "pert_token": "promising",
+          "orig_pos": null,
+          "pert_pos": 3,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.031619563665129864,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "initially",
+          "orig_token": "initially",
+          "pert_token": "initially",
+          "orig_pos": 3,
+          "pert_pos": 4,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.016161832285493057,
+          "pert_val": 0.016204792103096034,
+          "delta": 4.295981760297704e-05,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "would",
+          "orig_token": "would",
+          "pert_token": "would",
+          "orig_pos": 4,
+          "pert_pos": 5,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.01823261303532764,
+          "pert_val": -0.01777148356004189,
+          "delta": 0.00046112947528574935,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "nowhere",
+          "orig_token": "nowhere",
+          "pert_token": "nowhere",
+          "orig_pos": 5,
+          "pert_pos": 6,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.030159669146003168,
+          "pert_val": 0.03278693208824991,
+          "delta": 0.002627262942246744,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "a",
+          "orig_token": "a",
+          "pert_token": "a",
+          "orig_pos": 6,
+          "pert_pos": 7,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.02727897580907115,
+          "pert_val": 0.027266287988775315,
+          "delta": -1.2687820295835539e-05,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "near",
+          "orig_token": "near",
+          "pert_token": "near",
+          "orig_pos": 7,
+          "pert_pos": 8,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.031476603360556396,
+          "pert_val": 0.03278693208824991,
+          "delta": 0.001310328727693516,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Although",
+          "orig_token": "Although",
+          "pert_token": "Although",
+          "orig_pos": 8,
+          "pert_pos": 9,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.011759863085254667,
+          "pert_val": 0.05330031468762788,
+          "delta": 0.04154045160237321,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "say",
+          "orig_token": "say",
+          "pert_token": "say",
+          "orig_pos": 9,
+          "pert_pos": 10,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.00786241516481263,
+          "pert_val": -0.0078750747598469,
+          "delta": -1.2659595034270055e-05,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "not",
+          "orig_token": null,
+          "pert_token": "not",
+          "orig_pos": null,
+          "pert_pos": 11,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.032656919308307386,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "honestly",
+          "orig_token": "honestly",
+          "pert_token": "honestly",
+          "orig_pos": 10,
+          "pert_pos": 12,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.00786241516481263,
+          "pert_val": -0.05100811024029256,
+          "delta": -0.043145695075479926,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "as",
+          "orig_token": "as",
+          "pert_token": "as",
+          "orig_pos": 11,
+          "pert_pos": 13,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.031476603360556396,
+          "pert_val": 0.004079236395976142,
+          "delta": -0.027397366964580255,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "promising,",
+          "orig_token": "promising,",
+          "pert_token": "promising,",
+          "orig_pos": 12,
+          "pert_pos": 14,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.00018422288692331555,
+          "pert_val": 0.00022720190680703117,
+          "delta": 4.2979019883715615e-05,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "product",
+          "orig_token": "product",
+          "pert_token": "product",
+          "orig_pos": 13,
+          "pert_pos": 15,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.016161832285493057,
+          "pert_val": -0.03875387125602421,
+          "delta": -0.05491570354151727,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "I",
+          "orig_token": "I",
+          "pert_token": "I",
+          "orig_pos": 14,
+          "pert_pos": 16,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.025116150415723928,
+          "pert_val": 0.015202463273563683,
+          "delta": -0.009913687142160245,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "it",
+          "orig_token": "it",
+          "pert_token": "it",
+          "orig_pos": 15,
+          "pert_pos": 17,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.017811194282302864,
+          "pert_val": -0.09025223111856709,
+          "delta": -0.07244103683626422,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "recommend",
+          "orig_token": "recommend",
+          "pert_token": "recommend",
+          "orig_pos": 16,
+          "pert_pos": 18,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.01823261303532764,
+          "pert_val": -0.01777148356004189,
+          "delta": 0.00046112947528574935,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "despite",
+          "orig_token": "despite",
+          "pert_token": "despite",
+          "orig_pos": 17,
+          "pert_pos": 19,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.05480688707857298,
+          "pert_val": 0.027266287988775315,
+          "delta": 0.08207317506734829,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": true
+        },
+        {
+          "token": "reliable",
+          "orig_token": "reliable",
+          "pert_token": "reliable",
+          "orig_pos": 18,
+          "pert_pos": 20,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.0007153125938678985,
+          "pert_val": 0.004079236395976142,
+          "delta": 0.003363923802108243,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "seemed",
+          "orig_token": null,
+          "pert_token": "seemed",
+          "orig_pos": null,
+          "pert_pos": 21,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.00020137088975096928,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "few",
+          "orig_token": "few",
+          "pert_token": "few",
+          "orig_pos": 19,
+          "pert_pos": 22,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.009861572859900539,
+          "pert_val": 0.02000078215048364,
+          "delta": 0.010139209290583102,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "seemed",
+          "orig_token": "seemed",
+          "pert_token": null,
+          "orig_pos": 20,
+          "pert_pos": null,
+          "orig_occ": 1,
+          "pert_occ": null,
+          "total_occ": 1,
+          "orig_val": -0.0002443499096346849,
+          "pert_val": null,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "removed",
+          "is_key_shift": false
+        },
+        {
+          "token": "that",
+          "orig_token": "that",
+          "pert_token": "that",
+          "orig_pos": 21,
+          "pert_pos": 23,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.00786241516481263,
+          "pert_val": 0.019029992439961434,
+          "delta": 0.026892407604774064,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "and",
+          "orig_token": "and",
+          "pert_token": "and",
+          "orig_pos": 22,
+          "pert_pos": 24,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.004043506589170918,
+          "pert_val": -0.0008228816678944185,
+          "delta": 0.0032206249212764996,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "excellent",
+          "orig_token": "excellent",
+          "pert_token": "excellent",
+          "orig_pos": 23,
+          "pert_pos": 25,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.047547916501674725,
+          "pert_val": -0.0010014207667100581,
+          "delta": -0.048549337268384785,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "glowing",
+          "orig_token": "glowing",
+          "pert_token": "glowing",
+          "orig_pos": 24,
+          "pert_pos": 26,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.01440600385499335,
+          "pert_val": 0.029690531932538938,
+          "delta": 0.04409653578753229,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "suggested,",
+          "orig_token": "suggested,",
+          "pert_token": "suggested,",
+          "orig_pos": 25,
+          "pert_pos": 27,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.004043506589170918,
+          "pert_val": -0.0008228816678944184,
+          "delta": 0.0032206249212765,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "impressively",
+          "orig_token": "impressively",
+          "pert_token": "impressively",
+          "orig_pos": 26,
+          "pert_pos": 28,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.0002443499096346849,
+          "pert_val": -0.00020137088975096928,
+          "delta": 4.2979019883715615e-05,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "the",
+          "orig_token": "the",
+          "pert_token": "the",
+          "orig_pos": 27,
+          "pert_pos": 29,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.011759863085254667,
+          "pert_val": -0.04698168049788109,
+          "delta": -0.058741543583135755,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "features,",
+          "orig_token": "features,",
+          "pert_token": "features,",
+          "orig_pos": 28,
+          "pert_pos": 30,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.0009887739447770336,
+          "pert_val": -0.0010014207667100581,
+          "delta": -1.2646821933024518e-05,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "features",
+          "orig_token": "features",
+          "pert_token": null,
+          "orig_pos": 29,
+          "pert_pos": null,
+          "orig_occ": 1,
+          "pert_occ": null,
+          "total_occ": 1,
+          "orig_val": -0.09562955892406898,
+          "pert_val": null,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "removed",
+          "is_key_shift": false
+        },
+        {
+          "token": "was",
+          "orig_token": "was",
+          "pert_token": "was",
+          "orig_pos": 30,
+          "pert_pos": 31,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.045545768120874346,
+          "pert_val": 0.032656919308307386,
+          "delta": -0.01288884881256696,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "genuinely",
+          "orig_token": "genuinely",
+          "pert_token": "genuinely",
+          "orig_pos": 31,
+          "pert_pos": 32,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.030110689485709618,
+          "pert_val": 0.02000078215048364,
+          "delta": -0.010109907335225977,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        }
+      ]
+    },
+    "traceable_narrative": "The verified probe introduces a polarity-altering change (REVERSE_POLARITY), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "original_sentence": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_sentence": "Although the product initially seemed impressively promising, it was not nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "original_label": "NEGATIVE",
+    "perturbed_label": "NEGATIVE",
+    "original_confidence": 0.9836577094018755,
+    "perturbed_confidence": 0.9823154807090759,
+    "confidence_delta_pts": -0.13422286927995408,
+    "is_flipped": false,
+    "expected_flip": true,
+    "behavioral_outcome": "MISSING_FLIP"
+  },
+  {
+    "failure_id": "fail_4d282a1e",
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_d257d7394e56",
+    "category": "Blind",
+    "severity": "high",
+    "reason": "The verified probe introduces a polarity-altering change (SHIFT_CONTRAST), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "details": "The verified probe introduces a polarity-altering change (SHIFT_CONTRAST), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "recommendation": "Augment training data and regularize behavior against contrast_negative_append perturbations to fix Blind failures.",
+    "evidence": {
+      "original_label": "NEGATIVE",
+      "probe_label": "NEGATIVE",
+      "original_confidence": 0.9836577094018755,
+      "probe_confidence": 0.9902884286911643,
+      "confidence_delta_pp": 0.6630719289288822,
+      "label_transition": "NEGATIVE \u2192 NEGATIVE",
+      "is_prediction_flip": false,
+      "expected_effect": "INVERT",
+      "semantic_intent": "SHIFT_CONTRAST",
+      "expected_label_relation": "DIFFERENT_LABEL",
+      "expected_confidence_relation": "UNCONSTRAINED",
+      "threshold_pp": 15.0,
+      "jaccard_similarity": 0.1111111111111111,
+      "cosine_alignment": 0.12693364625258902,
+      "orig_explanation": {
+        "token_weights": {
+          "cannot": -0.1585146137428736,
+          "reviews": 0.026581073424144144,
+          "initially": 0.016161832285493057,
+          "would": -0.01823261303532764,
+          "nowhere": 0.030159669146003168,
+          "a": 0.02727897580907115,
+          "near": 0.031476603360556396,
+          "Although": 0.011759863085254667,
+          "say": -0.00786241516481263,
+          "honestly": -0.00786241516481263,
+          "as": 0.031476603360556396,
+          "promising,": 0.00018422288692331555,
+          "product": 0.016161832285493057,
+          "I": 0.025116150415723928,
+          "it": -0.017811194282302864,
+          "recommend": -0.01823261303532764,
+          "despite": -0.05480688707857298,
+          "reliable": 0.0007153125938678985,
+          "few": 0.009861572859900539,
+          "seemed": -0.0002443499096346849,
+          "that": -0.00786241516481263,
+          "and": -0.004043506589170918,
+          "excellent": 0.047547916501674725,
+          "glowing": -0.01440600385499335,
+          "suggested,": -0.004043506589170918,
+          "impressively": -0.0002443499096346849,
+          "the": 0.011759863085254667,
+          "features,": -0.0009887739447770336,
+          "features": -0.09562955892406898,
+          "was": 0.045545768120874346,
+          "genuinely": 0.030110689485709618
+        },
+        "token_attributions": [
+          {
+            "token": "cannot",
+            "attribution": -0.1585146137428736,
+            "position": 1
+          },
+          {
+            "token": "reviews",
+            "attribution": 0.026581073424144144,
+            "position": 2
+          },
+          {
+            "token": "initially",
+            "attribution": 0.016161832285493057,
+            "position": 3
+          },
+          {
+            "token": "would",
+            "attribution": -0.01823261303532764,
+            "position": 4
+          },
+          {
+            "token": "nowhere",
+            "attribution": 0.030159669146003168,
+            "position": 5
+          },
+          {
+            "token": "a",
+            "attribution": 0.02727897580907115,
+            "position": 6
+          },
+          {
+            "token": "near",
+            "attribution": 0.031476603360556396,
+            "position": 7
+          },
+          {
+            "token": "Although",
+            "attribution": 0.011759863085254667,
+            "position": 8
+          },
+          {
+            "token": "say",
+            "attribution": -0.00786241516481263,
+            "position": 9
+          },
+          {
+            "token": "honestly",
+            "attribution": -0.00786241516481263,
+            "position": 10
+          },
+          {
+            "token": "as",
+            "attribution": 0.031476603360556396,
+            "position": 11
+          },
+          {
+            "token": "promising,",
+            "attribution": 0.00018422288692331555,
+            "position": 12
+          },
+          {
+            "token": "product",
+            "attribution": 0.016161832285493057,
+            "position": 13
+          },
+          {
+            "token": "I",
+            "attribution": 0.025116150415723928,
+            "position": 14
+          },
+          {
+            "token": "it",
+            "attribution": -0.017811194282302864,
+            "position": 15
+          },
+          {
+            "token": "recommend",
+            "attribution": -0.01823261303532764,
+            "position": 16
+          },
+          {
+            "token": "despite",
+            "attribution": -0.05480688707857298,
+            "position": 17
+          },
+          {
+            "token": "reliable",
+            "attribution": 0.0007153125938678985,
+            "position": 18
+          },
+          {
+            "token": "few",
+            "attribution": 0.009861572859900539,
+            "position": 19
+          },
+          {
+            "token": "seemed",
+            "attribution": -0.0002443499096346849,
+            "position": 20
+          },
+          {
+            "token": "that",
+            "attribution": -0.00786241516481263,
+            "position": 21
+          },
+          {
+            "token": "and",
+            "attribution": -0.004043506589170918,
+            "position": 22
+          },
+          {
+            "token": "excellent",
+            "attribution": 0.047547916501674725,
+            "position": 23
+          },
+          {
+            "token": "glowing",
+            "attribution": -0.01440600385499335,
+            "position": 24
+          },
+          {
+            "token": "suggested,",
+            "attribution": -0.004043506589170918,
+            "position": 25
+          },
+          {
+            "token": "impressively",
+            "attribution": -0.0002443499096346849,
+            "position": 26
+          },
+          {
+            "token": "the",
+            "attribution": 0.011759863085254667,
+            "position": 27
+          },
+          {
+            "token": "features,",
+            "attribution": -0.0009887739447770336,
+            "position": 28
+          },
+          {
+            "token": "features",
+            "attribution": -0.09562955892406898,
+            "position": 29
+          },
+          {
+            "token": "was",
+            "attribution": 0.045545768120874346,
+            "position": 30
+          },
+          {
+            "token": "genuinely",
+            "attribution": 0.030110689485709618,
+            "position": 31
+          }
+        ],
+        "model_id": "textattack/albert-base-v2-SST-2",
+        "text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "pert_explanation": {
+        "token_weights": {
+          "reviews": -0.002259205294928572,
+          "cannot": -0.0009382998068356872,
+          "it,": -0.006344988006605859,
+          "initially": 0.02550820904679934,
+          "would": -0.006344988006605859,
+          "nowhere": -0.09574584703560231,
+          "a": 0.03313533438635127,
+          "near": 0.030864554008566535,
+          "Although": 0.021106239846560945,
+          "say": -0.006344988006605859,
+          "not": -0.09709760964214657,
+          "honestly": -0.0035838771057552037,
+          "as": 0.030864554008566535,
+          "promising,": -0.007910801634697377,
+          "product": 0.03763416569235882,
+          "I": -0.0009382998068356872,
+          "be": 0.031390633386977874,
+          "it": -0.06682527699941888,
+          "recommend": -0.006344988006605859,
+          "however": -0.006344988006605859,
+          "despite": 0.03313533438635127,
+          "reliable": -0.016038765868427503,
+          "seemed": -0.008339375137939403,
+          "few": 0.0235288398834286,
+          "that": 0.028530865502585268,
+          "and": -0.01587632450971569,
+          "excellent": -0.0009382998068356872,
+          "glowing": -0.016038765868427503,
+          "suggested,": -0.002259205294928572,
+          "impressively": -0.008339375137939403,
+          "the": -0.01194273983751204,
+          "features,": -0.0009382998068356872,
+          "reliably": -0.0008713575267729469,
+          "was": 0.0870851248675911,
+          "genuinely": 0.0235288398834286,
+          "did": -0.0008713575267729468
+        },
+        "token_attributions": [
+          {
+            "token": "reviews",
+            "attribution": -0.002259205294928572,
+            "position": 1
+          },
+          {
+            "token": "cannot",
+            "attribution": -0.0009382998068356872,
+            "position": 2
+          },
+          {
+            "token": "it,",
+            "attribution": -0.006344988006605859,
+            "position": 3
+          },
+          {
+            "token": "initially",
+            "attribution": 0.02550820904679934,
+            "position": 4
+          },
+          {
+            "token": "would",
+            "attribution": -0.006344988006605859,
+            "position": 5
+          },
+          {
+            "token": "nowhere",
+            "attribution": -0.09574584703560231,
+            "position": 6
+          },
+          {
+            "token": "a",
+            "attribution": 0.03313533438635127,
+            "position": 7
+          },
+          {
+            "token": "near",
+            "attribution": 0.030864554008566535,
+            "position": 8
+          },
+          {
+            "token": "Although",
+            "attribution": 0.021106239846560945,
+            "position": 9
+          },
+          {
+            "token": "say",
+            "attribution": -0.006344988006605859,
+            "position": 10
+          },
+          {
+            "token": "not",
+            "attribution": -0.09709760964214657,
+            "position": 11
+          },
+          {
+            "token": "honestly",
+            "attribution": -0.0035838771057552037,
+            "position": 12
+          },
+          {
+            "token": "as",
+            "attribution": 0.030864554008566535,
+            "position": 13
+          },
+          {
+            "token": "promising,",
+            "attribution": -0.007910801634697377,
+            "position": 14
+          },
+          {
+            "token": "product",
+            "attribution": 0.03763416569235882,
+            "position": 15
+          },
+          {
+            "token": "I",
+            "attribution": -0.0009382998068356872,
+            "position": 16
+          },
+          {
+            "token": "be",
+            "attribution": 0.031390633386977874,
+            "position": 17
+          },
+          {
+            "token": "it",
+            "attribution": -0.06682527699941888,
+            "position": 18
+          },
+          {
+            "token": "recommend",
+            "attribution": -0.006344988006605859,
+            "position": 19
+          },
+          {
+            "token": "however",
+            "attribution": -0.006344988006605859,
+            "position": 20
+          },
+          {
+            "token": "despite",
+            "attribution": 0.03313533438635127,
+            "position": 21
+          },
+          {
+            "token": "reliable",
+            "attribution": -0.016038765868427503,
+            "position": 22
+          },
+          {
+            "token": "seemed",
+            "attribution": -0.008339375137939403,
+            "position": 23
+          },
+          {
+            "token": "few",
+            "attribution": 0.0235288398834286,
+            "position": 24
+          },
+          {
+            "token": "that",
+            "attribution": 0.028530865502585268,
+            "position": 25
+          },
+          {
+            "token": "and",
+            "attribution": -0.01587632450971569,
+            "position": 26
+          },
+          {
+            "token": "excellent",
+            "attribution": -0.0009382998068356872,
+            "position": 27
+          },
+          {
+            "token": "glowing",
+            "attribution": -0.016038765868427503,
+            "position": 28
+          },
+          {
+            "token": "suggested,",
+            "attribution": -0.002259205294928572,
+            "position": 29
+          },
+          {
+            "token": "impressively",
+            "attribution": -0.008339375137939403,
+            "position": 30
+          },
+          {
+            "token": "the",
+            "attribution": -0.01194273983751204,
+            "position": 31
+          },
+          {
+            "token": "features,",
+            "attribution": -0.0009382998068356872,
+            "position": 32
+          },
+          {
+            "token": "reliably",
+            "attribution": -0.0008713575267729469,
+            "position": 33
+          },
+          {
+            "token": "was",
+            "attribution": 0.0870851248675911,
+            "position": 34
+          },
+          {
+            "token": "genuinely",
+            "attribution": 0.0235288398834286,
+            "position": 35
+          },
+          {
+            "token": "did",
+            "attribution": -0.0008713575267729468,
+            "position": 36
+          }
+        ],
+        "model_id": "textattack/albert-base-v2-SST-2",
+        "text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it, however it did not be reliably.",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "aligned_tokens": [
+        {
+          "token": "reviews",
+          "orig_token": null,
+          "pert_token": "reviews",
+          "orig_pos": null,
+          "pert_pos": 1,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.002259205294928572,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "cannot",
+          "orig_token": "cannot",
+          "pert_token": "cannot",
+          "orig_pos": 1,
+          "pert_pos": 2,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.1585146137428736,
+          "pert_val": -0.0009382998068356872,
+          "delta": 0.1575763139360379,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "reviews",
+          "orig_token": "reviews",
+          "pert_token": null,
+          "orig_pos": 2,
+          "pert_pos": null,
+          "orig_occ": 1,
+          "pert_occ": null,
+          "total_occ": 1,
+          "orig_val": 0.026581073424144144,
+          "pert_val": null,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "removed",
+          "is_key_shift": false
+        },
+        {
+          "token": "it,",
+          "orig_token": null,
+          "pert_token": "it,",
+          "orig_pos": null,
+          "pert_pos": 3,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.006344988006605859,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "initially",
+          "orig_token": "initially",
+          "pert_token": "initially",
+          "orig_pos": 3,
+          "pert_pos": 4,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.016161832285493057,
+          "pert_val": 0.02550820904679934,
+          "delta": 0.009346376761306282,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "would",
+          "orig_token": "would",
+          "pert_token": "would",
+          "orig_pos": 4,
+          "pert_pos": 5,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.01823261303532764,
+          "pert_val": -0.006344988006605859,
+          "delta": 0.011887625028721779,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "nowhere",
+          "orig_token": "nowhere",
+          "pert_token": "nowhere",
+          "orig_pos": 5,
+          "pert_pos": 6,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.030159669146003168,
+          "pert_val": -0.09574584703560231,
+          "delta": -0.12590551618160548,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": true
+        },
+        {
+          "token": "a",
+          "orig_token": "a",
+          "pert_token": "a",
+          "orig_pos": 6,
+          "pert_pos": 7,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.02727897580907115,
+          "pert_val": 0.03313533438635127,
+          "delta": 0.005856358577280122,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "near",
+          "orig_token": "near",
+          "pert_token": "near",
+          "orig_pos": 7,
+          "pert_pos": 8,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.031476603360556396,
+          "pert_val": 0.030864554008566535,
+          "delta": -0.0006120493519898608,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Although",
+          "orig_token": "Although",
+          "pert_token": "Although",
+          "orig_pos": 8,
+          "pert_pos": 9,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.011759863085254667,
+          "pert_val": 0.021106239846560945,
+          "delta": 0.009346376761306278,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "say",
+          "orig_token": "say",
+          "pert_token": "say",
+          "orig_pos": 9,
+          "pert_pos": 10,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.00786241516481263,
+          "pert_val": -0.006344988006605859,
+          "delta": 0.0015174271582067706,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "not",
+          "orig_token": null,
+          "pert_token": "not",
+          "orig_pos": null,
+          "pert_pos": 11,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.09709760964214657,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "honestly",
+          "orig_token": "honestly",
+          "pert_token": "honestly",
+          "orig_pos": 10,
+          "pert_pos": 12,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.00786241516481263,
+          "pert_val": -0.0035838771057552037,
+          "delta": 0.004278538059057426,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "as",
+          "orig_token": "as",
+          "pert_token": "as",
+          "orig_pos": 11,
+          "pert_pos": 13,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.031476603360556396,
+          "pert_val": 0.030864554008566535,
+          "delta": -0.0006120493519898608,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "promising,",
+          "orig_token": "promising,",
+          "pert_token": "promising,",
+          "orig_pos": 12,
+          "pert_pos": 14,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.00018422288692331555,
+          "pert_val": -0.007910801634697377,
+          "delta": -0.008095024521620692,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "product",
+          "orig_token": "product",
+          "pert_token": "product",
+          "orig_pos": 13,
+          "pert_pos": 15,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.016161832285493057,
+          "pert_val": 0.03763416569235882,
+          "delta": 0.021472333406865763,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "I",
+          "orig_token": "I",
+          "pert_token": "I",
+          "orig_pos": 14,
+          "pert_pos": 16,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.025116150415723928,
+          "pert_val": -0.0009382998068356872,
+          "delta": -0.026054450222559616,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "be",
+          "orig_token": null,
+          "pert_token": "be",
+          "orig_pos": null,
+          "pert_pos": 17,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.031390633386977874,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "it",
+          "orig_token": "it",
+          "pert_token": "it",
+          "orig_pos": 15,
+          "pert_pos": 18,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.017811194282302864,
+          "pert_val": -0.06682527699941888,
+          "delta": -0.04901408271711602,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "recommend",
+          "orig_token": "recommend",
+          "pert_token": "recommend",
+          "orig_pos": 16,
+          "pert_pos": 19,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.01823261303532764,
+          "pert_val": -0.006344988006605859,
+          "delta": 0.011887625028721779,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "however",
+          "orig_token": null,
+          "pert_token": "however",
+          "orig_pos": null,
+          "pert_pos": 20,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.006344988006605859,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "despite",
+          "orig_token": "despite",
+          "pert_token": "despite",
+          "orig_pos": 17,
+          "pert_pos": 21,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.05480688707857298,
+          "pert_val": 0.03313533438635127,
+          "delta": 0.08794222146492425,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "reliable",
+          "orig_token": "reliable",
+          "pert_token": "reliable",
+          "orig_pos": 18,
+          "pert_pos": 22,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.0007153125938678985,
+          "pert_val": -0.016038765868427503,
+          "delta": -0.016754078462295402,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "seemed",
+          "orig_token": null,
+          "pert_token": "seemed",
+          "orig_pos": null,
+          "pert_pos": 23,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.008339375137939403,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "few",
+          "orig_token": "few",
+          "pert_token": "few",
+          "orig_pos": 19,
+          "pert_pos": 24,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.009861572859900539,
+          "pert_val": 0.0235288398834286,
+          "delta": 0.013667267023528062,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "seemed",
+          "orig_token": "seemed",
+          "pert_token": null,
+          "orig_pos": 20,
+          "pert_pos": null,
+          "orig_occ": 1,
+          "pert_occ": null,
+          "total_occ": 1,
+          "orig_val": -0.0002443499096346849,
+          "pert_val": null,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "removed",
+          "is_key_shift": false
+        },
+        {
+          "token": "that",
+          "orig_token": "that",
+          "pert_token": "that",
+          "orig_pos": 21,
+          "pert_pos": 25,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.00786241516481263,
+          "pert_val": 0.028530865502585268,
+          "delta": 0.0363932806673979,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "and",
+          "orig_token": "and",
+          "pert_token": "and",
+          "orig_pos": 22,
+          "pert_pos": 26,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.004043506589170918,
+          "pert_val": -0.01587632450971569,
+          "delta": -0.011832817920544771,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "excellent",
+          "orig_token": "excellent",
+          "pert_token": "excellent",
+          "orig_pos": 23,
+          "pert_pos": 27,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.047547916501674725,
+          "pert_val": -0.0009382998068356872,
+          "delta": -0.04848621630851041,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "glowing",
+          "orig_token": "glowing",
+          "pert_token": "glowing",
+          "orig_pos": 24,
+          "pert_pos": 28,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.01440600385499335,
+          "pert_val": -0.016038765868427503,
+          "delta": -0.0016327620134341542,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "suggested,",
+          "orig_token": "suggested,",
+          "pert_token": "suggested,",
+          "orig_pos": 25,
+          "pert_pos": 29,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.004043506589170918,
+          "pert_val": -0.002259205294928572,
+          "delta": 0.0017843012942423465,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "impressively",
+          "orig_token": "impressively",
+          "pert_token": "impressively",
+          "orig_pos": 26,
+          "pert_pos": 30,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.0002443499096346849,
+          "pert_val": -0.008339375137939403,
+          "delta": -0.008095025228304718,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "the",
+          "orig_token": "the",
+          "pert_token": "the",
+          "orig_pos": 27,
+          "pert_pos": 31,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.011759863085254667,
+          "pert_val": -0.01194273983751204,
+          "delta": -0.023702602922766706,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "features,",
+          "orig_token": "features,",
+          "pert_token": "features,",
+          "orig_pos": 28,
+          "pert_pos": 32,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.0009887739447770336,
+          "pert_val": -0.0009382998068356872,
+          "delta": 5.047413794134639e-05,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "features",
+          "orig_token": "features",
+          "pert_token": null,
+          "orig_pos": 29,
+          "pert_pos": null,
+          "orig_occ": 1,
+          "pert_occ": null,
+          "total_occ": 1,
+          "orig_val": -0.09562955892406898,
+          "pert_val": null,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "removed",
+          "is_key_shift": false
+        },
+        {
+          "token": "reliably",
+          "orig_token": null,
+          "pert_token": "reliably",
+          "orig_pos": null,
+          "pert_pos": 33,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.0008713575267729469,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "was",
+          "orig_token": "was",
+          "pert_token": "was",
+          "orig_pos": 30,
+          "pert_pos": 34,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.045545768120874346,
+          "pert_val": 0.0870851248675911,
+          "delta": 0.04153935674671675,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "genuinely",
+          "orig_token": "genuinely",
+          "pert_token": "genuinely",
+          "orig_pos": 31,
+          "pert_pos": 35,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.030110689485709618,
+          "pert_val": 0.0235288398834286,
+          "delta": -0.0065818496022810175,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "did",
+          "orig_token": null,
+          "pert_token": "did",
+          "orig_pos": null,
+          "pert_pos": 36,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.0008713575267729468,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        }
+      ]
+    },
+    "traceable_narrative": "The verified probe introduces a polarity-altering change (SHIFT_CONTRAST), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "original_sentence": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_sentence": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it, however it did not be reliably.",
+    "original_label": "NEGATIVE",
+    "perturbed_label": "NEGATIVE",
+    "original_confidence": 0.9836577094018755,
+    "perturbed_confidence": 0.9902884286911643,
+    "confidence_delta_pts": 0.6630719289288822,
+    "is_flipped": false,
+    "expected_flip": true,
+    "behavioral_outcome": "MISSING_FLIP"
+  }
+]

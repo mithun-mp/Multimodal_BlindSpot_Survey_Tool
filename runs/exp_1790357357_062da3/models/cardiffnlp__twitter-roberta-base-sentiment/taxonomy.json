@@ -1,0 +1,1828 @@
+[
+  {
+    "failure_id": "fail_ac92ef83",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_bae1a417e4e6",
+    "category": "Spurious",
+    "severity": "high",
+    "reason": "The verified perturbation is meaning-preserving (PRESERVE_MEANING), but the model unexpectedly changed its predicted class (NEUTRAL \u2192 POSITIVE).",
+    "details": "The verified perturbation is meaning-preserving (PRESERVE_MEANING), but the model unexpectedly changed its predicted class (NEUTRAL \u2192 POSITIVE).",
+    "recommendation": "Augment training data and regularize behavior against double_negation perturbations to fix Spurious failures.",
+    "evidence": {
+      "original_label": "NEUTRAL",
+      "probe_label": "POSITIVE",
+      "original_confidence": 0.5229073088927968,
+      "probe_confidence": 0.5630553553532742,
+      "confidence_delta_pp": 4.014804646047743,
+      "label_transition": "NEUTRAL \u2192 POSITIVE",
+      "is_prediction_flip": true,
+      "expected_effect": "PRESERVE",
+      "semantic_intent": "PRESERVE_MEANING",
+      "expected_label_relation": "SAME_LABEL",
+      "expected_confidence_relation": "PRESERVE",
+      "threshold_pp": 15.0,
+      "jaccard_similarity": 0.0,
+      "cosine_alignment": -0.07291368114486814,
+      "orig_explanation": {
+        "token_weights": {
+          "am": -0.07810420247883773,
+          "I": -0.03421931196479442,
+          "i": -0.007323930781158195,
+          "Energetic ,": 0.015712543446457835,
+          "still": 0.03313500181027424,
+          "and": 0.006821245016316285,
+          "Healthy": -0.12177348147058485,
+          "But": 0.06735964612924976,
+          "Energetic": -0.018577929061753738,
+          "Hospitalized": 0.049414208100601265
+        },
+        "token_attributions": [
+          {
+            "token": "am",
+            "attribution": -0.07810420247883773,
+            "position": 1
+          },
+          {
+            "token": "I",
+            "attribution": -0.03421931196479442,
+            "position": 2
+          },
+          {
+            "token": "i",
+            "attribution": -0.007323930781158195,
+            "position": 3
+          },
+          {
+            "token": "Energetic ,",
+            "attribution": 0.015712543446457835,
+            "position": 4
+          },
+          {
+            "token": "still",
+            "attribution": 0.03313500181027424,
+            "position": 5
+          },
+          {
+            "token": "and",
+            "attribution": 0.006821245016316285,
+            "position": 6
+          },
+          {
+            "token": "Healthy",
+            "attribution": -0.12177348147058485,
+            "position": 7
+          },
+          {
+            "token": "But",
+            "attribution": 0.06735964612924976,
+            "position": 8
+          },
+          {
+            "token": "Energetic",
+            "attribution": -0.018577929061753738,
+            "position": 9
+          },
+          {
+            "token": "Hospitalized",
+            "attribution": 0.049414208100601265,
+            "position": 10
+          }
+        ],
+        "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+        "text": "I am Healthy and Energetic ,But still i am Hospitalized",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "pert_explanation": {
+        "token_weights": {
+          "am": 0.007919808481819189,
+          "impossible": 0.007571852322703659,
+          "I": 0.013838416820177613,
+          "i": -0.01650855361948028,
+          "still": 0.030110624157143776,
+          "that": 0.021816423686622732,
+          "and": 0.004772852587344304,
+          "Healthy": 0.009775392975632194,
+          "But": -0.0005603508881196085,
+          "is": 0.018041022663329225,
+          "Energetic,": -0.00954932584456267,
+          "not": 0.014438609464116028,
+          "Energetic": -0.021044092150760977,
+          "It": 0.018041022663329225,
+          "Hospitalized": 0.0004551117342017977
+        },
+        "token_attributions": [
+          {
+            "token": "am",
+            "attribution": 0.007919808481819189,
+            "position": 1
+          },
+          {
+            "token": "impossible",
+            "attribution": 0.007571852322703659,
+            "position": 2
+          },
+          {
+            "token": "I",
+            "attribution": 0.013838416820177613,
+            "position": 3
+          },
+          {
+            "token": "i",
+            "attribution": -0.01650855361948028,
+            "position": 4
+          },
+          {
+            "token": "still",
+            "attribution": 0.030110624157143776,
+            "position": 5
+          },
+          {
+            "token": "that",
+            "attribution": 0.021816423686622732,
+            "position": 6
+          },
+          {
+            "token": "and",
+            "attribution": 0.004772852587344304,
+            "position": 7
+          },
+          {
+            "token": "Healthy",
+            "attribution": 0.009775392975632194,
+            "position": 8
+          },
+          {
+            "token": "But",
+            "attribution": -0.0005603508881196085,
+            "position": 9
+          },
+          {
+            "token": "is",
+            "attribution": 0.018041022663329225,
+            "position": 10
+          },
+          {
+            "token": "Energetic,",
+            "attribution": -0.00954932584456267,
+            "position": 11
+          },
+          {
+            "token": "not",
+            "attribution": 0.014438609464116028,
+            "position": 12
+          },
+          {
+            "token": "Energetic",
+            "attribution": -0.021044092150760977,
+            "position": 13
+          },
+          {
+            "token": "It",
+            "attribution": 0.018041022663329225,
+            "position": 14
+          },
+          {
+            "token": "Hospitalized",
+            "attribution": 0.0004551117342017977,
+            "position": 15
+          }
+        ],
+        "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+        "text": "It is not impossible that I am Healthy and Energetic,But still i am Hospitalized",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "aligned_tokens": [
+        {
+          "token": "am",
+          "orig_token": "am",
+          "pert_token": "am",
+          "orig_pos": 1,
+          "pert_pos": 1,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.07810420247883773,
+          "pert_val": 0.007919808481819189,
+          "delta": 0.08602401096065693,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "impossible",
+          "orig_token": null,
+          "pert_token": "impossible",
+          "orig_pos": null,
+          "pert_pos": 2,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.007571852322703659,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "I",
+          "orig_token": "I",
+          "pert_token": "I",
+          "orig_pos": 2,
+          "pert_pos": 3,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 2,
+          "orig_val": -0.03421931196479442,
+          "pert_val": 0.013838416820177613,
+          "delta": 0.04805772878497203,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "i",
+          "orig_token": "i",
+          "pert_token": "i",
+          "orig_pos": 3,
+          "pert_pos": 4,
+          "orig_occ": 2,
+          "pert_occ": 2,
+          "total_occ": 2,
+          "orig_val": -0.007323930781158195,
+          "pert_val": -0.01650855361948028,
+          "delta": -0.009184622838322084,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Energetic ,",
+          "orig_token": "Energetic ,",
+          "pert_token": null,
+          "orig_pos": 4,
+          "pert_pos": null,
+          "orig_occ": 1,
+          "pert_occ": null,
+          "total_occ": 1,
+          "orig_val": 0.015712543446457835,
+          "pert_val": null,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "removed",
+          "is_key_shift": false
+        },
+        {
+          "token": "still",
+          "orig_token": "still",
+          "pert_token": "still",
+          "orig_pos": 5,
+          "pert_pos": 5,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.03313500181027424,
+          "pert_val": 0.030110624157143776,
+          "delta": -0.0030243776531304646,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "that",
+          "orig_token": null,
+          "pert_token": "that",
+          "orig_pos": null,
+          "pert_pos": 6,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.021816423686622732,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "and",
+          "orig_token": "and",
+          "pert_token": "and",
+          "orig_pos": 6,
+          "pert_pos": 7,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.006821245016316285,
+          "pert_val": 0.004772852587344304,
+          "delta": -0.0020483924289719816,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Healthy",
+          "orig_token": "Healthy",
+          "pert_token": "Healthy",
+          "orig_pos": 7,
+          "pert_pos": 8,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.12177348147058485,
+          "pert_val": 0.009775392975632194,
+          "delta": 0.13154887444621705,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": true
+        },
+        {
+          "token": "But",
+          "orig_token": "But",
+          "pert_token": "But",
+          "orig_pos": 8,
+          "pert_pos": 9,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.06735964612924976,
+          "pert_val": -0.0005603508881196085,
+          "delta": -0.06791999701736937,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "is",
+          "orig_token": null,
+          "pert_token": "is",
+          "orig_pos": null,
+          "pert_pos": 10,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.018041022663329225,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "Energetic,",
+          "orig_token": null,
+          "pert_token": "Energetic,",
+          "orig_pos": null,
+          "pert_pos": 11,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.00954932584456267,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "not",
+          "orig_token": null,
+          "pert_token": "not",
+          "orig_pos": null,
+          "pert_pos": 12,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.014438609464116028,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "Energetic",
+          "orig_token": "Energetic",
+          "pert_token": "Energetic",
+          "orig_pos": 9,
+          "pert_pos": 13,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.018577929061753738,
+          "pert_val": -0.021044092150760977,
+          "delta": -0.0024661630890072395,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "It",
+          "orig_token": null,
+          "pert_token": "It",
+          "orig_pos": null,
+          "pert_pos": 14,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.018041022663329225,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "Hospitalized",
+          "orig_token": "Hospitalized",
+          "pert_token": "Hospitalized",
+          "orig_pos": 10,
+          "pert_pos": 15,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.049414208100601265,
+          "pert_val": 0.0004551117342017977,
+          "delta": -0.04895909636639947,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        }
+      ]
+    },
+    "traceable_narrative": "The verified perturbation is meaning-preserving (PRESERVE_MEANING), but the model unexpectedly changed its predicted class (NEUTRAL \u2192 POSITIVE).",
+    "original_sentence": "I am Healthy and Energetic ,But still i am Hospitalized",
+    "perturbed_sentence": "It is not impossible that I am Healthy and Energetic,But still i am Hospitalized",
+    "original_label": "NEUTRAL",
+    "perturbed_label": "POSITIVE",
+    "original_confidence": 0.5229073088927968,
+    "perturbed_confidence": 0.5630553553532742,
+    "confidence_delta_pts": 4.014804646047743,
+    "is_flipped": true,
+    "expected_flip": false,
+    "behavioral_outcome": "UNEXPECTED_FLIP"
+  },
+  {
+    "failure_id": "fail_13718117",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_09115dba0e79",
+    "category": "Misweighted",
+    "severity": "medium",
+    "reason": "Model inverted prediction (NEUTRAL \u2192 POSITIVE) when presented with a degree modifier (STRENGTHEN_POLARITY), indicating disproportionately skewed feature weighting.",
+    "details": "Model inverted prediction (NEUTRAL \u2192 POSITIVE) when presented with a degree modifier (STRENGTHEN_POLARITY), indicating disproportionately skewed feature weighting.",
+    "recommendation": "Augment training data and regularize behavior against intensity perturbations to fix Misweighted failures.",
+    "evidence": {
+      "original_label": "NEUTRAL",
+      "probe_label": "POSITIVE",
+      "original_confidence": 0.5229073088927968,
+      "probe_confidence": 0.5364299456509198,
+      "confidence_delta_pp": 1.3522636758123041,
+      "label_transition": "NEUTRAL \u2192 POSITIVE",
+      "is_prediction_flip": true,
+      "expected_effect": "STRENGTHEN",
+      "semantic_intent": "STRENGTHEN_POLARITY",
+      "expected_label_relation": "SAME_LABEL",
+      "expected_confidence_relation": "INCREASE",
+      "threshold_pp": 15.0,
+      "jaccard_similarity": 0.6666666666666666,
+      "cosine_alignment": -0.6587550029048718,
+      "orig_explanation": {
+        "token_weights": {
+          "am": -0.07810420247883773,
+          "I": -0.03421931196479442,
+          "i": -0.007323930781158195,
+          "Energetic ,": 0.015712543446457835,
+          "still": 0.03313500181027424,
+          "and": 0.006821245016316285,
+          "Healthy": -0.12177348147058485,
+          "But": 0.06735964612924976,
+          "Energetic": -0.018577929061753738,
+          "Hospitalized": 0.049414208100601265
+        },
+        "token_attributions": [
+          {
+            "token": "am",
+            "attribution": -0.07810420247883773,
+            "position": 1
+          },
+          {
+            "token": "I",
+            "attribution": -0.03421931196479442,
+            "position": 2
+          },
+          {
+            "token": "i",
+            "attribution": -0.007323930781158195,
+            "position": 3
+          },
+          {
+            "token": "Energetic ,",
+            "attribution": 0.015712543446457835,
+            "position": 4
+          },
+          {
+            "token": "still",
+            "attribution": 0.03313500181027424,
+            "position": 5
+          },
+          {
+            "token": "and",
+            "attribution": 0.006821245016316285,
+            "position": 6
+          },
+          {
+            "token": "Healthy",
+            "attribution": -0.12177348147058485,
+            "position": 7
+          },
+          {
+            "token": "But",
+            "attribution": 0.06735964612924976,
+            "position": 8
+          },
+          {
+            "token": "Energetic",
+            "attribution": -0.018577929061753738,
+            "position": 9
+          },
+          {
+            "token": "Hospitalized",
+            "attribution": 0.049414208100601265,
+            "position": 10
+          }
+        ],
+        "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+        "text": "I am Healthy and Energetic ,But still i am Hospitalized",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "pert_explanation": {
+        "token_weights": {
+          "am": 0.020139712641542906,
+          "I": -0.0113775287421145,
+          "i": 0.0005370682385015743,
+          "Energetic ,": -0.017379334082864635,
+          "still": 0.015593778041737727,
+          "extremely": -0.008734144000512423,
+          "and": -0.031315174833387596,
+          "Healthy": 0.15420660017864846,
+          "But": 0.03789246250903895,
+          "Energetic": -0.0002516773667736752,
+          "Hospitalized": -0.06205819142814971
+        },
+        "token_attributions": [
+          {
+            "token": "am",
+            "attribution": 0.020139712641542906,
+            "position": 1
+          },
+          {
+            "token": "I",
+            "attribution": -0.0113775287421145,
+            "position": 2
+          },
+          {
+            "token": "i",
+            "attribution": 0.0005370682385015743,
+            "position": 3
+          },
+          {
+            "token": "Energetic ,",
+            "attribution": -0.017379334082864635,
+            "position": 4
+          },
+          {
+            "token": "still",
+            "attribution": 0.015593778041737727,
+            "position": 5
+          },
+          {
+            "token": "extremely",
+            "attribution": -0.008734144000512423,
+            "position": 6
+          },
+          {
+            "token": "and",
+            "attribution": -0.031315174833387596,
+            "position": 7
+          },
+          {
+            "token": "Healthy",
+            "attribution": 0.15420660017864846,
+            "position": 8
+          },
+          {
+            "token": "But",
+            "attribution": 0.03789246250903895,
+            "position": 9
+          },
+          {
+            "token": "Energetic",
+            "attribution": -0.0002516773667736752,
+            "position": 10
+          },
+          {
+            "token": "Hospitalized",
+            "attribution": -0.06205819142814971,
+            "position": 11
+          }
+        ],
+        "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+        "text": "I am extremely Healthy and Energetic ,But still i am Hospitalized",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "aligned_tokens": [
+        {
+          "token": "am",
+          "orig_token": "am",
+          "pert_token": "am",
+          "orig_pos": 1,
+          "pert_pos": 1,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.07810420247883773,
+          "pert_val": 0.020139712641542906,
+          "delta": 0.09824391512038064,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "I",
+          "orig_token": "I",
+          "pert_token": "I",
+          "orig_pos": 2,
+          "pert_pos": 2,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 2,
+          "orig_val": -0.03421931196479442,
+          "pert_val": -0.0113775287421145,
+          "delta": 0.02284178322267992,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "i",
+          "orig_token": "i",
+          "pert_token": "i",
+          "orig_pos": 3,
+          "pert_pos": 3,
+          "orig_occ": 2,
+          "pert_occ": 2,
+          "total_occ": 2,
+          "orig_val": -0.007323930781158195,
+          "pert_val": 0.0005370682385015743,
+          "delta": 0.007860999019659769,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Energetic ,",
+          "orig_token": "Energetic ,",
+          "pert_token": "Energetic ,",
+          "orig_pos": 4,
+          "pert_pos": 4,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.015712543446457835,
+          "pert_val": -0.017379334082864635,
+          "delta": -0.033091877529322467,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "still",
+          "orig_token": "still",
+          "pert_token": "still",
+          "orig_pos": 5,
+          "pert_pos": 5,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.03313500181027424,
+          "pert_val": 0.015593778041737727,
+          "delta": -0.017541223768536514,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "extremely",
+          "orig_token": null,
+          "pert_token": "extremely",
+          "orig_pos": null,
+          "pert_pos": 6,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.008734144000512423,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "and",
+          "orig_token": "and",
+          "pert_token": "and",
+          "orig_pos": 6,
+          "pert_pos": 7,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.006821245016316285,
+          "pert_val": -0.031315174833387596,
+          "delta": -0.03813641984970388,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Healthy",
+          "orig_token": "Healthy",
+          "pert_token": "Healthy",
+          "orig_pos": 7,
+          "pert_pos": 8,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.12177348147058485,
+          "pert_val": 0.15420660017864846,
+          "delta": 0.2759800816492333,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": true
+        },
+        {
+          "token": "But",
+          "orig_token": "But",
+          "pert_token": "But",
+          "orig_pos": 8,
+          "pert_pos": 9,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.06735964612924976,
+          "pert_val": 0.03789246250903895,
+          "delta": -0.029467183620210807,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Energetic",
+          "orig_token": "Energetic",
+          "pert_token": "Energetic",
+          "orig_pos": 9,
+          "pert_pos": 10,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.018577929061753738,
+          "pert_val": -0.0002516773667736752,
+          "delta": 0.01832625169498006,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Hospitalized",
+          "orig_token": "Hospitalized",
+          "pert_token": "Hospitalized",
+          "orig_pos": 10,
+          "pert_pos": 11,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.049414208100601265,
+          "pert_val": -0.06205819142814971,
+          "delta": -0.11147239952875097,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        }
+      ]
+    },
+    "traceable_narrative": "Model inverted prediction (NEUTRAL \u2192 POSITIVE) when presented with a degree modifier (STRENGTHEN_POLARITY), indicating disproportionately skewed feature weighting.",
+    "original_sentence": "I am Healthy and Energetic ,But still i am Hospitalized",
+    "perturbed_sentence": "I am extremely Healthy and Energetic ,But still i am Hospitalized",
+    "original_label": "NEUTRAL",
+    "perturbed_label": "POSITIVE",
+    "original_confidence": 0.5229073088927968,
+    "perturbed_confidence": 0.5364299456509198,
+    "confidence_delta_pts": 1.3522636758123041,
+    "is_flipped": true,
+    "expected_flip": false,
+    "behavioral_outcome": "UNEXPECTED_FLIP"
+  },
+  {
+    "failure_id": "fail_343c37aa",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_2c66cf98fc1f",
+    "category": "Blind",
+    "severity": "high",
+    "reason": "The verified probe introduces a polarity-altering change (SHIFT_CONTRAST), but the model retained the same predicted class (NEUTRAL \u2192 NEUTRAL).",
+    "details": "The verified probe introduces a polarity-altering change (SHIFT_CONTRAST), but the model retained the same predicted class (NEUTRAL \u2192 NEUTRAL).",
+    "recommendation": "Augment training data and regularize behavior against contrast_negative_append perturbations to fix Blind failures.",
+    "evidence": {
+      "original_label": "NEUTRAL",
+      "probe_label": "NEUTRAL",
+      "original_confidence": 0.5229073088927968,
+      "probe_confidence": 0.485825941389026,
+      "confidence_delta_pp": -3.708136750377078,
+      "label_transition": "NEUTRAL \u2192 NEUTRAL",
+      "is_prediction_flip": false,
+      "expected_effect": "INVERT",
+      "semantic_intent": "SHIFT_CONTRAST",
+      "expected_label_relation": "DIFFERENT_LABEL",
+      "expected_confidence_relation": "UNCONSTRAINED",
+      "threshold_pp": 15.0,
+      "jaccard_similarity": 0.2857142857142857,
+      "cosine_alignment": 0.5534882191119515,
+      "orig_explanation": {
+        "token_weights": {
+          "am": -0.07810420247883773,
+          "I": -0.03421931196479442,
+          "i": -0.007323930781158195,
+          "Energetic ,": 0.015712543446457835,
+          "still": 0.03313500181027424,
+          "and": 0.006821245016316285,
+          "Healthy": -0.12177348147058485,
+          "But": 0.06735964612924976,
+          "Energetic": -0.018577929061753738,
+          "Hospitalized": 0.049414208100601265
+        },
+        "token_attributions": [
+          {
+            "token": "am",
+            "attribution": -0.07810420247883773,
+            "position": 1
+          },
+          {
+            "token": "I",
+            "attribution": -0.03421931196479442,
+            "position": 2
+          },
+          {
+            "token": "i",
+            "attribution": -0.007323930781158195,
+            "position": 3
+          },
+          {
+            "token": "Energetic ,",
+            "attribution": 0.015712543446457835,
+            "position": 4
+          },
+          {
+            "token": "still",
+            "attribution": 0.03313500181027424,
+            "position": 5
+          },
+          {
+            "token": "and",
+            "attribution": 0.006821245016316285,
+            "position": 6
+          },
+          {
+            "token": "Healthy",
+            "attribution": -0.12177348147058485,
+            "position": 7
+          },
+          {
+            "token": "But",
+            "attribution": 0.06735964612924976,
+            "position": 8
+          },
+          {
+            "token": "Energetic",
+            "attribution": -0.018577929061753738,
+            "position": 9
+          },
+          {
+            "token": "Hospitalized",
+            "attribution": 0.049414208100601265,
+            "position": 10
+          }
+        ],
+        "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+        "text": "I am Healthy and Energetic ,But still i am Hospitalized",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "pert_explanation": {
+        "token_weights": {
+          "am": -0.01619188286792301,
+          "Hospitalized,": 0.00579951285617304,
+          "I": -0.06670509380433312,
+          "however": 0.00579951285617304,
+          "performance": -0.04745018870181307,
+          "i": 0.05529967512028984,
+          "still": -0.01321030632980701,
+          "and": 0.02088276975344449,
+          "that": -0.008152339128318396,
+          "Healthy": -0.10091689949082039,
+          "But": 0.010647816442508524,
+          "Energetic,": 0.010647816442508524,
+          "not": 0.013908144876806819,
+          "could": -0.05901803232759401,
+          "Energetic": 0.03536886104075482,
+          "repeat": -0.008152339128318396,
+          "Hospitalized": 0.01166717835877218
+        },
+        "token_attributions": [
+          {
+            "token": "am",
+            "attribution": -0.01619188286792301,
+            "position": 1
+          },
+          {
+            "token": "Hospitalized,",
+            "attribution": 0.00579951285617304,
+            "position": 2
+          },
+          {
+            "token": "I",
+            "attribution": -0.06670509380433312,
+            "position": 3
+          },
+          {
+            "token": "however",
+            "attribution": 0.00579951285617304,
+            "position": 4
+          },
+          {
+            "token": "performance",
+            "attribution": -0.04745018870181307,
+            "position": 5
+          },
+          {
+            "token": "i",
+            "attribution": 0.05529967512028984,
+            "position": 6
+          },
+          {
+            "token": "still",
+            "attribution": -0.01321030632980701,
+            "position": 7
+          },
+          {
+            "token": "and",
+            "attribution": 0.02088276975344449,
+            "position": 8
+          },
+          {
+            "token": "that",
+            "attribution": -0.008152339128318396,
+            "position": 9
+          },
+          {
+            "token": "Healthy",
+            "attribution": -0.10091689949082039,
+            "position": 10
+          },
+          {
+            "token": "But",
+            "attribution": 0.010647816442508524,
+            "position": 11
+          },
+          {
+            "token": "Energetic,",
+            "attribution": 0.010647816442508524,
+            "position": 12
+          },
+          {
+            "token": "not",
+            "attribution": 0.013908144876806819,
+            "position": 13
+          },
+          {
+            "token": "could",
+            "attribution": -0.05901803232759401,
+            "position": 14
+          },
+          {
+            "token": "Energetic",
+            "attribution": 0.03536886104075482,
+            "position": 15
+          },
+          {
+            "token": "repeat",
+            "attribution": -0.008152339128318396,
+            "position": 16
+          },
+          {
+            "token": "Hospitalized",
+            "attribution": 0.01166717835877218,
+            "position": 17
+          }
+        ],
+        "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+        "text": "I am Healthy and Energetic,But still i am Hospitalized, however I could not repeat that performance.",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "aligned_tokens": [
+        {
+          "token": "am",
+          "orig_token": "am",
+          "pert_token": "am",
+          "orig_pos": 1,
+          "pert_pos": 1,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.07810420247883773,
+          "pert_val": -0.01619188286792301,
+          "delta": 0.06191231961091472,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Hospitalized,",
+          "orig_token": null,
+          "pert_token": "Hospitalized,",
+          "orig_pos": null,
+          "pert_pos": 2,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.00579951285617304,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "I",
+          "orig_token": "I",
+          "pert_token": "I",
+          "orig_pos": 2,
+          "pert_pos": 3,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 2,
+          "orig_val": -0.03421931196479442,
+          "pert_val": -0.06670509380433312,
+          "delta": -0.0324857818395387,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "however",
+          "orig_token": null,
+          "pert_token": "however",
+          "orig_pos": null,
+          "pert_pos": 4,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.00579951285617304,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "performance",
+          "orig_token": null,
+          "pert_token": "performance",
+          "orig_pos": null,
+          "pert_pos": 5,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.04745018870181307,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "i",
+          "orig_token": "i",
+          "pert_token": "i",
+          "orig_pos": 3,
+          "pert_pos": 6,
+          "orig_occ": 2,
+          "pert_occ": 2,
+          "total_occ": 2,
+          "orig_val": -0.007323930781158195,
+          "pert_val": 0.05529967512028984,
+          "delta": 0.06262360590144804,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": true
+        },
+        {
+          "token": "Energetic ,",
+          "orig_token": "Energetic ,",
+          "pert_token": null,
+          "orig_pos": 4,
+          "pert_pos": null,
+          "orig_occ": 1,
+          "pert_occ": null,
+          "total_occ": 1,
+          "orig_val": 0.015712543446457835,
+          "pert_val": null,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "removed",
+          "is_key_shift": false
+        },
+        {
+          "token": "still",
+          "orig_token": "still",
+          "pert_token": "still",
+          "orig_pos": 5,
+          "pert_pos": 7,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.03313500181027424,
+          "pert_val": -0.01321030632980701,
+          "delta": -0.046345308140081254,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "and",
+          "orig_token": "and",
+          "pert_token": "and",
+          "orig_pos": 6,
+          "pert_pos": 8,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.006821245016316285,
+          "pert_val": 0.02088276975344449,
+          "delta": 0.014061524737128205,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "that",
+          "orig_token": null,
+          "pert_token": "that",
+          "orig_pos": null,
+          "pert_pos": 9,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.008152339128318396,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "Healthy",
+          "orig_token": "Healthy",
+          "pert_token": "Healthy",
+          "orig_pos": 7,
+          "pert_pos": 10,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.12177348147058485,
+          "pert_val": -0.10091689949082039,
+          "delta": 0.020856581979764463,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "But",
+          "orig_token": "But",
+          "pert_token": "But",
+          "orig_pos": 8,
+          "pert_pos": 11,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.06735964612924976,
+          "pert_val": 0.010647816442508524,
+          "delta": -0.05671182968674124,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Energetic,",
+          "orig_token": null,
+          "pert_token": "Energetic,",
+          "orig_pos": null,
+          "pert_pos": 12,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.010647816442508524,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "not",
+          "orig_token": null,
+          "pert_token": "not",
+          "orig_pos": null,
+          "pert_pos": 13,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.013908144876806819,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "could",
+          "orig_token": null,
+          "pert_token": "could",
+          "orig_pos": null,
+          "pert_pos": 14,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.05901803232759401,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "Energetic",
+          "orig_token": "Energetic",
+          "pert_token": "Energetic",
+          "orig_pos": 9,
+          "pert_pos": 15,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.018577929061753738,
+          "pert_val": 0.03536886104075482,
+          "delta": 0.05394679010250855,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "repeat",
+          "orig_token": null,
+          "pert_token": "repeat",
+          "orig_pos": null,
+          "pert_pos": 16,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.008152339128318396,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "Hospitalized",
+          "orig_token": "Hospitalized",
+          "pert_token": "Hospitalized",
+          "orig_pos": 10,
+          "pert_pos": 17,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.049414208100601265,
+          "pert_val": 0.01166717835877218,
+          "delta": -0.037747029741829086,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        }
+      ]
+    },
+    "traceable_narrative": "The verified probe introduces a polarity-altering change (SHIFT_CONTRAST), but the model retained the same predicted class (NEUTRAL \u2192 NEUTRAL).",
+    "original_sentence": "I am Healthy and Energetic ,But still i am Hospitalized",
+    "perturbed_sentence": "I am Healthy and Energetic,But still i am Hospitalized, however I could not repeat that performance.",
+    "original_label": "NEUTRAL",
+    "perturbed_label": "NEUTRAL",
+    "original_confidence": 0.5229073088927968,
+    "perturbed_confidence": 0.485825941389026,
+    "confidence_delta_pts": -3.708136750377078,
+    "is_flipped": false,
+    "expected_flip": true,
+    "behavioral_outcome": "MISSING_FLIP"
+  },
+  {
+    "failure_id": "fail_6b36ded7",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_b84086ecdb68",
+    "category": "Spurious",
+    "severity": "high",
+    "reason": "The verified perturbation is meaning-preserving (PRESERVE_MEANING), but the model unexpectedly changed its predicted class (NEUTRAL \u2192 POSITIVE).",
+    "details": "The verified perturbation is meaning-preserving (PRESERVE_MEANING), but the model unexpectedly changed its predicted class (NEUTRAL \u2192 POSITIVE).",
+    "recommendation": "Augment training data and regularize behavior against contrast_positive_append perturbations to fix Spurious failures.",
+    "evidence": {
+      "original_label": "NEUTRAL",
+      "probe_label": "POSITIVE",
+      "original_confidence": 0.5229073088927968,
+      "probe_confidence": 0.9233417192812603,
+      "confidence_delta_pp": 40.04344103884635,
+      "label_transition": "NEUTRAL \u2192 POSITIVE",
+      "is_prediction_flip": true,
+      "expected_effect": "PRESERVE",
+      "semantic_intent": "PRESERVE_MEANING",
+      "expected_label_relation": "SAME_LABEL",
+      "expected_confidence_relation": "PRESERVE",
+      "threshold_pp": 15.0,
+      "jaccard_similarity": 0.0,
+      "cosine_alignment": -0.10487525892174791,
+      "orig_explanation": {
+        "token_weights": {
+          "am": -0.07810420247883773,
+          "I": -0.03421931196479442,
+          "i": -0.007323930781158195,
+          "Energetic ,": 0.015712543446457835,
+          "still": 0.03313500181027424,
+          "and": 0.006821245016316285,
+          "Healthy": -0.12177348147058485,
+          "But": 0.06735964612924976,
+          "Energetic": -0.018577929061753738,
+          "Hospitalized": 0.049414208100601265
+        },
+        "token_attributions": [
+          {
+            "token": "am",
+            "attribution": -0.07810420247883773,
+            "position": 1
+          },
+          {
+            "token": "I",
+            "attribution": -0.03421931196479442,
+            "position": 2
+          },
+          {
+            "token": "i",
+            "attribution": -0.007323930781158195,
+            "position": 3
+          },
+          {
+            "token": "Energetic ,",
+            "attribution": 0.015712543446457835,
+            "position": 4
+          },
+          {
+            "token": "still",
+            "attribution": 0.03313500181027424,
+            "position": 5
+          },
+          {
+            "token": "and",
+            "attribution": 0.006821245016316285,
+            "position": 6
+          },
+          {
+            "token": "Healthy",
+            "attribution": -0.12177348147058485,
+            "position": 7
+          },
+          {
+            "token": "But",
+            "attribution": 0.06735964612924976,
+            "position": 8
+          },
+          {
+            "token": "Energetic",
+            "attribution": -0.018577929061753738,
+            "position": 9
+          },
+          {
+            "token": "Hospitalized",
+            "attribution": 0.049414208100601265,
+            "position": 10
+          }
+        ],
+        "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+        "text": "I am Healthy and Energetic ,But still i am Hospitalized",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "pert_explanation": {
+        "token_weights": {
+          "am": -0.00047324359470722957,
+          "Hospitalized,": -0.02037971017706506,
+          "I": 0.010160887210817877,
+          "displayed": -0.041733759678158074,
+          "remarkable": 0.14647740122351507,
+          "i": -0.01166961006496724,
+          "and": -0.030536631792000515,
+          "still": -0.01166961006496724,
+          "skill": 0.07067885100540028,
+          "Healthy": 0.015872060498468094,
+          "But": -4.058129185583598e-06,
+          "Energetic,": -0.009019155231468248,
+          "Energetic": 0.0017834158456008897,
+          "Hospitalized": -0.008547423033116812
+        },
+        "token_attributions": [
+          {
+            "token": "am",
+            "attribution": -0.00047324359470722957,
+            "position": 1
+          },
+          {
+            "token": "Hospitalized,",
+            "attribution": -0.02037971017706506,
+            "position": 2
+          },
+          {
+            "token": "I",
+            "attribution": 0.010160887210817877,
+            "position": 3
+          },
+          {
+            "token": "displayed",
+            "attribution": -0.041733759678158074,
+            "position": 4
+          },
+          {
+            "token": "remarkable",
+            "attribution": 0.14647740122351507,
+            "position": 5
+          },
+          {
+            "token": "i",
+            "attribution": -0.01166961006496724,
+            "position": 6
+          },
+          {
+            "token": "and",
+            "attribution": -0.030536631792000515,
+            "position": 7
+          },
+          {
+            "token": "still",
+            "attribution": -0.01166961006496724,
+            "position": 8
+          },
+          {
+            "token": "skill",
+            "attribution": 0.07067885100540028,
+            "position": 9
+          },
+          {
+            "token": "Healthy",
+            "attribution": 0.015872060498468094,
+            "position": 10
+          },
+          {
+            "token": "But",
+            "attribution": -4.058129185583598e-06,
+            "position": 11
+          },
+          {
+            "token": "Energetic,",
+            "attribution": -0.009019155231468248,
+            "position": 12
+          },
+          {
+            "token": "Energetic",
+            "attribution": 0.0017834158456008897,
+            "position": 13
+          },
+          {
+            "token": "Hospitalized",
+            "attribution": -0.008547423033116812,
+            "position": 14
+          }
+        ],
+        "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+        "text": "I am Healthy and Energetic,But still i am Hospitalized, and I displayed remarkable skill.",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "aligned_tokens": [
+        {
+          "token": "am",
+          "orig_token": "am",
+          "pert_token": "am",
+          "orig_pos": 1,
+          "pert_pos": 1,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.07810420247883773,
+          "pert_val": -0.00047324359470722957,
+          "delta": 0.0776309588841305,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Hospitalized,",
+          "orig_token": null,
+          "pert_token": "Hospitalized,",
+          "orig_pos": null,
+          "pert_pos": 2,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.02037971017706506,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "I",
+          "orig_token": "I",
+          "pert_token": "I",
+          "orig_pos": 2,
+          "pert_pos": 3,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 2,
+          "orig_val": -0.03421931196479442,
+          "pert_val": 0.010160887210817877,
+          "delta": 0.0443801991756123,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "displayed",
+          "orig_token": null,
+          "pert_token": "displayed",
+          "orig_pos": null,
+          "pert_pos": 4,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.041733759678158074,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "remarkable",
+          "orig_token": null,
+          "pert_token": "remarkable",
+          "orig_pos": null,
+          "pert_pos": 5,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.14647740122351507,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "i",
+          "orig_token": "i",
+          "pert_token": "i",
+          "orig_pos": 3,
+          "pert_pos": 6,
+          "orig_occ": 2,
+          "pert_occ": 2,
+          "total_occ": 2,
+          "orig_val": -0.007323930781158195,
+          "pert_val": -0.01166961006496724,
+          "delta": -0.004345679283809046,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Energetic ,",
+          "orig_token": "Energetic ,",
+          "pert_token": null,
+          "orig_pos": 4,
+          "pert_pos": null,
+          "orig_occ": 1,
+          "pert_occ": null,
+          "total_occ": 1,
+          "orig_val": 0.015712543446457835,
+          "pert_val": null,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "removed",
+          "is_key_shift": false
+        },
+        {
+          "token": "and",
+          "orig_token": null,
+          "pert_token": "and",
+          "orig_pos": null,
+          "pert_pos": 7,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.030536631792000515,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "still",
+          "orig_token": "still",
+          "pert_token": "still",
+          "orig_pos": 5,
+          "pert_pos": 8,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.03313500181027424,
+          "pert_val": -0.01166961006496724,
+          "delta": -0.044804611875241485,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "and",
+          "orig_token": "and",
+          "pert_token": null,
+          "orig_pos": 6,
+          "pert_pos": null,
+          "orig_occ": 1,
+          "pert_occ": null,
+          "total_occ": 1,
+          "orig_val": 0.006821245016316285,
+          "pert_val": null,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "removed",
+          "is_key_shift": false
+        },
+        {
+          "token": "skill",
+          "orig_token": null,
+          "pert_token": "skill",
+          "orig_pos": null,
+          "pert_pos": 9,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.07067885100540028,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "Healthy",
+          "orig_token": "Healthy",
+          "pert_token": "Healthy",
+          "orig_pos": 7,
+          "pert_pos": 10,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.12177348147058485,
+          "pert_val": 0.015872060498468094,
+          "delta": 0.13764554196905293,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": true
+        },
+        {
+          "token": "But",
+          "orig_token": "But",
+          "pert_token": "But",
+          "orig_pos": 8,
+          "pert_pos": 11,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.06735964612924976,
+          "pert_val": -4.058129185583598e-06,
+          "delta": -0.06736370425843534,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Energetic,",
+          "orig_token": null,
+          "pert_token": "Energetic,",
+          "orig_pos": null,
+          "pert_pos": 12,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.009019155231468248,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "Energetic",
+          "orig_token": "Energetic",
+          "pert_token": "Energetic",
+          "orig_pos": 9,
+          "pert_pos": 13,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.018577929061753738,
+          "pert_val": 0.0017834158456008897,
+          "delta": 0.020361344907354625,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "Hospitalized",
+          "orig_token": "Hospitalized",
+          "pert_token": "Hospitalized",
+          "orig_pos": 10,
+          "pert_pos": 14,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.049414208100601265,
+          "pert_val": -0.008547423033116812,
+          "delta": -0.05796163113371808,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        }
+      ]
+    },
+    "traceable_narrative": "The verified perturbation is meaning-preserving (PRESERVE_MEANING), but the model unexpectedly changed its predicted class (NEUTRAL \u2192 POSITIVE).",
+    "original_sentence": "I am Healthy and Energetic ,But still i am Hospitalized",
+    "perturbed_sentence": "I am Healthy and Energetic,But still i am Hospitalized, and I displayed remarkable skill.",
+    "original_label": "NEUTRAL",
+    "perturbed_label": "POSITIVE",
+    "original_confidence": 0.5229073088927968,
+    "perturbed_confidence": 0.9233417192812603,
+    "confidence_delta_pts": 40.04344103884635,
+    "is_flipped": true,
+    "expected_flip": false,
+    "behavioral_outcome": "UNEXPECTED_FLIP"
+  }
+]

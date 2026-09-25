@@ -1,0 +1,36 @@
+{
+  "experiment_id": "exp_1790359160_41297e",
+  "experiment_name": "Multimodel Robustness Audit 003",
+  "created_at": 1790359161.655395,
+  "status": "completed",
+  "models": [
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "textattack/albert-base-v2-SST-2",
+    "textattack/bert-base-uncased-SST-2",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "cardiffnlp/twitter-roberta-base-sentiment"
+  ],
+  "completed_models": [
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "textattack/albert-base-v2-SST-2",
+    "textattack/bert-base-uncased-SST-2",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "cardiffnlp/twitter-roberta-base-sentiment"
+  ],
+  "model_states": {
+    "distilbert-base-uncased-finetuned-sst-2-english": "completed",
+    "textattack/albert-base-v2-SST-2": "completed",
+    "textattack/bert-base-uncased-SST-2": "completed",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest": "completed",
+    "cardiffnlp/twitter-roberta-base-sentiment": "completed"
+  },
+  "num_models": 5,
+  "num_seed_texts": 1,
+  "num_probes": 7,
+  "last_updated_at": 1790359493.0662608,
+  "total_duration_sec": 332.1,
+  "pipeline_integrity_passed": true,
+  "run_status": "COMPLETED",
+  "analysis_status": "FAILURES_OBSERVED",
+  "completed_at": 1790359498.4348738
+}

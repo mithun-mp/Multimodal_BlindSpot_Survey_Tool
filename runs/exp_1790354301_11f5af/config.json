@@ -1,0 +1,41 @@
+{
+  "experiment_name": "Multimodel Robustness Audit",
+  "model_ids": [
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "textattack/albert-base-v2-SST-2",
+    "textattack/bert-base-uncased-SST-2",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "cardiffnlp/twitter-roberta-base-sentiment"
+  ],
+  "seed_texts": [
+    "i am healthy but still hospitalized."
+  ],
+  "sentence_types": {
+    "i am healthy but still hospitalized.": "literal"
+  },
+  "perturbation_types": [
+    "contrast_negative_append",
+    "intensity",
+    "contrast_positive_append",
+    "double_negation",
+    "negation_insertion",
+    "synonym_substitution"
+  ],
+  "explainer_type": "both",
+  "performance_mode": "balanced",
+  "batch_size": null,
+  "random_seed": 42,
+  "confidence_threshold": 0.65,
+  "confidence_sensitivity_threshold_pts": 20.0,
+  "output_dir": "runs",
+  "has_selected_probes": true,
+  "selected_probe_ids": [
+    "prb_7ee094120fc4",
+    "prb_dfaae507ee27",
+    "prb_8c69777126a9",
+    "prb_a7a8d8210313",
+    "prb_c5ddeee1e059",
+    "prb_40cdd98cd562",
+    "prb_953d67a0201e"
+  ]
+}

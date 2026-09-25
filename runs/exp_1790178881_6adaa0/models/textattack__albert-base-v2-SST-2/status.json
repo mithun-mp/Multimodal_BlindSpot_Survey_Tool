@@ -1,8 +1,0 @@
-{
-  "model_id": "textattack/albert-base-v2-SST-2",
-  "status": "FAILED",
-  "completed_at": 1790178901.5957487,
-  "error": "Model 'textattack/albert-base-v2-SST-2' pipeline is not loaded (load error: Error parsing line b'\\x0e' in C:\\Users\\ASUS\\.cache\\huggingface\\hub\\models--textattack--albert-base-v2-SST-2\\snapshots\\96d7dedb92b3679c4f1ae69e7e77440d058d8602\\spiece.model) and allow_fallback=False.",
-  "probes_done": 0,
-  "total_probes": 0
-}

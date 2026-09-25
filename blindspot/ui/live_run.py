@@ -237,119 +237,111 @@ def render_live_run():
                         st.caption("Artifacts saved. Generating incremental summary...")
 
     # ==========================================
-    # Event Logs Terminal Panel
+    # Event Logs Terminal Panel (Collapsible)
     # ==========================================
-    st.markdown(
-        """
-        <div style="margin:16px 0 6px 0; font-family:monospace; font-size:0.85rem; font-weight:bold; color:#cbd5e1; display:flex; justify-content:space-between; align-items:center;">
-            <span>EXECUTION EVENT STREAM & BEHAVIORAL TELEMETRY</span>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    with st.expander("📡 EXECUTION EVENT STREAM & BEHAVIORAL TELEMETRY", expanded=False):
+        events = runner.events.get_history()
 
-    events = runner.events.get_history()
+        tab_cards, tab_logs = st.tabs(["RESEARCH EVENT CARDS (DIAGNOSTIC)", "TERMINAL LOG STREAM"])
 
-    tab_cards, tab_logs = st.tabs(["RESEARCH EVENT CARDS (DIAGNOSTIC)", "TERMINAL LOG STREAM"])
-
-    with tab_cards:
-        probe_events = [ev for ev in reversed(events) if ev.event_type == "probe_evaluated"]
-        if not probe_events:
-            st.caption("No probe evaluation telemetry recorded yet. Live evaluations will stream here...")
-        else:
-            for pev in probe_events[:20]:
-                d = pev.data
-                m_short = d.get("model_id", "").split("/")[-1]
-                pid = d.get("probe_id", "")[:8]
-                pcat = d.get("perturbation_type", "").upper()
-                s_text = d.get("seed_text", "")
-                p_text = d.get("perturbed_text", "")
-                orig_lbl = d.get("original_label", "")
-                orig_conf = d.get("original_confidence", 0.0)
-                pert_lbl = d.get("perturbed_label", "")
-                pert_conf = d.get("perturbed_confidence", 0.0)
-                is_flip = "YES" if d.get("is_flipped") else "NO"
-                exp_eff = d.get("expected_effect", "N/A")
-                outcome = d.get("behavioral_outcome", "EVAL")
-                ftype = d.get("failure_type", "None")
-                delta_pts = d.get("confidence_delta_pts", 0.0)
-
-                f_badge_color = {
-                    "Blind": "#ef4444",
-                    "Spurious": "#f59e0b",
-                    "Misweighted": "#8b5cf6",
-                    "Undetermined": "#64748b",
-                    "None": "#10b981",
-                }.get(ftype, "#10b981")
-
-                st.markdown(
-                    f"""
-                    <div style="background:#141824; border:1px solid #26334d; border-radius:6px; padding:10px 14px; margin-bottom:8px; font-family:monospace; font-size:0.75rem;">
-                        <div style="display:flex; justify-content:space-between; margin-bottom:6px; flex-wrap:wrap; gap:6px;">
-                            <div style="display:flex; gap:6px; align-items:center;">
-                                <span style="background:#1e293b; color:#38bdf8; font-weight:bold; padding:2px 6px; border-radius:3px;">MODEL: {m_short}</span>
-                                <span style="background:#0f172a; color:#cbd5e1; padding:2px 6px; border-radius:3px;">PROBE: {pid}</span>
-                                <span style="background:#0f172a; color:#a78bfa; padding:2px 6px; border-radius:3px;">CAT: {pcat}</span>
-                            </div>
-                            <div style="display:flex; gap:6px; align-items:center;">
-                                <span style="background:#0f172a; color:#cbd5e1; padding:2px 6px; border-radius:3px;">OUTCOME: {outcome}</span>
-                                <span style="background:{f_badge_color}22; color:{f_badge_color}; border:1px solid {f_badge_color}66; padding:2px 6px; border-radius:3px; font-weight:bold;">
-                                    FAILURE: {ftype.upper()}
-                                </span>
-                            </div>
-                        </div>
-                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin:6px 0; background:#0b0f19; padding:6px 8px; border-radius:4px;">
-                            <div><strong style="color:#64748b;">Original:</strong> <span style="color:#cbd5e1;">"{s_text}"</span></div>
-                            <div><strong style="color:#64748b;">Perturbed:</strong> <span style="color:#e2e8f0;">"{p_text}"</span></div>
-                        </div>
-                        <div style="display:flex; justify-content:space-between; color:#94a3b8; font-size:0.72rem; flex-wrap:wrap; gap:8px;">
-                            <div>Baseline: <strong style="color:#38bdf8;">{orig_lbl}</strong> ({orig_conf:.2f})</div>
-                            <div>Probe Output: <strong style="color:#38bdf8;">{pert_lbl}</strong> ({pert_conf:.2f})</div>
-                            <div>Transition: <strong style="color:#f1f5f9;">{orig_lbl} → {pert_lbl}</strong></div>
-                            <div>Δ Conf: <strong style="color:{'#10b981' if delta_pts >= 0 else '#f59e0b'};">{delta_pts:+.1f} pp</strong></div>
-                            <div>Flip: <strong style="color:{'#f59e0b' if is_flip == 'YES' else '#94a3b8'};">{is_flip}</strong></div>
-                            <div>Expected: <strong style="color:#cbd5e1;">{exp_eff}</strong></div>
-                        </div>
-                    </div>
-                    """,
-                    unsafe_allow_html=True,
-                )
-
-    with tab_logs:
-        with st.container(height=320):
-            if not events:
-                st.caption("Waiting for execution telemetry events...")
+        with tab_cards:
+            probe_events = [ev for ev in reversed(events) if ev.event_type == "probe_evaluated"]
+            if not probe_events:
+                st.caption("No probe evaluation telemetry recorded yet. Live evaluations will stream here...")
             else:
-                for ev in reversed(events[-50:]):
-                    t_str = time.strftime("%H:%M:%S", time.localtime(ev.timestamp))
-                    etype = ev.event_type
-                    msg = ev.data.get("message", str(ev.data))
-                    lvl = "INFO"
-                    sub = "RUNNER"
+                for pev in probe_events[:20]:
+                    d = pev.data
+                    m_short = d.get("model_id", "").split("/")[-1]
+                    pid = d.get("probe_id", "")[:8]
+                    pcat = d.get("perturbation_type", "").upper()
+                    s_text = d.get("seed_text", "")
+                    p_text = d.get("perturbed_text", "")
+                    orig_lbl = d.get("original_label", "")
+                    orig_conf = d.get("original_confidence", 0.0)
+                    pert_lbl = d.get("perturbed_label", "")
+                    pert_conf = d.get("perturbed_confidence", 0.0)
+                    is_flip = "YES" if d.get("is_flipped") else "NO"
+                    exp_eff = d.get("expected_effect", "N/A")
+                    outcome = d.get("behavioral_outcome", "EVAL")
+                    ftype = d.get("failure_type", "None")
+                    delta_pts = d.get("confidence_delta_pts", 0.0)
 
-                    if etype == "error":
-                        lvl = "ERROR"
-                    elif etype == "cancelled":
-                        lvl = "WARNING"
-                    elif etype == "completed":
-                        lvl = "SUCCESS"
-                    elif etype == "model_complete":
-                        lvl = "SUCCESS"
-                        sub = "MODEL"
-                    elif etype == "model_start":
+                    f_badge_color = {
+                        "Blind": "#ef4444",
+                        "Spurious": "#f59e0b",
+                        "Misweighted": "#8b5cf6",
+                        "Undetermined": "#64748b",
+                        "None": "#10b981",
+                    }.get(ftype, "#10b981")
+
+                    st.markdown(
+                        f"""
+                        <div style="background:#141824; border:1px solid #26334d; border-radius:6px; padding:10px 14px; margin-bottom:8px; font-family:monospace; font-size:0.75rem;">
+                            <div style="display:flex; justify-content:space-between; margin-bottom:6px; flex-wrap:wrap; gap:6px;">
+                                <div style="display:flex; gap:6px; align-items:center;">
+                                    <span style="background:#1e293b; color:#38bdf8; font-weight:bold; padding:2px 6px; border-radius:3px;">MODEL: {m_short}</span>
+                                    <span style="background:#0f172a; color:#cbd5e1; padding:2px 6px; border-radius:3px;">PROBE: {pid}</span>
+                                    <span style="background:#0f172a; color:#a78bfa; padding:2px 6px; border-radius:3px;">CAT: {pcat}</span>
+                                </div>
+                                <div style="display:flex; gap:6px; align-items:center;">
+                                    <span style="background:#0f172a; color:#cbd5e1; padding:2px 6px; border-radius:3px;">OUTCOME: {outcome}</span>
+                                    <span style="background:{f_badge_color}22; color:{f_badge_color}; border:1px solid {f_badge_color}66; padding:2px 6px; border-radius:3px; font-weight:bold;">
+                                        FAILURE: {ftype.upper()}
+                                    </span>
+                                </div>
+                            </div>
+                            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin:6px 0; background:#0b0f19; padding:6px 8px; border-radius:4px;">
+                                <div><strong style="color:#64748b;">Original:</strong> <span style="color:#cbd5e1;">"{s_text}"</span></div>
+                                <div><strong style="color:#64748b;">Perturbed:</strong> <span style="color:#e2e8f0;">"{p_text}"</span></div>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; color:#94a3b8; font-size:0.72rem; flex-wrap:wrap; gap:8px;">
+                                <div>Baseline: <strong style="color:#38bdf8;">{orig_lbl}</strong> ({orig_conf:.2f})</div>
+                                <div>Probe Output: <strong style="color:#38bdf8;">{pert_lbl}</strong> ({pert_conf:.2f})</div>
+                                <div>Transition: <strong style="color:#f1f5f9;">{orig_lbl} → {pert_lbl}</strong></div>
+                                <div>Δ Conf: <strong style="color:{'#10b981' if delta_pts >= 0 else '#f59e0b'};">{delta_pts:+.1f} pp</strong></div>
+                                <div>Flip: <strong style="color:{'#f59e0b' if is_flip == 'YES' else '#94a3b8'};">{is_flip}</strong></div>
+                                <div>Expected: <strong style="color:#cbd5e1;">{exp_eff}</strong></div>
+                            </div>
+                        </div>
+                        """,
+                        unsafe_allow_html=True,
+                    )
+
+        with tab_logs:
+            with st.container(height=320):
+                if not events:
+                    st.caption("Waiting for execution telemetry events...")
+                else:
+                    for ev in reversed(events[-50:]):
+                        t_str = time.strftime("%H:%M:%S", time.localtime(ev.timestamp))
+                        etype = ev.event_type
+                        msg = ev.data.get("message", str(ev.data))
                         lvl = "INFO"
-                        sub = "MODEL"
-                    elif etype == "probe_evaluated":
-                        lvl = "DEBUG"
-                        sub = "PROBE"
-                        m_id_short = ev.data.get("model_id", "").split("/")[-1]
-                        p_id_short = ev.data.get("probe_id", "")[:8]
-                        outcome = ev.data.get("behavioral_outcome", "EVAL")
-                        delta_pts = ev.data.get("confidence_delta_pts", 0.0)
-                        ftype = ev.data.get("failure_type", "None")
-                        msg = f"[{m_id_short}] Probe {p_id_short} -> {outcome} ({delta_pts:+.1f} pp) | Failure: {ftype}"
+                        sub = "RUNNER"
 
-                    render_console_log_line(timestamp_str=t_str, level=lvl, subsystem=sub, message=msg)
+                        if etype == "error":
+                            lvl = "ERROR"
+                        elif etype == "cancelled":
+                            lvl = "WARNING"
+                        elif etype == "completed":
+                            lvl = "SUCCESS"
+                        elif etype == "model_complete":
+                            lvl = "SUCCESS"
+                            sub = "MODEL"
+                        elif etype == "model_start":
+                            lvl = "INFO"
+                            sub = "MODEL"
+                        elif etype == "probe_evaluated":
+                            lvl = "DEBUG"
+                            sub = "PROBE"
+                            m_id_short = ev.data.get("model_id", "").split("/")[-1]
+                            p_id_short = ev.data.get("probe_id", "")[:8]
+                            outcome = ev.data.get("behavioral_outcome", "EVAL")
+                            delta_pts = ev.data.get("confidence_delta_pts", 0.0)
+                            ftype = ev.data.get("failure_type", "None")
+                            msg = f"[{m_id_short}] Probe {p_id_short} -> {outcome} ({delta_pts:+.1f} pp) | Failure: {ftype}"
+
+                        render_console_log_line(timestamp_str=t_str, level=lvl, subsystem=sub, message=msg)
 
     # ==========================================
     # Post-Completion Action Gateway & Integrity Audit

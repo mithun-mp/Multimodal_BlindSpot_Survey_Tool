@@ -1,0 +1,436 @@
+[
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_ae5df0ccd318",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the product initially seemed impressively promising, it was not nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbation_type": "negation_insertion",
+    "category": "negation_insertion",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9806006495993548,
+      "formatted_confidence": "98.06%",
+      "probabilities": {
+        "NEGATIVE": 0.9806006495993548,
+        "POSITIVE": 0.01939935040064519
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.06%",
+        "POSITIVE": "1.94%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.06%\nPOSITIVE   [                    ]   1.94%",
+      "raw_logits": null,
+      "latency_ms": 40.60270000263699,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9849149071278369,
+      "formatted_confidence": "98.49%",
+      "probabilities": {
+        "NEGATIVE": 0.9849149071278369,
+        "POSITIVE": 0.015085092872163128
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.49%",
+        "POSITIVE": "1.51%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.49%\nPOSITIVE   [                    ]   1.51%",
+      "raw_logits": null,
+      "latency_ms": 31.861614285714627,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9806006495993548,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9849149071278369,
+    "is_flipped": false,
+    "confidence_delta": 0.004314257528482135,
+    "confidence_delta_pts": 0.4314257528482135,
+    "formatted_confidence_delta": "+0.43 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "The verified probe introduces a polarity-altering change (REVERSE_POLARITY), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "semantic_intent": "REVERSE_POLARITY",
+    "latency_ms": 31.861614285714627
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_1db9eac5f09d",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "It is not impossible that although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbation_type": "double_negation",
+    "category": "double_negation",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9806006495993548,
+      "formatted_confidence": "98.06%",
+      "probabilities": {
+        "NEGATIVE": 0.9806006495993548,
+        "POSITIVE": 0.01939935040064519
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.06%",
+        "POSITIVE": "1.94%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.06%\nPOSITIVE   [                    ]   1.94%",
+      "raw_logits": null,
+      "latency_ms": 40.60270000263699,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9283479521300491,
+      "formatted_confidence": "92.83%",
+      "probabilities": {
+        "NEGATIVE": 0.9283479521300491,
+        "POSITIVE": 0.07165204786995089
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "92.83%",
+        "POSITIVE": "7.17%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=================== ]  92.83%\nPOSITIVE   [=                   ]   7.17%",
+      "raw_logits": null,
+      "latency_ms": 31.861614285714627,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9806006495993548,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9283479521300491,
+    "is_flipped": false,
+    "confidence_delta": -0.05225269746930572,
+    "confidence_delta_pts": -5.225269746930572,
+    "formatted_confidence_delta": "-5.23 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 31.861614285714627
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_3701669fda09",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely extremely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "strengthen",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9806006495993548,
+      "formatted_confidence": "98.06%",
+      "probabilities": {
+        "NEGATIVE": 0.9806006495993548,
+        "POSITIVE": 0.01939935040064519
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.06%",
+        "POSITIVE": "1.94%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.06%\nPOSITIVE   [                    ]   1.94%",
+      "raw_logits": null,
+      "latency_ms": 40.60270000263699,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9761517880297699,
+      "formatted_confidence": "97.62%",
+      "probabilities": {
+        "NEGATIVE": 0.9761517880297699,
+        "POSITIVE": 0.02384821197023011
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "97.62%",
+        "POSITIVE": "2.38%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  97.62%\nPOSITIVE   [                    ]   2.38%",
+      "raw_logits": null,
+      "latency_ms": 31.861614285714627,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9806006495993548,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9761517880297699,
+    "is_flipped": false,
+    "confidence_delta": -0.004448861569584905,
+    "confidence_delta_pts": -0.44488615695849054,
+    "formatted_confidence_delta": "-0.44 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "STRENGTHEN_POLARITY",
+    "latency_ms": 31.861614285714627
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_5463baf67f97",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely somewhat excellent features, I cannot honestly say that I would recommend it.",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "weaken",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9806006495993548,
+      "formatted_confidence": "98.06%",
+      "probabilities": {
+        "NEGATIVE": 0.9806006495993548,
+        "POSITIVE": 0.01939935040064519
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.06%",
+        "POSITIVE": "1.94%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.06%\nPOSITIVE   [                    ]   1.94%",
+      "raw_logits": null,
+      "latency_ms": 40.60270000263699,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9807471486814745,
+      "formatted_confidence": "98.07%",
+      "probabilities": {
+        "NEGATIVE": 0.9807471486814745,
+        "POSITIVE": 0.019252851318525502
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.07%",
+        "POSITIVE": "1.93%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.07%\nPOSITIVE   [                    ]   1.93%",
+      "raw_logits": null,
+      "latency_ms": 31.861614285714627,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9806006495993548,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9807471486814745,
+    "is_flipped": false,
+    "confidence_delta": 0.00014649908211972207,
+    "confidence_delta_pts": 0.014649908211972207,
+    "formatted_confidence_delta": "+0.01 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "WEAKEN_POLARITY",
+    "latency_ms": 31.861614285714627
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_626aac29e48e",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the item initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbation_type": "synonym_substitution",
+    "category": "synonym_substitution",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9806006495993548,
+      "formatted_confidence": "98.06%",
+      "probabilities": {
+        "NEGATIVE": 0.9806006495993548,
+        "POSITIVE": 0.01939935040064519
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.06%",
+        "POSITIVE": "1.94%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.06%\nPOSITIVE   [                    ]   1.94%",
+      "raw_logits": null,
+      "latency_ms": 40.60270000263699,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9802052913468509,
+      "formatted_confidence": "98.02%",
+      "probabilities": {
+        "NEGATIVE": 0.9802052913468509,
+        "POSITIVE": 0.019794708653149175
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.02%",
+        "POSITIVE": "1.98%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.02%\nPOSITIVE   [                    ]   1.98%",
+      "raw_logits": null,
+      "latency_ms": 31.861614285714627,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9806006495993548,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9802052913468509,
+    "is_flipped": false,
+    "confidence_delta": -0.000395358252503919,
+    "confidence_delta_pts": -0.0395358252503919,
+    "formatted_confidence_delta": "-0.04 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 31.861614285714627
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_d257d7394e56",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it, however it did not be reliably.",
+    "perturbation_type": "contrast_negative_append",
+    "category": "contrast_negative_append",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9806006495993548,
+      "formatted_confidence": "98.06%",
+      "probabilities": {
+        "NEGATIVE": 0.9806006495993548,
+        "POSITIVE": 0.01939935040064519
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.06%",
+        "POSITIVE": "1.94%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.06%\nPOSITIVE   [                    ]   1.94%",
+      "raw_logits": null,
+      "latency_ms": 40.60270000263699,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9813153549822752,
+      "formatted_confidence": "98.13%",
+      "probabilities": {
+        "NEGATIVE": 0.9813153549822752,
+        "POSITIVE": 0.01868464501772484
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.13%",
+        "POSITIVE": "1.87%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.13%\nPOSITIVE   [                    ]   1.87%",
+      "raw_logits": null,
+      "latency_ms": 31.861614285714627,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9806006495993548,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9813153549822752,
+    "is_flipped": false,
+    "confidence_delta": 0.0007147053829203998,
+    "confidence_delta_pts": 0.07147053829203998,
+    "formatted_confidence_delta": "+0.07 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "The verified probe introduces a polarity-altering change (SHIFT_CONTRAST), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "semantic_intent": "SHIFT_CONTRAST",
+    "latency_ms": 31.861614285714627
+  },
+  {
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_cce6e49acab2",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it, and it delivered good results in practice.",
+    "perturbation_type": "contrast_positive_append",
+    "category": "contrast_positive_append",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9806006495993548,
+      "formatted_confidence": "98.06%",
+      "probabilities": {
+        "NEGATIVE": 0.9806006495993548,
+        "POSITIVE": 0.01939935040064519
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.06%",
+        "POSITIVE": "1.94%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.06%\nPOSITIVE   [                    ]   1.94%",
+      "raw_logits": null,
+      "latency_ms": 40.60270000263699,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9492950687001105,
+      "formatted_confidence": "94.93%",
+      "probabilities": {
+        "NEGATIVE": 0.05070493129988953,
+        "POSITIVE": 0.9492950687001105
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "5.07%",
+        "POSITIVE": "94.93%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=                   ]   5.07%\nPOSITIVE   [=================== ]  94.93%",
+      "raw_logits": null,
+      "latency_ms": 31.861614285714627,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9806006495993548,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9492950687001105,
+    "is_flipped": true,
+    "confidence_delta": -0.03130558089924429,
+    "confidence_delta_pts": -3.130558089924429,
+    "formatted_confidence_delta": "-3.13 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "UNEXPECTED_FLIP",
+    "failure_type": "Spurious",
+    "rationale": "The verified perturbation is meaning-preserving (PRESERVE_MEANING), but the model unexpectedly changed its predicted class (NEGATIVE \u2192 POSITIVE).",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 31.861614285714627
+  }
+]

@@ -19,17 +19,15 @@ PRIMARY_DOMAINS = [
     ("Run", "Live Run", "⚡"),
     ("Analyze", "Comparison", "📈"),
     ("Reports", "Reports", "📑"),
-    ("System", "System Monitor", "💻"),
 ]
 
 DOMAIN_SUBPAGES = {
     "Overview": ["Overview"],
     "Probes": ["Probes"],
     "Experiment": ["Experiment"],
-    "Run": ["Live Run", "Run Details", "Events"],
+    "Run": ["Live Run", "Run Details"],
     "Analyze": ["Comparison", "Explainability", "Failure Analysis"],
     "Reports": ["Reports", "Run History", "Models"],
-    "System": ["Monitor", "Console", "Settings"],
 }
 
 PAGE_TO_DOMAIN = {
@@ -46,9 +44,6 @@ PAGE_TO_DOMAIN = {
     "Reports": "Reports",
     "Run History": "Reports",
     "Models": "Reports",
-    "System Monitor": "System",
-    "Monitor": "System",
-    "Settings": "System",
 }
 
 
@@ -79,8 +74,8 @@ def render_shell(page_registry: Dict[str, Callable[[], None]]) -> None:
     # Persistent Top Telemetry Header
     render_workstation_header(system_status=system_status, active_runs=persisted_runs)
 
-    # Initialize current page in session state if missing
-    if "current_page" not in st.session_state:
+    # Initialize current page in session state if missing or invalidated
+    if "current_page" not in st.session_state or st.session_state["current_page"] in ["System", "System Monitor", "Monitor", "Console", "Settings"]:
         st.session_state["current_page"] = "Overview"
 
     current_page = st.session_state["current_page"]

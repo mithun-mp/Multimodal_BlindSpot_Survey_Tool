@@ -1,0 +1,29 @@
+{
+  "The movie was great and the acting was top notch.": {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "seed_text": "The movie was great and the acting was top notch.",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.986173965345905,
+      "formatted_confidence": "98.62%",
+      "probabilities": {
+        "NEGATIVE": 0.0021729515379752622,
+        "NEUTRAL": 0.011653083116119732,
+        "POSITIVE": 0.986173965345905
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.22%",
+        "NEUTRAL": "1.17%",
+        "POSITIVE": "98.62%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.22%\nNEUTRAL    [                    ]   1.17%\nPOSITIVE   [====================]  98.62%",
+      "raw_logits": null,
+      "latency_ms": 309.9474000000555,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "latency_ms": 309.9474000000555
+  }
+}

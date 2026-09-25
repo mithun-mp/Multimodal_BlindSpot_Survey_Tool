@@ -1,0 +1,693 @@
+{
+  "model_ids": [
+    "cardiffnlp/twitter-roberta-base-sentiment",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "textattack/albert-base-v2-SST-2",
+    "textattack/bert-base-uncased-SST-2"
+  ],
+  "overall_agreement_rate": 0.8857142857142858,
+  "pairwise_agreement": {
+    "cardiffnlp/twitter-roberta-base-sentiment": {
+      "cardiffnlp/twitter-roberta-base-sentiment": 1.0,
+      "cardiffnlp/twitter-roberta-base-sentiment-latest": 0.8571428571428571,
+      "distilbert-base-uncased-finetuned-sst-2-english": 0.8571428571428571,
+      "textattack/albert-base-v2-SST-2": 0.8571428571428571,
+      "textattack/bert-base-uncased-SST-2": 0.8571428571428571
+    },
+    "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+      "cardiffnlp/twitter-roberta-base-sentiment": 0.8571428571428571,
+      "cardiffnlp/twitter-roberta-base-sentiment-latest": 1.0,
+      "distilbert-base-uncased-finetuned-sst-2-english": 0.8571428571428571,
+      "textattack/albert-base-v2-SST-2": 1.0,
+      "textattack/bert-base-uncased-SST-2": 0.8571428571428571
+    },
+    "distilbert-base-uncased-finetuned-sst-2-english": {
+      "cardiffnlp/twitter-roberta-base-sentiment": 0.8571428571428571,
+      "cardiffnlp/twitter-roberta-base-sentiment-latest": 0.8571428571428571,
+      "distilbert-base-uncased-finetuned-sst-2-english": 1.0,
+      "textattack/albert-base-v2-SST-2": 0.8571428571428571,
+      "textattack/bert-base-uncased-SST-2": 1.0
+    },
+    "textattack/albert-base-v2-SST-2": {
+      "cardiffnlp/twitter-roberta-base-sentiment": 0.8571428571428571,
+      "cardiffnlp/twitter-roberta-base-sentiment-latest": 1.0,
+      "distilbert-base-uncased-finetuned-sst-2-english": 0.8571428571428571,
+      "textattack/albert-base-v2-SST-2": 1.0,
+      "textattack/bert-base-uncased-SST-2": 0.8571428571428571
+    },
+    "textattack/bert-base-uncased-SST-2": {
+      "cardiffnlp/twitter-roberta-base-sentiment": 0.8571428571428571,
+      "cardiffnlp/twitter-roberta-base-sentiment-latest": 0.8571428571428571,
+      "distilbert-base-uncased-finetuned-sst-2-english": 1.0,
+      "textattack/albert-base-v2-SST-2": 0.8571428571428571,
+      "textattack/bert-base-uncased-SST-2": 1.0
+    }
+  },
+  "fingerprints": {
+    "cardiffnlp/twitter-roberta-base-sentiment": {
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "total_probes": 7,
+      "flip_rate": 0.14285714285714285,
+      "ece": 0.2169809470067016,
+      "satisfaction_rate": 0.5714285714285714,
+      "mean_confidence_shift_pts": -2.793334622195051,
+      "category_flip_rates": {
+        "negation_insertion": 0.0,
+        "double_negation": 0.0,
+        "intensity": 0.0,
+        "synonym_substitution": 0.0,
+        "contrast_negative_append": 0.0,
+        "contrast_positive_append": 1.0
+      },
+      "failure_counts": {
+        "Blind": 2,
+        "Spurious": 1,
+        "Misweighted": 0,
+        "Undetermined": 0,
+        "None": 0
+      }
+    },
+    "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "total_probes": 7,
+      "flip_rate": 0.0,
+      "ece": 0.4039402426203169,
+      "satisfaction_rate": 0.7142857142857143,
+      "mean_confidence_shift_pts": -6.285854435053557,
+      "category_flip_rates": {
+        "negation_insertion": 0.0,
+        "double_negation": 0.0,
+        "intensity": 0.0,
+        "synonym_substitution": 0.0,
+        "contrast_negative_append": 0.0,
+        "contrast_positive_append": 0.0
+      },
+      "failure_counts": {
+        "Blind": 2,
+        "Spurious": 0,
+        "Misweighted": 0,
+        "Undetermined": 0,
+        "None": 0
+      }
+    },
+    "distilbert-base-uncased-finetuned-sst-2-english": {
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "total_probes": 7,
+      "flip_rate": 0.14285714285714285,
+      "ece": 0.42579786105741113,
+      "satisfaction_rate": 0.5714285714285714,
+      "mean_confidence_shift_pts": -0.12311025922214938,
+      "category_flip_rates": {
+        "negation_insertion": 0.0,
+        "double_negation": 0.0,
+        "intensity": 0.0,
+        "synonym_substitution": 0.0,
+        "contrast_negative_append": 0.0,
+        "contrast_positive_append": 1.0
+      },
+      "failure_counts": {
+        "Blind": 2,
+        "Spurious": 1,
+        "Misweighted": 0,
+        "Undetermined": 0,
+        "None": 0
+      }
+    },
+    "textattack/albert-base-v2-SST-2": {
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "total_probes": 7,
+      "flip_rate": 0.0,
+      "ece": 0.26216648048831237,
+      "satisfaction_rate": 0.7142857142857143,
+      "mean_confidence_shift_pts": -0.7205514627848765,
+      "category_flip_rates": {
+        "negation_insertion": 0.0,
+        "double_negation": 0.0,
+        "intensity": 0.0,
+        "synonym_substitution": 0.0,
+        "contrast_negative_append": 0.0,
+        "contrast_positive_append": 0.0
+      },
+      "failure_counts": {
+        "Blind": 2,
+        "Spurious": 0,
+        "Misweighted": 0,
+        "Undetermined": 0,
+        "None": 0
+      }
+    },
+    "textattack/bert-base-uncased-SST-2": {
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "total_probes": 7,
+      "flip_rate": 0.14285714285714285,
+      "ece": 0.39728250157119527,
+      "satisfaction_rate": 0.5714285714285714,
+      "mean_confidence_shift_pts": -1.1889576599588083,
+      "category_flip_rates": {
+        "negation_insertion": 0.0,
+        "double_negation": 0.0,
+        "intensity": 0.0,
+        "synonym_substitution": 0.0,
+        "contrast_negative_append": 0.0,
+        "contrast_positive_append": 1.0
+      },
+      "failure_counts": {
+        "Blind": 2,
+        "Spurious": 1,
+        "Misweighted": 0,
+        "Undetermined": 0,
+        "None": 0
+      }
+    }
+  },
+  "failure_summary": {
+    "distilbert-base-uncased-finetuned-sst-2-english": {
+      "Blind": 2,
+      "Spurious": 1,
+      "Misweighted": 0,
+      "Undetermined": 0,
+      "None": 0
+    },
+    "textattack/albert-base-v2-SST-2": {
+      "Blind": 2,
+      "Spurious": 0,
+      "Misweighted": 0,
+      "Undetermined": 0,
+      "None": 0
+    },
+    "textattack/bert-base-uncased-SST-2": {
+      "Blind": 2,
+      "Spurious": 1,
+      "Misweighted": 0,
+      "Undetermined": 0,
+      "None": 0
+    },
+    "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+      "Blind": 2,
+      "Spurious": 0,
+      "Misweighted": 0,
+      "Undetermined": 0,
+      "None": 0
+    },
+    "cardiffnlp/twitter-roberta-base-sentiment": {
+      "Blind": 2,
+      "Spurious": 1,
+      "Misweighted": 0,
+      "Undetermined": 0,
+      "None": 0
+    }
+  },
+  "model_probe_matrix": [
+    {
+      "probe_id": "prb_ae5df0ccd318",
+      "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+      "perturbed_text": "Although the product initially seemed impressively promising, it was not nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+      "perturbation_type": "negation_insertion",
+      "expected_flip": true,
+      "expected_semantic_effect": "invert",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.998457535078204,
+          "formatted_orig_confidence": "99.85%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9992411355321916,
+          "formatted_pert_confidence": "99.92%",
+          "is_flipped": false,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": 0.07836004539876207,
+          "formatted_delta": "+0.08 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9836577094018755,
+          "formatted_orig_confidence": "98.37%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9823154807090759,
+          "formatted_pert_confidence": "98.23%",
+          "is_flipped": false,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": -0.13422286927995408,
+          "formatted_delta": "-0.13 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9806006495993548,
+          "formatted_orig_confidence": "98.06%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9849149071278369,
+          "formatted_pert_confidence": "98.49%",
+          "is_flipped": false,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": 0.4314257528482135,
+          "formatted_delta": "+0.43 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.7954361886636132,
+          "formatted_orig_confidence": "79.54%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.8179791461216894,
+          "formatted_pert_confidence": "81.80%",
+          "is_flipped": false,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": 2.254295745807622,
+          "formatted_delta": "+2.25 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.5194149845577024,
+          "formatted_orig_confidence": "51.94%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.501360081197027,
+          "formatted_pert_confidence": "50.14%",
+          "is_flipped": false,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": -1.805490336067539,
+          "formatted_delta": "-1.81 percentage points"
+        }
+      }
+    },
+    {
+      "probe_id": "prb_1db9eac5f09d",
+      "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+      "perturbed_text": "It is not impossible that although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+      "perturbation_type": "double_negation",
+      "expected_flip": false,
+      "expected_semantic_effect": "preserve",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.998457535078204,
+          "formatted_orig_confidence": "99.85%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9974796887304876,
+          "formatted_pert_confidence": "99.75%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.09778463477163601,
+          "formatted_delta": "-0.10 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9836577094018755,
+          "formatted_orig_confidence": "98.37%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9716552876024712,
+          "formatted_pert_confidence": "97.17%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -1.200242179940425,
+          "formatted_delta": "-1.20 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9806006495993548,
+          "formatted_orig_confidence": "98.06%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9283479521300491,
+          "formatted_pert_confidence": "92.83%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -5.225269746930572,
+          "formatted_delta": "-5.23 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.7954361886636132,
+          "formatted_orig_confidence": "79.54%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.6529925854797712,
+          "formatted_pert_confidence": "65.30%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -14.244360318384198,
+          "formatted_delta": "-14.24 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.5194149845577024,
+          "formatted_orig_confidence": "51.94%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.4700665017982275,
+          "formatted_pert_confidence": "47.01%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -4.934848275947489,
+          "formatted_delta": "-4.93 percentage points"
+        }
+      }
+    },
+    {
+      "probe_id": "prb_3701669fda09",
+      "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+      "perturbed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely extremely excellent features, I cannot honestly say that I would recommend it.",
+      "perturbation_type": "intensity",
+      "expected_flip": false,
+      "expected_semantic_effect": "strengthen",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.998457535078204,
+          "formatted_orig_confidence": "99.85%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9971635012593593,
+          "formatted_pert_confidence": "99.72%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.1294033818844742,
+          "formatted_delta": "-0.13 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9836577094018755,
+          "formatted_orig_confidence": "98.37%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.974579321551965,
+          "formatted_pert_confidence": "97.46%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.9078387849910441,
+          "formatted_delta": "-0.91 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9806006495993548,
+          "formatted_orig_confidence": "98.06%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9761517880297699,
+          "formatted_pert_confidence": "97.62%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.44488615695849054,
+          "formatted_delta": "-0.44 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.7954361886636132,
+          "formatted_orig_confidence": "79.54%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.7666863741972567,
+          "formatted_pert_confidence": "76.67%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -2.8749814466356494,
+          "formatted_delta": "-2.87 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.5194149845577024,
+          "formatted_orig_confidence": "51.94%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.4906859178534485,
+          "formatted_pert_confidence": "49.07%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -2.8729066704253903,
+          "formatted_delta": "-2.87 percentage points"
+        }
+      }
+    },
+    {
+      "probe_id": "prb_5463baf67f97",
+      "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+      "perturbed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely somewhat excellent features, I cannot honestly say that I would recommend it.",
+      "perturbation_type": "intensity",
+      "expected_flip": false,
+      "expected_semantic_effect": "weaken",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.998457535078204,
+          "formatted_orig_confidence": "99.85%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9970341116433723,
+          "formatted_pert_confidence": "99.70%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.14234234348317054,
+          "formatted_delta": "-0.14 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9836577094018755,
+          "formatted_orig_confidence": "98.37%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9805245915811325,
+          "formatted_pert_confidence": "98.05%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.3133117820742992,
+          "formatted_delta": "-0.31 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9806006495993548,
+          "formatted_orig_confidence": "98.06%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9807471486814745,
+          "formatted_pert_confidence": "98.07%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.014649908211972207,
+          "formatted_delta": "+0.01 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.7954361886636132,
+          "formatted_orig_confidence": "79.54%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.794332194412765,
+          "formatted_pert_confidence": "79.43%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.11039942508481726,
+          "formatted_delta": "-0.11 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.5194149845577024,
+          "formatted_orig_confidence": "51.94%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.518558971307293,
+          "formatted_pert_confidence": "51.86%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.08560132504094042,
+          "formatted_delta": "-0.09 percentage points"
+        }
+      }
+    },
+    {
+      "probe_id": "prb_626aac29e48e",
+      "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+      "perturbed_text": "Although the item initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+      "perturbation_type": "synonym_substitution",
+      "expected_flip": false,
+      "expected_semantic_effect": "preserve",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.998457535078204,
+          "formatted_orig_confidence": "99.85%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9984232498772245,
+          "formatted_pert_confidence": "99.84%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.003428520097947807,
+          "formatted_delta": "-0.00 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9836577094018755,
+          "formatted_orig_confidence": "98.37%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9858193434246605,
+          "formatted_pert_confidence": "98.58%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.21616340227850195,
+          "formatted_delta": "+0.22 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9806006495993548,
+          "formatted_orig_confidence": "98.06%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9802052913468509,
+          "formatted_pert_confidence": "98.02%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.0395358252503919,
+          "formatted_delta": "-0.04 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.7954361886636132,
+          "formatted_orig_confidence": "79.54%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.8042588557172313,
+          "formatted_pert_confidence": "80.43%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.8822667053618116,
+          "formatted_delta": "+0.88 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.5194149845577024,
+          "formatted_orig_confidence": "51.94%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.5244677379410111,
+          "formatted_pert_confidence": "52.45%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.5052753383308684,
+          "formatted_delta": "+0.51 percentage points"
+        }
+      }
+    },
+    {
+      "probe_id": "prb_d257d7394e56",
+      "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+      "perturbed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it, however it did not be reliably.",
+      "perturbation_type": "contrast_negative_append",
+      "expected_flip": true,
+      "expected_semantic_effect": "invert",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.998457535078204,
+          "formatted_orig_confidence": "99.85%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9986327296347781,
+          "formatted_pert_confidence": "99.86%",
+          "is_flipped": false,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": 0.017519455657410976,
+          "formatted_delta": "+0.02 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9836577094018755,
+          "formatted_orig_confidence": "98.37%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9902884286911643,
+          "formatted_pert_confidence": "99.03%",
+          "is_flipped": false,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": 0.6630719289288822,
+          "formatted_delta": "+0.66 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9806006495993548,
+          "formatted_orig_confidence": "98.06%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9813153549822752,
+          "formatted_pert_confidence": "98.13%",
+          "is_flipped": false,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": 0.07147053829203998,
+          "formatted_delta": "+0.07 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.7954361886636132,
+          "formatted_orig_confidence": "79.54%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.8555746024279604,
+          "formatted_pert_confidence": "85.56%",
+          "is_flipped": false,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": 6.013841376434714,
+          "formatted_delta": "+6.01 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.5194149845577024,
+          "formatted_orig_confidence": "51.94%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.574498789742553,
+          "formatted_pert_confidence": "57.45%",
+          "is_flipped": false,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": 5.5083805184850565,
+          "formatted_delta": "+5.51 percentage points"
+        }
+      }
+    },
+    {
+      "probe_id": "prb_cce6e49acab2",
+      "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+      "perturbed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it, and it delivered good results in practice.",
+      "perturbation_type": "contrast_positive_append",
+      "expected_flip": false,
+      "expected_semantic_effect": "preserve",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.998457535078204,
+          "formatted_orig_confidence": "99.85%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9926106107244641,
+          "formatted_pert_confidence": "99.26%",
+          "is_flipped": true,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": -0.5846924353739902,
+          "formatted_delta": "-0.58 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9836577094018755,
+          "formatted_orig_confidence": "98.37%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9499829098577175,
+          "formatted_pert_confidence": "95.00%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -3.3674799544157974,
+          "formatted_delta": "-3.37 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9806006495993548,
+          "formatted_orig_confidence": "98.06%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9492950687001105,
+          "formatted_pert_confidence": "94.93%",
+          "is_flipped": true,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": -3.130558089924429,
+          "formatted_delta": "-3.13 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.7954361886636132,
+          "formatted_orig_confidence": "79.54%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.4362197518348694,
+          "formatted_pert_confidence": "43.62%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -35.92164368287438,
+          "formatted_delta": "-35.92 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.5194149845577024,
+          "formatted_orig_confidence": "51.94%",
+          "perturbed_label": "NEUTRAL",
+          "perturbed_confidence": 0.3607334685107032,
+          "formatted_pert_confidence": "36.07%",
+          "is_flipped": true,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": -15.868151604699921,
+          "formatted_delta": "-15.87 percentage points"
+        }
+      }
+    }
+  ]
+}

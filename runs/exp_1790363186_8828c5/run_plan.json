@@ -1,0 +1,34 @@
+{
+  "experiment_id": "exp_1790363186_8828c5",
+  "model_ids": [
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "textattack/albert-base-v2-SST-2",
+    "textattack/bert-base-uncased-SST-2",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "cardiffnlp/twitter-roberta-base-sentiment"
+  ],
+  "probe_set_id": "pset_1790363158_sel",
+  "probe_set_version": "2.2.0",
+  "selected_probe_ids": [
+    "prb_ae5df0ccd318",
+    "prb_1db9eac5f09d",
+    "prb_3701669fda09",
+    "prb_5463baf67f97",
+    "prb_626aac29e48e",
+    "prb_d257d7394e56",
+    "prb_cce6e49acab2"
+  ],
+  "probe_versions": {
+    "prb_ae5df0ccd318": 1,
+    "prb_1db9eac5f09d": 1,
+    "prb_3701669fda09": 1,
+    "prb_5463baf67f97": 1,
+    "prb_626aac29e48e": 1,
+    "prb_d257d7394e56": 1,
+    "prb_cce6e49acab2": 1
+  },
+  "original_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+  "created_at": 1790363187.459701,
+  "sentence_type": "literal",
+  "metadata": {}
+}

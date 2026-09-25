@@ -1,0 +1,436 @@
+[
+  {
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_ae5df0ccd318",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the product initially seemed impressively promising, it was not nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbation_type": "negation_insertion",
+    "category": "negation_insertion",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9836577094018755,
+      "formatted_confidence": "98.37%",
+      "probabilities": {
+        "NEGATIVE": 0.9836577094018755,
+        "POSITIVE": 0.01634229059812452
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.37%",
+        "POSITIVE": "1.63%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.37%\nPOSITIVE   [                    ]   1.63%",
+      "raw_logits": null,
+      "latency_ms": 254.4687999979942,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9823154807090759,
+      "formatted_confidence": "98.23%",
+      "probabilities": {
+        "NEGATIVE": 0.9823154807090759,
+        "POSITIVE": 0.017684519290924072
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.23%",
+        "POSITIVE": "1.77%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.23%\nPOSITIVE   [                    ]   1.77%",
+      "raw_logits": null,
+      "latency_ms": 577.8310285713815,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9836577094018755,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9823154807090759,
+    "is_flipped": false,
+    "confidence_delta": -0.0013422286927995408,
+    "confidence_delta_pts": -0.13422286927995408,
+    "formatted_confidence_delta": "-0.13 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "The verified probe introduces a polarity-altering change (REVERSE_POLARITY), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "semantic_intent": "REVERSE_POLARITY",
+    "latency_ms": 577.8310285713815
+  },
+  {
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_1db9eac5f09d",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "It is not impossible that although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbation_type": "double_negation",
+    "category": "double_negation",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9836577094018755,
+      "formatted_confidence": "98.37%",
+      "probabilities": {
+        "NEGATIVE": 0.9836577094018755,
+        "POSITIVE": 0.01634229059812452
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.37%",
+        "POSITIVE": "1.63%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.37%\nPOSITIVE   [                    ]   1.63%",
+      "raw_logits": null,
+      "latency_ms": 254.4687999979942,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9716552876024712,
+      "formatted_confidence": "97.17%",
+      "probabilities": {
+        "NEGATIVE": 0.9716552876024712,
+        "POSITIVE": 0.02834471239752874
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "97.17%",
+        "POSITIVE": "2.83%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=================== ]  97.17%\nPOSITIVE   [=                   ]   2.83%",
+      "raw_logits": null,
+      "latency_ms": 577.8310285713815,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9836577094018755,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9716552876024712,
+    "is_flipped": false,
+    "confidence_delta": -0.01200242179940425,
+    "confidence_delta_pts": -1.200242179940425,
+    "formatted_confidence_delta": "-1.20 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 577.8310285713815
+  },
+  {
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_3701669fda09",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely extremely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "strengthen",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9836577094018755,
+      "formatted_confidence": "98.37%",
+      "probabilities": {
+        "NEGATIVE": 0.9836577094018755,
+        "POSITIVE": 0.01634229059812452
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.37%",
+        "POSITIVE": "1.63%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.37%\nPOSITIVE   [                    ]   1.63%",
+      "raw_logits": null,
+      "latency_ms": 254.4687999979942,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.974579321551965,
+      "formatted_confidence": "97.46%",
+      "probabilities": {
+        "NEGATIVE": 0.974579321551965,
+        "POSITIVE": 0.025420678448034917
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "97.46%",
+        "POSITIVE": "2.54%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=================== ]  97.46%\nPOSITIVE   [=                   ]   2.54%",
+      "raw_logits": null,
+      "latency_ms": 577.8310285713815,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9836577094018755,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.974579321551965,
+    "is_flipped": false,
+    "confidence_delta": -0.009078387849910441,
+    "confidence_delta_pts": -0.9078387849910441,
+    "formatted_confidence_delta": "-0.91 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "STRENGTHEN_POLARITY",
+    "latency_ms": 577.8310285713815
+  },
+  {
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_5463baf67f97",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely somewhat excellent features, I cannot honestly say that I would recommend it.",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "weaken",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9836577094018755,
+      "formatted_confidence": "98.37%",
+      "probabilities": {
+        "NEGATIVE": 0.9836577094018755,
+        "POSITIVE": 0.01634229059812452
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.37%",
+        "POSITIVE": "1.63%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.37%\nPOSITIVE   [                    ]   1.63%",
+      "raw_logits": null,
+      "latency_ms": 254.4687999979942,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9805245915811325,
+      "formatted_confidence": "98.05%",
+      "probabilities": {
+        "NEGATIVE": 0.9805245915811325,
+        "POSITIVE": 0.01947540841886753
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.05%",
+        "POSITIVE": "1.95%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.05%\nPOSITIVE   [                    ]   1.95%",
+      "raw_logits": null,
+      "latency_ms": 577.8310285713815,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9836577094018755,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9805245915811325,
+    "is_flipped": false,
+    "confidence_delta": -0.003133117820742992,
+    "confidence_delta_pts": -0.3133117820742992,
+    "formatted_confidence_delta": "-0.31 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "WEAKEN_POLARITY",
+    "latency_ms": 577.8310285713815
+  },
+  {
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_626aac29e48e",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the item initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbation_type": "synonym_substitution",
+    "category": "synonym_substitution",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9836577094018755,
+      "formatted_confidence": "98.37%",
+      "probabilities": {
+        "NEGATIVE": 0.9836577094018755,
+        "POSITIVE": 0.01634229059812452
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.37%",
+        "POSITIVE": "1.63%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.37%\nPOSITIVE   [                    ]   1.63%",
+      "raw_logits": null,
+      "latency_ms": 254.4687999979942,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9858193434246605,
+      "formatted_confidence": "98.58%",
+      "probabilities": {
+        "NEGATIVE": 0.9858193434246605,
+        "POSITIVE": 0.014180656575339498
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.58%",
+        "POSITIVE": "1.42%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.58%\nPOSITIVE   [                    ]   1.42%",
+      "raw_logits": null,
+      "latency_ms": 577.8310285713815,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9836577094018755,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9858193434246605,
+    "is_flipped": false,
+    "confidence_delta": 0.0021616340227850195,
+    "confidence_delta_pts": 0.21616340227850195,
+    "formatted_confidence_delta": "+0.22 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 577.8310285713815
+  },
+  {
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_d257d7394e56",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it, however it did not be reliably.",
+    "perturbation_type": "contrast_negative_append",
+    "category": "contrast_negative_append",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9836577094018755,
+      "formatted_confidence": "98.37%",
+      "probabilities": {
+        "NEGATIVE": 0.9836577094018755,
+        "POSITIVE": 0.01634229059812452
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.37%",
+        "POSITIVE": "1.63%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.37%\nPOSITIVE   [                    ]   1.63%",
+      "raw_logits": null,
+      "latency_ms": 254.4687999979942,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9902884286911643,
+      "formatted_confidence": "99.03%",
+      "probabilities": {
+        "NEGATIVE": 0.9902884286911643,
+        "POSITIVE": 0.009711571308835683
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.03%",
+        "POSITIVE": "0.97%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.03%\nPOSITIVE   [                    ]   0.97%",
+      "raw_logits": null,
+      "latency_ms": 577.8310285713815,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9836577094018755,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9902884286911643,
+    "is_flipped": false,
+    "confidence_delta": 0.006630719289288822,
+    "confidence_delta_pts": 0.6630719289288822,
+    "formatted_confidence_delta": "+0.66 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "The verified probe introduces a polarity-altering change (SHIFT_CONTRAST), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "semantic_intent": "SHIFT_CONTRAST",
+    "latency_ms": 577.8310285713815
+  },
+  {
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_cce6e49acab2",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it, and it delivered good results in practice.",
+    "perturbation_type": "contrast_positive_append",
+    "category": "contrast_positive_append",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9836577094018755,
+      "formatted_confidence": "98.37%",
+      "probabilities": {
+        "NEGATIVE": 0.9836577094018755,
+        "POSITIVE": 0.01634229059812452
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.37%",
+        "POSITIVE": "1.63%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.37%\nPOSITIVE   [                    ]   1.63%",
+      "raw_logits": null,
+      "latency_ms": 254.4687999979942,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9499829098577175,
+      "formatted_confidence": "95.00%",
+      "probabilities": {
+        "NEGATIVE": 0.9499829098577175,
+        "POSITIVE": 0.05001709014228255
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "95.00%",
+        "POSITIVE": "5.00%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=================== ]  95.00%\nPOSITIVE   [=                   ]   5.00%",
+      "raw_logits": null,
+      "latency_ms": 577.8310285713815,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9836577094018755,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9499829098577175,
+    "is_flipped": false,
+    "confidence_delta": -0.033674799544157974,
+    "confidence_delta_pts": -3.3674799544157974,
+    "formatted_confidence_delta": "-3.37 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 577.8310285713815
+  }
+]

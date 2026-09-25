@@ -89,13 +89,22 @@ class HuggingFaceWrapper:
                     top_k=None,
                 )
             except Exception:
-                self.pipeline = pipeline(
-                    "text-classification",
-                    model=self.model_name,
-                    device=device_arg,
-                    use_fast=True,
-                    return_all_scores=True,
-                )
+                try:
+                    self.pipeline = pipeline(
+                        "text-classification",
+                        model=self.model_name,
+                        device=device_arg,
+                        use_fast=True,
+                        return_all_scores=True,
+                    )
+                except Exception:
+                    self.pipeline = pipeline(
+                        "text-classification",
+                        model=self.model_name,
+                        device=device_arg,
+                        use_fast=False,
+                        return_all_scores=True,
+                    )
 
             # Extract model configuration & class counts
             if hasattr(self.pipeline.model, "config"):

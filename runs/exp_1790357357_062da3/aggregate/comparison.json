@@ -1,0 +1,693 @@
+{
+  "model_ids": [
+    "cardiffnlp/twitter-roberta-base-sentiment",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "textattack/albert-base-v2-SST-2",
+    "textattack/bert-base-uncased-SST-2"
+  ],
+  "overall_agreement_rate": 0.5285714285714286,
+  "pairwise_agreement": {
+    "cardiffnlp/twitter-roberta-base-sentiment": {
+      "cardiffnlp/twitter-roberta-base-sentiment": 1.0,
+      "cardiffnlp/twitter-roberta-base-sentiment-latest": 0.5714285714285714,
+      "distilbert-base-uncased-finetuned-sst-2-english": 0.2857142857142857,
+      "textattack/albert-base-v2-SST-2": 0.42857142857142855,
+      "textattack/bert-base-uncased-SST-2": 0.2857142857142857
+    },
+    "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+      "cardiffnlp/twitter-roberta-base-sentiment": 0.5714285714285714,
+      "cardiffnlp/twitter-roberta-base-sentiment-latest": 1.0,
+      "distilbert-base-uncased-finetuned-sst-2-english": 0.5714285714285714,
+      "textattack/albert-base-v2-SST-2": 0.42857142857142855,
+      "textattack/bert-base-uncased-SST-2": 0.5714285714285714
+    },
+    "distilbert-base-uncased-finetuned-sst-2-english": {
+      "cardiffnlp/twitter-roberta-base-sentiment": 0.2857142857142857,
+      "cardiffnlp/twitter-roberta-base-sentiment-latest": 0.5714285714285714,
+      "distilbert-base-uncased-finetuned-sst-2-english": 1.0,
+      "textattack/albert-base-v2-SST-2": 0.5714285714285714,
+      "textattack/bert-base-uncased-SST-2": 1.0
+    },
+    "textattack/albert-base-v2-SST-2": {
+      "cardiffnlp/twitter-roberta-base-sentiment": 0.42857142857142855,
+      "cardiffnlp/twitter-roberta-base-sentiment-latest": 0.42857142857142855,
+      "distilbert-base-uncased-finetuned-sst-2-english": 0.5714285714285714,
+      "textattack/albert-base-v2-SST-2": 1.0,
+      "textattack/bert-base-uncased-SST-2": 0.5714285714285714
+    },
+    "textattack/bert-base-uncased-SST-2": {
+      "cardiffnlp/twitter-roberta-base-sentiment": 0.2857142857142857,
+      "cardiffnlp/twitter-roberta-base-sentiment-latest": 0.5714285714285714,
+      "distilbert-base-uncased-finetuned-sst-2-english": 1.0,
+      "textattack/albert-base-v2-SST-2": 0.5714285714285714,
+      "textattack/bert-base-uncased-SST-2": 1.0
+    }
+  },
+  "fingerprints": {
+    "cardiffnlp/twitter-roberta-base-sentiment": {
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "total_probes": 7,
+      "flip_rate": 0.5714285714285714,
+      "ece": 0.226727831315078,
+      "satisfaction_rate": 0.42857142857142855,
+      "mean_confidence_shift_pts": 13.239195099370987,
+      "category_flip_rates": {
+        "negation_insertion": 1.0,
+        "double_negation": 1.0,
+        "intensity": 0.5,
+        "synonym_substitution": 0.0,
+        "contrast_negative_append": 0.0,
+        "contrast_positive_append": 1.0
+      },
+      "failure_counts": {
+        "Blind": 1,
+        "Spurious": 2,
+        "Misweighted": 1,
+        "Undetermined": 0,
+        "None": 0
+      }
+    },
+    "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "total_probes": 7,
+      "flip_rate": 0.5714285714285714,
+      "ece": 0.2744780483568684,
+      "satisfaction_rate": 0.7142857142857143,
+      "mean_confidence_shift_pts": 1.840863234554502,
+      "category_flip_rates": {
+        "negation_insertion": 1.0,
+        "double_negation": 1.0,
+        "intensity": 0.0,
+        "synonym_substitution": 0.0,
+        "contrast_negative_append": 1.0,
+        "contrast_positive_append": 1.0
+      },
+      "failure_counts": {
+        "Blind": 0,
+        "Spurious": 2,
+        "Misweighted": 0,
+        "Undetermined": 0,
+        "None": 0
+      }
+    },
+    "distilbert-base-uncased-finetuned-sst-2-english": {
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "total_probes": 7,
+      "flip_rate": 0.14285714285714285,
+      "ece": 0.3953683737573293,
+      "satisfaction_rate": 0.5714285714285714,
+      "mean_confidence_shift_pts": -2.48313782072728,
+      "category_flip_rates": {
+        "negation_insertion": 0.0,
+        "double_negation": 0.0,
+        "intensity": 0.0,
+        "synonym_substitution": 0.0,
+        "contrast_negative_append": 0.0,
+        "contrast_positive_append": 1.0
+      },
+      "failure_counts": {
+        "Blind": 2,
+        "Spurious": 1,
+        "Misweighted": 0,
+        "Undetermined": 0,
+        "None": 0
+      }
+    },
+    "textattack/albert-base-v2-SST-2": {
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "total_probes": 7,
+      "flip_rate": 0.42857142857142855,
+      "ece": 0.16902091831655436,
+      "satisfaction_rate": 0.5714285714285714,
+      "mean_confidence_shift_pts": 11.469093697281183,
+      "category_flip_rates": {
+        "negation_insertion": 1.0,
+        "double_negation": 1.0,
+        "intensity": 0.0,
+        "synonym_substitution": 1.0,
+        "contrast_negative_append": 0.0,
+        "contrast_positive_append": 0.0
+      },
+      "failure_counts": {
+        "Blind": 1,
+        "Spurious": 2,
+        "Misweighted": 0,
+        "Undetermined": 0,
+        "None": 0
+      }
+    },
+    "textattack/bert-base-uncased-SST-2": {
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "total_probes": 7,
+      "flip_rate": 0.14285714285714285,
+      "ece": 0.3857459531826001,
+      "satisfaction_rate": 0.5714285714285714,
+      "mean_confidence_shift_pts": -0.501771860395861,
+      "category_flip_rates": {
+        "negation_insertion": 0.0,
+        "double_negation": 0.0,
+        "intensity": 0.0,
+        "synonym_substitution": 0.0,
+        "contrast_negative_append": 0.0,
+        "contrast_positive_append": 1.0
+      },
+      "failure_counts": {
+        "Blind": 2,
+        "Spurious": 1,
+        "Misweighted": 0,
+        "Undetermined": 0,
+        "None": 0
+      }
+    }
+  },
+  "failure_summary": {
+    "distilbert-base-uncased-finetuned-sst-2-english": {
+      "Blind": 2,
+      "Spurious": 1,
+      "Misweighted": 0,
+      "Undetermined": 0,
+      "None": 0
+    },
+    "textattack/albert-base-v2-SST-2": {
+      "Blind": 1,
+      "Spurious": 2,
+      "Misweighted": 0,
+      "Undetermined": 0,
+      "None": 0
+    },
+    "textattack/bert-base-uncased-SST-2": {
+      "Blind": 2,
+      "Spurious": 1,
+      "Misweighted": 0,
+      "Undetermined": 0,
+      "None": 0
+    },
+    "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+      "Blind": 0,
+      "Spurious": 2,
+      "Misweighted": 0,
+      "Undetermined": 0,
+      "None": 0
+    },
+    "cardiffnlp/twitter-roberta-base-sentiment": {
+      "Blind": 1,
+      "Spurious": 2,
+      "Misweighted": 1,
+      "Undetermined": 0,
+      "None": 0
+    }
+  },
+  "model_probe_matrix": [
+    {
+      "probe_id": "prb_859f5f7bfbf1",
+      "seed_text": "I am Healthy and Energetic ,But still i am Hospitalized",
+      "perturbed_text": "I am not Healthy and Energetic,But still i am Hospitalized",
+      "perturbation_type": "negation_insertion",
+      "expected_flip": true,
+      "expected_semantic_effect": "invert",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9916283233931735,
+          "formatted_orig_confidence": "99.16%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9994071456761066,
+          "formatted_pert_confidence": "99.94%",
+          "is_flipped": false,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": 0.7778822282933029,
+          "formatted_delta": "+0.78 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.6141207401192409,
+          "formatted_orig_confidence": "61.41%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9778331067835258,
+          "formatted_pert_confidence": "97.78%",
+          "is_flipped": true,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 36.37123666642849,
+          "formatted_delta": "+36.37 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9621922432151301,
+          "formatted_orig_confidence": "96.22%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9975388140659811,
+          "formatted_pert_confidence": "99.75%",
+          "is_flipped": false,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": 3.5346570850851022,
+          "formatted_delta": "+3.53 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "NEUTRAL",
+          "original_confidence": 0.6192092207192,
+          "formatted_orig_confidence": "61.92%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.8138549176258051,
+          "formatted_pert_confidence": "81.39%",
+          "is_flipped": true,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 19.464569690660504,
+          "formatted_delta": "+19.46 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "NEUTRAL",
+          "original_confidence": 0.5229073088927968,
+          "formatted_orig_confidence": "52.29%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9284706344269198,
+          "formatted_pert_confidence": "92.85%",
+          "is_flipped": true,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 40.5563325534123,
+          "formatted_delta": "+40.56 percentage points"
+        }
+      }
+    },
+    {
+      "probe_id": "prb_bae1a417e4e6",
+      "seed_text": "I am Healthy and Energetic ,But still i am Hospitalized",
+      "perturbed_text": "It is not impossible that I am Healthy and Energetic,But still i am Hospitalized",
+      "perturbation_type": "double_negation",
+      "expected_flip": false,
+      "expected_semantic_effect": "preserve",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9916283233931735,
+          "formatted_orig_confidence": "99.16%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9986773184432883,
+          "formatted_pert_confidence": "99.87%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.7048995050114804,
+          "formatted_delta": "+0.70 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.6141207401192409,
+          "formatted_orig_confidence": "61.41%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.549957351385276,
+          "formatted_pert_confidence": "55.00%",
+          "is_flipped": true,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": -6.416338873396487,
+          "formatted_delta": "-6.42 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9621922432151301,
+          "formatted_orig_confidence": "96.22%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9945763108702524,
+          "formatted_pert_confidence": "99.46%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 3.238406765512236,
+          "formatted_delta": "+3.24 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "NEUTRAL",
+          "original_confidence": 0.6192092207192,
+          "formatted_orig_confidence": "61.92%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.48612074595329924,
+          "formatted_pert_confidence": "48.61%",
+          "is_flipped": true,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": -13.30884747659008,
+          "formatted_delta": "-13.31 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "NEUTRAL",
+          "original_confidence": 0.5229073088927968,
+          "formatted_orig_confidence": "52.29%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.5630553553532742,
+          "formatted_pert_confidence": "56.31%",
+          "is_flipped": true,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": 4.014804646047743,
+          "formatted_delta": "+4.01 percentage points"
+        }
+      }
+    },
+    {
+      "probe_id": "prb_09115dba0e79",
+      "seed_text": "I am Healthy and Energetic ,But still i am Hospitalized",
+      "perturbed_text": "I am extremely Healthy and Energetic ,But still i am Hospitalized",
+      "perturbation_type": "intensity",
+      "expected_flip": false,
+      "expected_semantic_effect": "strengthen",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9916283233931735,
+          "formatted_orig_confidence": "99.16%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9870810599164495,
+          "formatted_pert_confidence": "98.71%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.45472634767240727,
+          "formatted_delta": "-0.45 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.6141207401192409,
+          "formatted_orig_confidence": "61.41%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.7082738665260713,
+          "formatted_pert_confidence": "70.83%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 9.415312640683037,
+          "formatted_delta": "+9.42 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9621922432151301,
+          "formatted_orig_confidence": "96.22%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9519180967832179,
+          "formatted_pert_confidence": "95.19%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -1.0274146431912157,
+          "formatted_delta": "-1.03 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "NEUTRAL",
+          "original_confidence": 0.6192092207192,
+          "formatted_orig_confidence": "61.92%",
+          "perturbed_label": "NEUTRAL",
+          "perturbed_confidence": 0.522964879186008,
+          "formatted_pert_confidence": "52.30%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -9.624434153319205,
+          "formatted_delta": "-9.62 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "NEUTRAL",
+          "original_confidence": 0.5229073088927968,
+          "formatted_orig_confidence": "52.29%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.5364299456509198,
+          "formatted_pert_confidence": "53.64%",
+          "is_flipped": true,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": 1.3522636758123041,
+          "formatted_delta": "+1.35 percentage points"
+        }
+      }
+    },
+    {
+      "probe_id": "prb_d705f7b60309",
+      "seed_text": "I am Healthy and Energetic ,But still i am Hospitalized",
+      "perturbed_text": "I am somewhat Healthy and Energetic ,But still i am Hospitalized",
+      "perturbation_type": "intensity",
+      "expected_flip": false,
+      "expected_semantic_effect": "weaken",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9916283233931735,
+          "formatted_orig_confidence": "99.16%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9909222362134911,
+          "formatted_pert_confidence": "99.09%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -0.07060871796824575,
+          "formatted_delta": "-0.07 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.6141207401192409,
+          "formatted_orig_confidence": "61.41%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.5945748090744019,
+          "formatted_pert_confidence": "59.46%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -1.9545931044839038,
+          "formatted_delta": "-1.95 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9621922432151301,
+          "formatted_orig_confidence": "96.22%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9849651675824338,
+          "formatted_pert_confidence": "98.50%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 2.2772924367303715,
+          "formatted_delta": "+2.28 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "NEUTRAL",
+          "original_confidence": 0.6192092207192,
+          "formatted_orig_confidence": "61.92%",
+          "perturbed_label": "NEUTRAL",
+          "perturbed_confidence": 0.7000392571085802,
+          "formatted_pert_confidence": "70.00%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 8.083003638938013,
+          "formatted_delta": "+8.08 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "NEUTRAL",
+          "original_confidence": 0.5229073088927968,
+          "formatted_orig_confidence": "52.29%",
+          "perturbed_label": "NEUTRAL",
+          "perturbed_confidence": 0.5557743824157956,
+          "formatted_pert_confidence": "55.58%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 3.286707352299878,
+          "formatted_delta": "+3.29 percentage points"
+        }
+      }
+    },
+    {
+      "probe_id": "prb_a85e33861176",
+      "seed_text": "I am Healthy and Energetic ,But still i am Hospitalized",
+      "perturbed_text": "I am Respectable and Energetic,But still i am Hospitalized",
+      "perturbation_type": "synonym_substitution",
+      "expected_flip": false,
+      "expected_semantic_effect": "preserve",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9916283233931735,
+          "formatted_orig_confidence": "99.16%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.9974176533031125,
+          "formatted_pert_confidence": "99.74%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 0.5789329909938967,
+          "formatted_delta": "+0.58 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.6141207401192409,
+          "formatted_orig_confidence": "61.41%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.5276079020617037,
+          "formatted_pert_confidence": "52.76%",
+          "is_flipped": true,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": -8.651283805753717,
+          "formatted_delta": "-8.65 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9621922432151301,
+          "formatted_orig_confidence": "96.22%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.986653714850943,
+          "formatted_pert_confidence": "98.67%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 2.4461471635812915,
+          "formatted_delta": "+2.45 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "NEUTRAL",
+          "original_confidence": 0.6192092207192,
+          "formatted_orig_confidence": "61.92%",
+          "perturbed_label": "NEUTRAL",
+          "perturbed_confidence": 0.5735568658377608,
+          "formatted_pert_confidence": "57.36%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -4.5652354881439265,
+          "formatted_delta": "-4.57 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "NEUTRAL",
+          "original_confidence": 0.5229073088927968,
+          "formatted_orig_confidence": "52.29%",
+          "perturbed_label": "NEUTRAL",
+          "perturbed_confidence": 0.5941968406883509,
+          "formatted_pert_confidence": "59.42%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 7.128953179555408,
+          "formatted_delta": "+7.13 percentage points"
+        }
+      }
+    },
+    {
+      "probe_id": "prb_2c66cf98fc1f",
+      "seed_text": "I am Healthy and Energetic ,But still i am Hospitalized",
+      "perturbed_text": "I am Healthy and Energetic,But still i am Hospitalized, however I could not repeat that performance.",
+      "perturbation_type": "contrast_negative_append",
+      "expected_flip": true,
+      "expected_semantic_effect": "invert",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9916283233931735,
+          "formatted_orig_confidence": "99.16%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.7951436997907251,
+          "formatted_pert_confidence": "79.51%",
+          "is_flipped": false,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": -19.648462360244846,
+          "formatted_delta": "-19.65 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.6141207401192409,
+          "formatted_orig_confidence": "61.41%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.7620001548826718,
+          "formatted_pert_confidence": "76.20%",
+          "is_flipped": false,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": 14.787941476343091,
+          "formatted_delta": "+14.79 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9621922432151301,
+          "formatted_orig_confidence": "96.22%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.7854192970010534,
+          "formatted_pert_confidence": "78.54%",
+          "is_flipped": false,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": -17.67729462140767,
+          "formatted_delta": "-17.68 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "NEUTRAL",
+          "original_confidence": 0.6192092207192,
+          "formatted_orig_confidence": "61.92%",
+          "perturbed_label": "NEGATIVE",
+          "perturbed_confidence": 0.48830756839192,
+          "formatted_pert_confidence": "48.83%",
+          "is_flipped": true,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": -13.090165232728001,
+          "formatted_delta": "-13.09 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "NEUTRAL",
+          "original_confidence": 0.5229073088927968,
+          "formatted_orig_confidence": "52.29%",
+          "perturbed_label": "NEUTRAL",
+          "perturbed_confidence": 0.485825941389026,
+          "formatted_pert_confidence": "48.58%",
+          "is_flipped": false,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": -3.708136750377078,
+          "formatted_delta": "-3.71 percentage points"
+        }
+      }
+    },
+    {
+      "probe_id": "prb_b84086ecdb68",
+      "seed_text": "I am Healthy and Energetic ,But still i am Hospitalized",
+      "perturbed_text": "I am Healthy and Energetic,But still i am Hospitalized, and I displayed remarkable skill.",
+      "perturbation_type": "contrast_positive_append",
+      "expected_flip": false,
+      "expected_semantic_effect": "preserve",
+      "models": {
+        "distilbert-base-uncased-finetuned-sst-2-english": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9916283233931735,
+          "formatted_orig_confidence": "99.16%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9989295029581321,
+          "formatted_pert_confidence": "99.89%",
+          "is_flipped": true,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": 0.7301179564958571,
+          "formatted_delta": "+0.73 percentage points"
+        },
+        "textattack/albert-base-v2-SST-2": {
+          "original_label": "POSITIVE",
+          "original_confidence": 0.6141207401192409,
+          "formatted_orig_confidence": "61.41%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9814345489307187,
+          "formatted_pert_confidence": "98.14%",
+          "is_flipped": false,
+          "expectation_satisfied": true,
+          "confidence_delta_pts": 36.73138088114778,
+          "formatted_delta": "+36.73 percentage points"
+        },
+        "textattack/bert-base-uncased-SST-2": {
+          "original_label": "NEGATIVE",
+          "original_confidence": 0.9621922432151301,
+          "formatted_orig_confidence": "96.22%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9991502711243186,
+          "formatted_pert_confidence": "99.92%",
+          "is_flipped": true,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": 3.695802790918856,
+          "formatted_delta": "+3.70 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+          "original_label": "NEUTRAL",
+          "original_confidence": 0.6192092207192,
+          "formatted_orig_confidence": "61.92%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.8784807373498421,
+          "formatted_pert_confidence": "87.85%",
+          "is_flipped": true,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": 25.92715166306421,
+          "formatted_delta": "+25.93 percentage points"
+        },
+        "cardiffnlp/twitter-roberta-base-sentiment": {
+          "original_label": "NEUTRAL",
+          "original_confidence": 0.5229073088927968,
+          "formatted_orig_confidence": "52.29%",
+          "perturbed_label": "POSITIVE",
+          "perturbed_confidence": 0.9233417192812603,
+          "formatted_pert_confidence": "92.33%",
+          "is_flipped": true,
+          "expectation_satisfied": false,
+          "confidence_delta_pts": 40.04344103884635,
+          "formatted_delta": "+40.04 percentage points"
+        }
+      }
+    }
+  ]
+}

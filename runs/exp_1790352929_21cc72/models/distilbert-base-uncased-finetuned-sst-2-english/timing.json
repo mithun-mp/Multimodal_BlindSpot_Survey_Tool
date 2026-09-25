@@ -1,0 +1,13 @@
+{
+  "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+  "cache_lookup_ms": 0.0,
+  "model_load_ms": 0.04,
+  "tokenizer_load_ms": 0.0,
+  "baseline_inference_ms": 0.0,
+  "probe_inference_ms": 185.52,
+  "total_inference_ms": 185.52,
+  "analysis_ms": 3.49,
+  "report_ms": 0.01,
+  "persistence_ms": 0.0,
+  "total_duration_sec": 19.77
+}

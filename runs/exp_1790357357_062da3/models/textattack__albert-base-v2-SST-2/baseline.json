@@ -1,0 +1,27 @@
+{
+  "I am Healthy and Energetic ,But still i am Hospitalized": {
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "seed_text": "I am Healthy and Energetic ,But still i am Hospitalized",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.6141207401192409,
+      "formatted_confidence": "61.41%",
+      "probabilities": {
+        "NEGATIVE": 0.3858792598807591,
+        "POSITIVE": 0.6141207401192409
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "38.59%",
+        "POSITIVE": "61.41%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [========            ]  38.59%\nPOSITIVE   [============        ]  61.41%",
+      "raw_logits": null,
+      "latency_ms": 189.15240000023914,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "latency_ms": 189.15240000023914
+  }
+}

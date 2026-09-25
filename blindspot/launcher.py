@@ -91,7 +91,7 @@ def run_launcher() -> int:
     logger.info(f"Python runtime verified: {py_ver}")
 
     # 2. Dependency Check
-    required_packages = ["streamlit", "torch", "transformers", "pandas"]
+    required_packages = ["streamlit", "torch", "transformers", "pandas", "sentencepiece", "google.protobuf", "psutil"]
     missing = []
     for pkg in required_packages:
         try:

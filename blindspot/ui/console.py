@@ -36,7 +36,7 @@ def get_console_logs():
                 "timestamp": time.time() - 45,
                 "level": "INFO",
                 "subsystem": "RESOURCE",
-                "message": "Hardware telemetry verified: CPU 16 cores, 15.7GB RAM, GPU: Not detected."
+                "message": "Hardware telemetry streams online: Host processor, memory, and network active."
             },
         ]
 

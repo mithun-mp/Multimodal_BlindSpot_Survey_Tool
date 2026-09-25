@@ -1,0 +1,27 @@
+{
+  "i am healthy but still hospitalized.": {
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "seed_text": "i am healthy but still hospitalized.",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.6589082479476929,
+      "formatted_confidence": "65.89%",
+      "probabilities": {
+        "NEGATIVE": 0.6589082479476929,
+        "POSITIVE": 0.34109175205230713
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "65.89%",
+        "POSITIVE": "34.11%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=============       ]  65.89%\nPOSITIVE   [=======             ]  34.11%",
+      "raw_logits": null,
+      "latency_ms": 93.69869999864022,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "latency_ms": 93.69869999864022
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "model_id": "textattack/bert-base-uncased-SST-2",
-  "status": "COMPLETED",
-  "completed_at": 1790019403.6131408,
-  "error": null,
-  "probes_done": 7,
-  "total_probes": 7
-}

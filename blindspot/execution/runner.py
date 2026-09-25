@@ -433,6 +433,9 @@ class ExperimentRunner:
                                         f["evidence"] = {}
                                     f["evidence"]["jaccard_similarity"] = jaccard
                                     f["evidence"]["cosine_alignment"] = cosine
+                                    f["evidence"]["orig_explanation"] = exp_item.get("orig_explanation")
+                                    f["evidence"]["pert_explanation"] = exp_item.get("pert_explanation")
+                                    f["evidence"]["aligned_tokens"] = exp_item.get("aligned_tokens")
 
                     model_failures[model_id] = failures
                     model_explanations[model_id] = explanations
@@ -463,6 +466,7 @@ class ExperimentRunner:
                         "metrics": model_metrics[model_id],
                         "failures": failures,
                         "taxonomy": failures,
+                        "explanations": explanations,
                         "timing": timing,
                         "report_md": report_md,
                         "completed_at": time.time(),

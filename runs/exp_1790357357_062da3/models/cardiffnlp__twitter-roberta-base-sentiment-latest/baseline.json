@@ -1,0 +1,29 @@
+{
+  "I am Healthy and Energetic ,But still i am Hospitalized": {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "seed_text": "I am Healthy and Energetic ,But still i am Hospitalized",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "NEUTRAL",
+      "confidence": 0.6192092207192,
+      "formatted_confidence": "61.92%",
+      "probabilities": {
+        "NEGATIVE": 0.22289301122884436,
+        "NEUTRAL": 0.6192092207192,
+        "POSITIVE": 0.15789776805195557
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "22.29%",
+        "NEUTRAL": "61.92%",
+        "POSITIVE": "15.79%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====                ]  22.29%\nNEUTRAL    [============        ]  61.92%\nPOSITIVE   [===                 ]  15.79%",
+      "raw_logits": null,
+      "latency_ms": 513.9220000000932,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "latency_ms": 513.9220000000932
+  }
+}

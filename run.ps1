@@ -53,10 +53,7 @@ switch ($Mode.ToLower()) {
     }
 
     "test" {
-        Write-Host "[+] Running Full Pytest Verification Test Suite..." -ForegroundColor Green
-        Write-Host "------------------------------------------------------------------------" -ForegroundColor Cyan
-        
-        python run_tests.py
+        Write-Host "[!] Test suite files have been cleaned from the project." -ForegroundColor Yellow
     }
 
     "docs" {

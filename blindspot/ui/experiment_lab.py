@@ -11,7 +11,6 @@ from blindspot.models.registry import ModelRegistry
 from blindspot.models.cache import ModelCache
 from blindspot.execution.runner import ExperimentRunner
 from blindspot.execution.resources import ResourceManager
-from blindspot.perturbations.shared import SharedProbeGenerator
 from blindspot.ui.components import render_technical_model_card, render_probe_preview_card
 
 
@@ -34,7 +33,7 @@ def render_experiment_lab():
     presets = registry.list_sentiment_models()
     cache = ModelCache.get_shared_cache()
     specs = ResourceManager.get_system_specs()
-    host_device = "cuda" if specs["gpu"]["available"] else "cpu"
+    host_device = specs.get("pytorch_device", "cpu")
 
     staged_probe_set = st.session_state.get("staged_probe_set")
 
@@ -51,40 +50,9 @@ def render_experiment_lab():
         unsafe_allow_html=True,
     )
 
-    if staged_probe_set is not None:
-        num_staged = len(staged_probe_set.probes)
-        seed_summary = ", ".join(staged_probe_set.seed_texts[:2])
-        if len(staged_probe_set.seed_texts) > 2:
-            seed_summary += f" (+{len(staged_probe_set.seed_texts) - 2} more)"
-
-        st.markdown(
-            f"""
-            <div style="background:#0b2518; border:1px solid #10b981; border-radius:6px; padding:12px 16px; margin:8px 0 12px 0;">
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <div>
-                        <strong style="color:#10b981; font-size:0.95rem;">✓ VERIFIED PROBE CATALOG ACTIVE</strong>
-                        <div style="color:#6ee7b7; font-size:0.8rem; margin-top:2px;">
-                            <strong>{num_staged} probe(s)</strong> staged for: <span style="font-style:italic;">"{seed_summary}"</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-        col_staged_act1, col_staged_act2 = st.columns([2, 2])
-        with col_staged_act1:
-            if st.button("🔬 Open Probe Workbench", key="btn_open_workbench_from_exp", use_container_width=True):
-                st.session_state["current_page"] = "Probes"
-                st.rerun()
-        with col_staged_act2:
-            if st.button("Clear Staged Probes", key="btn_clear_staged_exp", use_container_width=True):
-                if "staged_probe_set" in st.session_state:
-                    del st.session_state["staged_probe_set"]
-                st.rerun()
-
-        with st.expander(f"Inspect Staged Probes ({num_staged} stimuli)", expanded=False):
+    num_staged = len(staged_probe_set.probes) if staged_probe_set is not None else 0
+    with st.expander(f"Inspect Staged Probes ({num_staged} stimuli)", expanded=False):
+        if staged_probe_set is not None and staged_probe_set.probes:
             for p in staged_probe_set.probes:
                 render_probe_preview_card(
                     probe_id=p.probe_id,
@@ -94,33 +62,15 @@ def render_experiment_lab():
                     expected_semantic_effect=p.expected_semantic_effect,
                     expected_flip=p.expected_flip,
                 )
-    else:
-        st.markdown(
-            """
-            <div style="background:#141824; border:1px dashed #334155; border-radius:6px; padding:14px 16px; margin:8px 0 12px 0;">
-                <div style="color:#f1f5f9; font-weight:600; font-size:0.9rem; margin-bottom:4px;">
-                    No Staged Probe Catalog Detected
+        else:
+            st.markdown(
+                """
+                <div style="color:#94a3b8; font-size:0.85rem; padding:8px 4px;">
+                    No stimuli currently staged. Configure and stage probes in the <strong>Probes</strong> tab.
                 </div>
-                <div style="color:#94a3b8; font-size:0.8rem; margin-bottom:12px;">
-                    Linguistic perturbation stimuli are generated, curated, and verified in the <strong>Probe Research Workbench</strong> before auditing target models.
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-        col_p_nav1, col_p_nav2 = st.columns([2, 2])
-        with col_p_nav1:
-            if st.button("🔬 Open Probe Workbench", key="btn_goto_workbench_empty", type="primary", use_container_width=True):
-                st.session_state["current_page"] = "Probes"
-                st.rerun()
-        with col_p_nav2:
-            if st.button("⚡ Quick-Stage Benchmark (7 Probes)", key="btn_quick_stage_default", use_container_width=True):
-                quick_gen = SharedProbeGenerator()
-                default_seed = "The movie was great and the acting was top notch."
-                quick_set = quick_gen.generate_probes([default_seed], candidate_count=7)
-                st.session_state["staged_probe_set"] = quick_set
-                st.session_state["exp_seed_text"] = default_seed
-                st.rerun()
+                """,
+                unsafe_allow_html=True,
+            )
 
     # ==========================================
     # 02 MODELS — TARGET CLASSIFIERS
@@ -286,7 +236,7 @@ def render_experiment_lab():
                 return
 
             if staged_probe_set is None:
-                st.error("Validation Error: No probe catalog staged. Please click '🔬 Open Probe Workbench' in Step 01 to curate and stage probes, or '⚡ Quick-Stage Benchmark'.")
+                st.error("Validation Error: No probe catalog staged. Please curate and stage probes in the 'Probes' tab before launching.")
                 return
 
             final_probe_set = staged_probe_set
@@ -331,20 +281,16 @@ def render_experiment_lab():
         unsafe_allow_html=True,
     )
 
-    col_rev1, col_rev2, col_rev3, col_rev4 = st.columns(4)
+    col_rev1, col_rev2, col_rev3 = st.columns(3)
     with col_rev1:
         if st.button("Live Execution Monitor", key="rev_btn_live", use_container_width=True):
             st.session_state["current_page"] = "Live Run"
             st.rerun()
     with col_rev2:
-        if st.button("System Console", key="rev_btn_console", use_container_width=True):
-            st.session_state["current_page"] = "Console"
-            st.rerun()
-    with col_rev3:
         if st.button("Model Comparison", key="rev_btn_comp", use_container_width=True):
             st.session_state["current_page"] = "Comparison"
             st.rerun()
-    with col_rev4:
+    with col_rev3:
         if st.button("Run History Archive", key="rev_btn_hist", use_container_width=True):
             st.session_state["current_page"] = "Run History"
             st.rerun()

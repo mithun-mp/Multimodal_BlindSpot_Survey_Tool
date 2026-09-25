@@ -1,0 +1,29 @@
+{
+  "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.": {
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.5194149845577024,
+      "formatted_confidence": "51.94%",
+      "probabilities": {
+        "NEGATIVE": 0.5194149845577024,
+        "NEUTRAL": 0.3292377738313872,
+        "POSITIVE": 0.15134724161091037
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "51.94%",
+        "NEUTRAL": "32.92%",
+        "POSITIVE": "15.13%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [==========          ]  51.94%\nNEUTRAL    [=======             ]  32.92%\nPOSITIVE   [===                 ]  15.13%",
+      "raw_logits": null,
+      "latency_ms": 314.7332999978971,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "latency_ms": 314.7332999978971
+  }
+}

@@ -69,3 +69,41 @@
 2026-09-24 02:15:22 | INFO     | BOOT      | Core dependencies verified.
 2026-09-24 02:15:22 | INFO     | BOOT      | Model registry initialized with 5 presets.
 2026-09-24 02:15:22 | INFO     | BOOT      | Starting BlindSpot on local port 8501.
+2026-09-25 14:25:38 | INFO     | BOOT      | Python runtime verified: 3.13.14
+2026-09-25 14:26:15 | INFO     | BOOT      | Core dependencies verified.
+2026-09-25 14:26:15 | INFO     | BOOT      | Model registry initialized with 5 presets.
+2026-09-25 14:26:16 | INFO     | BOOT      | Starting BlindSpot on local port 8501.
+2026-09-25 14:53:39 | INFO     | BOOT      | Python runtime verified: 3.13.14
+2026-09-25 14:54:27 | INFO     | BOOT      | Core dependencies verified.
+2026-09-25 14:54:27 | INFO     | BOOT      | Model registry initialized with 5 presets.
+2026-09-25 14:54:28 | INFO     | BOOT      | Starting BlindSpot on local port 8501.
+2026-09-25 14:58:33 | INFO     | BOOT      | Shutdown initiated by user.
+2026-09-25 14:58:36 | INFO     | BOOT      | Python runtime verified: 3.13.14
+2026-09-25 14:58:42 | INFO     | BOOT      | Core dependencies verified.
+2026-09-25 14:58:42 | INFO     | BOOT      | Model registry initialized with 5 presets.
+2026-09-25 14:58:42 | INFO     | BOOT      | Starting BlindSpot on local port 8501.
+2026-09-25 19:34:23 | INFO     | BOOT      | Python runtime verified: 3.14.6
+2026-09-25 19:35:13 | INFO     | BOOT      | Core dependencies verified.
+2026-09-25 19:35:13 | INFO     | BOOT      | Model registry initialized with 5 presets.
+2026-09-25 19:35:13 | INFO     | BOOT      | Starting BlindSpot on local port 8501.
+2026-09-25 19:55:01 | INFO     | BOOT      | Shutdown initiated by user.
+2026-09-25 20:37:58 | INFO     | BOOT      | Python runtime verified: 3.14.6
+2026-09-25 20:39:23 | INFO     | BOOT      | Core dependencies verified.
+2026-09-25 20:39:23 | INFO     | BOOT      | Model registry initialized with 5 presets.
+2026-09-25 20:39:23 | INFO     | BOOT      | Starting BlindSpot on local port 8501.
+2026-09-25 20:55:18 | INFO     | BOOT      | Shutdown initiated by user.
+2026-09-25 20:55:22 | INFO     | BOOT      | Python runtime verified: 3.14.6
+2026-09-25 20:55:27 | INFO     | BOOT      | Core dependencies verified.
+2026-09-25 20:55:27 | INFO     | BOOT      | Model registry initialized with 5 presets.
+2026-09-25 20:55:27 | INFO     | BOOT      | Starting BlindSpot on local port 8501.
+2026-09-25 22:55:08 | INFO     | BOOT      | Shutdown initiated by user.
+2026-09-25 22:55:16 | INFO     | BOOT      | Python runtime verified: 3.14.6
+2026-09-25 22:55:51 | INFO     | BOOT      | Core dependencies verified.
+2026-09-25 22:55:51 | INFO     | BOOT      | Model registry initialized with 5 presets.
+2026-09-25 22:55:52 | INFO     | BOOT      | Starting BlindSpot on local port 8501.
+2026-09-26 00:01:58 | INFO     | BOOT      | Shutdown initiated by user.
+2026-09-26 00:02:03 | INFO     | BOOT      | Python runtime verified: 3.14.6
+2026-09-26 00:02:09 | INFO     | BOOT      | Core dependencies verified.
+2026-09-26 00:02:09 | INFO     | BOOT      | Model registry initialized with 5 presets.
+2026-09-26 00:02:10 | INFO     | BOOT      | Starting BlindSpot on local port 8501.
+2026-09-26 00:19:20 | INFO     | BOOT      | Shutdown initiated by user.

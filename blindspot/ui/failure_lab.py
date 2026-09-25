@@ -111,8 +111,4 @@ def render_failure_lab():
 
     # Render Evidence Records
     for idx, failure in enumerate(filtered):
-        render_failure_record(failure)
-        evidence_data = failure.get("evidence")
-        if evidence_data:
-            with st.expander(f"Inspect Raw Evidence Payload (#{idx + 1})", expanded=False):
-                st.json(evidence_data)
+        render_failure_record(failure, idx=idx)

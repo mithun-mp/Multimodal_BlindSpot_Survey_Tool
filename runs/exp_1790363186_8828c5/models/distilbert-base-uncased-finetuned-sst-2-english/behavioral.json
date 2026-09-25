@@ -1,0 +1,436 @@
+[
+  {
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_ae5df0ccd318",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the product initially seemed impressively promising, it was not nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbation_type": "negation_insertion",
+    "category": "negation_insertion",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.998457535078204,
+      "formatted_confidence": "99.85%",
+      "probabilities": {
+        "NEGATIVE": 0.998457535078204,
+        "POSITIVE": 0.0015424649217960316
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.85%",
+        "POSITIVE": "0.15%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.85%\nPOSITIVE   [                    ]   0.15%",
+      "raw_logits": null,
+      "latency_ms": 421.3130000025558,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9992411355321916,
+      "formatted_confidence": "99.92%",
+      "probabilities": {
+        "NEGATIVE": 0.9992411355321916,
+        "POSITIVE": 0.0007588644678083388
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.92%",
+        "POSITIVE": "0.08%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.92%\nPOSITIVE   [                    ]   0.08%",
+      "raw_logits": null,
+      "latency_ms": 131.46809999982776,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.998457535078204,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9992411355321916,
+    "is_flipped": false,
+    "confidence_delta": 0.0007836004539876207,
+    "confidence_delta_pts": 0.07836004539876207,
+    "formatted_confidence_delta": "+0.08 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "The verified probe introduces a polarity-altering change (REVERSE_POLARITY), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "semantic_intent": "REVERSE_POLARITY",
+    "latency_ms": 131.46809999982776
+  },
+  {
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_1db9eac5f09d",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "It is not impossible that although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbation_type": "double_negation",
+    "category": "double_negation",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.998457535078204,
+      "formatted_confidence": "99.85%",
+      "probabilities": {
+        "NEGATIVE": 0.998457535078204,
+        "POSITIVE": 0.0015424649217960316
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.85%",
+        "POSITIVE": "0.15%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.85%\nPOSITIVE   [                    ]   0.15%",
+      "raw_logits": null,
+      "latency_ms": 421.3130000025558,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9974796887304876,
+      "formatted_confidence": "99.75%",
+      "probabilities": {
+        "NEGATIVE": 0.9974796887304876,
+        "POSITIVE": 0.002520311269512299
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.75%",
+        "POSITIVE": "0.25%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.75%\nPOSITIVE   [                    ]   0.25%",
+      "raw_logits": null,
+      "latency_ms": 131.46809999982776,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.998457535078204,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9974796887304876,
+    "is_flipped": false,
+    "confidence_delta": -0.0009778463477163601,
+    "confidence_delta_pts": -0.09778463477163601,
+    "formatted_confidence_delta": "-0.10 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 131.46809999982776
+  },
+  {
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_3701669fda09",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely extremely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "strengthen",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.998457535078204,
+      "formatted_confidence": "99.85%",
+      "probabilities": {
+        "NEGATIVE": 0.998457535078204,
+        "POSITIVE": 0.0015424649217960316
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.85%",
+        "POSITIVE": "0.15%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.85%\nPOSITIVE   [                    ]   0.15%",
+      "raw_logits": null,
+      "latency_ms": 421.3130000025558,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9971635012593593,
+      "formatted_confidence": "99.72%",
+      "probabilities": {
+        "NEGATIVE": 0.9971635012593593,
+        "POSITIVE": 0.0028364987406407846
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.72%",
+        "POSITIVE": "0.28%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.72%\nPOSITIVE   [                    ]   0.28%",
+      "raw_logits": null,
+      "latency_ms": 131.46809999982776,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.998457535078204,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9971635012593593,
+    "is_flipped": false,
+    "confidence_delta": -0.001294033818844742,
+    "confidence_delta_pts": -0.1294033818844742,
+    "formatted_confidence_delta": "-0.13 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "STRENGTHEN_POLARITY",
+    "latency_ms": 131.46809999982776
+  },
+  {
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_5463baf67f97",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely somewhat excellent features, I cannot honestly say that I would recommend it.",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "weaken",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.998457535078204,
+      "formatted_confidence": "99.85%",
+      "probabilities": {
+        "NEGATIVE": 0.998457535078204,
+        "POSITIVE": 0.0015424649217960316
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.85%",
+        "POSITIVE": "0.15%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.85%\nPOSITIVE   [                    ]   0.15%",
+      "raw_logits": null,
+      "latency_ms": 421.3130000025558,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9970341116433723,
+      "formatted_confidence": "99.70%",
+      "probabilities": {
+        "NEGATIVE": 0.9970341116433723,
+        "POSITIVE": 0.0029658883566277463
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.70%",
+        "POSITIVE": "0.30%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.70%\nPOSITIVE   [                    ]   0.30%",
+      "raw_logits": null,
+      "latency_ms": 131.46809999982776,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.998457535078204,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9970341116433723,
+    "is_flipped": false,
+    "confidence_delta": -0.0014234234348317054,
+    "confidence_delta_pts": -0.14234234348317054,
+    "formatted_confidence_delta": "-0.14 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "WEAKEN_POLARITY",
+    "latency_ms": 131.46809999982776
+  },
+  {
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_626aac29e48e",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the item initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbation_type": "synonym_substitution",
+    "category": "synonym_substitution",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.998457535078204,
+      "formatted_confidence": "99.85%",
+      "probabilities": {
+        "NEGATIVE": 0.998457535078204,
+        "POSITIVE": 0.0015424649217960316
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.85%",
+        "POSITIVE": "0.15%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.85%\nPOSITIVE   [                    ]   0.15%",
+      "raw_logits": null,
+      "latency_ms": 421.3130000025558,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9984232498772245,
+      "formatted_confidence": "99.84%",
+      "probabilities": {
+        "NEGATIVE": 0.9984232498772245,
+        "POSITIVE": 0.001576750122775444
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.84%",
+        "POSITIVE": "0.16%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.84%\nPOSITIVE   [                    ]   0.16%",
+      "raw_logits": null,
+      "latency_ms": 131.46809999982776,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.998457535078204,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9984232498772245,
+    "is_flipped": false,
+    "confidence_delta": -3.428520097947807e-05,
+    "confidence_delta_pts": -0.003428520097947807,
+    "formatted_confidence_delta": "-0.00 percentage points",
+    "expectation_satisfied": true,
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction class (NEGATIVE \u2192 NEGATIVE) under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 131.46809999982776
+  },
+  {
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_d257d7394e56",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it, however it did not be reliably.",
+    "perturbation_type": "contrast_negative_append",
+    "category": "contrast_negative_append",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.998457535078204,
+      "formatted_confidence": "99.85%",
+      "probabilities": {
+        "NEGATIVE": 0.998457535078204,
+        "POSITIVE": 0.0015424649217960316
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.85%",
+        "POSITIVE": "0.15%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.85%\nPOSITIVE   [                    ]   0.15%",
+      "raw_logits": null,
+      "latency_ms": 421.3130000025558,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.9986327296347781,
+      "formatted_confidence": "99.86%",
+      "probabilities": {
+        "NEGATIVE": 0.9986327296347781,
+        "POSITIVE": 0.0013672703652219324
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.86%",
+        "POSITIVE": "0.14%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.86%\nPOSITIVE   [                    ]   0.14%",
+      "raw_logits": null,
+      "latency_ms": 131.46809999982776,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.998457535078204,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9986327296347781,
+    "is_flipped": false,
+    "confidence_delta": 0.00017519455657410976,
+    "confidence_delta_pts": 0.017519455657410976,
+    "formatted_confidence_delta": "+0.02 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "The verified probe introduces a polarity-altering change (SHIFT_CONTRAST), but the model retained the same predicted class (NEGATIVE \u2192 NEGATIVE).",
+    "semantic_intent": "SHIFT_CONTRAST",
+    "latency_ms": 131.46809999982776
+  },
+  {
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_cce6e49acab2",
+    "seed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it.",
+    "perturbed_text": "Although the product initially seemed impressively promising, it was nowhere near as reliable as the glowing reviews suggested, and despite a few genuinely excellent features, I cannot honestly say that I would recommend it, and it delivered good results in practice.",
+    "perturbation_type": "contrast_positive_append",
+    "category": "contrast_positive_append",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "confidence": 0.998457535078204,
+      "formatted_confidence": "99.85%",
+      "probabilities": {
+        "NEGATIVE": 0.998457535078204,
+        "POSITIVE": 0.0015424649217960316
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.85%",
+        "POSITIVE": "0.15%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.85%\nPOSITIVE   [                    ]   0.15%",
+      "raw_logits": null,
+      "latency_ms": 421.3130000025558,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "confidence": 0.9926106107244641,
+      "formatted_confidence": "99.26%",
+      "probabilities": {
+        "NEGATIVE": 0.007389389275535906,
+        "POSITIVE": 0.9926106107244641
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.74%",
+        "POSITIVE": "99.26%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.74%\nPOSITIVE   [====================]  99.26%",
+      "raw_logits": null,
+      "latency_ms": 131.46809999982776,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.998457535078204,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9926106107244641,
+    "is_flipped": true,
+    "confidence_delta": -0.005846924353739902,
+    "confidence_delta_pts": -0.5846924353739902,
+    "formatted_confidence_delta": "-0.58 percentage points",
+    "expectation_satisfied": false,
+    "behavioral_outcome": "UNEXPECTED_FLIP",
+    "failure_type": "Spurious",
+    "rationale": "The verified perturbation is meaning-preserving (PRESERVE_MEANING), but the model unexpectedly changed its predicted class (NEGATIVE \u2192 POSITIVE).",
+    "semantic_intent": "PRESERVE_MEANING",
+    "latency_ms": 131.46809999982776
+  }
+]
