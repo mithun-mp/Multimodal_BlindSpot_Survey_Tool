@@ -1,0 +1,1010 @@
+[
+  {
+    "baseline_id": "base_e4cc81b09083",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_7d985d4473b4",
+    "seed_text": "the sun rises in east and sun sets in the west",
+    "perturbed_text": "It is not true that the sun rises in east and sun sets in the west",
+    "perturbation_type": "negation_prefix",
+    "category": "negation_prefix",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "NEUTRAL",
+      "predicted_label": "NEUTRAL",
+      "confidence": 0.9249044717050449,
+      "formatted_confidence": "92.49%",
+      "probabilities": {
+        "NEGATIVE": 0.013138932261590405,
+        "NEUTRAL": 0.9249044717050449,
+        "POSITIVE": 0.061956596033364696
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "1.31%",
+        "NEUTRAL": "92.49%",
+        "POSITIVE": "6.20%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   1.31%\nNEUTRAL    [==================  ]  92.49%\nPOSITIVE   [=                   ]   6.20%",
+      "raw_logits": null,
+      "latency_ms": 185.73040000046603,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "neutral",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "negative": 0.013138932261590405,
+        "neutral": 0.9249044717050449,
+        "positive": 0.061956596033364696
+      },
+      "semantic_polarity": "NEUTRAL",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEUTRAL",
+      "predicted_label": "NEUTRAL",
+      "confidence": 0.7817408516259476,
+      "formatted_confidence": "78.17%",
+      "probabilities": {
+        "NEGATIVE": 0.18122451070012058,
+        "NEUTRAL": 0.7817408516259476,
+        "POSITIVE": 0.037034637673931815
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "18.12%",
+        "NEUTRAL": "78.17%",
+        "POSITIVE": "3.70%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====                ]  18.12%\nNEUTRAL    [================    ]  78.17%\nPOSITIVE   [=                   ]   3.70%",
+      "raw_logits": null,
+      "latency_ms": 353.51302857244656,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "neutral",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "negative": 0.18122451070012058,
+        "neutral": 0.7817408516259476,
+        "positive": 0.037034637673931815
+      },
+      "semantic_polarity": "NEUTRAL",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "NEUTRAL",
+    "original_confidence": 0.9249044717050449,
+    "perturbed_label": "NEUTRAL",
+    "perturbed_confidence": 0.7817408516259476,
+    "from_label": "NEUTRAL",
+    "to_label": "NEUTRAL",
+    "transition_type": "NEUTRAL \u2192 NEUTRAL",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_7d985d4473b4",
+      "sentence_text": "It is not true that the sun rises in east and sun sets in the west",
+      "semantic_polarity": "NEUTRAL",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEUTRAL",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEUTRAL",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790529001.2269764,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": -0.14316362007909722,
+    "confidence_delta_pts": -14.316362007909722,
+    "confidence_delta_pp": -14.316362007909722,
+    "formatted_confidence_delta": "-14.32 percentage points",
+    "expectation_satisfied": false,
+    "expectation_match": false,
+    "preservation": true,
+    "expected_relation": "POLARITY_REVERSED",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "Probe introduces a polarity reversal (REVERSE_POLARITY), but model retained the same predicted class and polarity (NEUTRAL (NEUTRAL) \u2192 NEUTRAL (NEUTRAL)).",
+    "semantic_intent": "REVERSE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 353.51302857244656
+  },
+  {
+    "baseline_id": "base_e4cc81b09083",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_7bb95d12e74a",
+    "seed_text": "the sun rises in east and sun sets in the west",
+    "perturbed_text": "It is not impossible that the sun rises in east and sun sets in the west",
+    "perturbation_type": "double_negation",
+    "category": "double_negation",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEUTRAL",
+      "predicted_label": "NEUTRAL",
+      "confidence": 0.9249044717050449,
+      "formatted_confidence": "92.49%",
+      "probabilities": {
+        "NEGATIVE": 0.013138932261590405,
+        "NEUTRAL": 0.9249044717050449,
+        "POSITIVE": 0.061956596033364696
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "1.31%",
+        "NEUTRAL": "92.49%",
+        "POSITIVE": "6.20%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   1.31%\nNEUTRAL    [==================  ]  92.49%\nPOSITIVE   [=                   ]   6.20%",
+      "raw_logits": null,
+      "latency_ms": 185.73040000046603,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "neutral",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "negative": 0.013138932261590405,
+        "neutral": 0.9249044717050449,
+        "positive": 0.061956596033364696
+      },
+      "semantic_polarity": "NEUTRAL",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEUTRAL",
+      "predicted_label": "NEUTRAL",
+      "confidence": 0.7330439618505169,
+      "formatted_confidence": "73.30%",
+      "probabilities": {
+        "NEGATIVE": 0.022548282308985645,
+        "NEUTRAL": 0.7330439618505169,
+        "POSITIVE": 0.2444077558404975
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "2.25%",
+        "NEUTRAL": "73.30%",
+        "POSITIVE": "24.44%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   2.25%\nNEUTRAL    [===============     ]  73.30%\nPOSITIVE   [=====               ]  24.44%",
+      "raw_logits": null,
+      "latency_ms": 353.51302857244656,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "neutral",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "negative": 0.022548282308985645,
+        "neutral": 0.7330439618505169,
+        "positive": 0.2444077558404975
+      },
+      "semantic_polarity": "NEUTRAL",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "NEUTRAL",
+    "original_confidence": 0.9249044717050449,
+    "perturbed_label": "NEUTRAL",
+    "perturbed_confidence": 0.7330439618505169,
+    "from_label": "NEUTRAL",
+    "to_label": "NEUTRAL",
+    "transition_type": "NEUTRAL \u2192 NEUTRAL",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_7bb95d12e74a",
+      "sentence_text": "It is not impossible that the sun rises in east and sun sets in the west",
+      "semantic_polarity": "NEUTRAL",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEUTRAL",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEUTRAL",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790529001.2325814,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": -0.19186050985452796,
+    "confidence_delta_pts": -19.186050985452795,
+    "confidence_delta_pp": -19.186050985452795,
+    "formatted_confidence_delta": "-19.19 percentage points",
+    "expectation_satisfied": false,
+    "expectation_match": false,
+    "preservation": true,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "POLARITY_WEAKENED",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "Misweighted",
+    "rationale": "Polarity preserved, but confidence collapsed by 19.19 percentage points under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 353.51302857244656
+  },
+  {
+    "baseline_id": "base_e4cc81b09083",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_c7e3b224b460",
+    "seed_text": "the sun rises in east and sun sets in the west",
+    "perturbed_text": "the sun extremely rises in east and sun sets in the west",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "strengthen",
+    "original_prediction": {
+      "label": "NEUTRAL",
+      "predicted_label": "NEUTRAL",
+      "confidence": 0.9249044717050449,
+      "formatted_confidence": "92.49%",
+      "probabilities": {
+        "NEGATIVE": 0.013138932261590405,
+        "NEUTRAL": 0.9249044717050449,
+        "POSITIVE": 0.061956596033364696
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "1.31%",
+        "NEUTRAL": "92.49%",
+        "POSITIVE": "6.20%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   1.31%\nNEUTRAL    [==================  ]  92.49%\nPOSITIVE   [=                   ]   6.20%",
+      "raw_logits": null,
+      "latency_ms": 185.73040000046603,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "neutral",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "negative": 0.013138932261590405,
+        "neutral": 0.9249044717050449,
+        "positive": 0.061956596033364696
+      },
+      "semantic_polarity": "NEUTRAL",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEUTRAL",
+      "predicted_label": "NEUTRAL",
+      "confidence": 0.9233370314225214,
+      "formatted_confidence": "92.33%",
+      "probabilities": {
+        "NEGATIVE": 0.016737238157118178,
+        "NEUTRAL": 0.9233370314225214,
+        "POSITIVE": 0.05992573042036044
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "1.67%",
+        "NEUTRAL": "92.33%",
+        "POSITIVE": "5.99%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   1.67%\nNEUTRAL    [==================  ]  92.33%\nPOSITIVE   [=                   ]   5.99%",
+      "raw_logits": null,
+      "latency_ms": 353.51302857244656,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "neutral",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "negative": 0.016737238157118178,
+        "neutral": 0.9233370314225214,
+        "positive": 0.05992573042036044
+      },
+      "semantic_polarity": "NEUTRAL",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "NEUTRAL",
+    "original_confidence": 0.9249044717050449,
+    "perturbed_label": "NEUTRAL",
+    "perturbed_confidence": 0.9233370314225214,
+    "from_label": "NEUTRAL",
+    "to_label": "NEUTRAL",
+    "transition_type": "NEUTRAL \u2192 NEUTRAL",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_c7e3b224b460",
+      "sentence_text": "the sun extremely rises in east and sun sets in the west",
+      "semantic_polarity": "NEUTRAL",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEUTRAL",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEUTRAL",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790529001.237027,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": -0.0015674402825234246,
+    "confidence_delta_pts": -0.15674402825234246,
+    "confidence_delta_pp": -0.15674402825234246,
+    "formatted_confidence_delta": "-0.16 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "POLARITY_STRENGTHENED",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Intensifier preserved polarity.",
+    "semantic_intent": "STRENGTHEN_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 353.51302857244656
+  },
+  {
+    "baseline_id": "base_e4cc81b09083",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_b6da6a48567e",
+    "seed_text": "the sun rises in east and sun sets in the west",
+    "perturbed_text": "the sun somewhat rises in east and sun sets in the west",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "weaken",
+    "original_prediction": {
+      "label": "NEUTRAL",
+      "predicted_label": "NEUTRAL",
+      "confidence": 0.9249044717050449,
+      "formatted_confidence": "92.49%",
+      "probabilities": {
+        "NEGATIVE": 0.013138932261590405,
+        "NEUTRAL": 0.9249044717050449,
+        "POSITIVE": 0.061956596033364696
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "1.31%",
+        "NEUTRAL": "92.49%",
+        "POSITIVE": "6.20%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   1.31%\nNEUTRAL    [==================  ]  92.49%\nPOSITIVE   [=                   ]   6.20%",
+      "raw_logits": null,
+      "latency_ms": 185.73040000046603,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "neutral",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "negative": 0.013138932261590405,
+        "neutral": 0.9249044717050449,
+        "positive": 0.061956596033364696
+      },
+      "semantic_polarity": "NEUTRAL",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEUTRAL",
+      "predicted_label": "NEUTRAL",
+      "confidence": 0.9342400488230558,
+      "formatted_confidence": "93.42%",
+      "probabilities": {
+        "NEGATIVE": 0.012055394474943673,
+        "NEUTRAL": 0.9342400488230558,
+        "POSITIVE": 0.05370455670200054
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "1.21%",
+        "NEUTRAL": "93.42%",
+        "POSITIVE": "5.37%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   1.21%\nNEUTRAL    [=================== ]  93.42%\nPOSITIVE   [=                   ]   5.37%",
+      "raw_logits": null,
+      "latency_ms": 353.51302857244656,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "neutral",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "negative": 0.012055394474943673,
+        "neutral": 0.9342400488230558,
+        "positive": 0.05370455670200054
+      },
+      "semantic_polarity": "NEUTRAL",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "NEUTRAL",
+    "original_confidence": 0.9249044717050449,
+    "perturbed_label": "NEUTRAL",
+    "perturbed_confidence": 0.9342400488230558,
+    "from_label": "NEUTRAL",
+    "to_label": "NEUTRAL",
+    "transition_type": "NEUTRAL \u2192 NEUTRAL",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_b6da6a48567e",
+      "sentence_text": "the sun somewhat rises in east and sun sets in the west",
+      "semantic_polarity": "NEUTRAL",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEUTRAL",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEUTRAL",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790529001.2426035,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 0.009335577118010918,
+    "confidence_delta_pts": 0.9335577118010918,
+    "confidence_delta_pp": 0.9335577118010918,
+    "formatted_confidence_delta": "+0.93 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "POLARITY_WEAKENED",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Downtoner preserved polarity (NEUTRAL (NEUTRAL) \u2192 NEUTRAL (NEUTRAL)).",
+    "semantic_intent": "WEAKEN_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 353.51302857244656
+  },
+  {
+    "baseline_id": "base_e4cc81b09083",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_9953ed325bb4",
+    "seed_text": "the sun rises in east and sun sets in the west",
+    "perturbed_text": "the insolate rises in east and sun sets in the west",
+    "perturbation_type": "synonym_substitution",
+    "category": "synonym_substitution",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEUTRAL",
+      "predicted_label": "NEUTRAL",
+      "confidence": 0.9249044717050449,
+      "formatted_confidence": "92.49%",
+      "probabilities": {
+        "NEGATIVE": 0.013138932261590405,
+        "NEUTRAL": 0.9249044717050449,
+        "POSITIVE": 0.061956596033364696
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "1.31%",
+        "NEUTRAL": "92.49%",
+        "POSITIVE": "6.20%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   1.31%\nNEUTRAL    [==================  ]  92.49%\nPOSITIVE   [=                   ]   6.20%",
+      "raw_logits": null,
+      "latency_ms": 185.73040000046603,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "neutral",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "negative": 0.013138932261590405,
+        "neutral": 0.9249044717050449,
+        "positive": 0.061956596033364696
+      },
+      "semantic_polarity": "NEUTRAL",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEUTRAL",
+      "predicted_label": "NEUTRAL",
+      "confidence": 0.9328776349454238,
+      "formatted_confidence": "93.29%",
+      "probabilities": {
+        "NEGATIVE": 0.03137112898272011,
+        "NEUTRAL": 0.9328776349454238,
+        "POSITIVE": 0.03575123607185617
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "3.14%",
+        "NEUTRAL": "93.29%",
+        "POSITIVE": "3.58%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=                   ]   3.14%\nNEUTRAL    [=================== ]  93.29%\nPOSITIVE   [=                   ]   3.58%",
+      "raw_logits": null,
+      "latency_ms": 353.51302857244656,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "neutral",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "negative": 0.03137112898272011,
+        "neutral": 0.9328776349454238,
+        "positive": 0.03575123607185617
+      },
+      "semantic_polarity": "NEUTRAL",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "NEUTRAL",
+    "original_confidence": 0.9249044717050449,
+    "perturbed_label": "NEUTRAL",
+    "perturbed_confidence": 0.9328776349454238,
+    "from_label": "NEUTRAL",
+    "to_label": "NEUTRAL",
+    "transition_type": "NEUTRAL \u2192 NEUTRAL",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_9953ed325bb4",
+      "sentence_text": "the insolate rises in east and sun sets in the west",
+      "semantic_polarity": "NEUTRAL",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEUTRAL",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEUTRAL",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790529001.2485173,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 0.007973163240378889,
+    "confidence_delta_pts": 0.7973163240378889,
+    "confidence_delta_pp": 0.7973163240378889,
+    "formatted_confidence_delta": "+0.80 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction (NEUTRAL (NEUTRAL) \u2192 NEUTRAL (NEUTRAL)) under meaning-preserving probe.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 353.51302857244656
+  },
+  {
+    "baseline_id": "base_e4cc81b09083",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_2dd2530ec5a0",
+    "seed_text": "the sun rises in east and sun sets in the west",
+    "perturbed_text": "the sun rises in east and sun sets in the west, however it does not rise reliably.",
+    "perturbation_type": "contrast_negative_append",
+    "category": "contrast_negative_append",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "NEUTRAL",
+      "predicted_label": "NEUTRAL",
+      "confidence": 0.9249044717050449,
+      "formatted_confidence": "92.49%",
+      "probabilities": {
+        "NEGATIVE": 0.013138932261590405,
+        "NEUTRAL": 0.9249044717050449,
+        "POSITIVE": 0.061956596033364696
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "1.31%",
+        "NEUTRAL": "92.49%",
+        "POSITIVE": "6.20%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   1.31%\nNEUTRAL    [==================  ]  92.49%\nPOSITIVE   [=                   ]   6.20%",
+      "raw_logits": null,
+      "latency_ms": 185.73040000046603,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "neutral",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "negative": 0.013138932261590405,
+        "neutral": 0.9249044717050449,
+        "positive": 0.061956596033364696
+      },
+      "semantic_polarity": "NEUTRAL",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEUTRAL",
+      "predicted_label": "NEUTRAL",
+      "confidence": 0.9484019681207433,
+      "formatted_confidence": "94.84%",
+      "probabilities": {
+        "NEGATIVE": 0.026803269433163173,
+        "NEUTRAL": 0.9484019681207433,
+        "POSITIVE": 0.024794762446093584
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "2.68%",
+        "NEUTRAL": "94.84%",
+        "POSITIVE": "2.48%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=                   ]   2.68%\nNEUTRAL    [=================== ]  94.84%\nPOSITIVE   [                    ]   2.48%",
+      "raw_logits": null,
+      "latency_ms": 353.51302857244656,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "neutral",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "negative": 0.026803269433163173,
+        "neutral": 0.9484019681207433,
+        "positive": 0.024794762446093584
+      },
+      "semantic_polarity": "NEUTRAL",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "NEUTRAL",
+    "original_confidence": 0.9249044717050449,
+    "perturbed_label": "NEUTRAL",
+    "perturbed_confidence": 0.9484019681207433,
+    "from_label": "NEUTRAL",
+    "to_label": "NEUTRAL",
+    "transition_type": "NEUTRAL \u2192 NEUTRAL",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_2dd2530ec5a0",
+      "sentence_text": "the sun rises in east and sun sets in the west, however it does not rise reliably.",
+      "semantic_polarity": "NEUTRAL",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEUTRAL",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEUTRAL",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790529001.255714,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 0.023497496415698427,
+    "confidence_delta_pts": 2.3497496415698427,
+    "confidence_delta_pp": 2.3497496415698427,
+    "formatted_confidence_delta": "+2.35 percentage points",
+    "expectation_satisfied": false,
+    "expectation_match": false,
+    "preservation": true,
+    "expected_relation": "POLARITY_REVERSED",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "Probe introduces a polarity reversal (SHIFT_CONTRAST), but model retained the same predicted class and polarity (NEUTRAL (NEUTRAL) \u2192 NEUTRAL (NEUTRAL)).",
+    "semantic_intent": "SHIFT_CONTRAST",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 353.51302857244656
+  },
+  {
+    "baseline_id": "base_e4cc81b09083",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_6cbfa56f29de",
+    "seed_text": "the sun rises in east and sun sets in the west",
+    "perturbed_text": "the sun rises in east and sun sets in the west, and it delivered good results in practice.",
+    "perturbation_type": "contrast_positive_append",
+    "category": "contrast_positive_append",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "NEUTRAL",
+      "predicted_label": "NEUTRAL",
+      "confidence": 0.9249044717050449,
+      "formatted_confidence": "92.49%",
+      "probabilities": {
+        "NEGATIVE": 0.013138932261590405,
+        "NEUTRAL": 0.9249044717050449,
+        "POSITIVE": 0.061956596033364696
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "1.31%",
+        "NEUTRAL": "92.49%",
+        "POSITIVE": "6.20%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   1.31%\nNEUTRAL    [==================  ]  92.49%\nPOSITIVE   [=                   ]   6.20%",
+      "raw_logits": null,
+      "latency_ms": 185.73040000046603,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "neutral",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "negative": 0.013138932261590405,
+        "neutral": 0.9249044717050449,
+        "positive": 0.061956596033364696
+      },
+      "semantic_polarity": "NEUTRAL",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.8599289281278127,
+      "formatted_confidence": "85.99%",
+      "probabilities": {
+        "NEGATIVE": 0.00333547461225331,
+        "NEUTRAL": 0.1367355972599339,
+        "POSITIVE": 0.8599289281278127
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.33%",
+        "NEUTRAL": "13.67%",
+        "POSITIVE": "85.99%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.33%\nNEUTRAL    [===                 ]  13.67%\nPOSITIVE   [=================   ]  85.99%",
+      "raw_logits": null,
+      "latency_ms": 353.51302857244656,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "positive",
+      "raw_label_id": 2,
+      "raw_probability_distribution": {
+        "negative": 0.00333547461225331,
+        "neutral": 0.1367355972599339,
+        "positive": 0.8599289281278127
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "POLARITY_MISMATCH"
+    },
+    "original_label": "NEUTRAL",
+    "original_confidence": 0.9249044717050449,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.8599289281278127,
+    "from_label": "NEUTRAL",
+    "to_label": "POSITIVE",
+    "transition_type": "NEUTRAL \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_6cbfa56f29de",
+      "sentence_text": "the sun rises in east and sun sets in the west, and it delivered good results in practice.",
+      "semantic_polarity": "NEUTRAL",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEUTRAL",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEUTRAL",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790529001.261821,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": true,
+    "raw_label_flip": true,
+    "polarity_flip": false,
+    "semantic_state_change": true,
+    "confidence_delta": -0.06497554357723212,
+    "confidence_delta_pts": -6.497554357723212,
+    "confidence_delta_pp": -6.497554357723212,
+    "formatted_confidence_delta": "-6.50 percentage points",
+    "expectation_satisfied": false,
+    "expectation_match": false,
+    "preservation": false,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "NEUTRAL_TO_POSITIVE",
+    "behavioral_outcome": "UNEXPECTED_CHANGE",
+    "failure_type": "Spurious",
+    "rationale": "The perturbation is meaning-preserving (PRESERVE_MEANING), but model unexpectedly changed its predicted class and altered its predicted state (NEUTRAL (NEUTRAL) \u2192 POSITIVE (POSITIVE)).",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 353.51302857244656
+  }
+]

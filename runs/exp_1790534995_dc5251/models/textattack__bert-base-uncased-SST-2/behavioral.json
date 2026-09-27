@@ -1,0 +1,940 @@
+[
+  {
+    "baseline_id": "base_8913170e03e6",
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_db77fceb6f8f",
+    "seed_text": "the sun rises in the east and sun sets in west",
+    "perturbed_text": "It is not true that the sun rises in the east and sun sets in west",
+    "perturbation_type": "negation_prefix",
+    "category": "negation_prefix",
+    "expected_flip": true,
+    "expected_semantic_effect": "EXPECTED_FLIP",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9905502676245258,
+      "formatted_confidence": "99.06%",
+      "probabilities": {
+        "NEGATIVE": 0.009449732375474161,
+        "POSITIVE": 0.9905502676245258
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.94%",
+        "POSITIVE": "99.06%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.94%\nPOSITIVE   [====================]  99.06%",
+      "raw_logits": null,
+      "latency_ms": 446.98750000679865,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.009449732375474161,
+        "LABEL_1": 0.9905502676245258
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.9161994643718243,
+      "formatted_confidence": "91.62%",
+      "probabilities": {
+        "NEGATIVE": 0.9161994643718243,
+        "POSITIVE": 0.08380053562817563
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "91.62%",
+        "POSITIVE": "8.38%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [==================  ]  91.62%\nPOSITIVE   [==                  ]   8.38%",
+      "raw_logits": null,
+      "latency_ms": 126.05501428645637,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_0",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.9161994643718243,
+        "LABEL_1": 0.08380053562817563
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9905502676245258,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9161994643718243,
+    "from_label": "POSITIVE",
+    "to_label": "NEGATIVE",
+    "transition_type": "POSITIVE \u2192 NEGATIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE",
+    "semantic_reference": {
+      "sentence_id": "prb_db77fceb6f8f",
+      "sentence_text": "It is not true that the sun rises in the east and sun sets in west",
+      "semantic_polarity": "NEGATIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "SHIFT_FROM_NEUTRAL",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEGATIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEGATIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790534828.112809,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "NEUTRAL"
+    },
+    "is_flipped": true,
+    "raw_label_flip": true,
+    "polarity_flip": true,
+    "semantic_state_change": true,
+    "confidence_delta": -0.07435080325270149,
+    "confidence_delta_pts": -7.43508032527015,
+    "confidence_delta_pp": -7.43508032527015,
+    "formatted_confidence_delta": "-7.44 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": false,
+    "expected_relation": "POLARITY_REVERSED",
+    "observed_relation": "POLARITY_REVERSED",
+    "behavioral_outcome": "EXPECTED_FLIP",
+    "failure_type": "None",
+    "rationale": "Model correctly flipped and changed label (POSITIVE (POSITIVE) \u2192 NEGATIVE (NEGATIVE)) under DIFFERENT_LABEL expectation.",
+    "semantic_intent": "REVERSE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 126.05501428645637
+  },
+  {
+    "baseline_id": "base_8913170e03e6",
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_5038061b3249",
+    "seed_text": "the sun rises in the east and sun sets in west",
+    "perturbed_text": "It is not impossible that the sun rises in the east and sun sets in west",
+    "perturbation_type": "double_negation",
+    "category": "double_negation",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9905502676245258,
+      "formatted_confidence": "99.06%",
+      "probabilities": {
+        "NEGATIVE": 0.009449732375474161,
+        "POSITIVE": 0.9905502676245258
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.94%",
+        "POSITIVE": "99.06%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.94%\nPOSITIVE   [====================]  99.06%",
+      "raw_logits": null,
+      "latency_ms": 446.98750000679865,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.009449732375474161,
+        "LABEL_1": 0.9905502676245258
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9473032390598328,
+      "formatted_confidence": "94.73%",
+      "probabilities": {
+        "NEGATIVE": 0.05269676094016716,
+        "POSITIVE": 0.9473032390598328
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "5.27%",
+        "POSITIVE": "94.73%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=                   ]   5.27%\nPOSITIVE   [=================== ]  94.73%",
+      "raw_logits": null,
+      "latency_ms": 126.05501428645637,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.05269676094016716,
+        "LABEL_1": 0.9473032390598328
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9905502676245258,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9473032390598328,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE",
+    "semantic_reference": {
+      "sentence_id": "prb_5038061b3249",
+      "sentence_text": "It is not impossible that the sun rises in the east and sun sets in west",
+      "semantic_polarity": "NEUTRAL",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEUTRAL",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEUTRAL",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790534828.1197472,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "NEUTRAL"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": -0.04324702856469298,
+    "confidence_delta_pts": -4.3247028564692975,
+    "confidence_delta_pp": -4.3247028564692975,
+    "formatted_confidence_delta": "-4.32 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Binary forced-polarity output preserved (POSITIVE \u2192 POSITIVE) under neutral reference probe.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 126.05501428645637
+  },
+  {
+    "baseline_id": "base_8913170e03e6",
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_fc9a4c51738c",
+    "seed_text": "the sun rises in the east and sun sets in west",
+    "perturbed_text": "the sun extremely rises in the east and sun sets in west",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9905502676245258,
+      "formatted_confidence": "99.06%",
+      "probabilities": {
+        "NEGATIVE": 0.009449732375474161,
+        "POSITIVE": 0.9905502676245258
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.94%",
+        "POSITIVE": "99.06%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.94%\nPOSITIVE   [====================]  99.06%",
+      "raw_logits": null,
+      "latency_ms": 446.98750000679865,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.009449732375474161,
+        "LABEL_1": 0.9905502676245258
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9955483758448953,
+      "formatted_confidence": "99.55%",
+      "probabilities": {
+        "NEGATIVE": 0.004451624155104735,
+        "POSITIVE": 0.9955483758448953
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.45%",
+        "POSITIVE": "99.55%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.45%\nPOSITIVE   [====================]  99.55%",
+      "raw_logits": null,
+      "latency_ms": 126.05501428645637,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.004451624155104735,
+        "LABEL_1": 0.9955483758448953
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9905502676245258,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9955483758448953,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE",
+    "semantic_reference": {
+      "sentence_id": "prb_fc9a4c51738c",
+      "sentence_text": "the sun extremely rises in the east and sun sets in west",
+      "semantic_polarity": "NEUTRAL",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEUTRAL",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEUTRAL",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790534828.1262312,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "NEUTRAL"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 0.0049981082203695015,
+    "confidence_delta_pts": 0.49981082203695015,
+    "confidence_delta_pp": 0.49981082203695015,
+    "formatted_confidence_delta": "+0.50 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "POLARITY_STRENGTHENED",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Binary forced-polarity output preserved (POSITIVE \u2192 POSITIVE) under neutral reference probe.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 126.05501428645637
+  },
+  {
+    "baseline_id": "base_8913170e03e6",
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_847282b25faf",
+    "seed_text": "the sun rises in the east and sun sets in west",
+    "perturbed_text": "the sun somewhat rises in the east and sun sets in west",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9905502676245258,
+      "formatted_confidence": "99.06%",
+      "probabilities": {
+        "NEGATIVE": 0.009449732375474161,
+        "POSITIVE": 0.9905502676245258
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.94%",
+        "POSITIVE": "99.06%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.94%\nPOSITIVE   [====================]  99.06%",
+      "raw_logits": null,
+      "latency_ms": 446.98750000679865,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.009449732375474161,
+        "LABEL_1": 0.9905502676245258
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9699497656346338,
+      "formatted_confidence": "96.99%",
+      "probabilities": {
+        "NEGATIVE": 0.030050234365366194,
+        "POSITIVE": 0.9699497656346338
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "3.01%",
+        "POSITIVE": "96.99%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=                   ]   3.01%\nPOSITIVE   [=================== ]  96.99%",
+      "raw_logits": null,
+      "latency_ms": 126.05501428645637,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.030050234365366194,
+        "LABEL_1": 0.9699497656346338
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9905502676245258,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9699497656346338,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE",
+    "semantic_reference": {
+      "sentence_id": "prb_847282b25faf",
+      "sentence_text": "the sun somewhat rises in the east and sun sets in west",
+      "semantic_polarity": "NEUTRAL",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEUTRAL",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEUTRAL",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790534828.132848,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "NEUTRAL"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": -0.02060050198989205,
+    "confidence_delta_pts": -2.060050198989205,
+    "confidence_delta_pp": -2.060050198989205,
+    "formatted_confidence_delta": "-2.06 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "POLARITY_WEAKENED",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Binary forced-polarity output preserved (POSITIVE \u2192 POSITIVE) under neutral reference probe.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 126.05501428645637
+  },
+  {
+    "baseline_id": "base_8913170e03e6",
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_4a33e23ac1f3",
+    "seed_text": "the sun rises in the east and sun sets in west",
+    "perturbed_text": "the sunlight rises in the east and sun sets in west",
+    "perturbation_type": "synonym_substitution",
+    "category": "synonym_substitution",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9905502676245258,
+      "formatted_confidence": "99.06%",
+      "probabilities": {
+        "NEGATIVE": 0.009449732375474161,
+        "POSITIVE": 0.9905502676245258
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.94%",
+        "POSITIVE": "99.06%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.94%\nPOSITIVE   [====================]  99.06%",
+      "raw_logits": null,
+      "latency_ms": 446.98750000679865,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.009449732375474161,
+        "LABEL_1": 0.9905502676245258
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9953328025285021,
+      "formatted_confidence": "99.53%",
+      "probabilities": {
+        "NEGATIVE": 0.004667197471497889,
+        "POSITIVE": 0.9953328025285021
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.47%",
+        "POSITIVE": "99.53%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.47%\nPOSITIVE   [====================]  99.53%",
+      "raw_logits": null,
+      "latency_ms": 126.05501428645637,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.004667197471497889,
+        "LABEL_1": 0.9953328025285021
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9905502676245258,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9953328025285021,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE",
+    "semantic_reference": {
+      "sentence_id": "prb_4a33e23ac1f3",
+      "sentence_text": "the sunlight rises in the east and sun sets in west",
+      "semantic_polarity": "NEUTRAL",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEUTRAL",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEUTRAL",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790534828.140143,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "NEUTRAL"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 0.004782534903976288,
+    "confidence_delta_pts": 0.47825349039762877,
+    "confidence_delta_pp": 0.47825349039762877,
+    "formatted_confidence_delta": "+0.48 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Binary forced-polarity output preserved (POSITIVE \u2192 POSITIVE) under neutral reference probe.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 126.05501428645637
+  },
+  {
+    "baseline_id": "base_8913170e03e6",
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_920083d672b4",
+    "seed_text": "the sun rises in the east and sun sets in west",
+    "perturbed_text": "the sun rises in the east and sun sets in west, however it does not rise reliably.",
+    "perturbation_type": "contrast_negative_append",
+    "category": "contrast_negative_append",
+    "expected_flip": true,
+    "expected_semantic_effect": "EXPECTED_FLIP",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9905502676245258,
+      "formatted_confidence": "99.06%",
+      "probabilities": {
+        "NEGATIVE": 0.009449732375474161,
+        "POSITIVE": 0.9905502676245258
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.94%",
+        "POSITIVE": "99.06%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.94%\nPOSITIVE   [====================]  99.06%",
+      "raw_logits": null,
+      "latency_ms": 446.98750000679865,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.009449732375474161,
+        "LABEL_1": 0.9905502676245258
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.9816259621126112,
+      "formatted_confidence": "98.16%",
+      "probabilities": {
+        "NEGATIVE": 0.9816259621126112,
+        "POSITIVE": 0.01837403788738881
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.16%",
+        "POSITIVE": "1.84%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.16%\nPOSITIVE   [                    ]   1.84%",
+      "raw_logits": null,
+      "latency_ms": 126.05501428645637,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_0",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.9816259621126112,
+        "LABEL_1": 0.01837403788738881
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9905502676245258,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9816259621126112,
+    "from_label": "POSITIVE",
+    "to_label": "NEGATIVE",
+    "transition_type": "POSITIVE \u2192 NEGATIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE",
+    "semantic_reference": {
+      "sentence_id": "prb_920083d672b4",
+      "sentence_text": "the sun rises in the east and sun sets in west, however it does not rise reliably.",
+      "semantic_polarity": "NEGATIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "SHIFT_FROM_NEUTRAL",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEGATIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEGATIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790534828.1499567,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "NEUTRAL"
+    },
+    "is_flipped": true,
+    "raw_label_flip": true,
+    "polarity_flip": true,
+    "semantic_state_change": true,
+    "confidence_delta": -0.008924305511914588,
+    "confidence_delta_pts": -0.8924305511914588,
+    "confidence_delta_pp": -0.8924305511914588,
+    "formatted_confidence_delta": "-0.89 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": false,
+    "expected_relation": "POLARITY_REVERSED",
+    "observed_relation": "POLARITY_REVERSED",
+    "behavioral_outcome": "EXPECTED_FLIP",
+    "failure_type": "None",
+    "rationale": "Model correctly flipped and changed label (POSITIVE (POSITIVE) \u2192 NEGATIVE (NEGATIVE)) under DIFFERENT_LABEL expectation.",
+    "semantic_intent": "REVERSE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 126.05501428645637
+  },
+  {
+    "baseline_id": "base_8913170e03e6",
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_d2658ff3db24",
+    "seed_text": "the sun rises in the east and sun sets in west",
+    "perturbed_text": "the sun rises in the east and sun sets in west, and it delivered good results in practice.",
+    "perturbation_type": "contrast_positive_append",
+    "category": "contrast_positive_append",
+    "expected_flip": true,
+    "expected_semantic_effect": "EXPECTED_FLIP",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9905502676245258,
+      "formatted_confidence": "99.06%",
+      "probabilities": {
+        "NEGATIVE": 0.009449732375474161,
+        "POSITIVE": 0.9905502676245258
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.94%",
+        "POSITIVE": "99.06%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.94%\nPOSITIVE   [====================]  99.06%",
+      "raw_logits": null,
+      "latency_ms": 446.98750000679865,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.009449732375474161,
+        "LABEL_1": 0.9905502676245258
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9995858187856156,
+      "formatted_confidence": "99.96%",
+      "probabilities": {
+        "NEGATIVE": 0.00041418121438436785,
+        "POSITIVE": 0.9995858187856156
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.04%",
+        "POSITIVE": "99.96%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.04%\nPOSITIVE   [====================]  99.96%",
+      "raw_logits": null,
+      "latency_ms": 126.05501428645637,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.00041418121438436785,
+        "LABEL_1": 0.9995858187856156
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9905502676245258,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9995858187856156,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE",
+    "semantic_reference": {
+      "sentence_id": "prb_d2658ff3db24",
+      "sentence_text": "the sun rises in the east and sun sets in west, and it delivered good results in practice.",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "SHIFT_FROM_NEUTRAL",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790534828.1591032,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "NEUTRAL"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 0.009035551161089783,
+    "confidence_delta_pts": 0.9035551161089783,
+    "confidence_delta_pp": 0.9035551161089783,
+    "formatted_confidence_delta": "+0.90 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)) under meaning-preserving probe.",
+    "semantic_intent": "REVERSE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 126.05501428645637
+  }
+]

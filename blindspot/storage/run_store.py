@@ -116,6 +116,24 @@ class RunStore:
                 return json.load(f)
         return None
 
+    def save_semantic_reference(self, experiment_id: str, semantic_ref: Any) -> str:
+        """Saves semantic_reference.json per Section 30."""
+        run_dir = self.get_run_dir(experiment_id)
+        os.makedirs(run_dir, exist_ok=True)
+        ref_path = os.path.join(run_dir, "semantic_reference.json")
+        data = semantic_ref.to_dict() if hasattr(semantic_ref, "to_dict") else semantic_ref
+        with open(ref_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2, default=_default_serializer)
+        return ref_path
+
+    def load_semantic_reference(self, experiment_id: str) -> Optional[Dict[str, Any]]:
+        """Loads semantic_reference.json if present."""
+        ref_path = os.path.join(self.get_run_dir(experiment_id), "semantic_reference.json")
+        if os.path.exists(ref_path):
+            with open(ref_path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        return None
+
     def save_model_result(
         self,
         experiment_id: str,

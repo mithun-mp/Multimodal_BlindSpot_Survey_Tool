@@ -1,0 +1,25 @@
+{
+  "experiment_id": "exp_1790530564_4a79c4",
+  "experiment_name": "Multimodel Robustness Audit",
+  "created_at": 1790530565.0184016,
+  "status": "running",
+  "models": [
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "textattack/albert-base-v2-SST-2",
+    "textattack/bert-base-uncased-SST-2",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "cardiffnlp/twitter-roberta-base-sentiment"
+  ],
+  "completed_models": [],
+  "model_states": {
+    "distilbert-base-uncased-finetuned-sst-2-english": "queued",
+    "textattack/albert-base-v2-SST-2": "queued",
+    "textattack/bert-base-uncased-SST-2": "queued",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest": "queued",
+    "cardiffnlp/twitter-roberta-base-sentiment": "queued"
+  },
+  "num_models": 5,
+  "num_seed_texts": 1,
+  "num_probes": null,
+  "last_updated_at": 1790530565.0184107
+}

@@ -55,6 +55,109 @@ class ProbeStatus(str, Enum):
     UNVERIFIED = "UNVERIFIED"
 
 
+class SemanticPolarity(str, Enum):
+    """
+    Canonical Model-Independent Sentiment Representation (Phase 2).
+    Every prediction is mapped to this canonical semantic space.
+    For binary models: POSITIVE -> POSITIVE, NEGATIVE -> NEGATIVE.
+    For 3-class models: POSITIVE -> POSITIVE, NEGATIVE -> NEGATIVE, NEUTRAL -> NEUTRAL.
+    """
+    POSITIVE = "POSITIVE"
+    NEGATIVE = "NEGATIVE"
+    NEUTRAL = "NEUTRAL"
+    UNKNOWN = "UNKNOWN"
+
+    @classmethod
+    def from_str(cls, val: Any) -> "SemanticPolarity":
+        if isinstance(val, SemanticPolarity):
+            return val
+        s = str(val or "").strip().upper()
+        if "POS" in s:
+            return cls.POSITIVE
+        if "NEG" in s:
+            return cls.NEGATIVE
+        if "NEU" in s:
+            return cls.NEUTRAL
+        return cls.UNKNOWN
+
+
+class ExpectationType(str, Enum):
+    """
+    Supported linguistic probe expectation types (Phase 5).
+    """
+    REVERSE_POLARITY = "REVERSE_POLARITY"
+    PRESERVE_POLARITY = "PRESERVE_POLARITY"
+    CONTRAST_SHIFT = "CONTRAST_SHIFT"
+    DOWNTONE = "DOWNTONE"
+    INTENSIFY = "INTENSIFY"
+    STRUCTURAL_SHIFT = "STRUCTURAL_SHIFT"
+    UNKNOWN = "UNKNOWN"
+
+
+class BehavioralRelation(str, Enum):
+    """
+    Behavioral relationship between original and perturbed prediction (Phase 6).
+    """
+    SAME_POLARITY = "SAME_POLARITY"
+    POLARITY_REVERSED = "POLARITY_REVERSED"
+    POLARITY_WEAKENED = "POLARITY_WEAKENED"
+    POLARITY_STRENGTHENED = "POLARITY_STRENGTHENED"
+    NEUTRALIZED = "NEUTRALIZED"
+    POSITIVE_TO_NEUTRAL = "POSITIVE_TO_NEUTRAL"
+    NEGATIVE_TO_NEUTRAL = "NEGATIVE_TO_NEUTRAL"
+    NEUTRAL_TO_POSITIVE = "NEUTRAL_TO_POSITIVE"
+    NEUTRAL_TO_NEGATIVE = "NEUTRAL_TO_NEGATIVE"
+    OTHER = "OTHER"
+    UNKNOWN = "UNKNOWN"
+
+
+@dataclass
+class ProbeExpectation:
+    """
+    Explicit linguistic contract for a probe (Phase 5).
+    """
+    expectation_type: ExpectationType
+    expected_semantic_relation: BehavioralRelation
+    expected_polarity_transition: str = ""
+    strength: float = 1.0
+    rationale: str = ""
+    confidence: float = 1.0
+    validation_status: str = "VALIDATED"
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "expectation_type": self.expectation_type.value if hasattr(self.expectation_type, "value") else str(self.expectation_type),
+            "expected_semantic_relation": self.expected_semantic_relation.value if hasattr(self.expected_semantic_relation, "value") else str(self.expected_semantic_relation),
+            "expected_polarity_transition": self.expected_polarity_transition,
+            "strength": self.strength,
+            "rationale": self.rationale,
+            "confidence": self.confidence,
+            "validation_status": self.validation_status,
+        }
+
+    @classmethod
+    def from_dict(cls, d: Dict[str, Any]) -> "ProbeExpectation":
+        exp_type_val = d.get("expectation_type", "UNKNOWN")
+        try:
+            exp_type = ExpectationType(exp_type_val)
+        except Exception:
+            exp_type = ExpectationType.UNKNOWN
+        rel_val = d.get("expected_semantic_relation", "UNKNOWN")
+        try:
+            exp_rel = BehavioralRelation(rel_val)
+        except Exception:
+            exp_rel = BehavioralRelation.UNKNOWN
+        return cls(
+            expectation_type=exp_type,
+            expected_semantic_relation=exp_rel,
+            expected_polarity_transition=d.get("expected_polarity_transition", ""),
+            strength=float(d.get("strength", 1.0)),
+            rationale=d.get("rationale", ""),
+            confidence=float(d.get("confidence", 1.0)),
+            validation_status=d.get("validation_status", "VALIDATED"),
+        )
+
+
 class SemanticIntent(str, Enum):
     """Explicit linguistic/semantic intention of a perturbation."""
     REVERSE_POLARITY = "REVERSE_POLARITY"
@@ -268,15 +371,116 @@ class ModelPrediction:
 
 
 
+def is_raw_label_flip(original_raw_label: str, perturbed_raw_label: str) -> bool:
+    """Raw label flip: original_raw_label != perturbed_raw_label. Model-specific (Phase 7)."""
+    if not original_raw_label or not perturbed_raw_label:
+        return False
+    return str(original_raw_label).strip().upper() != str(perturbed_raw_label).strip().upper()
+
+
+def is_polarity_flip(original_polarity: Any, perturbed_polarity: Any) -> bool:
+    """
+    Polarity flip: POSITIVE -> NEGATIVE or NEGATIVE -> POSITIVE (Phase 7).
+    This is the primary binary sentiment flip metric.
+    Does NOT treat transitions to/from NEUTRAL as polarity flips.
+    """
+    orig_str = str(original_polarity.value if hasattr(original_polarity, "value") else original_polarity).strip().upper()
+    pert_str = str(perturbed_polarity.value if hasattr(perturbed_polarity, "value") else perturbed_polarity).strip().upper()
+    if (orig_str == "POSITIVE" and pert_str == "NEGATIVE") or (orig_str == "NEGATIVE" and pert_str == "POSITIVE"):
+        return True
+    return False
+
+
+def is_semantic_state_change(original_polarity: Any, perturbed_polarity: Any) -> bool:
+    """Any state transition among POSITIVE, NEGATIVE, NEUTRAL (Phase 7)."""
+    orig_str = str(original_polarity.value if hasattr(original_polarity, "value") else original_polarity).strip().upper()
+    pert_str = str(perturbed_polarity.value if hasattr(perturbed_polarity, "value") else perturbed_polarity).strip().upper()
+    if not orig_str or not pert_str:
+        return False
+    return orig_str != pert_str
+
+
 def is_prediction_flip(original_label: str, perturbed_label: str) -> bool:
     """
     Canonical definition of prediction flip:
     True iff perturbed label differs from original label.
     Does NOT assume binary classification.
     """
-    if not original_label or not perturbed_label:
-        return False
-    return str(original_label).strip().upper() != str(perturbed_label).strip().upper()
+    return is_raw_label_flip(original_label, perturbed_label)
+
+
+def resolve_expected_behavioral_relation(
+    expectation_type: ExpectationType,
+    original_polarity: SemanticPolarity,
+    num_classes: int = 2,
+) -> BehavioralRelation:
+    """
+    Model-specific expectation resolution (Phase 6).
+    Maps linguistic expectation and model label space onto expected BehavioralRelation.
+    """
+    if expectation_type == ExpectationType.REVERSE_POLARITY:
+        if original_polarity == SemanticPolarity.POSITIVE:
+            return BehavioralRelation.POLARITY_REVERSED
+        elif original_polarity == SemanticPolarity.NEGATIVE:
+            return BehavioralRelation.POLARITY_REVERSED
+        elif original_polarity == SemanticPolarity.NEUTRAL:
+            return BehavioralRelation.OTHER
+        return BehavioralRelation.POLARITY_REVERSED
+    elif expectation_type in (ExpectationType.PRESERVE_POLARITY, ExpectationType.STRUCTURAL_SHIFT):
+        return BehavioralRelation.SAME_POLARITY
+    elif expectation_type == ExpectationType.DOWNTONE:
+        if num_classes == 3:
+            if original_polarity == SemanticPolarity.POSITIVE:
+                return BehavioralRelation.POSITIVE_TO_NEUTRAL
+            elif original_polarity == SemanticPolarity.NEGATIVE:
+                return BehavioralRelation.NEGATIVE_TO_NEUTRAL
+            return BehavioralRelation.POLARITY_WEAKENED
+        return BehavioralRelation.POLARITY_WEAKENED
+    elif expectation_type == ExpectationType.INTENSIFY:
+        return BehavioralRelation.POLARITY_STRENGTHENED
+    elif expectation_type == ExpectationType.CONTRAST_SHIFT:
+        if original_polarity == SemanticPolarity.POSITIVE:
+            return BehavioralRelation.POLARITY_REVERSED
+        elif original_polarity == SemanticPolarity.NEGATIVE:
+            return BehavioralRelation.POLARITY_REVERSED
+        return BehavioralRelation.OTHER
+    return BehavioralRelation.UNKNOWN
+
+
+def determine_observed_behavioral_relation(
+    original_polarity: Any,
+    perturbed_polarity: Any,
+    original_confidence: float = 0.0,
+    perturbed_confidence: float = 0.0,
+    confidence_threshold_pp: float = 15.0,
+    delta_threshold_pp: Optional[float] = None,
+) -> BehavioralRelation:
+    """
+    Determines observed behavioral relationship between baseline and perturbed output (Phase 6).
+    """
+    if delta_threshold_pp is not None:
+        confidence_threshold_pp = delta_threshold_pp
+    orig_str = str(original_polarity.value if hasattr(original_polarity, "value") else original_polarity).strip().upper()
+    pert_str = str(perturbed_polarity.value if hasattr(perturbed_polarity, "value") else perturbed_polarity).strip().upper()
+
+    if (orig_str == "POSITIVE" and pert_str == "NEGATIVE") or (orig_str == "NEGATIVE" and pert_str == "POSITIVE"):
+        return BehavioralRelation.POLARITY_REVERSED
+    elif orig_str == "POSITIVE" and pert_str == "NEUTRAL":
+        return BehavioralRelation.POSITIVE_TO_NEUTRAL
+    elif orig_str == "NEGATIVE" and pert_str == "NEUTRAL":
+        return BehavioralRelation.NEGATIVE_TO_NEUTRAL
+    elif orig_str == "NEUTRAL" and pert_str == "POSITIVE":
+        return BehavioralRelation.NEUTRAL_TO_POSITIVE
+    elif orig_str == "NEUTRAL" and pert_str == "NEGATIVE":
+        return BehavioralRelation.NEUTRAL_TO_NEGATIVE
+    elif orig_str == pert_str:
+        delta_pp = (perturbed_confidence - original_confidence) * 100.0
+        if delta_pp > confidence_threshold_pp:
+            return BehavioralRelation.POLARITY_STRENGTHENED
+        elif delta_pp < -confidence_threshold_pp:
+            return BehavioralRelation.POLARITY_WEAKENED
+        return BehavioralRelation.SAME_POLARITY
+    return BehavioralRelation.OTHER
 
 
 def classify_behavioral_outcome(
@@ -304,7 +508,7 @@ def classify_behavioral_outcome(
 
 @dataclass
 class ModelMetadata:
-    """Metadata describing an evaluated text classification model."""
+    """Metadata describing an evaluated text classification model (Phase 1)."""
     model_id: str
     architecture: str = "transformer"
     task: str = "text-classification"
@@ -316,6 +520,11 @@ class ModelMetadata:
     verified: bool = False
     loaded: bool = False
     description: str = ""
+    id2label: Dict[int, str] = field(default_factory=dict)
+    label2id: Dict[str, int] = field(default_factory=dict)
+    model_family: str = ""
+    tokenizer_name: str = ""
+    normalized_classes: List[str] = field(default_factory=list)
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -330,6 +539,11 @@ class ModelMetadata:
             "verified": self.verified,
             "loaded": self.loaded,
             "description": self.description,
+            "id2label": self.id2label,
+            "label2id": self.label2id,
+            "model_family": self.model_family,
+            "tokenizer_name": self.tokenizer_name,
+            "normalized_classes": self.normalized_classes,
         }
 
 
@@ -337,7 +551,7 @@ class ModelMetadata:
 class PredictionResult:
     """
     Normalized prediction output for any model (binary or multiclass).
-    Provides consistent confidence formatting (e.g. 98.73%).
+    Contains BOTH raw model output AND model-independent canonical semantic sentiment (Phase 2).
     """
     label: str
     confidence: float  # [0.0, 1.0]
@@ -347,6 +561,64 @@ class PredictionResult:
     model_id: str = ""
     device: str = "cpu"
     model_status: str = "READY"
+    raw_label: str = ""
+    raw_label_id: int = 0
+    raw_probability_distribution: Dict[str, float] = field(default_factory=dict)
+    semantic_polarity: SemanticPolarity = SemanticPolarity.UNKNOWN
+    normalized_probabilities: Dict[str, float] = field(default_factory=dict)
+    label_space: List[str] = field(default_factory=list)
+    predicted_label: str = ""
+    semantic_compatibility: str = "DIRECTLY_COMPATIBLE"
+
+    def __post_init__(self):
+        if not self.predicted_label:
+            self.predicted_label = self.label
+        if self.semantic_polarity == SemanticPolarity.UNKNOWN and self.label:
+            norm = str(self.label).strip().upper()
+            if norm == "POSITIVE":
+                self.semantic_polarity = SemanticPolarity.POSITIVE
+            elif norm == "NEGATIVE":
+                self.semantic_polarity = SemanticPolarity.NEGATIVE
+            elif norm == "NEUTRAL":
+                self.semantic_polarity = SemanticPolarity.NEUTRAL
+        if not self.raw_label:
+            self.raw_label = self.label
+        if not self.probabilities and self.normalized_probabilities:
+            self.probabilities = dict(self.normalized_probabilities)
+        if not self.normalized_probabilities and self.probabilities:
+            self.normalized_probabilities = dict(self.probabilities)
+        if not self.raw_probability_distribution and self.probabilities:
+            self.raw_probability_distribution = dict(self.probabilities)
+        if not self.label_space:
+            if len(self.probabilities) == 2:
+                self.label_space = ["NEGATIVE", "POSITIVE"]
+            elif len(self.probabilities) == 3:
+                self.label_space = ["NEGATIVE", "NEUTRAL", "POSITIVE"]
+            elif self.probabilities:
+                self.label_space = list(self.probabilities.keys())
+            else:
+                self.label_space = ["NEGATIVE", "POSITIVE"]
+
+    def evaluate_semantic_compatibility(self, semantic_reference_polarity: Any) -> str:
+        """
+        Evaluates whether a model's label space can directly represent the semantic reference (Section 11 & 12).
+        If reference is NEUTRAL and model is binary (2-class), records as NOT_DIRECTLY_REPRESENTABLE / BINARY_FORCED_POLARITY.
+        """
+        ref_str = str(
+            semantic_reference_polarity.value
+            if hasattr(semantic_reference_polarity, "value")
+            else semantic_reference_polarity
+        ).strip().upper()
+
+        if ref_str == "NEUTRAL" and len(self.label_space) == 2:
+            self.semantic_compatibility = "NOT_DIRECTLY_REPRESENTABLE"
+            return "NOT_DIRECTLY_REPRESENTABLE"
+        elif self.semantic_polarity.value == ref_str:
+            self.semantic_compatibility = "DIRECTLY_COMPATIBLE"
+            return "DIRECTLY_COMPATIBLE"
+        else:
+            self.semantic_compatibility = "POLARITY_MISMATCH"
+            return "POLARITY_MISMATCH"
 
     @property
     def formatted_confidence(self) -> str:
@@ -360,11 +632,6 @@ class PredictionResult:
 
     @property
     def formatted_distribution_ascii(self) -> str:
-        """
-        Formats probability distribution with dense meters, e.g.:
-        POSITIVE     [====================] 98.73%
-        NEGATIVE     [                    ]  1.27%
-        """
         lines = []
         max_label_len = max([len(str(k)) for k in self.probabilities.keys()] or [8])
         for cls_name, prob in self.probabilities.items():
@@ -378,6 +645,7 @@ class PredictionResult:
     def to_dict(self) -> Dict[str, Any]:
         return {
             "label": self.label,
+            "predicted_label": self.predicted_label or self.label,
             "confidence": self.confidence,
             "formatted_confidence": self.formatted_confidence,
             "probabilities": self.probabilities,
@@ -388,6 +656,13 @@ class PredictionResult:
             "model_id": self.model_id,
             "device": self.device,
             "model_status": self.model_status,
+            "raw_label": self.raw_label,
+            "raw_label_id": self.raw_label_id,
+            "raw_probability_distribution": self.raw_probability_distribution,
+            "semantic_polarity": self.semantic_polarity.value if hasattr(self.semantic_polarity, "value") else str(self.semantic_polarity),
+            "label_space": self.label_space,
+            "model_label_space": self.label_space,
+            "semantic_compatibility": self.semantic_compatibility,
         }
 
 
@@ -416,6 +691,10 @@ class LinguisticProbe:
     sentence_type: str = "literal"
     rationale: str = ""
     probe_set_id: str = ""
+    expectation: Optional[ProbeExpectation] = None
+    reference_polarity: str = "UNKNOWN"
+    linguistic_source_polarity: str = "UNKNOWN"
+    semantic_reference: Optional[Dict[str, Any]] = None
 
     @property
     def original_text(self) -> str:
@@ -446,6 +725,9 @@ class LinguisticProbe:
         transformation: str = "",
         version: int = 1,
         category: Optional[str] = None,
+        expectation: Optional[ProbeExpectation] = None,
+        reference_polarity: str = "UNKNOWN",
+        linguistic_source_polarity: str = "UNKNOWN",
         **kwargs,
     ) -> "LinguisticProbe":
 
@@ -476,6 +758,33 @@ class LinguisticProbe:
             else:
                 expected_conf_rel = "UNCONSTRAINED"
 
+        # Resolve ProbeExpectation if not provided (Phase 5)
+        if expectation is None:
+            if expected_flip or semantic_intent == "REVERSE_POLARITY" or expected_semantic_effect == "invert":
+                exp_type = ExpectationType.REVERSE_POLARITY
+                exp_rel = BehavioralRelation.POLARITY_REVERSED
+            elif expected_semantic_effect == "strengthen" or semantic_intent == "STRENGTHEN_POLARITY":
+                exp_type = ExpectationType.INTENSIFY
+                exp_rel = BehavioralRelation.POLARITY_STRENGTHENED
+            elif expected_semantic_effect == "weaken" or semantic_intent == "WEAKEN_POLARITY":
+                exp_type = ExpectationType.DOWNTONE
+                exp_rel = BehavioralRelation.POLARITY_WEAKENED
+            elif semantic_intent == "SHIFT_CONTRAST" or "contrast" in perturbation_type:
+                exp_type = ExpectationType.CONTRAST_SHIFT
+                exp_rel = BehavioralRelation.POLARITY_REVERSED if expected_flip else BehavioralRelation.SAME_POLARITY
+            else:
+                exp_type = ExpectationType.PRESERVE_POLARITY
+                exp_rel = BehavioralRelation.SAME_POLARITY
+
+            expectation = ProbeExpectation(
+                expectation_type=exp_type,
+                expected_semantic_relation=exp_rel,
+                expected_polarity_transition=expected_semantic_effect,
+                rationale=kwargs.get("rationale") or description or f"Controlled {perturbation_type} perturbation.",
+                confidence=1.0,
+                validation_status="VALIDATED",
+            )
+
         return cls(
             probe_id=probe_id,
             seed_text=seed_text,
@@ -496,6 +805,9 @@ class LinguisticProbe:
             sentence_type=kwargs.get("sentence_type", "literal"),
             rationale=kwargs.get("rationale") or description or f"Controlled {perturbation_type} perturbation.",
             probe_set_id=kwargs.get("probe_set_id", ""),
+            expectation=expectation,
+            reference_polarity=reference_polarity,
+            linguistic_source_polarity=linguistic_source_polarity,
         )
 
     def to_dict(self) -> Dict[str, Any]:
@@ -522,6 +834,10 @@ class LinguisticProbe:
             "sentence_type": self.sentence_type,
             "rationale": self.rationale,
             "probe_set_id": self.probe_set_id,
+            "expectation": self.expectation.to_dict() if self.expectation else None,
+            "reference_polarity": self.reference_polarity,
+            "linguistic_source_polarity": self.linguistic_source_polarity,
+            "semantic_reference": self.semantic_reference,
         }
 
     @classmethod
@@ -532,6 +848,8 @@ class LinguisticProbe:
         flipped = bool(d.get("expected_flip", False))
         desc = d.get("description", "")
         rat = d.get("rationale") or desc or f"Controlled {ptype} perturbation."
+        exp_data = d.get("expectation")
+        expectation = ProbeExpectation.from_dict(exp_data) if isinstance(exp_data, dict) else None
         return cls(
             probe_id=d.get("probe_id", ""),
             seed_text=seed,
@@ -552,6 +870,10 @@ class LinguisticProbe:
             sentence_type=d.get("sentence_type", "literal"),
             rationale=rat,
             probe_set_id=d.get("probe_set_id", ""),
+            expectation=expectation,
+            reference_polarity=d.get("reference_polarity", "UNKNOWN"),
+            linguistic_source_polarity=d.get("linguistic_source_polarity", "UNKNOWN"),
+            semantic_reference=d.get("semantic_reference"),
         )
 
     def validate(self) -> Tuple[bool, List[str]]:
@@ -607,6 +929,7 @@ class SharedProbeSet:
     probe_set_version: int = 1
     generator_version: str = "2.2.0"
     sentence_types: Dict[str, str] = field(default_factory=dict)
+    semantic_reference_set: Optional[Any] = None
 
     def get_selected(self, probe_ids: Any) -> "SharedProbeSet":
         """Returns a new SharedProbeSet containing only probes matching the specified IDs."""
@@ -620,6 +943,7 @@ class SharedProbeSet:
             probe_set_version=self.probe_set_version,
             generator_version=self.generator_version,
             sentence_types=dict(self.sentence_types),
+            semantic_reference_set=self.semantic_reference_set,
         )
 
     def find_by_id(self, probe_id: str) -> Optional[LinguisticProbe]:
@@ -666,12 +990,29 @@ class SharedProbeSet:
             "num_probes": len(self.probes),
             "probes": [p.to_dict() for p in self.probes],
             "created_at": self.created_at,
+            "semantic_reference_set": (
+                self.semantic_reference_set.to_dict()
+                if hasattr(self.semantic_reference_set, "to_dict")
+                else self.semantic_reference_set
+            ),
         }
 
     @classmethod
     def from_dict(cls, d: Dict[str, Any]) -> "SharedProbeSet":
         probes_raw = d.get("probes", [])
         probes = [LinguisticProbe.from_dict(p) if isinstance(p, dict) else p for p in probes_raw]
+        raw_sref = d.get("semantic_reference_set")
+        sref = None
+        if raw_sref:
+            if isinstance(raw_sref, dict):
+                try:
+                    from blindspot.semantic.types import SemanticReferenceSet
+                    sref = SemanticReferenceSet.from_dict(raw_sref)
+                except Exception:
+                    sref = raw_sref
+            else:
+                sref = raw_sref
+
         return cls(
             probe_set_id=d.get("probe_set_id", "pset_unknown"),
             seed_texts=d.get("seed_texts", []),
@@ -680,31 +1021,116 @@ class SharedProbeSet:
             probe_set_version=int(d.get("probe_set_version", 1)),
             generator_version=d.get("generator_version", "2.2.0"),
             sentence_types=d.get("sentence_types", {}),
+            semantic_reference_set=sref,
         )
 
 
 @dataclass
 class BaselineEvaluation:
-    """Dedicated standalone evaluation record for the original seed sentence baseline."""
+    """Dedicated standalone evaluation record for the original seed sentence baseline (Phase 3 & 4)."""
     model_id: str
     seed_text: str
-    sentence_type: str
     prediction: PredictionResult
+    sentence_type: str = "literal"
     latency_ms: float = 0.0
+    baseline_id: str = ""
+    original_text: str = ""
+    raw_label: str = ""
+    raw_label_id: int = 0
+    semantic_polarity: SemanticPolarity = SemanticPolarity.UNKNOWN
+    confidence: float = 0.0
+    full_probability_distribution: Dict[str, float] = field(default_factory=dict)
+    reference_polarity: SemanticPolarity = SemanticPolarity.UNKNOWN
+    linguistic_source_polarity: SemanticPolarity = SemanticPolarity.UNKNOWN
+    model_observed_polarity: SemanticPolarity = SemanticPolarity.UNKNOWN
+    semantic_reference: Optional[Dict[str, Any]] = None
+    semantic_compatibility: str = "DIRECTLY_COMPATIBLE"
+
+    @classmethod
+    def compute_baseline_id(cls, model_id: str, seed_text: str) -> str:
+        raw = f"{model_id}|{seed_text}"
+        return f"base_{hashlib.sha256(raw.encode('utf-8')).hexdigest()[:12]}"
+
+    def __post_init__(self):
+        if not self.original_text:
+            self.original_text = self.seed_text
+        if not self.baseline_id:
+            self.baseline_id = self.compute_baseline_id(self.model_id, self.original_text)
+        if self.prediction:
+            if not self.raw_label:
+                self.raw_label = getattr(self.prediction, "raw_label", self.prediction.label)
+            if not self.raw_label_id:
+                self.raw_label_id = getattr(self.prediction, "raw_label_id", 0)
+            if self.semantic_polarity == SemanticPolarity.UNKNOWN:
+                self.semantic_polarity = getattr(self.prediction, "semantic_polarity", SemanticPolarity.UNKNOWN)
+            if self.confidence == 0.0:
+                self.confidence = getattr(self.prediction, "confidence", 0.0)
+            if not self.full_probability_distribution:
+                self.full_probability_distribution = getattr(self.prediction, "probabilities", {})
+            if self.model_observed_polarity == SemanticPolarity.UNKNOWN:
+                self.model_observed_polarity = self.semantic_polarity
+            if hasattr(self.prediction, "semantic_compatibility") and self.prediction.semantic_compatibility:
+                self.semantic_compatibility = self.prediction.semantic_compatibility
 
     def to_dict(self) -> Dict[str, Any]:
         return {
+            "baseline_id": self.baseline_id,
             "model_id": self.model_id,
             "seed_text": self.seed_text,
+            "original_text": self.original_text,
             "sentence_type": self.sentence_type,
-            "prediction": self.prediction.to_dict(),
+            "prediction": self.prediction.to_dict() if hasattr(self.prediction, "to_dict") else self.prediction,
+            "raw_label": self.raw_label,
+            "raw_label_id": self.raw_label_id,
+            "semantic_polarity": self.semantic_polarity.value if hasattr(self.semantic_polarity, "value") else str(self.semantic_polarity),
+            "confidence": self.confidence,
+            "full_probability_distribution": self.full_probability_distribution,
+            "reference_polarity": self.reference_polarity.value if hasattr(self.reference_polarity, "value") else str(self.reference_polarity),
+            "linguistic_source_polarity": self.linguistic_source_polarity.value if hasattr(self.linguistic_source_polarity, "value") else str(self.linguistic_source_polarity),
+            "model_observed_polarity": self.model_observed_polarity.value if hasattr(self.model_observed_polarity, "value") else str(self.model_observed_polarity),
+            "semantic_reference": self.semantic_reference,
+            "semantic_compatibility": self.semantic_compatibility,
             "latency_ms": self.latency_ms,
         }
+
+    @classmethod
+    def from_dict(cls, d: Dict[str, Any]) -> "BaselineEvaluation":
+        pred_dict = d.get("prediction", {})
+        if isinstance(pred_dict, dict) and "label" in pred_dict:
+            pred = PredictionResult(
+                label=pred_dict.get("label", ""),
+                confidence=float(pred_dict.get("confidence", 0.0)),
+                probabilities=pred_dict.get("probabilities", {}),
+                latency_ms=float(pred_dict.get("latency_ms", 0.0)),
+                model_id=pred_dict.get("model_id", ""),
+                raw_label=pred_dict.get("raw_label", ""),
+                raw_label_id=int(pred_dict.get("raw_label_id", 0)),
+                raw_probability_distribution=pred_dict.get("raw_probability_distribution", {}),
+            )
+        else:
+            pred = pred_dict
+        return cls(
+            baseline_id=d.get("baseline_id", ""),
+            model_id=d.get("model_id", ""),
+            seed_text=d.get("seed_text", "") or d.get("original_text", ""),
+            original_text=d.get("original_text", "") or d.get("seed_text", ""),
+            sentence_type=d.get("sentence_type", "literal"),
+            prediction=pred,
+            latency_ms=float(d.get("latency_ms", 0.0)),
+            raw_label=d.get("raw_label", ""),
+            raw_label_id=int(d.get("raw_label_id", 0)),
+            semantic_polarity=SemanticPolarity(d.get("semantic_polarity", "UNKNOWN")),
+            confidence=float(d.get("confidence", 0.0)),
+            full_probability_distribution=d.get("full_probability_distribution", {}),
+            reference_polarity=SemanticPolarity(d.get("reference_polarity", "UNKNOWN")),
+            linguistic_source_polarity=SemanticPolarity(d.get("linguistic_source_polarity", "UNKNOWN")),
+            model_observed_polarity=SemanticPolarity(d.get("model_observed_polarity", "UNKNOWN")),
+        )
 
 
 @dataclass
 class ModelProbeEvaluation:
-    """Evaluation result for one model evaluated against one probe."""
+    """Evaluation result for one model evaluated against one probe (Phase 7 & 8)."""
     model_id: str
     probe_id: str
     seed_text: str
@@ -727,6 +1153,24 @@ class ModelProbeEvaluation:
     original_confidence: float = 0.0
     perturbed_label: str = ""
     perturbed_confidence: float = 0.0
+    baseline_id: str = ""
+    raw_label_flip: bool = False
+    polarity_flip: bool = False
+    semantic_state_change: bool = False
+    expected_relation: str = "SAME_POLARITY"
+    observed_relation: str = "SAME_POLARITY"
+    expectation_match: bool = False
+    preservation: bool = False
+    confidence_delta_pp: float = 0.0
+    reference_polarity: str = "UNKNOWN"
+    linguistic_source_polarity: str = "UNKNOWN"
+    model_observed_polarity: str = "UNKNOWN"
+    semantic_reference: Optional[Dict[str, Any]] = None
+    model_label_space: List[str] = field(default_factory=list)
+    from_label: str = ""
+    to_label: str = ""
+    transition_type: str = ""
+    semantic_compatibility: str = "DIRECTLY_COMPATIBLE"
 
     def __post_init__(self):
         # Ensure original_label and original_confidence are reliably initialized
@@ -746,12 +1190,38 @@ class ModelProbeEvaluation:
                 self.perturbed_label = str(self.perturbed_prediction.get("label", "Unknown"))
                 self.perturbed_confidence = float(self.perturbed_prediction.get("confidence", 0.0))
 
+        if not self.from_label:
+            self.from_label = self.original_label
+        if not self.to_label:
+            self.to_label = self.perturbed_label
+        if not self.transition_type:
+            self.transition_type = f"{self.from_label} → {self.to_label}"
+
+        if not self.model_label_space and hasattr(self.original_prediction, "label_space") and self.original_prediction.label_space:
+            self.model_label_space = list(self.original_prediction.label_space)
+        elif not self.model_label_space and isinstance(self.original_prediction, dict) and "label_space" in self.original_prediction:
+            self.model_label_space = list(self.original_prediction["label_space"])
+
+        if hasattr(self.original_prediction, "semantic_compatibility") and self.original_prediction.semantic_compatibility:
+            self.semantic_compatibility = self.original_prediction.semantic_compatibility
+
+        if not self.baseline_id and self.model_id and self.seed_text:
+            raw = f"{self.model_id}|{self.seed_text}"
+            self.baseline_id = f"base_{hashlib.sha256(raw.encode('utf-8')).hexdigest()[:12]}"
+
+        # Resolve flip metrics accurately (Phase 7)
+        self.raw_label_flip = is_raw_label_flip(self.original_label, self.perturbed_label)
+        self.polarity_flip = is_polarity_flip(self.original_label, self.perturbed_label)
+        self.semantic_state_change = is_semantic_state_change(self.original_label, self.perturbed_label)
+        if self.confidence_delta_pp == 0.0 and self.confidence_delta_pts != 0.0:
+            self.confidence_delta_pp = self.confidence_delta_pts
+        elif self.confidence_delta_pts == 0.0 and self.confidence_delta_pp != 0.0:
+            self.confidence_delta_pts = self.confidence_delta_pp
+
     def get(self, key: str, default: Any = None) -> Any:
-        """Enables dict-like .get() access on ModelProbeEvaluation instances."""
         return getattr(self, key, default)
 
     def __getitem__(self, key: str) -> Any:
-        """Enables dict-like indexing on ModelProbeEvaluation instances."""
         try:
             return getattr(self, key)
         except AttributeError:
@@ -759,13 +1229,13 @@ class ModelProbeEvaluation:
 
     @property
     def formatted_confidence_delta(self) -> str:
-        sign = "+" if self.confidence_delta_pts > 0 else ""
-        return f"{sign}{self.confidence_delta_pts:.2f} percentage points"
-
-
+        pts = self.confidence_delta_pp if self.confidence_delta_pp != 0.0 else self.confidence_delta_pts
+        sign = "+" if pts > 0 else ""
+        return f"{sign}{pts:.2f} percentage points"
 
     def to_dict(self) -> Dict[str, Any]:
         return {
+            "baseline_id": self.baseline_id,
             "model_id": self.model_id,
             "probe_id": self.probe_id,
             "seed_text": self.seed_text,
@@ -774,21 +1244,38 @@ class ModelProbeEvaluation:
             "category": self.perturbation_type,
             "expected_flip": self.expected_flip,
             "expected_semantic_effect": self.expected_semantic_effect,
-            "original_prediction": self.original_prediction.to_dict(),
-            "perturbed_prediction": self.perturbed_prediction.to_dict(),
+            "original_prediction": self.original_prediction.to_dict() if hasattr(self.original_prediction, "to_dict") else self.original_prediction,
+            "perturbed_prediction": self.perturbed_prediction.to_dict() if hasattr(self.perturbed_prediction, "to_dict") else self.perturbed_prediction,
             "original_label": self.original_label,
             "original_confidence": self.original_confidence,
             "perturbed_label": self.perturbed_label,
             "perturbed_confidence": self.perturbed_confidence,
+            "from_label": self.from_label,
+            "to_label": self.to_label,
+            "transition_type": self.transition_type,
+            "model_label_space": self.model_label_space,
+            "semantic_compatibility": self.semantic_compatibility,
+            "semantic_reference": self.semantic_reference,
             "is_flipped": self.is_flipped,
+            "raw_label_flip": self.raw_label_flip,
+            "polarity_flip": self.polarity_flip,
+            "semantic_state_change": self.semantic_state_change,
             "confidence_delta": self.confidence_delta,
             "confidence_delta_pts": self.confidence_delta_pts,
+            "confidence_delta_pp": self.confidence_delta_pp,
             "formatted_confidence_delta": self.formatted_confidence_delta,
             "expectation_satisfied": self.expectation_satisfied,
+            "expectation_match": self.expectation_match,
+            "preservation": self.preservation,
+            "expected_relation": self.expected_relation,
+            "observed_relation": self.observed_relation,
             "behavioral_outcome": self.behavioral_outcome,
             "failure_type": self.failure_type,
             "rationale": self.rationale,
             "semantic_intent": self.semantic_intent,
+            "reference_polarity": self.reference_polarity,
+            "linguistic_source_polarity": self.linguistic_source_polarity,
+            "model_observed_polarity": self.model_observed_polarity,
             "latency_ms": self.latency_ms,
         }
 
@@ -802,6 +1289,9 @@ class ModelProbeEvaluation:
                 probabilities=orig_pred.get("probabilities", {}),
                 latency_ms=float(orig_pred.get("latency_ms", 0.0)),
                 model_id=orig_pred.get("model_id", ""),
+                raw_label=orig_pred.get("raw_label", ""),
+                raw_label_id=int(orig_pred.get("raw_label_id", 0)),
+                raw_probability_distribution=orig_pred.get("raw_probability_distribution", {}),
             )
         pert_pred = d.get("perturbed_prediction", {})
         if isinstance(pert_pred, dict):
@@ -811,6 +1301,9 @@ class ModelProbeEvaluation:
                 probabilities=pert_pred.get("probabilities", {}),
                 latency_ms=float(pert_pred.get("latency_ms", 0.0)),
                 model_id=pert_pred.get("model_id", ""),
+                raw_label=pert_pred.get("raw_label", ""),
+                raw_label_id=int(pert_pred.get("raw_label_id", 0)),
+                raw_probability_distribution=pert_pred.get("raw_probability_distribution", {}),
             )
         return cls(
             model_id=d.get("model_id", ""),
@@ -835,22 +1328,41 @@ class ModelProbeEvaluation:
             original_confidence=float(d.get("original_confidence", 0.0)),
             perturbed_label=d.get("perturbed_label", ""),
             perturbed_confidence=float(d.get("perturbed_confidence", 0.0)),
+            baseline_id=d.get("baseline_id", ""),
+            raw_label_flip=bool(d.get("raw_label_flip", False)),
+            polarity_flip=bool(d.get("polarity_flip", False)),
+            semantic_state_change=bool(d.get("semantic_state_change", False)),
+            expected_relation=d.get("expected_relation", "SAME_POLARITY"),
+            observed_relation=d.get("observed_relation", "SAME_POLARITY"),
+            expectation_match=bool(d.get("expectation_match", False)),
+            preservation=bool(d.get("preservation", False)),
+            confidence_delta_pp=float(d.get("confidence_delta_pp", d.get("confidence_delta_pts", 0.0))),
+            reference_polarity=d.get("reference_polarity", "UNKNOWN"),
+            linguistic_source_polarity=d.get("linguistic_source_polarity", "UNKNOWN"),
+            model_observed_polarity=d.get("model_observed_polarity", "UNKNOWN"),
         )
 
 
 @dataclass
 class RunPlan:
     """
-    Immutable execution specification consumed by Live Run per Section 32.
-    Ensures identical stimulus set and strict integrity without regeneration.
+    Immutable execution specification consumed by Live Run per Phase 11.
+    Ensures identical stimulus set and strict integrity without mutation during execution.
     """
     experiment_id: str
     model_ids: List[str]
     probe_set_id: str
-    probe_set_version: int
     selected_probe_ids: List[str]
-    probe_versions: Dict[str, int]
-    original_text: str
+    probe_set_version: int = 1
+    probe_versions: Dict[str, int] = field(default_factory=dict)
+    original_text: str = ""
+    probe_texts: Dict[str, str] = field(default_factory=dict)
+    semantic_polarity_reference: str = ""
+    probe_semantic_references: Dict[str, Dict[str, Any]] = field(default_factory=dict)
+    semantic_relations: Dict[str, str] = field(default_factory=dict)
+    verification_status: str = "UNVERIFIED"
+    provider: str = "NONE"
+    schema_version: str = "v2.0"
     created_at: float = field(default_factory=time.time)
     sentence_type: str = "literal"
     metadata: Dict[str, Any] = field(default_factory=dict)
@@ -864,6 +1376,13 @@ class RunPlan:
             "selected_probe_ids": self.selected_probe_ids,
             "probe_versions": self.probe_versions,
             "original_text": self.original_text,
+            "probe_texts": self.probe_texts,
+            "semantic_polarity_reference": self.semantic_polarity_reference,
+            "probe_semantic_references": self.probe_semantic_references,
+            "semantic_relations": self.semantic_relations,
+            "verification_status": self.verification_status,
+            "provider": self.provider,
+            "schema_version": self.schema_version,
             "created_at": self.created_at,
             "sentence_type": self.sentence_type,
             "metadata": self.metadata,
@@ -879,6 +1398,13 @@ class RunPlan:
             selected_probe_ids=d.get("selected_probe_ids", []),
             probe_versions=d.get("probe_versions", {}),
             original_text=d.get("original_text", ""),
+            probe_texts=d.get("probe_texts", {}),
+            semantic_polarity_reference=d.get("semantic_polarity_reference", ""),
+            probe_semantic_references=d.get("probe_semantic_references", {}),
+            semantic_relations=d.get("semantic_relations", {}),
+            verification_status=d.get("verification_status", "UNVERIFIED"),
+            provider=d.get("provider", "NONE"),
+            schema_version=d.get("schema_version", "v2.0"),
             created_at=float(d.get("created_at", time.time())),
             sentence_type=d.get("sentence_type", "literal"),
             metadata=d.get("metadata", {}),
@@ -936,6 +1462,25 @@ class BehavioralProbeResult:
     category: str = ""
     transformation: str = ""
     latency_ms: float = 0.0
+    baseline_id: str = ""
+    raw_label_flip: bool = False
+    polarity_flip: bool = False
+    semantic_state_change: bool = False
+    expected_relation: str = "SAME_POLARITY"
+    observed_relation: str = "SAME_POLARITY"
+    expectation_match: bool = False
+    preservation: bool = False
+    reference_polarity: str = "UNKNOWN"
+    linguistic_source_polarity: str = "UNKNOWN"
+    model_observed_polarity: str = "UNKNOWN"
+
+    def __post_init__(self):
+        if not self.baseline_id and self.model_id and self.original_text:
+            raw = f"{self.model_id}|{self.original_text}"
+            self.baseline_id = f"base_{hashlib.sha256(raw.encode('utf-8')).hexdigest()[:12]}"
+        self.raw_label_flip = is_raw_label_flip(self.original_label, self.probe_label)
+        self.polarity_flip = is_polarity_flip(self.original_label, self.probe_label)
+        self.semantic_state_change = is_semantic_state_change(self.original_label, self.probe_label)
 
     @property
     def seed_text(self) -> str:
@@ -1017,6 +1562,9 @@ class BehavioralProbeResult:
             "label_transition": self.label_transition,
             "is_prediction_flip": self.is_prediction_flip,
             "is_flipped": self.is_prediction_flip,
+            "raw_label_flip": self.raw_label_flip,
+            "polarity_flip": self.polarity_flip,
+            "semantic_state_change": self.semantic_state_change,
             "confidence_delta_pp": self.confidence_delta_pp,
             "confidence_delta_pts": self.confidence_delta_pp,
             "confidence_delta": self.confidence_delta,
@@ -1027,6 +1575,10 @@ class BehavioralProbeResult:
             "semantic_intent": self.semantic_intent,
             "expected_label_relation": self.expected_label_relation,
             "expected_confidence_relation": self.expected_confidence_relation,
+            "expected_relation": self.expected_relation,
+            "observed_relation": self.observed_relation,
+            "expectation_match": self.expectation_match,
+            "preservation": self.preservation,
             "behavioral_outcome": self.behavioral_outcome,
             "failure_type": self.failure_type,
             "evidence": self.evidence,
@@ -1037,6 +1589,10 @@ class BehavioralProbeResult:
             "transformation": self.transformation,
             "expectation_satisfied": self.expectation_satisfied,
             "latency_ms": self.latency_ms,
+            "baseline_id": self.baseline_id,
+            "reference_polarity": self.reference_polarity,
+            "linguistic_source_polarity": self.linguistic_source_polarity,
+            "model_observed_polarity": self.model_observed_polarity,
         }
 
     @classmethod
@@ -1070,6 +1626,17 @@ class BehavioralProbeResult:
             category=d.get("category") or d.get("perturbation_type", ""),
             transformation=d.get("transformation", ""),
             latency_ms=float(d.get("latency_ms", 0.0)),
+            baseline_id=d.get("baseline_id", ""),
+            raw_label_flip=bool(d.get("raw_label_flip", False)),
+            polarity_flip=bool(d.get("polarity_flip", False)),
+            semantic_state_change=bool(d.get("semantic_state_change", False)),
+            expected_relation=d.get("expected_relation", "SAME_POLARITY"),
+            observed_relation=d.get("observed_relation", "SAME_POLARITY"),
+            expectation_match=bool(d.get("expectation_match", False)),
+            preservation=bool(d.get("preservation", False)),
+            reference_polarity=d.get("reference_polarity", "UNKNOWN"),
+            linguistic_source_polarity=d.get("linguistic_source_polarity", "UNKNOWN"),
+            model_observed_polarity=d.get("model_observed_polarity", "UNKNOWN"),
         )
 
 

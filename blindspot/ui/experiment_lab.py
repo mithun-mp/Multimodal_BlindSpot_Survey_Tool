@@ -11,7 +11,8 @@ from blindspot.models.registry import ModelRegistry
 from blindspot.models.cache import ModelCache
 from blindspot.execution.runner import ExperimentRunner
 from blindspot.execution.resources import ResourceManager
-from blindspot.ui.components import render_technical_model_card, render_probe_preview_card
+from blindspot.ui.components import render_technical_model_card, render_probe_preview_card, render_semantic_reference_panel
+from blindspot.semantic import get_semantic_service
 
 
 def render_experiment_lab():
@@ -71,6 +72,29 @@ def render_experiment_lab():
                 """,
                 unsafe_allow_html=True,
             )
+
+    # ==========================================
+    # 01b SEMANTIC REFERENCE — GROUND-TRUTH ALIGNMENT
+    # ==========================================
+    st.markdown(
+        """
+        <div style="background:#141824; border-left:3px solid #38bdf8; padding:8px 12px; margin:16px 0 10px 0;">
+            <strong style="color:#38bdf8; font-family:monospace; font-size:0.9rem;">01b SEMANTIC REFERENCE — GROUND-TRUTH ALIGNMENT</strong>
+            <div style="color:#94a3b8; font-size:0.75rem;">Canonical semantic references (POSITIVE, NEGATIVE, NEUTRAL) verified before model execution.</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    if staged_probe_set is not None and staged_probe_set.probes:
+        ref_set = getattr(staged_probe_set, "semantic_reference_set", None)
+        if ref_set is None:
+            svc = get_semantic_service()
+            seed_t = staged_probe_set.seed_texts[0] if staged_probe_set.seed_texts else ""
+            ref_set = svc.annotate_experiment(baseline_text=seed_t, probes=staged_probe_set.probes)
+            staged_probe_set.semantic_reference_set = ref_set
+        render_semantic_reference_panel(ref_set, interactive=True, key_prefix="exp_sem")
+    else:
+        st.caption("Stage probes in the 'Probes' tab to preview and verify canonical semantic references.")
 
     # ==========================================
     # 02 MODELS — TARGET CLASSIFIERS

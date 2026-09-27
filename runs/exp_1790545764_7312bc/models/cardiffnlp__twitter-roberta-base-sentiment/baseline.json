@@ -1,0 +1,81 @@
+{
+  "The movie was great and the acting was top notch.": {
+    "baseline_id": "base_8cea2db9a829",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "seed_text": "The movie was great and the acting was top notch.",
+    "original_text": "The movie was great and the acting was top notch.",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.986173965345905,
+      "formatted_confidence": "98.62%",
+      "probabilities": {
+        "NEGATIVE": 0.0021729515379752622,
+        "NEUTRAL": 0.011653083116119732,
+        "POSITIVE": 0.986173965345905
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.22%",
+        "NEUTRAL": "1.17%",
+        "POSITIVE": "98.62%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.22%\nNEUTRAL    [                    ]   1.17%\nPOSITIVE   [====================]  98.62%",
+      "raw_logits": null,
+      "latency_ms": 166.79470000963192,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_2",
+      "raw_label_id": 2,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0021729515379752622,
+        "LABEL_1": 0.011653083116119732,
+        "LABEL_2": 0.986173965345905
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "raw_label": "LABEL_2",
+    "raw_label_id": 2,
+    "semantic_polarity": "POSITIVE",
+    "confidence": 0.986173965345905,
+    "full_probability_distribution": {
+      "NEGATIVE": 0.0021729515379752622,
+      "NEUTRAL": 0.011653083116119732,
+      "POSITIVE": 0.986173965345905
+    },
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "POSITIVE",
+    "semantic_reference": {
+      "sentence_id": "baseline",
+      "sentence_text": "The movie was great and the acting was top notch.",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": null,
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790540189.5199313,
+      "prompt_version": "v1.0"
+    },
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "latency_ms": 166.79470000963192
+  }
+}

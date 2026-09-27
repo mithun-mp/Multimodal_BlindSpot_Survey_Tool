@@ -1,0 +1,81 @@
+{
+  "He is a Good boy but very naughty": {
+    "baseline_id": "base_e1acd5f6d779",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "seed_text": "He is a Good boy but very naughty",
+    "original_text": "He is a Good boy but very naughty",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "NEUTRAL",
+      "predicted_label": "NEUTRAL",
+      "confidence": 0.4701459162045953,
+      "formatted_confidence": "47.01%",
+      "probabilities": {
+        "NEGATIVE": 0.22115639009746835,
+        "NEUTRAL": 0.4701459162045953,
+        "POSITIVE": 0.30869769369793637
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "22.12%",
+        "NEUTRAL": "47.01%",
+        "POSITIVE": "30.87%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====                ]  22.12%\nNEUTRAL    [=========           ]  47.01%\nPOSITIVE   [======              ]  30.87%",
+      "raw_logits": null,
+      "latency_ms": 1234.7065999929328,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.22115639009746835,
+        "LABEL_1": 0.4701459162045953,
+        "LABEL_2": 0.30869769369793637
+      },
+      "semantic_polarity": "NEUTRAL",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "POLARITY_MISMATCH"
+    },
+    "raw_label": "LABEL_1",
+    "raw_label_id": 1,
+    "semantic_polarity": "NEUTRAL",
+    "confidence": 0.4701459162045953,
+    "full_probability_distribution": {
+      "NEGATIVE": 0.22115639009746835,
+      "NEUTRAL": 0.4701459162045953,
+      "POSITIVE": 0.30869769369793637
+    },
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "NEUTRAL",
+    "semantic_reference": {
+      "sentence_id": "baseline",
+      "sentence_text": "He is a Good boy but very naughty",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": null,
+      "verification_status": "MANUAL",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "MANUAL",
+      "model_used": "manual_fallback",
+      "timestamp": 1790537111.906527,
+      "prompt_version": "v1.0"
+    },
+    "semantic_compatibility": "POLARITY_MISMATCH",
+    "latency_ms": 1234.7065999929328
+  }
+}

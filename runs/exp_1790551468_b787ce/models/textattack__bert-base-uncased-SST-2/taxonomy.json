@@ -1,0 +1,342 @@
+[
+  {
+    "failure_id": "fail_a146a81e",
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_45d543e2dcef",
+    "category": "Blind",
+    "severity": "high",
+    "reason": "Probe introduces a polarity reversal (PRESERVE_POLARITY), but model retained the same predicted class and polarity (NEGATIVE (NEGATIVE) \u2192 NEGATIVE (NEGATIVE)).",
+    "details": "Probe introduces a polarity reversal (PRESERVE_POLARITY), but model retained the same predicted class and polarity (NEGATIVE (NEGATIVE) \u2192 NEGATIVE (NEGATIVE)).",
+    "recommendation": "Augment training data and regularize behavior against contrast_negative_append perturbations to fix Blind failures.",
+    "evidence": {
+      "original_label": "NEGATIVE",
+      "probe_label": "NEGATIVE",
+      "original_confidence": 0.9966689176835147,
+      "probe_confidence": 0.9756876593711845,
+      "confidence_delta_pp": -2.098125831233022,
+      "label_transition": "NEGATIVE (NEGATIVE) \u2192 NEGATIVE (NEGATIVE)",
+      "raw_label_flip": false,
+      "polarity_flip": false,
+      "semantic_state_change": false,
+      "is_prediction_flip": false,
+      "original_polarity": "NEGATIVE",
+      "probe_polarity": "NEGATIVE",
+      "expected_relation": "POLARITY_REVERSED",
+      "observed_relation": "SAME_POLARITY",
+      "expected_effect": "EXPECTED_PRESERVE",
+      "semantic_intent": "PRESERVE_POLARITY",
+      "threshold_pp": 15.0,
+      "expectation_match": false,
+      "preservation": true,
+      "jaccard_similarity": 0.2857142857142857,
+      "cosine_alignment": 0.5205424374582607,
+      "orig_explanation": {
+        "token_weights": {
+          "am": 0.10533638129417887,
+          "i": -0.0717579245741861,
+          "not": 0.12111413076737848,
+          "well": -0.030397800342347413
+        },
+        "token_attributions": [
+          {
+            "token": "am",
+            "attribution": 0.10533638129417887,
+            "position": 1
+          },
+          {
+            "token": "i",
+            "attribution": -0.0717579245741861,
+            "position": 2
+          },
+          {
+            "token": "not",
+            "attribution": 0.12111413076737848,
+            "position": 3
+          },
+          {
+            "token": "well",
+            "attribution": -0.030397800342347413,
+            "position": 4
+          }
+        ],
+        "model_id": "textattack/bert-base-uncased-SST-2",
+        "text": "i am not well",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "pert_explanation": {
+        "token_weights": {
+          "I": 0.0076006139489796926,
+          "am": 0.03188146480645102,
+          "i": -0.037207555225435326,
+          "could": 0.011612799923096308,
+          "not": 0.08237619341357805,
+          "well": -0.036407696945655536,
+          "repeat": -0.04036187668126848,
+          "well,": 0.041617849017631915,
+          "performance": -0.024739387442161136,
+          "however": 0.1387544428391278,
+          "that": -0.0033939216325103265
+        },
+        "token_attributions": [
+          {
+            "token": "I",
+            "attribution": 0.0076006139489796926,
+            "position": 1
+          },
+          {
+            "token": "am",
+            "attribution": 0.03188146480645102,
+            "position": 2
+          },
+          {
+            "token": "i",
+            "attribution": -0.037207555225435326,
+            "position": 3
+          },
+          {
+            "token": "could",
+            "attribution": 0.011612799923096308,
+            "position": 4
+          },
+          {
+            "token": "not",
+            "attribution": 0.08237619341357805,
+            "position": 5
+          },
+          {
+            "token": "well",
+            "attribution": -0.036407696945655536,
+            "position": 6
+          },
+          {
+            "token": "repeat",
+            "attribution": -0.04036187668126848,
+            "position": 7
+          },
+          {
+            "token": "well,",
+            "attribution": 0.041617849017631915,
+            "position": 8
+          },
+          {
+            "token": "performance",
+            "attribution": -0.024739387442161136,
+            "position": 9
+          },
+          {
+            "token": "however",
+            "attribution": 0.1387544428391278,
+            "position": 10
+          },
+          {
+            "token": "that",
+            "attribution": -0.0033939216325103265,
+            "position": 11
+          }
+        ],
+        "model_id": "textattack/bert-base-uncased-SST-2",
+        "text": "i am not well, however I could not repeat that performance.",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "aligned_tokens": [
+        {
+          "token": "I",
+          "orig_token": null,
+          "pert_token": "I",
+          "orig_pos": null,
+          "pert_pos": 1,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 2,
+          "orig_val": null,
+          "pert_val": 0.0076006139489796926,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "am",
+          "orig_token": "am",
+          "pert_token": "am",
+          "orig_pos": 1,
+          "pert_pos": 2,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.10533638129417887,
+          "pert_val": 0.03188146480645102,
+          "delta": -0.07345491648772784,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": true
+        },
+        {
+          "token": "i",
+          "orig_token": "i",
+          "pert_token": "i",
+          "orig_pos": 2,
+          "pert_pos": 3,
+          "orig_occ": 1,
+          "pert_occ": 2,
+          "total_occ": 2,
+          "orig_val": -0.0717579245741861,
+          "pert_val": -0.037207555225435326,
+          "delta": 0.034550369348750776,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "could",
+          "orig_token": null,
+          "pert_token": "could",
+          "orig_pos": null,
+          "pert_pos": 4,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.011612799923096308,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "not",
+          "orig_token": "not",
+          "pert_token": "not",
+          "orig_pos": 3,
+          "pert_pos": 5,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.12111413076737848,
+          "pert_val": 0.08237619341357805,
+          "delta": -0.03873793735380043,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "well",
+          "orig_token": "well",
+          "pert_token": "well",
+          "orig_pos": 4,
+          "pert_pos": 6,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.030397800342347413,
+          "pert_val": -0.036407696945655536,
+          "delta": -0.006009896603308123,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "repeat",
+          "orig_token": null,
+          "pert_token": "repeat",
+          "orig_pos": null,
+          "pert_pos": 7,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.04036187668126848,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "well,",
+          "orig_token": null,
+          "pert_token": "well,",
+          "orig_pos": null,
+          "pert_pos": 8,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.041617849017631915,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "performance",
+          "orig_token": null,
+          "pert_token": "performance",
+          "orig_pos": null,
+          "pert_pos": 9,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.024739387442161136,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "however",
+          "orig_token": null,
+          "pert_token": "however",
+          "orig_pos": null,
+          "pert_pos": 10,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.1387544428391278,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "that",
+          "orig_token": null,
+          "pert_token": "that",
+          "orig_pos": null,
+          "pert_pos": 11,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.0033939216325103265,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        }
+      ]
+    },
+    "traceable_narrative": "Probe introduces a polarity reversal (PRESERVE_POLARITY), but model retained the same predicted class and polarity (NEGATIVE (NEGATIVE) \u2192 NEGATIVE (NEGATIVE)).",
+    "original_sentence": "i am not well",
+    "perturbed_sentence": "i am not well, however I could not repeat that performance.",
+    "original_label": "NEGATIVE",
+    "perturbed_label": "NEGATIVE",
+    "original_confidence": 0.9966689176835147,
+    "perturbed_confidence": 0.9756876593711845,
+    "confidence_delta_pts": -2.098125831233022,
+    "is_flipped": false,
+    "expected_flip": false,
+    "behavioral_outcome": "MISSING_FLIP"
+  }
+]

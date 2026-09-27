@@ -128,6 +128,15 @@ class ReportGenerator:
 1. **Negation Retraining**: Augment training corpus with CheckList negation templates to resolve **Blind** failures.
 2. **Adversarial Entity Replacement**: Apply entity swapping during model fine-tuning to prevent **Spurious** correlations.
 3. **Contrastive Regularization**: Fine-tune with paired contrast clauses ('X, but Y') to resolve **Misweighted** attributions.
+
+## Semantic Reference Methodology
+1. **Canonical Semantic Label Space**: Ground-truth reference labels are strictly limited to `POSITIVE`, `NEGATIVE`, and `NEUTRAL`.
+2. **Gemini External Annotation**: Google Gemini acts exclusively as an external semantic annotator and relation reference. Gemini is not a benchmark model, never predicts failure categories, and never rates models.
+3. **Human Verification & Override**: Every semantic annotation is subject to human researcher verification and override prior to model evaluation.
+4. **Benchmark Model Independence**: Target benchmark models execute independent forward passes on identical stimuli without access to semantic annotations.
+5. **2-Class vs. 3-Class Representation**: Binary models cannot explicitly represent `NEUTRAL`. If the semantic reference is `NEUTRAL`, a binary model's output is recorded as `NOT_DIRECTLY_REPRESENTABLE` / `BINARY_FORCED_POLARITY`. Multiclass models can represent `NEUTRAL` directly.
+6. **Separation of Concepts**: Semantic expectation (`REVERSE`, `PRESERVE`) and empirical model prediction are separate concepts.
+7. **Empirical Failure Taxonomy**: Diagnoses of `Blind`, `Spurious`, `Misweighted`, and `Undetermined` are derived strictly from observed model behavior, confidence shifts, and attributions, never AI forecasting.
 """
 
     def _build_failure_summary_report(self, failures: List[Dict[str, Any]]) -> str:

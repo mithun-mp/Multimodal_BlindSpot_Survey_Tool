@@ -265,7 +265,209 @@ code, pre, .stCode, .terminal-text {
     margin-bottom: 14px;
     align-items: center;
 }
+
+/* =======================================================
+   RESEARCH DATA GRID & CELL-LEVEL DEVIATION SYSTEM
+   ======================================================= */
+.bs-grid-container {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #26334d;
+    border-radius: 8px;
+    background: #0f131d;
+    margin: 14px 0 24px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.bs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.83rem;
+    color: #e2e8f0;
+    text-align: left;
+}
+
+.bs-table th {
+    background: #141926;
+    color: #94a3b8;
+    font-size: 0.73rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 10px 12px;
+    border-bottom: 2px solid #26334d;
+    border-right: 1px solid #1e2638;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.bs-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #1a2233;
+    border-right: 1px solid #1a2233;
+    vertical-align: middle;
+}
+
+.bs-table tr:hover {
+    background: #151c2c;
+}
+
+/* Sticky first column for probe identity */
+.bs-col-sticky {
+    position: sticky;
+    left: 0;
+    background: #0f131d;
+    z-index: 1;
+    border-right: 2px solid #26334d !important;
+}
+
+.bs-table tr:hover .bs-col-sticky {
+    background: #151c2c;
+}
+
+/* Cell-Level Deviation Indicators */
+.cell-badge {
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 6px 8px;
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 0.76rem;
+    line-height: 1.3;
+    box-sizing: border-box;
+    transition: all 0.15s ease;
+}
+
+.cell-match {
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    color: #34d399;
+}
+.cell-match:hover {
+    background: rgba(16, 185, 129, 0.16);
+    border-color: #10b981;
+}
+
+.cell-deviation {
+    background: rgba(245, 158, 11, 0.12);
+    border: 1.5px solid #f59e0b;
+    color: #fbbf24;
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.2);
+}
+.cell-deviation:hover {
+    background: rgba(245, 158, 11, 0.22);
+}
+
+.cell-failure {
+    background: rgba(239, 68, 68, 0.14);
+    border: 1.5px solid #ef4444;
+    color: #f87171;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.25);
+}
+.cell-failure:hover {
+    background: rgba(239, 68, 68, 0.25);
+}
+
+.cell-undetermined {
+    background: rgba(148, 163, 184, 0.08);
+    border: 1px solid #64748b;
+    color: #cbd5e1;
+}
+
+.cell-notrun {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px dashed #475569;
+    color: #64748b;
+}
+
+.cell-invalid {
+    background: rgba(168, 85, 247, 0.12);
+    border: 1.5px dashed #a855f7;
+    color: #c084fc;
+}
+
+/* Status Tag Pills */
+.status-pill {
+    display: inline-block;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    margin-top: 3px;
+    width: fit-content;
+}
+
+.pill-match { background: #064e3b; color: #6ee7b7; }
+.pill-dev { background: #78350f; color: #fde68a; }
+.pill-fail { background: #7f1d1d; color: #fca5a5; }
+.pill-undet { background: #1e293b; color: #cbd5e1; }
+.pill-notrun { background: #0f172a; color: #64748b; }
+.pill-invalid { background: #581c87; color: #e9d5ff; }
+
+/* Transition Badges */
+.trans-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background: #1a2233;
+    border: 1px solid #2d3b55;
+    font-family: monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #93c5fd;
+    white-space: nowrap;
+}
+
+/* Model Completeness Banner */
+.model-completeness-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-left: 4px solid #38bdf8;
+    border-radius: 6px;
+    padding: 10px 16px;
+    margin-bottom: 16px;
+    font-family: monospace;
+    font-size: 0.82rem;
+}
+
+.model-completeness-warning {
+    border-left-color: #f59e0b !important;
+    background: rgba(120, 53, 15, 0.15) !important;
+}
+
+/* Failure Summary Metric Cards */
+.failure-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.failure-metric-card {
+    background: #141824;
+    border: 1px solid #26334d;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-family: monospace;
+}
+
+.failure-metric-card-val {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-top: 2px;
+}
 </style>
+
 
 """
 

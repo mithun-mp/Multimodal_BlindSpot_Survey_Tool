@@ -1,0 +1,933 @@
+[
+  {
+    "baseline_id": "base_1bae41815082",
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_6018c6f404b7",
+    "seed_text": "the movie was great and the acting was top notch",
+    "perturbed_text": "the movie was not great and the acting was top notch",
+    "perturbation_type": "negation_insertion",
+    "category": "negation_insertion",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9935844961629199,
+      "formatted_confidence": "99.36%",
+      "probabilities": {
+        "NEGATIVE": 0.0064155038370801365,
+        "POSITIVE": 0.9935844961629199
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.64%",
+        "POSITIVE": "99.36%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.64%\nPOSITIVE   [====================]  99.36%",
+      "raw_logits": null,
+      "latency_ms": 175.25619998923503,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0064155038370801365,
+        "LABEL_1": 0.9935844961629199
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.9926662777634441,
+      "formatted_confidence": "99.27%",
+      "probabilities": {
+        "NEGATIVE": 0.9926662777634441,
+        "POSITIVE": 0.007333722236555923
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.27%",
+        "POSITIVE": "0.73%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.27%\nPOSITIVE   [                    ]   0.73%",
+      "raw_logits": null,
+      "latency_ms": 139.99744285787787,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_0",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.9926662777634441,
+        "LABEL_1": 0.007333722236555923
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9935844961629199,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9926662777634441,
+    "from_label": "POSITIVE",
+    "to_label": "NEGATIVE",
+    "transition_type": "POSITIVE \u2192 NEGATIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_6018c6f404b7",
+      "sentence_text": "the movie was not great and the acting was top notch",
+      "semantic_polarity": "NEGATIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "REVERSE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEGATIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEGATIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790527401.6756032,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": true,
+    "raw_label_flip": true,
+    "polarity_flip": true,
+    "semantic_state_change": true,
+    "confidence_delta": -0.000918218399475812,
+    "confidence_delta_pts": -0.0918218399475812,
+    "confidence_delta_pp": -0.0918218399475812,
+    "formatted_confidence_delta": "-0.09 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": false,
+    "expected_relation": "POLARITY_REVERSED",
+    "observed_relation": "POLARITY_REVERSED",
+    "behavioral_outcome": "EXPECTED_FLIP",
+    "failure_type": "None",
+    "rationale": "Model correctly flipped and changed label (POSITIVE (POSITIVE) \u2192 NEGATIVE (NEGATIVE)) under DIFFERENT_LABEL expectation.",
+    "semantic_intent": "REVERSE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 139.99744285787787
+  },
+  {
+    "baseline_id": "base_1bae41815082",
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_01d975898428",
+    "seed_text": "the movie was great and the acting was top notch",
+    "perturbed_text": "It is not impossible that the movie was great and the acting was top notch",
+    "perturbation_type": "double_negation",
+    "category": "double_negation",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9935844961629199,
+      "formatted_confidence": "99.36%",
+      "probabilities": {
+        "NEGATIVE": 0.0064155038370801365,
+        "POSITIVE": 0.9935844961629199
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.64%",
+        "POSITIVE": "99.36%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.64%\nPOSITIVE   [====================]  99.36%",
+      "raw_logits": null,
+      "latency_ms": 175.25619998923503,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0064155038370801365,
+        "LABEL_1": 0.9935844961629199
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.925497829914093,
+      "formatted_confidence": "92.55%",
+      "probabilities": {
+        "NEGATIVE": 0.07450217008590698,
+        "POSITIVE": 0.925497829914093
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "7.45%",
+        "POSITIVE": "92.55%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=                   ]   7.45%\nPOSITIVE   [=================== ]  92.55%",
+      "raw_logits": null,
+      "latency_ms": 139.99744285787787,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.07450217008590698,
+        "LABEL_1": 0.925497829914093
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9935844961629199,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.925497829914093,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_01d975898428",
+      "sentence_text": "It is not impossible that the movie was great and the acting was top notch",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790527401.6794267,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": -0.06808666624882687,
+    "confidence_delta_pts": -6.808666624882687,
+    "confidence_delta_pp": -6.808666624882687,
+    "formatted_confidence_delta": "-6.81 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)) under meaning-preserving probe.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 139.99744285787787
+  },
+  {
+    "baseline_id": "base_1bae41815082",
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_4c26c70b338c",
+    "seed_text": "the movie was great and the acting was top notch",
+    "perturbed_text": "the movie was extremely great and the acting was top notch",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "strengthen",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9935844961629199,
+      "formatted_confidence": "99.36%",
+      "probabilities": {
+        "NEGATIVE": 0.0064155038370801365,
+        "POSITIVE": 0.9935844961629199
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.64%",
+        "POSITIVE": "99.36%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.64%\nPOSITIVE   [====================]  99.36%",
+      "raw_logits": null,
+      "latency_ms": 175.25619998923503,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0064155038370801365,
+        "LABEL_1": 0.9935844961629199
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9973700264824513,
+      "formatted_confidence": "99.74%",
+      "probabilities": {
+        "NEGATIVE": 0.0026299735175486444,
+        "POSITIVE": 0.9973700264824513
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.26%",
+        "POSITIVE": "99.74%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.26%\nPOSITIVE   [====================]  99.74%",
+      "raw_logits": null,
+      "latency_ms": 139.99744285787787,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0026299735175486444,
+        "LABEL_1": 0.9973700264824513
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9935844961629199,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9973700264824513,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_4c26c70b338c",
+      "sentence_text": "the movie was extremely great and the acting was top notch",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "HUMAN_OVERRIDE",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": "POSITIVE",
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "HUMAN_OVERRIDE",
+      "model_used": "manual_fallback",
+      "timestamp": 1790527401.6823556,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 0.0037855303195314383,
+    "confidence_delta_pts": 0.3785530319531438,
+    "confidence_delta_pp": 0.3785530319531438,
+    "formatted_confidence_delta": "+0.38 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "POLARITY_STRENGTHENED",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Intensifier preserved polarity.",
+    "semantic_intent": "STRENGTHEN_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 139.99744285787787
+  },
+  {
+    "baseline_id": "base_1bae41815082",
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_f9c4e727154c",
+    "seed_text": "the movie was great and the acting was top notch",
+    "perturbed_text": "the movie was somewhat great and the acting was top notch",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "weaken",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9935844961629199,
+      "formatted_confidence": "99.36%",
+      "probabilities": {
+        "NEGATIVE": 0.0064155038370801365,
+        "POSITIVE": 0.9935844961629199
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.64%",
+        "POSITIVE": "99.36%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.64%\nPOSITIVE   [====================]  99.36%",
+      "raw_logits": null,
+      "latency_ms": 175.25619998923503,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0064155038370801365,
+        "LABEL_1": 0.9935844961629199
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9942641544082675,
+      "formatted_confidence": "99.43%",
+      "probabilities": {
+        "NEGATIVE": 0.0057358455917324615,
+        "POSITIVE": 0.9942641544082675
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.57%",
+        "POSITIVE": "99.43%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.57%\nPOSITIVE   [====================]  99.43%",
+      "raw_logits": null,
+      "latency_ms": 139.99744285787787,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0057358455917324615,
+        "LABEL_1": 0.9942641544082675
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9935844961629199,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9942641544082675,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_f9c4e727154c",
+      "sentence_text": "the movie was somewhat great and the acting was top notch",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790527401.6850898,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 0.0006796582453476585,
+    "confidence_delta_pts": 0.06796582453476585,
+    "confidence_delta_pp": 0.06796582453476585,
+    "formatted_confidence_delta": "+0.07 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "POLARITY_WEAKENED",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Downtoner preserved polarity (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)).",
+    "semantic_intent": "WEAKEN_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 139.99744285787787
+  },
+  {
+    "baseline_id": "base_1bae41815082",
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_06eb17c57e37",
+    "seed_text": "the movie was great and the acting was top notch",
+    "perturbed_text": "the film was great and the acting was top notch",
+    "perturbation_type": "synonym_substitution",
+    "category": "synonym_substitution",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9935844961629199,
+      "formatted_confidence": "99.36%",
+      "probabilities": {
+        "NEGATIVE": 0.0064155038370801365,
+        "POSITIVE": 0.9935844961629199
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.64%",
+        "POSITIVE": "99.36%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.64%\nPOSITIVE   [====================]  99.36%",
+      "raw_logits": null,
+      "latency_ms": 175.25619998923503,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0064155038370801365,
+        "LABEL_1": 0.9935844961629199
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9960110159702291,
+      "formatted_confidence": "99.60%",
+      "probabilities": {
+        "NEGATIVE": 0.003988984029770873,
+        "POSITIVE": 0.9960110159702291
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.40%",
+        "POSITIVE": "99.60%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.40%\nPOSITIVE   [====================]  99.60%",
+      "raw_logits": null,
+      "latency_ms": 139.99744285787787,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.003988984029770873,
+        "LABEL_1": 0.9960110159702291
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9935844961629199,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9960110159702291,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_06eb17c57e37",
+      "sentence_text": "the film was great and the acting was top notch",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790527401.6872118,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 0.0024265198073092353,
+    "confidence_delta_pts": 0.24265198073092353,
+    "confidence_delta_pp": 0.24265198073092353,
+    "formatted_confidence_delta": "+0.24 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)) under meaning-preserving probe.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 139.99744285787787
+  },
+  {
+    "baseline_id": "base_1bae41815082",
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_eea001d5b812",
+    "seed_text": "the movie was great and the acting was top notch",
+    "perturbed_text": "the movie was great and the acting was top notch, however it was surprisingly bad in comparison.",
+    "perturbation_type": "contrast_negative_append",
+    "category": "contrast_negative_append",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9935844961629199,
+      "formatted_confidence": "99.36%",
+      "probabilities": {
+        "NEGATIVE": 0.0064155038370801365,
+        "POSITIVE": 0.9935844961629199
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.64%",
+        "POSITIVE": "99.36%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.64%\nPOSITIVE   [====================]  99.36%",
+      "raw_logits": null,
+      "latency_ms": 175.25619998923503,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0064155038370801365,
+        "LABEL_1": 0.9935844961629199
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.9817954071534949,
+      "formatted_confidence": "98.18%",
+      "probabilities": {
+        "NEGATIVE": 0.9817954071534949,
+        "POSITIVE": 0.018204592846505076
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "98.18%",
+        "POSITIVE": "1.82%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  98.18%\nPOSITIVE   [                    ]   1.82%",
+      "raw_logits": null,
+      "latency_ms": 139.99744285787787,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_0",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.9817954071534949,
+        "LABEL_1": 0.018204592846505076
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9935844961629199,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9817954071534949,
+    "from_label": "POSITIVE",
+    "to_label": "NEGATIVE",
+    "transition_type": "POSITIVE \u2192 NEGATIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_eea001d5b812",
+      "sentence_text": "the movie was great and the acting was top notch, however it was surprisingly bad in comparison.",
+      "semantic_polarity": "NEGATIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "REVERSE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEGATIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEGATIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790527401.6895516,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": true,
+    "raw_label_flip": true,
+    "polarity_flip": true,
+    "semantic_state_change": true,
+    "confidence_delta": -0.011789089009424991,
+    "confidence_delta_pts": -1.1789089009424991,
+    "confidence_delta_pp": -1.1789089009424991,
+    "formatted_confidence_delta": "-1.18 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": false,
+    "expected_relation": "POLARITY_REVERSED",
+    "observed_relation": "POLARITY_REVERSED",
+    "behavioral_outcome": "EXPECTED_FLIP",
+    "failure_type": "None",
+    "rationale": "Model correctly flipped and changed label (POSITIVE (POSITIVE) \u2192 NEGATIVE (NEGATIVE)) under DIFFERENT_LABEL expectation.",
+    "semantic_intent": "SHIFT_CONTRAST",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 139.99744285787787
+  },
+  {
+    "baseline_id": "base_1bae41815082",
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_2464cce8eaae",
+    "seed_text": "the movie was great and the acting was top notch",
+    "perturbed_text": "the movie was great and the acting was top notch, and the overall storyline was engaging.",
+    "perturbation_type": "contrast_positive_append",
+    "category": "contrast_positive_append",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9935844961629199,
+      "formatted_confidence": "99.36%",
+      "probabilities": {
+        "NEGATIVE": 0.0064155038370801365,
+        "POSITIVE": 0.9935844961629199
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.64%",
+        "POSITIVE": "99.36%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.64%\nPOSITIVE   [====================]  99.36%",
+      "raw_logits": null,
+      "latency_ms": 175.25619998923503,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0064155038370801365,
+        "LABEL_1": 0.9935844961629199
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.998992222984992,
+      "formatted_confidence": "99.90%",
+      "probabilities": {
+        "NEGATIVE": 0.0010077770150079344,
+        "POSITIVE": 0.998992222984992
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.10%",
+        "POSITIVE": "99.90%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.10%\nPOSITIVE   [====================]  99.90%",
+      "raw_logits": null,
+      "latency_ms": 139.99744285787787,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0010077770150079344,
+        "LABEL_1": 0.998992222984992
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9935844961629199,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.998992222984992,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_2464cce8eaae",
+      "sentence_text": "the movie was great and the acting was top notch, and the overall storyline was engaging.",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790527401.6942046,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 0.005407726822072134,
+    "confidence_delta_pts": 0.5407726822072134,
+    "confidence_delta_pp": 0.5407726822072134,
+    "formatted_confidence_delta": "+0.54 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)) under meaning-preserving probe.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 139.99744285787787
+  }
+]

@@ -1,0 +1,75 @@
+{
+  "The movie was absolutely fantastic and thrilling.": {
+    "baseline_id": "base_b7d46667a4c8",
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "seed_text": "The movie was absolutely fantastic and thrilling.",
+    "original_text": "The movie was absolutely fantastic and thrilling.",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9997060313583049,
+      "formatted_confidence": "99.97%",
+      "probabilities": {
+        "NEGATIVE": 0.00029396864169510604,
+        "POSITIVE": 0.9997060313583049
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.03%",
+        "POSITIVE": "99.97%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.03%\nPOSITIVE   [====================]  99.97%",
+      "raw_logits": null,
+      "latency_ms": 84.74510000087321,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.00029396864169510604,
+        "LABEL_1": 0.9997060313583049
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "raw_label": "LABEL_1",
+    "raw_label_id": 1,
+    "semantic_polarity": "POSITIVE",
+    "confidence": 0.9997060313583049,
+    "full_probability_distribution": {
+      "NEGATIVE": 0.00029396864169510604,
+      "POSITIVE": 0.9997060313583049
+    },
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "POSITIVE",
+    "semantic_reference": {
+      "sentence_id": "baseline",
+      "sentence_text": "The movie was absolutely fantastic and thrilling.",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": null,
+      "verification_status": "MANUAL",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "MANUAL",
+      "model_used": "manual_fallback",
+      "timestamp": 1790507866.0236247,
+      "prompt_version": "v1.0"
+    },
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "latency_ms": 84.74510000087321
+  }
+}

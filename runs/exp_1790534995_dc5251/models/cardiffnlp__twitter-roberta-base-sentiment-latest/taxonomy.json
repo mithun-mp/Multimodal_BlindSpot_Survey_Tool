@@ -1,0 +1,1286 @@
+[
+  {
+    "failure_id": "fail_66c487a2",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_db77fceb6f8f",
+    "category": "Blind",
+    "severity": "high",
+    "reason": "Probe introduces a polarity reversal (REVERSE_POLARITY), but model retained the same predicted class and polarity (NEUTRAL (NEUTRAL) \u2192 NEUTRAL (NEUTRAL)).",
+    "details": "Probe introduces a polarity reversal (REVERSE_POLARITY), but model retained the same predicted class and polarity (NEUTRAL (NEUTRAL) \u2192 NEUTRAL (NEUTRAL)).",
+    "recommendation": "Augment training data and regularize behavior against negation_prefix perturbations to fix Blind failures.",
+    "evidence": {
+      "original_label": "NEUTRAL",
+      "probe_label": "NEUTRAL",
+      "original_confidence": 0.9266476380321249,
+      "probe_confidence": 0.7934523343064239,
+      "confidence_delta_pp": -13.3195303725701,
+      "label_transition": "NEUTRAL (NEUTRAL) \u2192 NEUTRAL (NEUTRAL)",
+      "raw_label_flip": false,
+      "polarity_flip": false,
+      "semantic_state_change": false,
+      "is_prediction_flip": false,
+      "original_polarity": "NEUTRAL",
+      "probe_polarity": "NEUTRAL",
+      "expected_relation": "POLARITY_REVERSED",
+      "observed_relation": "SAME_POLARITY",
+      "expected_effect": "EXPECTED_FLIP",
+      "semantic_intent": "REVERSE_POLARITY",
+      "threshold_pp": 15.0,
+      "expectation_match": false,
+      "preservation": true,
+      "jaccard_similarity": 0.25,
+      "cosine_alignment": 0.3155187384432324,
+      "orig_explanation": {
+        "token_weights": {
+          "west": 0.015959829175223067,
+          "the": 0.01684579957739988,
+          "sets": 0.035609100886464407,
+          "and": 0.013745515794414928,
+          "east": 0.02261522611052521,
+          "in": 0.03798939969643368,
+          "rises": 0.005241870620576124,
+          "sun": 0.0043562824498678265
+        },
+        "token_attributions": [
+          {
+            "token": "west",
+            "attribution": 0.015959829175223067,
+            "position": 1
+          },
+          {
+            "token": "the",
+            "attribution": 0.01684579957739988,
+            "position": 2
+          },
+          {
+            "token": "sets",
+            "attribution": 0.035609100886464407,
+            "position": 3
+          },
+          {
+            "token": "and",
+            "attribution": 0.013745515794414928,
+            "position": 4
+          },
+          {
+            "token": "east",
+            "attribution": 0.02261522611052521,
+            "position": 5
+          },
+          {
+            "token": "in",
+            "attribution": 0.03798939969643368,
+            "position": 6
+          },
+          {
+            "token": "rises",
+            "attribution": 0.005241870620576124,
+            "position": 7
+          },
+          {
+            "token": "sun",
+            "attribution": 0.0043562824498678265,
+            "position": 8
+          }
+        ],
+        "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+        "text": "the sun rises in the east and sun sets in west",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "pert_explanation": {
+        "token_weights": {
+          "west": 0.01728501550097678,
+          "It": -0.012026468660508946,
+          "the": 0.035110156181349036,
+          "not": -0.04933786774740603,
+          "sets": 0.04146873601544394,
+          "is": 0.02938834394511538,
+          "true": -0.13656042508451866,
+          "that": 0.03636358054083272,
+          "and": 0.015681004846347425,
+          "east": 0.011617424049304867,
+          "in": 0.008619717404978508,
+          "rises": 0.016230794734748876,
+          "sun": 0.021509103618290202
+        },
+        "token_attributions": [
+          {
+            "token": "west",
+            "attribution": 0.01728501550097678,
+            "position": 1
+          },
+          {
+            "token": "It",
+            "attribution": -0.012026468660508946,
+            "position": 2
+          },
+          {
+            "token": "the",
+            "attribution": 0.035110156181349036,
+            "position": 3
+          },
+          {
+            "token": "not",
+            "attribution": -0.04933786774740603,
+            "position": 4
+          },
+          {
+            "token": "sets",
+            "attribution": 0.04146873601544394,
+            "position": 5
+          },
+          {
+            "token": "is",
+            "attribution": 0.02938834394511538,
+            "position": 6
+          },
+          {
+            "token": "true",
+            "attribution": -0.13656042508451866,
+            "position": 7
+          },
+          {
+            "token": "that",
+            "attribution": 0.03636358054083272,
+            "position": 8
+          },
+          {
+            "token": "and",
+            "attribution": 0.015681004846347425,
+            "position": 9
+          },
+          {
+            "token": "east",
+            "attribution": 0.011617424049304867,
+            "position": 10
+          },
+          {
+            "token": "in",
+            "attribution": 0.008619717404978508,
+            "position": 11
+          },
+          {
+            "token": "rises",
+            "attribution": 0.016230794734748876,
+            "position": 12
+          },
+          {
+            "token": "sun",
+            "attribution": 0.021509103618290202,
+            "position": 13
+          }
+        ],
+        "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+        "text": "It is not true that the sun rises in the east and sun sets in west",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "aligned_tokens": [
+        {
+          "token": "west",
+          "orig_token": "west",
+          "pert_token": "west",
+          "orig_pos": 1,
+          "pert_pos": 1,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.015959829175223067,
+          "pert_val": 0.01728501550097678,
+          "delta": 0.0013251863257537147,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "It",
+          "orig_token": null,
+          "pert_token": "It",
+          "orig_pos": null,
+          "pert_pos": 2,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.012026468660508946,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "the",
+          "orig_token": "the",
+          "pert_token": "the",
+          "orig_pos": 2,
+          "pert_pos": 3,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.01684579957739988,
+          "pert_val": 0.035110156181349036,
+          "delta": 0.018264356603949157,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "not",
+          "orig_token": null,
+          "pert_token": "not",
+          "orig_pos": null,
+          "pert_pos": 4,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.04933786774740603,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "sets",
+          "orig_token": "sets",
+          "pert_token": "sets",
+          "orig_pos": 3,
+          "pert_pos": 5,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.035609100886464407,
+          "pert_val": 0.04146873601544394,
+          "delta": 0.00585963512897953,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "is",
+          "orig_token": null,
+          "pert_token": "is",
+          "orig_pos": null,
+          "pert_pos": 6,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.02938834394511538,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "true",
+          "orig_token": null,
+          "pert_token": "true",
+          "orig_pos": null,
+          "pert_pos": 7,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.13656042508451866,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "that",
+          "orig_token": null,
+          "pert_token": "that",
+          "orig_pos": null,
+          "pert_pos": 8,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.03636358054083272,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "and",
+          "orig_token": "and",
+          "pert_token": "and",
+          "orig_pos": 4,
+          "pert_pos": 9,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.013745515794414928,
+          "pert_val": 0.015681004846347425,
+          "delta": 0.0019354890519324968,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "east",
+          "orig_token": "east",
+          "pert_token": "east",
+          "orig_pos": 5,
+          "pert_pos": 10,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.02261522611052521,
+          "pert_val": 0.011617424049304867,
+          "delta": -0.010997802061220342,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "in",
+          "orig_token": "in",
+          "pert_token": "in",
+          "orig_pos": 6,
+          "pert_pos": 11,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.03798939969643368,
+          "pert_val": 0.008619717404978508,
+          "delta": -0.029369682291455174,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": true
+        },
+        {
+          "token": "rises",
+          "orig_token": "rises",
+          "pert_token": "rises",
+          "orig_pos": 7,
+          "pert_pos": 12,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.005241870620576124,
+          "pert_val": 0.016230794734748876,
+          "delta": 0.010988924114172752,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "sun",
+          "orig_token": "sun",
+          "pert_token": "sun",
+          "orig_pos": 8,
+          "pert_pos": 13,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.0043562824498678265,
+          "pert_val": 0.021509103618290202,
+          "delta": 0.017152821168422375,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        }
+      ]
+    },
+    "traceable_narrative": "Probe introduces a polarity reversal (REVERSE_POLARITY), but model retained the same predicted class and polarity (NEUTRAL (NEUTRAL) \u2192 NEUTRAL (NEUTRAL)).",
+    "original_sentence": "the sun rises in the east and sun sets in west",
+    "perturbed_sentence": "It is not true that the sun rises in the east and sun sets in west",
+    "original_label": "NEUTRAL",
+    "perturbed_label": "NEUTRAL",
+    "original_confidence": 0.9266476380321249,
+    "perturbed_confidence": 0.7934523343064239,
+    "confidence_delta_pts": -13.3195303725701,
+    "is_flipped": false,
+    "expected_flip": true,
+    "behavioral_outcome": "MISSING_FLIP"
+  },
+  {
+    "failure_id": "fail_faa3b11b",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_5038061b3249",
+    "category": "Misweighted",
+    "severity": "medium",
+    "reason": "Polarity preserved, but confidence collapsed by 18.80 percentage points under meaning-preserving perturbation.",
+    "details": "Polarity preserved, but confidence collapsed by 18.80 percentage points under meaning-preserving perturbation.",
+    "recommendation": "Augment training data and regularize behavior against double_negation perturbations to fix Misweighted failures.",
+    "evidence": {
+      "original_label": "NEUTRAL",
+      "probe_label": "NEUTRAL",
+      "original_confidence": 0.9266476380321249,
+      "probe_confidence": 0.7386163707011907,
+      "confidence_delta_pp": -18.80312673309342,
+      "label_transition": "NEUTRAL (NEUTRAL) \u2192 NEUTRAL (NEUTRAL)",
+      "raw_label_flip": false,
+      "polarity_flip": false,
+      "semantic_state_change": false,
+      "is_prediction_flip": false,
+      "original_polarity": "NEUTRAL",
+      "probe_polarity": "NEUTRAL",
+      "expected_relation": "SAME_POLARITY",
+      "observed_relation": "POLARITY_WEAKENED",
+      "expected_effect": "EXPECTED_PRESERVE",
+      "semantic_intent": "PRESERVE_POLARITY",
+      "threshold_pp": 15.0,
+      "expectation_match": false,
+      "preservation": true,
+      "jaccard_similarity": 0.42857142857142855,
+      "cosine_alignment": 0.36759506988592405,
+      "orig_explanation": {
+        "token_weights": {
+          "west": 0.015959829175223067,
+          "the": 0.01684579957739988,
+          "sets": 0.035609100886464407,
+          "and": 0.013745515794414928,
+          "east": 0.02261522611052521,
+          "in": 0.03798939969643368,
+          "rises": 0.005241870620576124,
+          "sun": 0.0043562824498678265
+        },
+        "token_attributions": [
+          {
+            "token": "west",
+            "attribution": 0.015959829175223067,
+            "position": 1
+          },
+          {
+            "token": "the",
+            "attribution": 0.01684579957739988,
+            "position": 2
+          },
+          {
+            "token": "sets",
+            "attribution": 0.035609100886464407,
+            "position": 3
+          },
+          {
+            "token": "and",
+            "attribution": 0.013745515794414928,
+            "position": 4
+          },
+          {
+            "token": "east",
+            "attribution": 0.02261522611052521,
+            "position": 5
+          },
+          {
+            "token": "in",
+            "attribution": 0.03798939969643368,
+            "position": 6
+          },
+          {
+            "token": "rises",
+            "attribution": 0.005241870620576124,
+            "position": 7
+          },
+          {
+            "token": "sun",
+            "attribution": 0.0043562824498678265,
+            "position": 8
+          }
+        ],
+        "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+        "text": "the sun rises in the east and sun sets in west",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "pert_explanation": {
+        "token_weights": {
+          "west": 0.020187215487823047,
+          "It": -0.03208326626155248,
+          "the": 0.050224867977398724,
+          "impossible": -0.2731140711600188,
+          "not": 0.009629573205683351,
+          "sets": 0.08028480000100012,
+          "is": -0.039827859307579844,
+          "that": 0.0347728348540502,
+          "and": 0.055707610297662774,
+          "east": 0.015090389418294575,
+          "in": 0.051320936716527626,
+          "rises": -0.005037687058741075,
+          "sun": 0.016875768634414506
+        },
+        "token_attributions": [
+          {
+            "token": "west",
+            "attribution": 0.020187215487823047,
+            "position": 1
+          },
+          {
+            "token": "It",
+            "attribution": -0.03208326626155248,
+            "position": 2
+          },
+          {
+            "token": "the",
+            "attribution": 0.050224867977398724,
+            "position": 3
+          },
+          {
+            "token": "impossible",
+            "attribution": -0.2731140711600188,
+            "position": 4
+          },
+          {
+            "token": "not",
+            "attribution": 0.009629573205683351,
+            "position": 5
+          },
+          {
+            "token": "sets",
+            "attribution": 0.08028480000100012,
+            "position": 6
+          },
+          {
+            "token": "is",
+            "attribution": -0.039827859307579844,
+            "position": 7
+          },
+          {
+            "token": "that",
+            "attribution": 0.0347728348540502,
+            "position": 8
+          },
+          {
+            "token": "and",
+            "attribution": 0.055707610297662774,
+            "position": 9
+          },
+          {
+            "token": "east",
+            "attribution": 0.015090389418294575,
+            "position": 10
+          },
+          {
+            "token": "in",
+            "attribution": 0.051320936716527626,
+            "position": 11
+          },
+          {
+            "token": "rises",
+            "attribution": -0.005037687058741075,
+            "position": 12
+          },
+          {
+            "token": "sun",
+            "attribution": 0.016875768634414506,
+            "position": 13
+          }
+        ],
+        "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+        "text": "It is not impossible that the sun rises in the east and sun sets in west",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "aligned_tokens": [
+        {
+          "token": "west",
+          "orig_token": "west",
+          "pert_token": "west",
+          "orig_pos": 1,
+          "pert_pos": 1,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.015959829175223067,
+          "pert_val": 0.020187215487823047,
+          "delta": 0.00422738631259998,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "It",
+          "orig_token": null,
+          "pert_token": "It",
+          "orig_pos": null,
+          "pert_pos": 2,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.03208326626155248,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "the",
+          "orig_token": "the",
+          "pert_token": "the",
+          "orig_pos": 2,
+          "pert_pos": 3,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.01684579957739988,
+          "pert_val": 0.050224867977398724,
+          "delta": 0.033379068399998844,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "impossible",
+          "orig_token": null,
+          "pert_token": "impossible",
+          "orig_pos": null,
+          "pert_pos": 4,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.2731140711600188,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "not",
+          "orig_token": null,
+          "pert_token": "not",
+          "orig_pos": null,
+          "pert_pos": 5,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.009629573205683351,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "sets",
+          "orig_token": "sets",
+          "pert_token": "sets",
+          "orig_pos": 3,
+          "pert_pos": 6,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.035609100886464407,
+          "pert_val": 0.08028480000100012,
+          "delta": 0.044675699114535714,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "is",
+          "orig_token": null,
+          "pert_token": "is",
+          "orig_pos": null,
+          "pert_pos": 7,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.039827859307579844,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "that",
+          "orig_token": null,
+          "pert_token": "that",
+          "orig_pos": null,
+          "pert_pos": 8,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.0347728348540502,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "and",
+          "orig_token": "and",
+          "pert_token": "and",
+          "orig_pos": 4,
+          "pert_pos": 9,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.013745515794414928,
+          "pert_val": 0.055707610297662774,
+          "delta": 0.041962094503247845,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "east",
+          "orig_token": "east",
+          "pert_token": "east",
+          "orig_pos": 5,
+          "pert_pos": 10,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.02261522611052521,
+          "pert_val": 0.015090389418294575,
+          "delta": -0.007524836692230634,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "in",
+          "orig_token": "in",
+          "pert_token": "in",
+          "orig_pos": 6,
+          "pert_pos": 11,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.03798939969643368,
+          "pert_val": 0.051320936716527626,
+          "delta": 0.013331537020093945,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "rises",
+          "orig_token": "rises",
+          "pert_token": "rises",
+          "orig_pos": 7,
+          "pert_pos": 12,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.005241870620576124,
+          "pert_val": -0.005037687058741075,
+          "delta": -0.0102795576793172,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": true
+        },
+        {
+          "token": "sun",
+          "orig_token": "sun",
+          "pert_token": "sun",
+          "orig_pos": 8,
+          "pert_pos": 13,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.0043562824498678265,
+          "pert_val": 0.016875768634414506,
+          "delta": 0.01251948618454668,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        }
+      ]
+    },
+    "traceable_narrative": "Polarity preserved, but confidence collapsed by 18.80 percentage points under meaning-preserving perturbation.",
+    "original_sentence": "the sun rises in the east and sun sets in west",
+    "perturbed_sentence": "It is not impossible that the sun rises in the east and sun sets in west",
+    "original_label": "NEUTRAL",
+    "perturbed_label": "NEUTRAL",
+    "original_confidence": 0.9266476380321249,
+    "perturbed_confidence": 0.7386163707011907,
+    "confidence_delta_pts": -18.80312673309342,
+    "is_flipped": false,
+    "expected_flip": false,
+    "behavioral_outcome": "EXPECTED_PRESERVE"
+  },
+  {
+    "failure_id": "fail_50352864",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_920083d672b4",
+    "category": "Blind",
+    "severity": "high",
+    "reason": "Probe introduces a polarity reversal (REVERSE_POLARITY), but model retained the same predicted class and polarity (NEUTRAL (NEUTRAL) \u2192 NEUTRAL (NEUTRAL)).",
+    "details": "Probe introduces a polarity reversal (REVERSE_POLARITY), but model retained the same predicted class and polarity (NEUTRAL (NEUTRAL) \u2192 NEUTRAL (NEUTRAL)).",
+    "recommendation": "Augment training data and regularize behavior against contrast_negative_append perturbations to fix Blind failures.",
+    "evidence": {
+      "original_label": "NEUTRAL",
+      "probe_label": "NEUTRAL",
+      "original_confidence": 0.9266476380321249,
+      "probe_confidence": 0.94868615905149,
+      "confidence_delta_pp": 2.20385210193651,
+      "label_transition": "NEUTRAL (NEUTRAL) \u2192 NEUTRAL (NEUTRAL)",
+      "raw_label_flip": false,
+      "polarity_flip": false,
+      "semantic_state_change": false,
+      "is_prediction_flip": false,
+      "original_polarity": "NEUTRAL",
+      "probe_polarity": "NEUTRAL",
+      "expected_relation": "POLARITY_REVERSED",
+      "observed_relation": "SAME_POLARITY",
+      "expected_effect": "EXPECTED_FLIP",
+      "semantic_intent": "REVERSE_POLARITY",
+      "threshold_pp": 15.0,
+      "expectation_match": false,
+      "preservation": true,
+      "jaccard_similarity": 0.1111111111111111,
+      "cosine_alignment": 0.49484988174205136,
+      "orig_explanation": {
+        "token_weights": {
+          "west": 0.015959829175223067,
+          "the": 0.01684579957739988,
+          "sets": 0.035609100886464407,
+          "and": 0.013745515794414928,
+          "east": 0.02261522611052521,
+          "in": 0.03798939969643368,
+          "rises": 0.005241870620576124,
+          "sun": 0.0043562824498678265
+        },
+        "token_attributions": [
+          {
+            "token": "west",
+            "attribution": 0.015959829175223067,
+            "position": 1
+          },
+          {
+            "token": "the",
+            "attribution": 0.01684579957739988,
+            "position": 2
+          },
+          {
+            "token": "sets",
+            "attribution": 0.035609100886464407,
+            "position": 3
+          },
+          {
+            "token": "and",
+            "attribution": 0.013745515794414928,
+            "position": 4
+          },
+          {
+            "token": "east",
+            "attribution": 0.02261522611052521,
+            "position": 5
+          },
+          {
+            "token": "in",
+            "attribution": 0.03798939969643368,
+            "position": 6
+          },
+          {
+            "token": "rises",
+            "attribution": 0.005241870620576124,
+            "position": 7
+          },
+          {
+            "token": "sun",
+            "attribution": 0.0043562824498678265,
+            "position": 8
+          }
+        ],
+        "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+        "text": "the sun rises in the east and sun sets in west",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "pert_explanation": {
+        "token_weights": {
+          "west": 0.013602753156984594,
+          "the": 0.03158806030834205,
+          "rise": -0.018270358208729277,
+          "not": -0.04791428146964222,
+          "reliably": -0.006766153222185489,
+          "sets": 0.035251182857474916,
+          "does": -0.008028631999261498,
+          "it": -0.0020567102757855235,
+          "in": 0.011877461879429285,
+          "and": 0.016508151863963618,
+          "east": 0.015733506406555672,
+          "however": 0.04456670935249151,
+          "rises": 0.019817847188554887,
+          "sun": 0.034124538244272674,
+          "west,": 0.04114097135416479
+        },
+        "token_attributions": [
+          {
+            "token": "west",
+            "attribution": 0.013602753156984594,
+            "position": 1
+          },
+          {
+            "token": "the",
+            "attribution": 0.03158806030834205,
+            "position": 2
+          },
+          {
+            "token": "rise",
+            "attribution": -0.018270358208729277,
+            "position": 3
+          },
+          {
+            "token": "not",
+            "attribution": -0.04791428146964222,
+            "position": 4
+          },
+          {
+            "token": "reliably",
+            "attribution": -0.006766153222185489,
+            "position": 5
+          },
+          {
+            "token": "sets",
+            "attribution": 0.035251182857474916,
+            "position": 6
+          },
+          {
+            "token": "does",
+            "attribution": -0.008028631999261498,
+            "position": 7
+          },
+          {
+            "token": "it",
+            "attribution": -0.0020567102757855235,
+            "position": 8
+          },
+          {
+            "token": "in",
+            "attribution": 0.011877461879429285,
+            "position": 9
+          },
+          {
+            "token": "and",
+            "attribution": 0.016508151863963618,
+            "position": 10
+          },
+          {
+            "token": "east",
+            "attribution": 0.015733506406555672,
+            "position": 11
+          },
+          {
+            "token": "however",
+            "attribution": 0.04456670935249151,
+            "position": 12
+          },
+          {
+            "token": "rises",
+            "attribution": 0.019817847188554887,
+            "position": 13
+          },
+          {
+            "token": "sun",
+            "attribution": 0.034124538244272674,
+            "position": 14
+          },
+          {
+            "token": "west,",
+            "attribution": 0.04114097135416479,
+            "position": 15
+          }
+        ],
+        "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+        "text": "the sun rises in the east and sun sets in west, however it does not rise reliably.",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "aligned_tokens": [
+        {
+          "token": "west",
+          "orig_token": "west",
+          "pert_token": "west",
+          "orig_pos": 1,
+          "pert_pos": 1,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.015959829175223067,
+          "pert_val": 0.013602753156984594,
+          "delta": -0.002357076018238473,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "the",
+          "orig_token": "the",
+          "pert_token": "the",
+          "orig_pos": 2,
+          "pert_pos": 2,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.01684579957739988,
+          "pert_val": 0.03158806030834205,
+          "delta": 0.014742260730942168,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "rise",
+          "orig_token": null,
+          "pert_token": "rise",
+          "orig_pos": null,
+          "pert_pos": 3,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.018270358208729277,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "not",
+          "orig_token": null,
+          "pert_token": "not",
+          "orig_pos": null,
+          "pert_pos": 4,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.04791428146964222,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "reliably",
+          "orig_token": null,
+          "pert_token": "reliably",
+          "orig_pos": null,
+          "pert_pos": 5,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.006766153222185489,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "sets",
+          "orig_token": "sets",
+          "pert_token": "sets",
+          "orig_pos": 3,
+          "pert_pos": 6,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.035609100886464407,
+          "pert_val": 0.035251182857474916,
+          "delta": -0.0003579180289894901,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "does",
+          "orig_token": null,
+          "pert_token": "does",
+          "orig_pos": null,
+          "pert_pos": 7,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.008028631999261498,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "it",
+          "orig_token": null,
+          "pert_token": "it",
+          "orig_pos": null,
+          "pert_pos": 8,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.0020567102757855235,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "in",
+          "orig_token": null,
+          "pert_token": "in",
+          "orig_pos": null,
+          "pert_pos": 9,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.011877461879429285,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "and",
+          "orig_token": "and",
+          "pert_token": "and",
+          "orig_pos": 4,
+          "pert_pos": 10,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.013745515794414928,
+          "pert_val": 0.016508151863963618,
+          "delta": 0.0027626360695486903,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "east",
+          "orig_token": "east",
+          "pert_token": "east",
+          "orig_pos": 5,
+          "pert_pos": 11,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.02261522611052521,
+          "pert_val": 0.015733506406555672,
+          "delta": -0.006881719703969537,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "in",
+          "orig_token": "in",
+          "pert_token": null,
+          "orig_pos": 6,
+          "pert_pos": null,
+          "orig_occ": 1,
+          "pert_occ": null,
+          "total_occ": 1,
+          "orig_val": 0.03798939969643368,
+          "pert_val": null,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "removed",
+          "is_key_shift": false
+        },
+        {
+          "token": "however",
+          "orig_token": null,
+          "pert_token": "however",
+          "orig_pos": null,
+          "pert_pos": 12,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.04456670935249151,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "rises",
+          "orig_token": "rises",
+          "pert_token": "rises",
+          "orig_pos": 7,
+          "pert_pos": 13,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.005241870620576124,
+          "pert_val": 0.019817847188554887,
+          "delta": 0.014575976567978762,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "sun",
+          "orig_token": "sun",
+          "pert_token": "sun",
+          "orig_pos": 8,
+          "pert_pos": 14,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.0043562824498678265,
+          "pert_val": 0.034124538244272674,
+          "delta": 0.029768255794404848,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": true
+        },
+        {
+          "token": "west,",
+          "orig_token": null,
+          "pert_token": "west,",
+          "orig_pos": null,
+          "pert_pos": 15,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.04114097135416479,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        }
+      ]
+    },
+    "traceable_narrative": "Probe introduces a polarity reversal (REVERSE_POLARITY), but model retained the same predicted class and polarity (NEUTRAL (NEUTRAL) \u2192 NEUTRAL (NEUTRAL)).",
+    "original_sentence": "the sun rises in the east and sun sets in west",
+    "perturbed_sentence": "the sun rises in the east and sun sets in west, however it does not rise reliably.",
+    "original_label": "NEUTRAL",
+    "perturbed_label": "NEUTRAL",
+    "original_confidence": 0.9266476380321249,
+    "perturbed_confidence": 0.94868615905149,
+    "confidence_delta_pts": 2.20385210193651,
+    "is_flipped": false,
+    "expected_flip": true,
+    "behavioral_outcome": "MISSING_FLIP"
+  }
+]

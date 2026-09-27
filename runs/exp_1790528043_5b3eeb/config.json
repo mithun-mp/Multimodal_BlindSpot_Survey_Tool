@@ -1,0 +1,41 @@
+{
+  "experiment_name": "Multimodel Robustness Audit",
+  "model_ids": [
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "textattack/albert-base-v2-SST-2",
+    "textattack/bert-base-uncased-SST-2",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "cardiffnlp/twitter-roberta-base-sentiment"
+  ],
+  "seed_texts": [
+    "the movie was great and the acting was top notch"
+  ],
+  "sentence_types": {
+    "the movie was great and the acting was top notch": "literal"
+  },
+  "perturbation_types": [
+    "intensity",
+    "synonym_substitution",
+    "contrast_positive_append",
+    "double_negation",
+    "negation_insertion",
+    "contrast_negative_append"
+  ],
+  "explainer_type": "both",
+  "performance_mode": "balanced",
+  "batch_size": null,
+  "random_seed": 42,
+  "confidence_threshold": 0.65,
+  "confidence_sensitivity_threshold_pts": 20.0,
+  "output_dir": "runs",
+  "has_selected_probes": true,
+  "selected_probe_ids": [
+    "prb_6018c6f404b7",
+    "prb_01d975898428",
+    "prb_4c26c70b338c",
+    "prb_f9c4e727154c",
+    "prb_06eb17c57e37",
+    "prb_eea001d5b812",
+    "prb_2464cce8eaae"
+  ]
+}

@@ -48,3 +48,15 @@
 - **SRS Diagnostic Graphs (4 PNGs)**: ~1.4 seconds
 - **Total Diagnostic Generation Time**: ~7.6 seconds
 - **Disk Persistence**: Granular JSON/Markdown serialization under 100ms.
+
+---
+
+## 4. Semantic Ground-Truth Reference Performance (v2.7.0)
+
+- **Semantic Cache Lookup Overhead**: `< 0.2 ms` per sentence (SHA-256 hash lookup in memory, persistent JSON storage at `cache/semantic_cache.json`).
+- **Batch Annotation Amortization**: Single batch request per experiment for baseline + probes (1 round-trip vs $N+1$ serial API calls).
+- **Unit & Integration Test Suite**: 132 tests executed in `58.687s` (including all 14 semantic reference tests in `0.056s`).
+- **End-to-End Multimodel Experiment (`verify_e2e_semantic_experiment.py`)**:
+  - Run ID: `exp_1790522163_2f0f27`
+  - Total Duration: `225.65s` (incorporating dual LIME + SHAP token attributions, baseline inference, 7 probe inferences across all 5 models, and publication figure generation).
+  - Semantic Ground-Truth Resolution: `< 1.2s` (pre-inference phase, decoupled from per-model loops).

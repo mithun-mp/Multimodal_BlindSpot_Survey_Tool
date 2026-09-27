@@ -1,0 +1,85 @@
+{
+  "i am not well": {
+    "baseline_id": "base_0c4485e65d03",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "seed_text": "i am not well",
+    "original_text": "i am not well",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.9265716961647429,
+      "formatted_confidence": "92.66%",
+      "probabilities": {
+        "NEGATIVE": 0.9265716961647429,
+        "NEUTRAL": 0.06644480455779418,
+        "POSITIVE": 0.006983499277462974
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "92.66%",
+        "NEUTRAL": "6.64%",
+        "POSITIVE": "0.70%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=================== ]  92.66%\nNEUTRAL    [=                   ]   6.64%\nPOSITIVE   [                    ]   0.70%",
+      "raw_logits": null,
+      "latency_ms": 344.32239999978265,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_0",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.9265716961647429,
+        "LABEL_1": 0.06644480455779418,
+        "LABEL_2": 0.006983499277462974
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "raw_label": "LABEL_0",
+    "raw_label_id": 0,
+    "semantic_polarity": "NEGATIVE",
+    "confidence": 0.9265716961647429,
+    "full_probability_distribution": {
+      "NEGATIVE": 0.9265716961647429,
+      "NEUTRAL": 0.06644480455779418,
+      "POSITIVE": 0.006983499277462974
+    },
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "NEGATIVE",
+    "semantic_reference": {
+      "sentence_id": "baseline",
+      "sentence_text": "i am not well",
+      "semantic_polarity": "NEGATIVE",
+      "confidence": 0.95,
+      "reason": "Expresses an adverse state of physical or emotional health.",
+      "ambiguity": "LOW",
+      "semantic_relation_to_baseline": "PRESERVE_POLARITY",
+      "verification_status": "HUMAN_VERIFIED",
+      "provider": "GEMINI",
+      "gemini_polarity": "NEGATIVE",
+      "gemini_confidence": 0.95,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEGATIVE",
+      "verification_source": "HUMAN_VERIFIED",
+      "model_used": "gemini-3.8-flash",
+      "schema_version": "v2.0",
+      "annotation_version": "v2.0",
+      "timestamp": 1790551269.0064878,
+      "prompt_version": "v2.0"
+    },
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "latency_ms": 344.32239999978265
+  }
+}

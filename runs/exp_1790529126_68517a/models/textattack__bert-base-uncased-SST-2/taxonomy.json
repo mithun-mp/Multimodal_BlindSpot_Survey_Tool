@@ -1,0 +1,322 @@
+[
+  {
+    "failure_id": "fail_70a70da7",
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_9953ed325bb4",
+    "category": "Misweighted",
+    "severity": "medium",
+    "reason": "Polarity preserved, but confidence collapsed by 45.44 percentage points under meaning-preserving perturbation.",
+    "details": "Polarity preserved, but confidence collapsed by 45.44 percentage points under meaning-preserving perturbation.",
+    "recommendation": "Augment training data and regularize behavior against synonym_substitution perturbations to fix Misweighted failures.",
+    "evidence": {
+      "original_label": "POSITIVE",
+      "probe_label": "POSITIVE",
+      "original_confidence": 0.9871395824811674,
+      "probe_confidence": 0.5327139655564417,
+      "confidence_delta_pp": -45.44256169247257,
+      "label_transition": "POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)",
+      "raw_label_flip": false,
+      "polarity_flip": false,
+      "semantic_state_change": false,
+      "is_prediction_flip": false,
+      "original_polarity": "POSITIVE",
+      "probe_polarity": "POSITIVE",
+      "expected_relation": "SAME_POLARITY",
+      "observed_relation": "POLARITY_WEAKENED",
+      "expected_effect": "PRESERVE",
+      "semantic_intent": "PRESERVE_MEANING",
+      "threshold_pp": 15.0,
+      "expectation_match": false,
+      "preservation": true,
+      "jaccard_similarity": 0.25,
+      "cosine_alignment": 0.11740291011955856,
+      "orig_explanation": {
+        "token_weights": {
+          "sun": 0.012156217406584109,
+          "sets": 0.00138187884624606,
+          "the": 0.0012200139864908654,
+          "rises": 0.013011508536958333,
+          "east": -0.0060318519167651425,
+          "west": 0.0005524897350736861,
+          "and": -0.0026825881752373265,
+          "in": -0.007666332419240486
+        },
+        "token_attributions": [
+          {
+            "token": "sun",
+            "attribution": 0.012156217406584109,
+            "position": 1
+          },
+          {
+            "token": "sets",
+            "attribution": 0.00138187884624606,
+            "position": 2
+          },
+          {
+            "token": "the",
+            "attribution": 0.0012200139864908654,
+            "position": 3
+          },
+          {
+            "token": "rises",
+            "attribution": 0.013011508536958333,
+            "position": 4
+          },
+          {
+            "token": "east",
+            "attribution": -0.0060318519167651425,
+            "position": 5
+          },
+          {
+            "token": "west",
+            "attribution": 0.0005524897350736861,
+            "position": 6
+          },
+          {
+            "token": "and",
+            "attribution": -0.0026825881752373265,
+            "position": 7
+          },
+          {
+            "token": "in",
+            "attribution": -0.007666332419240486,
+            "position": 8
+          }
+        ],
+        "model_id": "textattack/bert-base-uncased-SST-2",
+        "text": "the sun rises in east and sun sets in the west",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "pert_explanation": {
+        "token_weights": {
+          "sun": 0.047678701534192756,
+          "sets": 0.011498780041999994,
+          "insolate": -0.6658229260801112,
+          "the": 0.15523153839204373,
+          "rises": 0.08503468497836598,
+          "east": 0.020636515079998884,
+          "west": -0.060039153752603186,
+          "and": 0.09397863602875557,
+          "in": -0.02740532099676982
+        },
+        "token_attributions": [
+          {
+            "token": "sun",
+            "attribution": 0.047678701534192756,
+            "position": 1
+          },
+          {
+            "token": "sets",
+            "attribution": 0.011498780041999994,
+            "position": 2
+          },
+          {
+            "token": "insolate",
+            "attribution": -0.6658229260801112,
+            "position": 3
+          },
+          {
+            "token": "the",
+            "attribution": 0.15523153839204373,
+            "position": 4
+          },
+          {
+            "token": "rises",
+            "attribution": 0.08503468497836598,
+            "position": 5
+          },
+          {
+            "token": "east",
+            "attribution": 0.020636515079998884,
+            "position": 6
+          },
+          {
+            "token": "west",
+            "attribution": -0.060039153752603186,
+            "position": 7
+          },
+          {
+            "token": "and",
+            "attribution": 0.09397863602875557,
+            "position": 8
+          },
+          {
+            "token": "in",
+            "attribution": -0.02740532099676982,
+            "position": 9
+          }
+        ],
+        "model_id": "textattack/bert-base-uncased-SST-2",
+        "text": "the insolate rises in east and sun sets in the west",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "aligned_tokens": [
+        {
+          "token": "sun",
+          "orig_token": "sun",
+          "pert_token": "sun",
+          "orig_pos": 1,
+          "pert_pos": 1,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.012156217406584109,
+          "pert_val": 0.047678701534192756,
+          "delta": 0.035522484127608646,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "sets",
+          "orig_token": "sets",
+          "pert_token": "sets",
+          "orig_pos": 2,
+          "pert_pos": 2,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.00138187884624606,
+          "pert_val": 0.011498780041999994,
+          "delta": 0.010116901195753933,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "insolate",
+          "orig_token": null,
+          "pert_token": "insolate",
+          "orig_pos": null,
+          "pert_pos": 3,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.6658229260801112,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "the",
+          "orig_token": "the",
+          "pert_token": "the",
+          "orig_pos": 3,
+          "pert_pos": 4,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.0012200139864908654,
+          "pert_val": 0.15523153839204373,
+          "delta": 0.15401152440555288,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "rises",
+          "orig_token": "rises",
+          "pert_token": "rises",
+          "orig_pos": 4,
+          "pert_pos": 5,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.013011508536958333,
+          "pert_val": 0.08503468497836598,
+          "delta": 0.07202317644140765,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "east",
+          "orig_token": "east",
+          "pert_token": "east",
+          "orig_pos": 5,
+          "pert_pos": 6,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.0060318519167651425,
+          "pert_val": 0.020636515079998884,
+          "delta": 0.026668366996764024,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "west",
+          "orig_token": "west",
+          "pert_token": "west",
+          "orig_pos": 6,
+          "pert_pos": 7,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.0005524897350736861,
+          "pert_val": -0.060039153752603186,
+          "delta": -0.06059164348767687,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "and",
+          "orig_token": "and",
+          "pert_token": "and",
+          "orig_pos": 7,
+          "pert_pos": 8,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.0026825881752373265,
+          "pert_val": 0.09397863602875557,
+          "delta": 0.0966612242039929,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": true
+        },
+        {
+          "token": "in",
+          "orig_token": "in",
+          "pert_token": "in",
+          "orig_pos": 8,
+          "pert_pos": 9,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.007666332419240486,
+          "pert_val": -0.02740532099676982,
+          "delta": -0.019738988577529336,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        }
+      ]
+    },
+    "traceable_narrative": "Polarity preserved, but confidence collapsed by 45.44 percentage points under meaning-preserving perturbation.",
+    "original_sentence": "the sun rises in east and sun sets in the west",
+    "perturbed_sentence": "the insolate rises in east and sun sets in the west",
+    "original_label": "POSITIVE",
+    "perturbed_label": "POSITIVE",
+    "original_confidence": 0.9871395824811674,
+    "perturbed_confidence": 0.5327139655564417,
+    "confidence_delta_pts": -45.44256169247257,
+    "is_flipped": false,
+    "expected_flip": false,
+    "behavioral_outcome": "EXPECTED_PRESERVE"
+  }
+]

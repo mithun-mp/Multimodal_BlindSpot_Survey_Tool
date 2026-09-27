@@ -1,0 +1,34 @@
+{
+  "experiment_id": "exp_1790522163_2f0f27",
+  "model_ids": [
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "textattack/albert-base-v2-SST-2",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "textattack/bert-base-uncased-SST-2",
+    "cardiffnlp/twitter-roberta-base-sentiment"
+  ],
+  "probe_set_id": "pset_de31c59b_sel",
+  "probe_set_version": 1,
+  "selected_probe_ids": [
+    "prb_976dfaa1ef82",
+    "prb_3308cb2b0de2",
+    "prb_4e98f7c6eaaf",
+    "prb_8f2ad18bd435",
+    "prb_28b5fd3b1fe0",
+    "prb_2f02bf775223",
+    "prb_8a84c80b26ad"
+  ],
+  "probe_versions": {
+    "prb_976dfaa1ef82": 1,
+    "prb_3308cb2b0de2": 1,
+    "prb_4e98f7c6eaaf": 1,
+    "prb_8f2ad18bd435": 1,
+    "prb_28b5fd3b1fe0": 1,
+    "prb_2f02bf775223": 1,
+    "prb_8a84c80b26ad": 1
+  },
+  "original_text": "The movie was absolutely fantastic and thrilling.",
+  "created_at": 1790522163.775914,
+  "sentence_type": "literal",
+  "metadata": {}
+}

@@ -1,0 +1,34 @@
+{
+  "experiment_id": "exp_1790530564_4a79c4",
+  "model_ids": [
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "textattack/albert-base-v2-SST-2",
+    "textattack/bert-base-uncased-SST-2",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "cardiffnlp/twitter-roberta-base-sentiment"
+  ],
+  "probe_set_id": "pset_1790529059_sel",
+  "probe_set_version": "2.2.0",
+  "selected_probe_ids": [
+    "prb_7d985d4473b4",
+    "prb_7bb95d12e74a",
+    "prb_c7e3b224b460",
+    "prb_b6da6a48567e",
+    "prb_9953ed325bb4",
+    "prb_2dd2530ec5a0",
+    "prb_6cbfa56f29de"
+  ],
+  "probe_versions": {
+    "prb_7d985d4473b4": 1,
+    "prb_7bb95d12e74a": 1,
+    "prb_c7e3b224b460": 1,
+    "prb_b6da6a48567e": 1,
+    "prb_9953ed325bb4": 1,
+    "prb_2dd2530ec5a0": 1,
+    "prb_6cbfa56f29de": 1
+  },
+  "original_text": "the sun rises in east and sun sets in the west",
+  "created_at": 1790530565.0520627,
+  "sentence_type": "literal",
+  "metadata": {}
+}

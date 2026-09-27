@@ -1,0 +1,75 @@
+{
+  "He is a Good boy but very naughty": {
+    "baseline_id": "base_74010ab7f273",
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "seed_text": "He is a Good boy but very naughty",
+    "original_text": "He is a Good boy but very naughty",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9125624163066981,
+      "formatted_confidence": "91.26%",
+      "probabilities": {
+        "NEGATIVE": 0.08743758369330192,
+        "POSITIVE": 0.9125624163066981
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "8.74%",
+        "POSITIVE": "91.26%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [==                  ]   8.74%\nPOSITIVE   [==================  ]  91.26%",
+      "raw_logits": null,
+      "latency_ms": 195.11110000894405,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.08743758369330192,
+        "LABEL_1": 0.9125624163066981
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "raw_label": "LABEL_1",
+    "raw_label_id": 1,
+    "semantic_polarity": "POSITIVE",
+    "confidence": 0.9125624163066981,
+    "full_probability_distribution": {
+      "NEGATIVE": 0.08743758369330192,
+      "POSITIVE": 0.9125624163066981
+    },
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "POSITIVE",
+    "semantic_reference": {
+      "sentence_id": "baseline",
+      "sentence_text": "He is a Good boy but very naughty",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": null,
+      "verification_status": "MANUAL",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "MANUAL",
+      "model_used": "manual_fallback",
+      "timestamp": 1790537111.906527,
+      "prompt_version": "v1.0"
+    },
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "latency_ms": 195.11110000894405
+  }
+}

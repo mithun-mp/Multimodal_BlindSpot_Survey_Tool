@@ -103,7 +103,7 @@ def infer_expected_semantic_effect(
 
     # 1. Single Negation (Insertion, Removal, Prefix)
     if "negation" in ptype and "double" not in ptype:
-        return "invert", True
+        return "negate_predicate", False
 
     # 2. Double Negation
     if "double_negation" in ptype or ("double" in ptype and "negation" in ptype):
@@ -371,17 +371,17 @@ class SharedProbeGenerator:
                 perturbed_text=p1_text,
                 perturbation_type=p1_cat,
                 description=p1_desc,
-                expected_semantic_effect="invert",
-                expected_flip=True,
-                name="P001: Negation / Polarity Inversion",
-                semantic_intent=SemanticIntent.REVERSE_POLARITY.value,
+                expected_semantic_effect="negate_predicate",
+                expected_flip=False,
+                name="P001: Negation Insertion",
+                semantic_intent=SemanticIntent.ADD_NEGATION.value,
                 status=ProbeStatus.GENERATED.value,
                 transformation=p1_desc,
-                expected_label_relation=ExpectedLabelRelation.DIFFERENT_LABEL.value,
+                expected_label_relation=ExpectedLabelRelation.SAME_LABEL.value,
                 expected_confidence_relation=ExpectedConfidenceRelation.UNCONSTRAINED.value,
                 sentence_type=sentence_type,
-                rationale="Linguistic negation reversing truth-conditional semantic polarity.",
-                metadata={"slot": "P001", "diagnostic_class": "polarity_reversal"},
+                rationale="Linguistic negation altering propositional truth conditions.",
+                metadata={"slot": "P001", "diagnostic_class": "negation_robustness", "expectation_category": "conditional"},
             )
         )
 
@@ -643,3 +643,63 @@ class SharedProbeGenerator:
             seed_probes.append(probe)
 
         return seed_probes
+
+
+class ProbeValidator:
+    """
+    Validates linguistic probes according to strict scientific criteria (Phase 10).
+    Verifies:
+      1. Text existence: non-empty seed and perturbed text.
+      2. Difference: perturbed_text != seed_text (genuine mutation).
+      3. Category match: recognized perturbation categories.
+      4. Linguistic plausibility: length checks, token counts.
+      5. Valid expectation: well-formed ProbeExpectation and semantic intent.
+    """
+    @classmethod
+    def validate_probe(cls, probe: LinguisticProbe) -> Tuple[bool, str]:
+        if not probe.seed_text or not probe.seed_text.strip():
+            return False, "Empty or missing seed text."
+        if not probe.perturbed_text or not probe.perturbed_text.strip():
+            return False, "Empty or missing perturbed text."
+        if probe.seed_text.strip() == probe.perturbed_text.strip():
+            return False, "Perturbation resulted in identical text (no mutation)."
+
+        s_words = probe.seed_text.split()
+        p_words = probe.perturbed_text.split()
+        if len(p_words) == 0:
+            return False, "Perturbation has 0 tokens."
+        if len(p_words) > len(s_words) * 5 + 15:
+            return False, f"Perturbation is implausibly long ({len(p_words)} vs {len(s_words)} words)."
+
+        # Expectation check
+        if probe.expectation is not None:
+            if not hasattr(probe.expectation, "expectation_type"):
+                return False, "Probe expectation missing expectation_type attribute."
+        elif not probe.expected_semantic_effect and not probe.semantic_intent:
+            return False, "Missing behavioral expectation specification."
+
+        return True, "Valid probe."
+
+    @classmethod
+    def validate_probe_set(cls, probe_set: SharedProbeSet) -> Tuple[bool, List[str]]:
+        errors = []
+        if not probe_set.seed_texts:
+            errors.append("Probe set has no seed texts.")
+        if not probe_set.probes:
+            errors.append("Probe set has no probes.")
+        for p in probe_set.probes:
+            ok, reason = cls.validate_probe(p)
+            if not ok:
+                errors.append(f"Probe {p.probe_id}: {reason}")
+        return len(errors) == 0, errors
+
+
+class LinguisticProbeCatalog(SharedProbeGenerator):
+    """
+    Alias for SharedProbeGenerator supporting legacy catalog query interface.
+    Generates controlled probe candidates for a seed text.
+    """
+    def generate_candidates(self, seed_text: str, sentence_type: str = "literal") -> List[LinguisticProbe]:
+        stype_dict = {seed_text.strip(): sentence_type} if sentence_type else None
+        probe_set = self.generate_probes([seed_text], sentence_types=stype_dict)
+        return probe_set.probes

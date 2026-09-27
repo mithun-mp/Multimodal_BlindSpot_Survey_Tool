@@ -1,0 +1,75 @@
+{
+  "the sun rises in east and sun sets in the west": {
+    "baseline_id": "base_bd32340be99a",
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "seed_text": "the sun rises in east and sun sets in the west",
+    "original_text": "the sun rises in east and sun sets in the west",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9871395824811674,
+      "formatted_confidence": "98.71%",
+      "probabilities": {
+        "NEGATIVE": 0.012860417518832592,
+        "POSITIVE": 0.9871395824811674
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "1.29%",
+        "POSITIVE": "98.71%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   1.29%\nPOSITIVE   [====================]  98.71%",
+      "raw_logits": null,
+      "latency_ms": 156.06399999524,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.012860417518832592,
+        "LABEL_1": 0.9871395824811674
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE"
+    },
+    "raw_label": "LABEL_1",
+    "raw_label_id": 1,
+    "semantic_polarity": "POSITIVE",
+    "confidence": 0.9871395824811674,
+    "full_probability_distribution": {
+      "NEGATIVE": 0.012860417518832592,
+      "POSITIVE": 0.9871395824811674
+    },
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "POSITIVE",
+    "semantic_reference": {
+      "sentence_id": "baseline",
+      "sentence_text": "the sun rises in east and sun sets in the west",
+      "semantic_polarity": "NEUTRAL",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": null,
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEUTRAL",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEUTRAL",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790529001.2210248,
+      "prompt_version": "v1.0"
+    },
+    "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE",
+    "latency_ms": 156.06399999524
+  }
+}

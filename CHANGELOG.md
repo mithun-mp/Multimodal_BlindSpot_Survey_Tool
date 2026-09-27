@@ -5,6 +5,172 @@ All notable changes to the **BlindSpot** project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.8.3] - 2026-09-28
+
+### Fixed & Enhanced
+- **Semantic Reference & Probe Expectation Integrity Fix (Phases 0–27)**:
+  - **Eliminated Fabricated Fallback Confidence**: Completely purged all hardcoded `confidence=0.75` values and ghost `gemini_confidence` copies across constructors, serializers, cache loaders, and UI renderers. If Gemini did not run or is disabled, `gemini_confidence` and `confidence` are strictly `None`.
+  - **Official Google GenAI SDK Integration**: Integrated official `google-genai` Python SDK (`from google import genai`) with JSON schema structured output, robust retry/backoff, and Generative Language API fallback. Reads securely from `GEMINI_API_KEY` or `GOOGLE_API_KEY` with zero key leakage.
+  - **Separation of Polarity from Relation**: Disentangled affective sentiment polarity (`POSITIVE`, `NEGATIVE`, `NEUTRAL`) from semantic relation (`PRESERVE_POLARITY`, `REVERSE_POLARITY`, `SHIFT_TO_NEUTRAL`, `SHIFT_FROM_NEUTRAL`, `CONTRAST_SHIFT`, `MEANING_CHANGED`, `UNCERTAIN`). Negation changes syntactic truth conditions, but does not unconditionally invert affective sentiment polarity.
+  - **Slot P001 Negation Expectation Correction**: Removed hardcoded `expected_flip = True` and `REVERSE_POLARITY` from `SharedProbeGenerator` P001. P001 is now classified with `semantic_intent = "ADD_NEGATION"` and `expected_flip = False`. Relation is derived strictly from baseline and probe verified polarities.
+  - **Eliminated Runner Expectation Overwrites**: Removed all logic in `ExperimentRunner` that mutated semantic relations (e.g. coercing `SHIFT_FROM_NEUTRAL` into `REVERSE_POLARITY` or forcing `expected_flip = True`). Runner strictly consumes and preserves the frozen `RunPlan`.
+  - **Deterministic 2-Class vs. 3-Class Alignment**: Explicitly handle 2-class binary models on `NEUTRAL` references as `NOT_DIRECTLY_REPRESENTABLE` / `UNREPRESENTABLE_NEUTRAL`, preventing binary models from being spuriously flagged as `BLIND`. 3-class neutral-preserving pairs evaluated without spurious failure.
+  - **Cryptographic Cache Invalidation**: Keyed cache by `normalized_text|provider|model|schema_version|annotation_version`. Automatically purges stale legacy entries with fabricated 0.75 confidence.
+  - **Honest Provenance & UI Terminology**: Replaced all misleading "Final Ground-Truth" text with "Semantic Reference", "Semantic Reference (Unverified)", "Gemini Semantic Reference", or "Human-Verified Semantic Reference". Displays exact provider and self-reported Gemini confidence.
+  - **Deterministic Failure Taxonomy**: Guarded `classify_behavior` to be evidence-based and deterministic from observed forward passes and verified contracts. Forbade Gemini from predicting failure categories or model diagnostics.
+  - **Comprehensive 14-Point Test Suite**: Implemented `tests/test_semantic_integrity_spec.py` covering all 14 Phase 21 requirements with 100% pass rate.
+
+## [2.8.2] - 2026-09-28
+
+### Added
+- **Exact Sentiment Polarity Analyzer (Antigravity Engine)**:
+  - Implemented `ExactSentimentAnalyzer` in `blindspot/semantic/analyzer.py` combining VADER with expanded clinical, behavioral, moral, and performance domain lexicons.
+  - Implemented discourse-weighted contrastive clause analysis ("X but Y", "X however Y", "although X, Y"), allocating 75% discourse weight to the dominant adversative clause.
+  - Implemented syntactic negation scope detection ("not healthy" -> `NEGATIVE`, "not bad" -> `POSITIVE`) and double negation resolution.
+  - Implemented Antigravity calibration guardrail in `GeminiSemanticClient._validate_and_build_annotations` to intercept and correct false neutrals returned by external LLM services.
+- **Dedicated Test Suite (`tests/test_exact_sentiment_analyzer.py`)**:
+  - 7 unit tests covering contrast clause dominance, negation, domain vocabulary, objective neutrals, and calibration guardrails.
+
+### Fixed
+- **False Neutral Output Bug on Sentiment-Bearing Language**:
+  - Fixed issue where sentences containing positive or negative words (e.g. "He is a Good boy but very naughty", "i am healthy but still hospitalized") defaulted to `NEUTRAL`.
+  - Upgraded `SemanticReferenceService` offline and fallback methods from a 14-word heuristic tuple to the exact Antigravity analyzer.
+  - Migrated and corrected all 39 false neutral entries in `cache/semantic_cache.json`.
+  - Added `force_refresh=True` to Probe Workbench "⚡ Annotate / Refresh Semantics" button in `blindspot/ui/probe_lab.py`.
+
+## [2.8.1] - 2026-09-28
+
+### Changed
+- **Deduplication of Operational Behavioral Profiles Table**:
+  - Removed redundant `STRATIFIED BEHAVIORAL METRICS SUMMARY` table floating above comparison tabs.
+  - Baseline stimuli cards now cleanly and directly lead into the tabbed analytics workspace without visual duplication.
+  - Consolidated complete operational metrics table (`Model Architecture`, `Task Space`, `Accuracy`, `ECE`, `Mean Confidence`, `Observed Flip Rate`, `Expected Flip Rate`, `Compliance`, `Mean Shift`, `Total Probes`) inside `🧬 BEHAVIORAL FINGERPRINTS`.
+
+### Added
+- **Dedicated Models & Failures Tab (`🏷️ MODELS & FAILURES`)**:
+  - Added 5th tab to Comparison workspace providing an empirical, non-normative breakdown of diagnosed failure types across evaluated architectures.
+  - Summary KPI cards: `TOTAL FAILURES`, `BLIND (INVARIANCE)`, `SPURIOUS (SHORTCUT)`, `MISWEIGHTED (CLAUSE)`, `UNDETERMINED`.
+  - Comprehensive failure breakdown table displaying per-architecture probe totals, failure counts, failure rates, failure counts per taxonomy category, and empirical `Primary Failure Mode`.
+  - Interactive `🔍 PER-MODEL FAILURE EVIDENCE LOG` with model selection and full diagnostic failure records (`Severity`, `Probe ID`, `Linguistic Category`, `Expected Behavior`, `Observed Prediction`, `Failure Type`, `Evidence Summary`).
+
+## [2.8.0] - 2026-09-28
+
+### Added
+- **Canonical Model Identity & Collision Elimination**:
+  - Implemented `CANONICAL_MODEL_NAMES` in `blindspot/models/registry.py` with immutable mappings for all 5 sentiment models: `model_id`, `display_name`, `short_name`, `abbrev`, `task_badge`, `task_space`, `label_schema`, and `provider`.
+  - Permanently fixed the Twitter model identity collision bug (`[:14]` string slice) where `twitter-roberta-base-sentiment` and `twitter-roberta-base-sentiment-latest` collapsed into `"twitter-robert"`. Both models are now distinct: `Twitter-RoBERTa (Latest)` and `Twitter-RoBERTa (Base)`.
+- **Model Completeness Contract**:
+  - Prominent Model Completeness Banner displaying `✓ MODEL COMPLETENESS: All 5 / 5 configured architectures evaluated across identical stimuli` or `⚠ PARTIAL MODEL SET: 4 / 5 configured models completed (1 missing: [NOT RUN])`.
+  - Zero silent model dropping; unexecuted models explicitly display `— NOT RUN` in all table views.
+- **Cell-Level Deviation Highlighting & Non-Color-Alone Semantics**:
+  - Replaced whole-row coloring with isolated cell-level deviation highlighting (`✓ MATCH`, `⚠ DEVIATION`, `✕ FAILURE`, `? UNDETERMINED`, `— NOT RUN`).
+  - Strict compliance with accessibility guidelines: every cell combines an explicit Unicode glyph, status label text, and high-contrast styling.
+  - Added directional transitions badge (`POS ➔ NEG`, `NEU ➔ POS`, `POS ➔ POS`) and single-decimal confidences with percentage points delta (`+18.3 pp`, `−24.7 pp`).
+- **Interactive Probe-Level Detail Drawer & Evidence Inspector**:
+  - High-density expandable drawer beneath the primary comparison table allowing side-by-side inspection of baseline stimulus, perturbed probe, verified semantic reference rationale, and individual model predictions.
+- **Structured Behavioral Failure Register (`blindspot/ui/failure_lab.py`)**:
+  - 4-level information hierarchy: summary KPI metric cards (`BLIND`, `SPURIOUS`, `MISWEIGHTED`, `UNDETERMINED`), multi-attribute filter bar, structured failure register table with explicit severity, and expandable token attribution explanation cards.
+- **Thesis Visualization Overhaul (`blindspot/reporting/thesis_graphs.py`)**:
+  - Replaced all 12 instances of slice truncation with `get_model_short_name()`; regenerated all 15 figures with distinct labels and zero collision.
+- **Dedicated Phase 38 Test Suite (`tests/test_model_identity_and_ui_completeness.py`)**:
+  - Automated tests validating 5 canonical model identities, Twitter collision prevention, completeness accounting, cell-level status semantics, and invalid probe handling.
+
+## [2.7.2] - 2026-09-28
+
+### Audited
+- **Full Live Application UI, Logical Flow & End-to-End Audit**:
+  - Conducted full live audit on real running application (`http://localhost:8501`) across all 6 primary navigation domains and 15 state checkpoints with Chrome CDP automation.
+  - Verified resolution of `NameError: name 'pert_label_clean' is not defined` on live failure taxonomy cards.
+  - Verified live experiment execution (`exp_1790540273_5eaf8c`), asynchronous streaming telemetry, and strict pipeline count integrity (`Planned == Executed == Analyzed == Reported`).
+  - Verified 15 publication figures generation at 300 DPI and permanent deletion safeguards.
+  - Produced comprehensive audit report in `audit_reports/FULL_LIVE_UI_AUDIT.md` and captured all 15 audit screenshots in `audit_reports/live_ui_audit/`.
+  - Identified 6 priority findings: P0 custom probe sanitization, P1 live run session reconnect, P1 explainability selector, P2 zombie run cleaner, P3 section numbering, and P3 version label alignment.
+
+## [2.7.1] - 2026-09-28
+
+### Changed
+- **Gemini Predicted Polarity as Authoritative Expected Across Benchmark Pipeline**:
+  - Replaced legacy heuristic expectation strings (`FLIP ➔ NEGATIVE`, `PRESERVE ➔ POSITIVE`) with authoritative Gemini / Semantic Reference expectations (`NEGATIVE [REVERSE]`, `NEUTRAL [PRESERVE]`, `POSITIVE [SHIFT_FROM_NEUTRAL]`).
+  - Unified `Expected (Gemini Ref)` column in Model × Probe Matrix, eliminating contradictory columns (`Semantic Reference: NEUTRAL [PRESERVE]` vs `Expected: FLIP ➔ NEGATIVE`).
+  - Aligned Per-Model Audit to display `Expected (Gemini)` and report honest compatibility (`✓ COMPLIANT (FORCED BINARY)` for binary models on neutral stimuli).
+  - Synchronized probe expectation properties (`expected_flip`, `expected_semantic_effect`, `semantic_intent`) directly from the frozen semantic reference set before model execution.
+- **Stratified Behavioral Summary Metric Disambiguation**:
+  - Disambiguated `Expected Flip Rate` (suite expectation prevalence, e.g. 28.6% across all models) from `Reversal Compliance` (observed flips where reversal was expected).
+  - Added `Reversal Compliance` column to the Stratified Behavioral Summary table, eliminating visual discrepancies between models.
+- **Heuristic Semantic Inference Refinement**:
+  - Enhanced offline heuristic polarity inference to analyze probe text for explicit sentiment cues and contrastive clauses, ensuring factual baseline perturbations correctly infer `NEGATIVE` / `POSITIVE` rather than defaulting all probes to neutral.
+
+## [2.7.0] - 2026-09-27
+
+### Added
+- **Canonical Semantic Ground-Truth Reference Layer (`blindspot/semantic/`)**:
+  - Implemented strict 3-class canonical semantic label space: `POSITIVE`, `NEGATIVE`, `NEUTRAL`.
+  - Added strict validation rejecting invalid labels (`MIXED`, `AMBIGUOUS`, `UNCERTAIN`, `SARCASTIC`, etc.).
+  - Created `blindspot/semantic/types.py` defining `SemanticReferenceLabel`, `SemanticRelation`, `VerificationStatus`, `SemanticAnnotation`, and immutable `SemanticReferenceSet`.
+- **Google Gemini Semantic Verification Engine (`blindspot/semantic/client.py`)**:
+  - Implemented `GeminiSemanticClient` with structured JSON schema (`responseMimeType: application/json`).
+  - Decoupled Gemini completely from benchmark models and failure diagnosis (Gemini **never** predicts failures or rates models).
+  - Configurable model selection (`GEMINI_SEMANTIC_MODEL`, default `gemini-2.5-flash`, fallback `gemini-1.5-flash`).
+  - Secure credential management via `GEMINI_API_KEY` (never logged, never committed).
+- **Persistent Semantic Annotation Cache & Batching (`blindspot/semantic/cache.py`)**:
+  - Implemented `SemanticAnnotationCache` persistent JSON store at `cache/semantic_cache.json`.
+  - Keys based on `SHA256(normalized_sentence + version)` preventing redundant API calls.
+  - Implemented structured batch annotation (`annotate_batch`) with independent per-item validation.
+- **Human Verification & Override Layer**:
+  - Added interactive researcher verification controls (`[✓ Accept]`, `[Change to POSITIVE]`, `[Change to NEGATIVE]`, `[Change to NEUTRAL]`).
+  - Freezing mechanism (`ref_set.freeze()`) locking semantic references prior to model execution.
+  - Full provenance tracking (`verification_source`: `GEMINI_ACCEPTED` vs `HUMAN_OVERRIDE`).
+- **Binary vs. Multiclass 2-Class / 3-Class Alignment**:
+  - Decoupled semantic reference space from native model output spaces.
+  - When reference is `NEUTRAL`, binary models' forced choice is recorded as `NOT_DIRECTLY_REPRESENTABLE` / `BINARY_FORCED_POLARITY`, preventing reference corruption.
+  - Added `evaluate_semantic_compatibility()` to `PredictionResult` and `ModelProbeEvaluation`.
+- **Reporting & Storage Integration (`runner.py`, `run_store.py`, `report_generator.py`)**:
+  - Saved `runs/<experiment_id>/semantic_reference.json` preserving complete semantic reference provenance.
+  - Added Section 8 `SEMANTIC REFERENCE METHODOLOGY` to `experiment_summary.md` and `model_behavior_report.md`.
+  - Added `Semantic Ref` column to `probe_level_evidence.md` and Model x Probe comparison matrix.
+- **UI Research Workbench Integration (`components.py`, `probe_lab.py`, `experiment_lab.py`, `comparison.py`)**:
+  - Added dedicated Semantic Reference panel with Provider, Model, Status, telemetry, baseline card, and probe table.
+  - Added Gemini request count tracking and cache hit statistics panel.
+- **Comprehensive Unit & End-to-End Test Suite**:
+  - Added `tests/test_semantic_reference.py` verifying all 14 Section 31 requirements (100% pass).
+  - Executed real 5-model end-to-end acceptance experiment (`verify_e2e_semantic_experiment.py`) verifying all scientific invariants.
+
+## [2.6.0] - 2026-09-27
+
+### Added
+- **Canonical Semantic Polarity Contract (`blindspot/core/types.py`)**:
+  - Implemented `SemanticPolarity` enum (`NEGATIVE`, `NEUTRAL`, `POSITIVE`, `UNKNOWN`) decoupling internal semantic analysis from model-specific raw vocabulary or token IDs.
+  - Implemented `SemanticPolarity.from_str()` supporting 2-class, 3-class, Twitter sentiment, star ratings, and integer strings.
+  - Added transition predicates: `is_raw_label_flip`, `is_polarity_flip`, and `is_semantic_state_change` preventing false flips on intra-polarity transitions or neutral states.
+- **Multi-State Expectation & Behavioral Relation Engine (`blindspot/core/types.py`)**:
+  - Implemented `ExpectationType` (`PRESERVE_POLARITY`, `INVERT_POLARITY`, `STRENGTHEN_CONFIDENCE`, `WEAKEN_CONFIDENCE`, `INTENSIFY`, `ATTENUATE`, `SPECIFIC_POLARITY`).
+  - Implemented `BehavioralRelation` (`SAME_POLARITY`, `OPPOSITE_POLARITY`, `TRANSITION_TO_NEUTRAL`, `TRANSITION_FROM_NEUTRAL`, `POLARITY_STRENGTHENED`, `POLARITY_WEAKENED`, `UNEXPECTED_CHANGE`).
+  - Implemented `ProbeExpectation` data contract with `resolve_expected_behavioral_relation()` and `determine_observed_behavioral_relation()` supporting binary and ternary sentiment spaces.
+- **Dynamic Model Card & Label Space Resolver (`blindspot/models/huggingface_wrapper.py`)**:
+  - Inspected model configuration to detect architecture, label mappings (`id2label`), and cardinality ($K=2$ vs $K=3$).
+  - Eliminated naive assumptions like `LABEL_0 = NEGATIVE` without config verification or `1 - original_label` inversions.
+  - Normalized probability distributions across both binary and 3-class models to canonical `normalized_probabilities` indexed by `SemanticPolarity`.
+- **Strengthened Model Registry & Non-Normative Guardrails (`blindspot/models/registry.py`)**:
+  - Enhanced `validate_model_for_sentiment()` to reject non-sentiment checkpoints: AI text detectors (fake/real), spam/ham classifiers, NLI entailment models, toxicity detectors, and multi-topic classifiers.
+  - Enforced non-normative comparative reporting; eliminated best/worst rankings, leaderboards, and winner/loser labels in favor of descriptive behavioral vulnerability profiles.
+- **Probe Integrity & Validation System (`blindspot/perturbations/shared.py`)**:
+  - Implemented `ProbeValidator` to enforce probe text presence, non-vacuous mutation ($p \neq s$), category validity, length plausibility, and expectation consistency prior to staging or execution.
+  - Immutable baseline anchoring via deterministic SHA-256 `baseline_id` tying all executed probes to an explicit pre-perturbation inference.
+- **Disambiguated Scientific Behavioral Metrics (`blindspot/testing/metrics.py`, `blindspot/testing/behavioral.py`)**:
+  - Separated `observed_flip_rate` (empirical polarity flips observed) from `expected_flip_rate` (prevalence of flip-expecting probes in the suite).
+  - Implemented `expected_flip_compliance` ($\text{observed flips} / \text{expected flips}$) to measure compliance with polarity inversion probes.
+  - Added granular reporting of `raw_label_flip_rate` vs `polarity_flip_rate`.
+  - Refactored `classify_behavior()` to evaluate transitions against `ProbeExpectation` and classify `BLIND`, `SPURIOUS`, `MISWEIGHTED`, `UNDETERMINED`, or `NONE` deterministically with zero AI/LLM prediction.
+- **Comprehensive Scientific Unit Test Suite (`tests/test_scientific_repairs.py`)**:
+  - 25 dedicated unit tests covering `SemanticPolarity` mapping, flip predicates, confidence deltas, metric disambiguation, `classify_behavior` calibration, baseline immutability, probe validation, non-normative reporting, and registry gate enforcement (100% pass).
+- **Multi-Model Acceptance Benchmark (`tests/run_acceptance_experiment.py`)**:
+  - Verified 5 real sentiment checkpoints across 5 linguistic test sentences (A-E), evaluating 35 probes per model (175 inferences) with real pipeline execution, deterministic failure diagnosis, and non-normative reporting.
+- **Foundational Architecture & Specification Artifacts**:
+  - Created `SEMANTIC_EXPECTATION_SPEC.md` documenting formal state-transition logic for binary and 3-class sentiment spaces.
+  - Created `PROBE_EXECUTION_CONTRACT.md` detailing probe lifecycle, immutability guarantees, and validation invariants.
+  - Updated `ARCHITECTURE.md`, `DECISIONS.md` (Decisions 12-16), and `IMPLEMENTATION_PROGRESS.md` (Milestone 9).
+  - Documented audit in `CURRENT_LOGICAL_STATE_AUDIT.md` and complete synthesis in `FINAL_LOGICAL_FIX_REPORT.md`.
+
 ## [2.5.0] - 2026-09-22
 
 ### Added

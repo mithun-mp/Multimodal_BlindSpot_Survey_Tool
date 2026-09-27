@@ -1,0 +1,374 @@
+[
+  {
+    "failure_id": "fail_ed67f9eb",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_45d543e2dcef",
+    "category": "Blind",
+    "severity": "high",
+    "reason": "Probe introduces a polarity reversal (PRESERVE_POLARITY), but model retained the same predicted class and polarity (NEGATIVE (NEGATIVE) \u2192 NEGATIVE (NEGATIVE)).",
+    "details": "Probe introduces a polarity reversal (PRESERVE_POLARITY), but model retained the same predicted class and polarity (NEGATIVE (NEGATIVE) \u2192 NEGATIVE (NEGATIVE)).",
+    "recommendation": "Augment training data and regularize behavior against contrast_negative_append perturbations to fix Blind failures.",
+    "evidence": {
+      "original_label": "NEGATIVE",
+      "probe_label": "NEGATIVE",
+      "original_confidence": 0.9265716961647429,
+      "probe_confidence": 0.9583915543691219,
+      "confidence_delta_pp": 3.181985820437905,
+      "label_transition": "NEGATIVE (NEGATIVE) \u2192 NEGATIVE (NEGATIVE)",
+      "raw_label_flip": false,
+      "polarity_flip": false,
+      "semantic_state_change": false,
+      "is_prediction_flip": false,
+      "original_polarity": "NEGATIVE",
+      "probe_polarity": "NEGATIVE",
+      "expected_relation": "POLARITY_REVERSED",
+      "observed_relation": "SAME_POLARITY",
+      "expected_effect": "EXPECTED_PRESERVE",
+      "semantic_intent": "PRESERVE_POLARITY",
+      "threshold_pp": 15.0,
+      "expectation_match": false,
+      "preservation": true,
+      "jaccard_similarity": 0.5,
+      "cosine_alignment": 0.013731244366289488,
+      "orig_explanation": {
+        "token_weights": {
+          "am": -0.040380167046479426,
+          "well": 0.03663649564017207,
+          "not": 0.07190680038583816,
+          "i": -0.007722127084769676
+        },
+        "token_attributions": [
+          {
+            "token": "am",
+            "attribution": -0.040380167046479426,
+            "position": 1
+          },
+          {
+            "token": "well",
+            "attribution": 0.03663649564017207,
+            "position": 2
+          },
+          {
+            "token": "not",
+            "attribution": 0.07190680038583816,
+            "position": 3
+          },
+          {
+            "token": "i",
+            "attribution": -0.007722127084769676,
+            "position": 4
+          }
+        ],
+        "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+        "text": "i am not well",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "pert_explanation": {
+        "token_weights": {
+          "I": -0.05294141906053377,
+          "am": -0.0712521291151075,
+          "could": 0.028483844847761952,
+          "i": -0.0035514115393864964,
+          "not": 0.001880669762190909,
+          "well": -0.07698706016682003,
+          "repeat": 0.02678839821121507,
+          "well,": 0.09783291609152947,
+          "performance": -0.05705781482022274,
+          "however": 0.04714718941101238,
+          "that": 0.02629450026423869
+        },
+        "token_attributions": [
+          {
+            "token": "I",
+            "attribution": -0.05294141906053377,
+            "position": 1
+          },
+          {
+            "token": "am",
+            "attribution": -0.0712521291151075,
+            "position": 2
+          },
+          {
+            "token": "could",
+            "attribution": 0.028483844847761952,
+            "position": 3
+          },
+          {
+            "token": "i",
+            "attribution": -0.0035514115393864964,
+            "position": 4
+          },
+          {
+            "token": "not",
+            "attribution": 0.001880669762190909,
+            "position": 5
+          },
+          {
+            "token": "well",
+            "attribution": -0.07698706016682003,
+            "position": 6
+          },
+          {
+            "token": "repeat",
+            "attribution": 0.02678839821121507,
+            "position": 7
+          },
+          {
+            "token": "well,",
+            "attribution": 0.09783291609152947,
+            "position": 8
+          },
+          {
+            "token": "performance",
+            "attribution": -0.05705781482022274,
+            "position": 9
+          },
+          {
+            "token": "however",
+            "attribution": 0.04714718941101238,
+            "position": 10
+          },
+          {
+            "token": "that",
+            "attribution": 0.02629450026423869,
+            "position": 11
+          }
+        ],
+        "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+        "text": "i am not well, however I could not repeat that performance.",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "aligned_tokens": [
+        {
+          "token": "I",
+          "orig_token": null,
+          "pert_token": "I",
+          "orig_pos": null,
+          "pert_pos": 1,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 2,
+          "orig_val": null,
+          "pert_val": -0.05294141906053377,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "am",
+          "orig_token": "am",
+          "pert_token": "am",
+          "orig_pos": 1,
+          "pert_pos": 2,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.040380167046479426,
+          "pert_val": -0.0712521291151075,
+          "delta": -0.030871962068628078,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "could",
+          "orig_token": null,
+          "pert_token": "could",
+          "orig_pos": null,
+          "pert_pos": 3,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.028483844847761952,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "i",
+          "orig_token": null,
+          "pert_token": "i",
+          "orig_pos": null,
+          "pert_pos": 4,
+          "orig_occ": null,
+          "pert_occ": 2,
+          "total_occ": 2,
+          "orig_val": null,
+          "pert_val": -0.0035514115393864964,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "not",
+          "orig_token": null,
+          "pert_token": "not",
+          "orig_pos": null,
+          "pert_pos": 5,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.001880669762190909,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "well",
+          "orig_token": "well",
+          "pert_token": "well",
+          "orig_pos": 2,
+          "pert_pos": 6,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.03663649564017207,
+          "pert_val": -0.07698706016682003,
+          "delta": -0.1136235558069921,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": true
+        },
+        {
+          "token": "not",
+          "orig_token": "not",
+          "pert_token": null,
+          "orig_pos": 3,
+          "pert_pos": null,
+          "orig_occ": 1,
+          "pert_occ": null,
+          "total_occ": 1,
+          "orig_val": 0.07190680038583816,
+          "pert_val": null,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "removed",
+          "is_key_shift": false
+        },
+        {
+          "token": "repeat",
+          "orig_token": null,
+          "pert_token": "repeat",
+          "orig_pos": null,
+          "pert_pos": 7,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.02678839821121507,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "i",
+          "orig_token": "i",
+          "pert_token": null,
+          "orig_pos": 4,
+          "pert_pos": null,
+          "orig_occ": 1,
+          "pert_occ": null,
+          "total_occ": 1,
+          "orig_val": -0.007722127084769676,
+          "pert_val": null,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "removed",
+          "is_key_shift": false
+        },
+        {
+          "token": "well,",
+          "orig_token": null,
+          "pert_token": "well,",
+          "orig_pos": null,
+          "pert_pos": 8,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.09783291609152947,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "performance",
+          "orig_token": null,
+          "pert_token": "performance",
+          "orig_pos": null,
+          "pert_pos": 9,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.05705781482022274,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "however",
+          "orig_token": null,
+          "pert_token": "however",
+          "orig_pos": null,
+          "pert_pos": 10,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.04714718941101238,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "that",
+          "orig_token": null,
+          "pert_token": "that",
+          "orig_pos": null,
+          "pert_pos": 11,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.02629450026423869,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        }
+      ]
+    },
+    "traceable_narrative": "Probe introduces a polarity reversal (PRESERVE_POLARITY), but model retained the same predicted class and polarity (NEGATIVE (NEGATIVE) \u2192 NEGATIVE (NEGATIVE)).",
+    "original_sentence": "i am not well",
+    "perturbed_sentence": "i am not well, however I could not repeat that performance.",
+    "original_label": "NEGATIVE",
+    "perturbed_label": "NEGATIVE",
+    "original_confidence": 0.9265716961647429,
+    "perturbed_confidence": 0.9583915543691219,
+    "confidence_delta_pts": 3.181985820437905,
+    "is_flipped": false,
+    "expected_flip": false,
+    "behavioral_outcome": "MISSING_FLIP"
+  }
+]

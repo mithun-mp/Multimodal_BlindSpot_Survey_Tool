@@ -1,0 +1,1045 @@
+[
+  {
+    "baseline_id": "base_3dcc2913e0a6",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_c8c1e452ce1e",
+    "seed_text": "i am not well",
+    "perturbed_text": "i am well",
+    "perturbation_type": "negation_removal",
+    "category": "negation_removal",
+    "expected_flip": true,
+    "expected_semantic_effect": "EXPECTED_FLIP",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.5709147431503909,
+      "formatted_confidence": "57.09%",
+      "probabilities": {
+        "NEGATIVE": 0.5709147431503909,
+        "NEUTRAL": 0.37869740361284426,
+        "POSITIVE": 0.050387853236764805
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "57.09%",
+        "NEUTRAL": "37.87%",
+        "POSITIVE": "5.04%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [===========         ]  57.09%\nNEUTRAL    [========            ]  37.87%\nPOSITIVE   [=                   ]   5.04%",
+      "raw_logits": null,
+      "latency_ms": 299.3021000002045,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "negative",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "negative": 0.5709147431503909,
+        "neutral": 0.37869740361284426,
+        "positive": 0.050387853236764805
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.7004614811614128,
+      "formatted_confidence": "70.05%",
+      "probabilities": {
+        "NEGATIVE": 0.020555120956959473,
+        "NEUTRAL": 0.27898339788162774,
+        "POSITIVE": 0.7004614811614128
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "2.06%",
+        "NEUTRAL": "27.90%",
+        "POSITIVE": "70.05%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   2.06%\nNEUTRAL    [======              ]  27.90%\nPOSITIVE   [==============      ]  70.05%",
+      "raw_logits": null,
+      "latency_ms": 91.01441428570719,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "positive",
+      "raw_label_id": 2,
+      "raw_probability_distribution": {
+        "negative": 0.020555120956959473,
+        "neutral": 0.27898339788162774,
+        "positive": 0.7004614811614128
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.5709147431503909,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.7004614811614128,
+    "from_label": "NEGATIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "NEGATIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_c8c1e452ce1e",
+      "sentence_text": "i am well",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.95,
+      "reason": "Expresses a healthy, satisfactory state of well-being.",
+      "ambiguity": "LOW",
+      "semantic_relation_to_baseline": "REVERSE_POLARITY",
+      "verification_status": "HUMAN_VERIFIED",
+      "provider": "GEMINI",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.95,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "HUMAN_VERIFIED",
+      "model_used": "gemini-3.8-flash",
+      "schema_version": "v2.0",
+      "annotation_version": "v2.0",
+      "timestamp": 1790551269.0065176,
+      "prompt_version": "v2.0",
+      "baseline_semantic_polarity": "NEGATIVE"
+    },
+    "is_flipped": true,
+    "raw_label_flip": true,
+    "polarity_flip": true,
+    "semantic_state_change": true,
+    "confidence_delta": 0.1295467380110219,
+    "confidence_delta_pts": 12.95467380110219,
+    "confidence_delta_pp": 12.95467380110219,
+    "formatted_confidence_delta": "+12.95 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": false,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "POLARITY_REVERSED",
+    "behavioral_outcome": "EXPECTED_FLIP",
+    "failure_type": "None",
+    "rationale": "Model correctly flipped and changed label (NEGATIVE (NEGATIVE) \u2192 POSITIVE (POSITIVE)) under DIFFERENT_LABEL expectation.",
+    "semantic_intent": "REVERSE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 91.01441428570719
+  },
+  {
+    "baseline_id": "base_3dcc2913e0a6",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_99363fb2f65a",
+    "seed_text": "i am not well",
+    "perturbed_text": "i am not entirely non-well",
+    "perturbation_type": "double_negation",
+    "category": "double_negation",
+    "expected_flip": false,
+    "expected_semantic_effect": "SHIFT_TO_NEUTRAL",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.5709147431503909,
+      "formatted_confidence": "57.09%",
+      "probabilities": {
+        "NEGATIVE": 0.5709147431503909,
+        "NEUTRAL": 0.37869740361284426,
+        "POSITIVE": 0.050387853236764805
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "57.09%",
+        "NEUTRAL": "37.87%",
+        "POSITIVE": "5.04%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [===========         ]  57.09%\nNEUTRAL    [========            ]  37.87%\nPOSITIVE   [=                   ]   5.04%",
+      "raw_logits": null,
+      "latency_ms": 299.3021000002045,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "negative",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "negative": 0.5709147431503909,
+        "neutral": 0.37869740361284426,
+        "positive": 0.050387853236764805
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEUTRAL",
+      "predicted_label": "NEUTRAL",
+      "confidence": 0.5384105524183892,
+      "formatted_confidence": "53.84%",
+      "probabilities": {
+        "NEGATIVE": 0.4146030010968894,
+        "NEUTRAL": 0.5384105524183892,
+        "POSITIVE": 0.0469864464847214
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "41.46%",
+        "NEUTRAL": "53.84%",
+        "POSITIVE": "4.70%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [========            ]  41.46%\nNEUTRAL    [===========         ]  53.84%\nPOSITIVE   [=                   ]   4.70%",
+      "raw_logits": null,
+      "latency_ms": 91.01441428570719,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "neutral",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "negative": 0.4146030010968894,
+        "neutral": 0.5384105524183892,
+        "positive": 0.0469864464847214
+      },
+      "semantic_polarity": "NEUTRAL",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.5709147431503909,
+    "perturbed_label": "NEUTRAL",
+    "perturbed_confidence": 0.5384105524183892,
+    "from_label": "NEGATIVE",
+    "to_label": "NEUTRAL",
+    "transition_type": "NEGATIVE \u2192 NEUTRAL",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_99363fb2f65a",
+      "sentence_text": "i am not entirely non-well",
+      "semantic_polarity": "NEUTRAL",
+      "confidence": 0.7,
+      "reason": "Double negation creates a qualified, ambiguous state indicating partial or slight well-being.",
+      "ambiguity": "MEDIUM",
+      "semantic_relation_to_baseline": "SHIFT_TO_NEUTRAL",
+      "verification_status": "HUMAN_VERIFIED",
+      "provider": "GEMINI",
+      "gemini_polarity": "NEUTRAL",
+      "gemini_confidence": 0.7,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEUTRAL",
+      "verification_source": "HUMAN_VERIFIED",
+      "model_used": "gemini-3.8-flash",
+      "schema_version": "v2.0",
+      "annotation_version": "v2.0",
+      "timestamp": 1790551269.0065389,
+      "prompt_version": "v2.0",
+      "baseline_semantic_polarity": "NEGATIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": true,
+    "polarity_flip": false,
+    "semantic_state_change": true,
+    "confidence_delta": -0.032504190732001725,
+    "confidence_delta_pts": -3.2504190732001725,
+    "confidence_delta_pp": -3.2504190732001725,
+    "formatted_confidence_delta": "-3.25 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": false,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "NEGATIVE_TO_NEUTRAL",
+    "behavioral_outcome": "EXPECTED_FLIP",
+    "failure_type": "None",
+    "rationale": "Model correctly flipped and changed label (NEGATIVE (NEGATIVE) \u2192 NEUTRAL (NEUTRAL)) under DIFFERENT_LABEL expectation.",
+    "semantic_intent": "SHIFT_TO_NEUTRAL",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 91.01441428570719
+  },
+  {
+    "baseline_id": "base_3dcc2913e0a6",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_5fee9e0c56fc",
+    "seed_text": "i am not well",
+    "perturbed_text": "i am extremely not well",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.5709147431503909,
+      "formatted_confidence": "57.09%",
+      "probabilities": {
+        "NEGATIVE": 0.5709147431503909,
+        "NEUTRAL": 0.37869740361284426,
+        "POSITIVE": 0.050387853236764805
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "57.09%",
+        "NEUTRAL": "37.87%",
+        "POSITIVE": "5.04%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [===========         ]  57.09%\nNEUTRAL    [========            ]  37.87%\nPOSITIVE   [=                   ]   5.04%",
+      "raw_logits": null,
+      "latency_ms": 299.3021000002045,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "negative",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "negative": 0.5709147431503909,
+        "neutral": 0.37869740361284426,
+        "positive": 0.050387853236764805
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.8388182739605304,
+      "formatted_confidence": "83.88%",
+      "probabilities": {
+        "NEGATIVE": 0.8388182739605304,
+        "NEUTRAL": 0.13835858169388052,
+        "POSITIVE": 0.02282314434558902
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "83.88%",
+        "NEUTRAL": "13.84%",
+        "POSITIVE": "2.28%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=================   ]  83.88%\nNEUTRAL    [===                 ]  13.84%\nPOSITIVE   [                    ]   2.28%",
+      "raw_logits": null,
+      "latency_ms": 91.01441428570719,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "negative",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "negative": 0.8388182739605304,
+        "neutral": 0.13835858169388052,
+        "positive": 0.02282314434558902
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.5709147431503909,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.8388182739605304,
+    "from_label": "NEGATIVE",
+    "to_label": "NEGATIVE",
+    "transition_type": "NEGATIVE \u2192 NEGATIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_5fee9e0c56fc",
+      "sentence_text": "i am extremely not well",
+      "semantic_polarity": "NEGATIVE",
+      "confidence": 0.95,
+      "reason": "Intensifier strongly reinforces the negative state of health.",
+      "ambiguity": "LOW",
+      "semantic_relation_to_baseline": "PRESERVE_POLARITY",
+      "verification_status": "HUMAN_VERIFIED",
+      "provider": "GEMINI",
+      "gemini_polarity": "NEGATIVE",
+      "gemini_confidence": 0.95,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEGATIVE",
+      "verification_source": "HUMAN_VERIFIED",
+      "model_used": "gemini-3.8-flash",
+      "schema_version": "v2.0",
+      "annotation_version": "v2.0",
+      "timestamp": 1790551269.0065482,
+      "prompt_version": "v2.0",
+      "baseline_semantic_polarity": "NEGATIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 0.2679035308101395,
+    "confidence_delta_pts": 26.79035308101395,
+    "confidence_delta_pp": 26.79035308101395,
+    "formatted_confidence_delta": "+26.79 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "POLARITY_STRENGTHENED",
+    "observed_relation": "POLARITY_STRENGTHENED",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Intensifier preserved polarity.",
+    "semantic_intent": "PRESERVE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 91.01441428570719
+  },
+  {
+    "baseline_id": "base_3dcc2913e0a6",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_fd37a1e79bb7",
+    "seed_text": "i am not well",
+    "perturbed_text": "i am somewhat not well",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.5709147431503909,
+      "formatted_confidence": "57.09%",
+      "probabilities": {
+        "NEGATIVE": 0.5709147431503909,
+        "NEUTRAL": 0.37869740361284426,
+        "POSITIVE": 0.050387853236764805
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "57.09%",
+        "NEUTRAL": "37.87%",
+        "POSITIVE": "5.04%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [===========         ]  57.09%\nNEUTRAL    [========            ]  37.87%\nPOSITIVE   [=                   ]   5.04%",
+      "raw_logits": null,
+      "latency_ms": 299.3021000002045,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "negative",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "negative": 0.5709147431503909,
+        "neutral": 0.37869740361284426,
+        "positive": 0.050387853236764805
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.7581795112178311,
+      "formatted_confidence": "75.82%",
+      "probabilities": {
+        "NEGATIVE": 0.7581795112178311,
+        "NEUTRAL": 0.22292803975325956,
+        "POSITIVE": 0.01889244902890936
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "75.82%",
+        "NEUTRAL": "22.29%",
+        "POSITIVE": "1.89%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [===============     ]  75.82%\nNEUTRAL    [====                ]  22.29%\nPOSITIVE   [                    ]   1.89%",
+      "raw_logits": null,
+      "latency_ms": 91.01441428570719,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "negative",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "negative": 0.7581795112178311,
+        "neutral": 0.22292803975325956,
+        "positive": 0.01889244902890936
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.5709147431503909,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.7581795112178311,
+    "from_label": "NEGATIVE",
+    "to_label": "NEGATIVE",
+    "transition_type": "NEGATIVE \u2192 NEGATIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_fd37a1e79bb7",
+      "sentence_text": "i am somewhat not well",
+      "semantic_polarity": "NEGATIVE",
+      "confidence": 0.9,
+      "reason": "Downtoner attenuates the degree of illness but maintains negative polarity.",
+      "ambiguity": "LOW",
+      "semantic_relation_to_baseline": "PRESERVE_POLARITY",
+      "verification_status": "HUMAN_VERIFIED",
+      "provider": "GEMINI",
+      "gemini_polarity": "NEGATIVE",
+      "gemini_confidence": 0.9,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEGATIVE",
+      "verification_source": "HUMAN_VERIFIED",
+      "model_used": "gemini-3.8-flash",
+      "schema_version": "v2.0",
+      "annotation_version": "v2.0",
+      "timestamp": 1790551269.0065582,
+      "prompt_version": "v2.0",
+      "baseline_semantic_polarity": "NEGATIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 0.1872647680674402,
+    "confidence_delta_pts": 18.726476806744017,
+    "confidence_delta_pp": 18.726476806744017,
+    "formatted_confidence_delta": "+18.73 percentage points",
+    "expectation_satisfied": false,
+    "expectation_match": false,
+    "preservation": true,
+    "expected_relation": "POLARITY_WEAKENED",
+    "observed_relation": "POLARITY_STRENGTHENED",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "Misweighted",
+    "rationale": "Downtoner caused confidence to surge: confidence increased by 18.73 percentage points (NEGATIVE (NEGATIVE) \u2192 NEGATIVE (NEGATIVE)).",
+    "semantic_intent": "PRESERVE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 91.01441428570719
+  },
+  {
+    "baseline_id": "base_3dcc2913e0a6",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_597650cbb446",
+    "seed_text": "i am not well",
+    "perturbed_text": "i am non well",
+    "perturbation_type": "synonym_substitution",
+    "category": "synonym_substitution",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.5709147431503909,
+      "formatted_confidence": "57.09%",
+      "probabilities": {
+        "NEGATIVE": 0.5709147431503909,
+        "NEUTRAL": 0.37869740361284426,
+        "POSITIVE": 0.050387853236764805
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "57.09%",
+        "NEUTRAL": "37.87%",
+        "POSITIVE": "5.04%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [===========         ]  57.09%\nNEUTRAL    [========            ]  37.87%\nPOSITIVE   [=                   ]   5.04%",
+      "raw_logits": null,
+      "latency_ms": 299.3021000002045,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "negative",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "negative": 0.5709147431503909,
+        "neutral": 0.37869740361284426,
+        "positive": 0.050387853236764805
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEUTRAL",
+      "predicted_label": "NEUTRAL",
+      "confidence": 0.656352132097727,
+      "formatted_confidence": "65.64%",
+      "probabilities": {
+        "NEGATIVE": 0.160073421600763,
+        "NEUTRAL": 0.656352132097727,
+        "POSITIVE": 0.18357444630151
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "16.01%",
+        "NEUTRAL": "65.64%",
+        "POSITIVE": "18.36%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [===                 ]  16.01%\nNEUTRAL    [=============       ]  65.64%\nPOSITIVE   [====                ]  18.36%",
+      "raw_logits": null,
+      "latency_ms": 91.01441428570719,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "neutral",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "negative": 0.160073421600763,
+        "neutral": 0.656352132097727,
+        "positive": 0.18357444630151
+      },
+      "semantic_polarity": "NEUTRAL",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "POLARITY_MISMATCH"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.5709147431503909,
+    "perturbed_label": "NEUTRAL",
+    "perturbed_confidence": 0.656352132097727,
+    "from_label": "NEGATIVE",
+    "to_label": "NEUTRAL",
+    "transition_type": "NEGATIVE \u2192 NEUTRAL",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_597650cbb446",
+      "sentence_text": "i am non well",
+      "semantic_polarity": "NEGATIVE",
+      "confidence": 0.85,
+      "reason": "Unconventional phrasing still clearly indicates an unhealthy or adverse state.",
+      "ambiguity": "LOW",
+      "semantic_relation_to_baseline": "PRESERVE_POLARITY",
+      "verification_status": "HUMAN_VERIFIED",
+      "provider": "GEMINI",
+      "gemini_polarity": "NEGATIVE",
+      "gemini_confidence": 0.85,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEGATIVE",
+      "verification_source": "HUMAN_VERIFIED",
+      "model_used": "gemini-3.8-flash",
+      "schema_version": "v2.0",
+      "annotation_version": "v2.0",
+      "timestamp": 1790551269.0065672,
+      "prompt_version": "v2.0",
+      "baseline_semantic_polarity": "NEGATIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": true,
+    "polarity_flip": false,
+    "semantic_state_change": true,
+    "confidence_delta": 0.0854373889473361,
+    "confidence_delta_pts": 8.543738894733611,
+    "confidence_delta_pp": 8.543738894733611,
+    "formatted_confidence_delta": "+8.54 percentage points",
+    "expectation_satisfied": false,
+    "expectation_match": false,
+    "preservation": false,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "NEGATIVE_TO_NEUTRAL",
+    "behavioral_outcome": "UNEXPECTED_CHANGE",
+    "failure_type": "Spurious",
+    "rationale": "The perturbation is meaning-preserving (PRESERVE_POLARITY), but model unexpectedly changed its predicted class and altered its predicted state (NEGATIVE (NEGATIVE) \u2192 NEUTRAL (NEUTRAL)).",
+    "semantic_intent": "PRESERVE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 91.01441428570719
+  },
+  {
+    "baseline_id": "base_3dcc2913e0a6",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_45d543e2dcef",
+    "seed_text": "i am not well",
+    "perturbed_text": "i am not well, however I could not repeat that performance.",
+    "perturbation_type": "contrast_negative_append",
+    "category": "contrast_negative_append",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.5709147431503909,
+      "formatted_confidence": "57.09%",
+      "probabilities": {
+        "NEGATIVE": 0.5709147431503909,
+        "NEUTRAL": 0.37869740361284426,
+        "POSITIVE": 0.050387853236764805
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "57.09%",
+        "NEUTRAL": "37.87%",
+        "POSITIVE": "5.04%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [===========         ]  57.09%\nNEUTRAL    [========            ]  37.87%\nPOSITIVE   [=                   ]   5.04%",
+      "raw_logits": null,
+      "latency_ms": 299.3021000002045,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "negative",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "negative": 0.5709147431503909,
+        "neutral": 0.37869740361284426,
+        "positive": 0.050387853236764805
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.8860171303310984,
+      "formatted_confidence": "88.60%",
+      "probabilities": {
+        "NEGATIVE": 0.8860171303310984,
+        "NEUTRAL": 0.10530002964362657,
+        "POSITIVE": 0.008682840025275054
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "88.60%",
+        "NEUTRAL": "10.53%",
+        "POSITIVE": "0.87%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [==================  ]  88.60%\nNEUTRAL    [==                  ]  10.53%\nPOSITIVE   [                    ]   0.87%",
+      "raw_logits": null,
+      "latency_ms": 91.01441428570719,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "negative",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "negative": 0.8860171303310984,
+        "neutral": 0.10530002964362657,
+        "positive": 0.008682840025275054
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.5709147431503909,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.8860171303310984,
+    "from_label": "NEGATIVE",
+    "to_label": "NEGATIVE",
+    "transition_type": "NEGATIVE \u2192 NEGATIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_45d543e2dcef",
+      "sentence_text": "i am not well, however I could not repeat that performance.",
+      "semantic_polarity": "NEGATIVE",
+      "confidence": 0.85,
+      "reason": "Adversative clause introduces an additional negative evaluation of unrepeatable performance.",
+      "ambiguity": "MEDIUM",
+      "semantic_relation_to_baseline": "PRESERVE_POLARITY",
+      "verification_status": "HUMAN_VERIFIED",
+      "provider": "GEMINI",
+      "gemini_polarity": "NEGATIVE",
+      "gemini_confidence": 0.85,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEGATIVE",
+      "verification_source": "HUMAN_VERIFIED",
+      "model_used": "gemini-3.8-flash",
+      "schema_version": "v2.0",
+      "annotation_version": "v2.0",
+      "timestamp": 1790551269.006579,
+      "prompt_version": "v2.0",
+      "baseline_semantic_polarity": "NEGATIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 0.3151023871807075,
+    "confidence_delta_pts": 31.51023871807075,
+    "confidence_delta_pp": 31.51023871807075,
+    "formatted_confidence_delta": "+31.51 percentage points",
+    "expectation_satisfied": false,
+    "expectation_match": false,
+    "preservation": true,
+    "expected_relation": "POLARITY_REVERSED",
+    "observed_relation": "POLARITY_STRENGTHENED",
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "Probe introduces a polarity reversal (PRESERVE_POLARITY), but model retained the same predicted class and polarity (NEGATIVE (NEGATIVE) \u2192 NEGATIVE (NEGATIVE)).",
+    "semantic_intent": "PRESERVE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 91.01441428570719
+  },
+  {
+    "baseline_id": "base_3dcc2913e0a6",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "probe_id": "prb_3bd1874f39c6",
+    "seed_text": "i am not well",
+    "perturbed_text": "i am not well, and I displayed remarkable skill.",
+    "perturbation_type": "contrast_positive_append",
+    "category": "contrast_positive_append",
+    "expected_flip": true,
+    "expected_semantic_effect": "EXPECTED_FLIP",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.5709147431503909,
+      "formatted_confidence": "57.09%",
+      "probabilities": {
+        "NEGATIVE": 0.5709147431503909,
+        "NEUTRAL": 0.37869740361284426,
+        "POSITIVE": 0.050387853236764805
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "57.09%",
+        "NEUTRAL": "37.87%",
+        "POSITIVE": "5.04%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [===========         ]  57.09%\nNEUTRAL    [========            ]  37.87%\nPOSITIVE   [=                   ]   5.04%",
+      "raw_logits": null,
+      "latency_ms": 299.3021000002045,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "negative",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "negative": 0.5709147431503909,
+        "neutral": 0.37869740361284426,
+        "positive": 0.050387853236764805
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEUTRAL",
+      "predicted_label": "NEUTRAL",
+      "confidence": 0.4323287904262543,
+      "formatted_confidence": "43.23%",
+      "probabilities": {
+        "NEGATIVE": 0.17712458968162537,
+        "NEUTRAL": 0.4323287904262543,
+        "POSITIVE": 0.39054661989212036
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "17.71%",
+        "NEUTRAL": "43.23%",
+        "POSITIVE": "39.05%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====                ]  17.71%\nNEUTRAL    [=========           ]  43.23%\nPOSITIVE   [========            ]  39.05%",
+      "raw_logits": null,
+      "latency_ms": 91.01441428570719,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "neutral",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "negative": 0.17712458968162537,
+        "neutral": 0.4323287904262543,
+        "positive": 0.39054661989212036
+      },
+      "semantic_polarity": "NEUTRAL",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "POLARITY_MISMATCH"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.5709147431503909,
+    "perturbed_label": "NEUTRAL",
+    "perturbed_confidence": 0.4323287904262543,
+    "from_label": "NEGATIVE",
+    "to_label": "NEUTRAL",
+    "transition_type": "NEGATIVE \u2192 NEUTRAL",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_3bd1874f39c6",
+      "sentence_text": "i am not well, and I displayed remarkable skill.",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.8,
+      "reason": "The prominent evaluation of displaying remarkable skill outweighs the initial admission of illness.",
+      "ambiguity": "MEDIUM",
+      "semantic_relation_to_baseline": "REVERSE_POLARITY",
+      "verification_status": "HUMAN_VERIFIED",
+      "provider": "GEMINI",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.8,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "HUMAN_VERIFIED",
+      "model_used": "gemini-3.8-flash",
+      "schema_version": "v2.0",
+      "annotation_version": "v2.0",
+      "timestamp": 1790551269.00659,
+      "prompt_version": "v2.0",
+      "baseline_semantic_polarity": "NEGATIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": true,
+    "polarity_flip": false,
+    "semantic_state_change": true,
+    "confidence_delta": -0.13858595272413665,
+    "confidence_delta_pts": -13.858595272413666,
+    "confidence_delta_pp": -13.858595272413666,
+    "formatted_confidence_delta": "-13.86 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": false,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "NEGATIVE_TO_NEUTRAL",
+    "behavioral_outcome": "EXPECTED_FLIP",
+    "failure_type": "None",
+    "rationale": "Model correctly flipped and changed label (NEGATIVE (NEGATIVE) \u2192 NEUTRAL (NEUTRAL)) under DIFFERENT_LABEL expectation.",
+    "semantic_intent": "REVERSE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 91.01441428570719
+  }
+]

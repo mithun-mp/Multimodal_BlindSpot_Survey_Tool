@@ -1,0 +1,476 @@
+[
+  {
+    "failure_id": "fail_1c359a1d",
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_67a0966bf0ce",
+    "category": "Blind",
+    "severity": "high",
+    "reason": "Probe introduces a polarity reversal (REVERSE_POLARITY), but model retained the same predicted class and polarity (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)).",
+    "details": "Probe introduces a polarity reversal (REVERSE_POLARITY), but model retained the same predicted class and polarity (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)).",
+    "recommendation": "Augment training data and regularize behavior against contrast_negative_append perturbations to fix Blind failures.",
+    "evidence": {
+      "original_label": "POSITIVE",
+      "probe_label": "POSITIVE",
+      "original_confidence": 0.9976888816055325,
+      "probe_confidence": 0.9944183631960436,
+      "confidence_delta_pp": -0.32705184094888873,
+      "label_transition": "POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)",
+      "raw_label_flip": false,
+      "polarity_flip": false,
+      "semantic_state_change": false,
+      "is_prediction_flip": false,
+      "original_polarity": "POSITIVE",
+      "probe_polarity": "POSITIVE",
+      "expected_relation": "POLARITY_REVERSED",
+      "observed_relation": "SAME_POLARITY",
+      "expected_effect": "EXPECTED_FLIP",
+      "semantic_intent": "REVERSE_POLARITY",
+      "threshold_pp": 15.0,
+      "expectation_match": false,
+      "preservation": true,
+      "jaccard_similarity": 0.1111111111111111,
+      "cosine_alignment": 0.16619583577486635,
+      "orig_explanation": {
+        "token_weights": {
+          "Good": 0.26465156086790326,
+          "very": 0.0439769124074612,
+          "but": 0.027683483553888708,
+          "is": 0.08617092190678302,
+          "a": -0.008925033743357869,
+          "He": -0.0055492318201599625,
+          "boy": -0.07481236333329017,
+          "naughty": -0.12424759852141024
+        },
+        "token_attributions": [
+          {
+            "token": "Good",
+            "attribution": 0.26465156086790326,
+            "position": 1
+          },
+          {
+            "token": "very",
+            "attribution": 0.0439769124074612,
+            "position": 2
+          },
+          {
+            "token": "but",
+            "attribution": 0.027683483553888708,
+            "position": 3
+          },
+          {
+            "token": "is",
+            "attribution": 0.08617092190678302,
+            "position": 4
+          },
+          {
+            "token": "a",
+            "attribution": -0.008925033743357869,
+            "position": 5
+          },
+          {
+            "token": "He",
+            "attribution": -0.0055492318201599625,
+            "position": 6
+          },
+          {
+            "token": "boy",
+            "attribution": -0.07481236333329017,
+            "position": 7
+          },
+          {
+            "token": "naughty",
+            "attribution": -0.12424759852141024,
+            "position": 8
+          }
+        ],
+        "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+        "text": "He is a Good boy but very naughty",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "pert_explanation": {
+        "token_weights": {
+          "Good": 0.0038656181016204355,
+          "very": 0.033281926100616865,
+          "but": 0.11185167401297738,
+          "could": -0.03901094055139551,
+          "however": 0.07700904844599674,
+          "performance": 0.051574271095466626,
+          "is": -0.040642723350867035,
+          "repeat": 0.07416408655485378,
+          "he": -0.0324547245328068,
+          "a": 0.0038656181016204355,
+          "not": 0.020381204141753387,
+          "that": -0.04069878383096838,
+          "He": 0.11588227650769581,
+          "boy": 0.0038656181016204355,
+          "naughty": -0.09181026619151372,
+          "naughty,": 0.010840422666063635
+        },
+        "token_attributions": [
+          {
+            "token": "Good",
+            "attribution": 0.0038656181016204355,
+            "position": 1
+          },
+          {
+            "token": "very",
+            "attribution": 0.033281926100616865,
+            "position": 2
+          },
+          {
+            "token": "but",
+            "attribution": 0.11185167401297738,
+            "position": 3
+          },
+          {
+            "token": "could",
+            "attribution": -0.03901094055139551,
+            "position": 4
+          },
+          {
+            "token": "however",
+            "attribution": 0.07700904844599674,
+            "position": 5
+          },
+          {
+            "token": "performance",
+            "attribution": 0.051574271095466626,
+            "position": 6
+          },
+          {
+            "token": "is",
+            "attribution": -0.040642723350867035,
+            "position": 7
+          },
+          {
+            "token": "repeat",
+            "attribution": 0.07416408655485378,
+            "position": 8
+          },
+          {
+            "token": "he",
+            "attribution": -0.0324547245328068,
+            "position": 9
+          },
+          {
+            "token": "a",
+            "attribution": 0.0038656181016204355,
+            "position": 10
+          },
+          {
+            "token": "not",
+            "attribution": 0.020381204141753387,
+            "position": 11
+          },
+          {
+            "token": "that",
+            "attribution": -0.04069878383096838,
+            "position": 12
+          },
+          {
+            "token": "He",
+            "attribution": 0.11588227650769581,
+            "position": 13
+          },
+          {
+            "token": "boy",
+            "attribution": 0.0038656181016204355,
+            "position": 14
+          },
+          {
+            "token": "naughty",
+            "attribution": -0.09181026619151372,
+            "position": 15
+          },
+          {
+            "token": "naughty,",
+            "attribution": 0.010840422666063635,
+            "position": 16
+          }
+        ],
+        "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+        "text": "He is a Good boy but very naughty, however he could not repeat that performance.",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "aligned_tokens": [
+        {
+          "token": "Good",
+          "orig_token": "Good",
+          "pert_token": "Good",
+          "orig_pos": 1,
+          "pert_pos": 1,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.26465156086790326,
+          "pert_val": 0.0038656181016204355,
+          "delta": -0.2607859427662828,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "very",
+          "orig_token": "very",
+          "pert_token": "very",
+          "orig_pos": 2,
+          "pert_pos": 2,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.0439769124074612,
+          "pert_val": 0.033281926100616865,
+          "delta": -0.010694986306844331,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "but",
+          "orig_token": "but",
+          "pert_token": "but",
+          "orig_pos": 3,
+          "pert_pos": 3,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.027683483553888708,
+          "pert_val": 0.11185167401297738,
+          "delta": 0.08416819045908867,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "could",
+          "orig_token": null,
+          "pert_token": "could",
+          "orig_pos": null,
+          "pert_pos": 4,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.03901094055139551,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "however",
+          "orig_token": null,
+          "pert_token": "however",
+          "orig_pos": null,
+          "pert_pos": 5,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.07700904844599674,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "performance",
+          "orig_token": null,
+          "pert_token": "performance",
+          "orig_pos": null,
+          "pert_pos": 6,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.051574271095466626,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "is",
+          "orig_token": "is",
+          "pert_token": "is",
+          "orig_pos": 4,
+          "pert_pos": 7,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.08617092190678302,
+          "pert_val": -0.040642723350867035,
+          "delta": -0.12681364525765004,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": true
+        },
+        {
+          "token": "repeat",
+          "orig_token": null,
+          "pert_token": "repeat",
+          "orig_pos": null,
+          "pert_pos": 8,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.07416408655485378,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "he",
+          "orig_token": null,
+          "pert_token": "he",
+          "orig_pos": null,
+          "pert_pos": 9,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 2,
+          "orig_val": null,
+          "pert_val": -0.0324547245328068,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "a",
+          "orig_token": "a",
+          "pert_token": "a",
+          "orig_pos": 5,
+          "pert_pos": 10,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.008925033743357869,
+          "pert_val": 0.0038656181016204355,
+          "delta": 0.012790651844978304,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "not",
+          "orig_token": null,
+          "pert_token": "not",
+          "orig_pos": null,
+          "pert_pos": 11,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.020381204141753387,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "that",
+          "orig_token": null,
+          "pert_token": "that",
+          "orig_pos": null,
+          "pert_pos": 12,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.04069878383096838,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "He",
+          "orig_token": "He",
+          "pert_token": "He",
+          "orig_pos": 6,
+          "pert_pos": 13,
+          "orig_occ": 1,
+          "pert_occ": 2,
+          "total_occ": 2,
+          "orig_val": -0.0055492318201599625,
+          "pert_val": 0.11588227650769581,
+          "delta": 0.12143150832785576,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "boy",
+          "orig_token": "boy",
+          "pert_token": "boy",
+          "orig_pos": 7,
+          "pert_pos": 14,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.07481236333329017,
+          "pert_val": 0.0038656181016204355,
+          "delta": 0.0786779814349106,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "naughty",
+          "orig_token": "naughty",
+          "pert_token": "naughty",
+          "orig_pos": 8,
+          "pert_pos": 15,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.12424759852141024,
+          "pert_val": -0.09181026619151372,
+          "delta": 0.03243733232989651,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "naughty,",
+          "orig_token": null,
+          "pert_token": "naughty,",
+          "orig_pos": null,
+          "pert_pos": 16,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": 0.010840422666063635,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        }
+      ]
+    },
+    "traceable_narrative": "Probe introduces a polarity reversal (REVERSE_POLARITY), but model retained the same predicted class and polarity (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)).",
+    "original_sentence": "He is a Good boy but very naughty",
+    "perturbed_sentence": "He is a Good boy but very naughty, however he could not repeat that performance.",
+    "original_label": "POSITIVE",
+    "perturbed_label": "POSITIVE",
+    "original_confidence": 0.9976888816055325,
+    "perturbed_confidence": 0.9944183631960436,
+    "confidence_delta_pts": -0.32705184094888873,
+    "is_flipped": false,
+    "expected_flip": true,
+    "behavioral_outcome": "MISSING_FLIP"
+  }
+]

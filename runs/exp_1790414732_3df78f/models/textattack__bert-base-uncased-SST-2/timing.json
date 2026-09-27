@@ -1,0 +1,13 @@
+{
+  "model_id": "textattack/bert-base-uncased-SST-2",
+  "cache_lookup_ms": 0.0,
+  "model_load_ms": 8272.12,
+  "tokenizer_load_ms": 0.0,
+  "baseline_inference_ms": 0.0,
+  "probe_inference_ms": 4475.41,
+  "total_inference_ms": 4475.41,
+  "analysis_ms": 30.44,
+  "report_ms": 0.02,
+  "persistence_ms": 0.0,
+  "total_duration_sec": 191.581
+}

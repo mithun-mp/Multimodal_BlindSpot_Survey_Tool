@@ -1,0 +1,81 @@
+{
+  "the sun rises in east and sun sets in the west": {
+    "baseline_id": "base_d0767748ea90",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "seed_text": "the sun rises in east and sun sets in the west",
+    "original_text": "the sun rises in east and sun sets in the west",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "NEUTRAL",
+      "predicted_label": "NEUTRAL",
+      "confidence": 0.6149199499040664,
+      "formatted_confidence": "61.49%",
+      "probabilities": {
+        "NEGATIVE": 0.005444305389449327,
+        "NEUTRAL": 0.6149199499040664,
+        "POSITIVE": 0.37963574470648426
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.54%",
+        "NEUTRAL": "61.49%",
+        "POSITIVE": "37.96%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.54%\nNEUTRAL    [============        ]  61.49%\nPOSITIVE   [========            ]  37.96%",
+      "raw_logits": null,
+      "latency_ms": 239.39200000313576,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.005444305389449327,
+        "LABEL_1": 0.6149199499040664,
+        "LABEL_2": 0.37963574470648426
+      },
+      "semantic_polarity": "NEUTRAL",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "raw_label": "LABEL_1",
+    "raw_label_id": 1,
+    "semantic_polarity": "NEUTRAL",
+    "confidence": 0.6149199499040664,
+    "full_probability_distribution": {
+      "NEGATIVE": 0.005444305389449327,
+      "NEUTRAL": 0.6149199499040664,
+      "POSITIVE": 0.37963574470648426
+    },
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "NEUTRAL",
+    "semantic_reference": {
+      "sentence_id": "baseline",
+      "sentence_text": "the sun rises in east and sun sets in the west",
+      "semantic_polarity": "NEUTRAL",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": null,
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEUTRAL",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEUTRAL",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790529001.2210248,
+      "prompt_version": "v1.0"
+    },
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "latency_ms": 239.39200000313576
+  }
+}

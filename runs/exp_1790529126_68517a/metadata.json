@@ -1,0 +1,43 @@
+{
+  "experiment_id": "exp_1790529126_68517a",
+  "experiment_name": "mul01",
+  "created_at": 1790529127.3210642,
+  "status": "completed",
+  "models": [
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "textattack/albert-base-v2-SST-2",
+    "textattack/bert-base-uncased-SST-2",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "cardiffnlp/twitter-roberta-base-sentiment"
+  ],
+  "completed_models": [
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "textattack/albert-base-v2-SST-2",
+    "textattack/bert-base-uncased-SST-2",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "cardiffnlp/twitter-roberta-base-sentiment"
+  ],
+  "model_states": {
+    "distilbert-base-uncased-finetuned-sst-2-english": "completed",
+    "textattack/albert-base-v2-SST-2": "completed",
+    "textattack/bert-base-uncased-SST-2": "completed",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest": "completed",
+    "cardiffnlp/twitter-roberta-base-sentiment": "completed"
+  },
+  "num_models": 5,
+  "num_seed_texts": 1,
+  "num_probes": 7,
+  "last_updated_at": 1790529817.3721817,
+  "total_duration_sec": 690.81,
+  "pipeline_integrity_passed": true,
+  "run_status": "COMPLETED",
+  "analysis_status": "FAILURES_OBSERVED",
+  "semantic_reference": {
+    "engine": "manual",
+    "model": "manual",
+    "baseline_polarity": "NEUTRAL",
+    "cache_hits": 0,
+    "api_requests": 0
+  },
+  "completed_at": 1790529848.4439626
+}

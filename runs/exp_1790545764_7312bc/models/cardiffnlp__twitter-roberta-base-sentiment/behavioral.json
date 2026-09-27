@@ -1,0 +1,1017 @@
+[
+  {
+    "baseline_id": "base_8cea2db9a829",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_f8cfe5bc91e4",
+    "seed_text": "The movie was great and the acting was top notch.",
+    "perturbed_text": "The movie was not great and the acting was top notch.",
+    "perturbation_type": "negation_insertion",
+    "category": "negation_insertion",
+    "expected_flip": true,
+    "expected_semantic_effect": "EXPECTED_FLIP",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.986173965345905,
+      "formatted_confidence": "98.62%",
+      "probabilities": {
+        "NEGATIVE": 0.0021729515379752622,
+        "NEUTRAL": 0.011653083116119732,
+        "POSITIVE": 0.986173965345905
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.22%",
+        "NEUTRAL": "1.17%",
+        "POSITIVE": "98.62%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.22%\nNEUTRAL    [                    ]   1.17%\nPOSITIVE   [====================]  98.62%",
+      "raw_logits": null,
+      "latency_ms": 166.79470000963192,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_2",
+      "raw_label_id": 2,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0021729515379752622,
+        "LABEL_1": 0.011653083116119732,
+        "LABEL_2": 0.986173965345905
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.9107388238704205,
+      "formatted_confidence": "91.07%",
+      "probabilities": {
+        "NEGATIVE": 0.9107388238704205,
+        "NEUTRAL": 0.07899821304891118,
+        "POSITIVE": 0.010262963080668347
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "91.07%",
+        "NEUTRAL": "7.90%",
+        "POSITIVE": "1.03%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [==================  ]  91.07%\nNEUTRAL    [==                  ]   7.90%\nPOSITIVE   [                    ]   1.03%",
+      "raw_logits": null,
+      "latency_ms": 101.03194285641491,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_0",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.9107388238704205,
+        "LABEL_1": 0.07899821304891118,
+        "LABEL_2": 0.010262963080668347
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.986173965345905,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9107388238704205,
+    "from_label": "POSITIVE",
+    "to_label": "NEGATIVE",
+    "transition_type": "POSITIVE \u2192 NEGATIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_f8cfe5bc91e4",
+      "sentence_text": "The movie was not great and the acting was top notch.",
+      "semantic_polarity": "NEGATIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "REVERSE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEGATIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEGATIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790540189.527324,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "POSITIVE"
+    },
+    "is_flipped": true,
+    "raw_label_flip": true,
+    "polarity_flip": true,
+    "semantic_state_change": true,
+    "confidence_delta": -0.07543514147548447,
+    "confidence_delta_pts": -7.543514147548446,
+    "confidence_delta_pp": -7.543514147548446,
+    "formatted_confidence_delta": "-7.54 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": false,
+    "expected_relation": "POLARITY_REVERSED",
+    "observed_relation": "POLARITY_REVERSED",
+    "behavioral_outcome": "EXPECTED_FLIP",
+    "failure_type": "None",
+    "rationale": "Model correctly flipped and changed label (POSITIVE (POSITIVE) \u2192 NEGATIVE (NEGATIVE)) under DIFFERENT_LABEL expectation.",
+    "semantic_intent": "REVERSE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 101.03194285641491
+  },
+  {
+    "baseline_id": "base_8cea2db9a829",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_93a8a314162b",
+    "seed_text": "The movie was great and the acting was top notch.",
+    "perturbed_text": "It is not impossible that the movie was great and the acting was top notch.",
+    "perturbation_type": "double_negation",
+    "category": "double_negation",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.986173965345905,
+      "formatted_confidence": "98.62%",
+      "probabilities": {
+        "NEGATIVE": 0.0021729515379752622,
+        "NEUTRAL": 0.011653083116119732,
+        "POSITIVE": 0.986173965345905
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.22%",
+        "NEUTRAL": "1.17%",
+        "POSITIVE": "98.62%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.22%\nNEUTRAL    [                    ]   1.17%\nPOSITIVE   [====================]  98.62%",
+      "raw_logits": null,
+      "latency_ms": 166.79470000963192,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_2",
+      "raw_label_id": 2,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0021729515379752622,
+        "LABEL_1": 0.011653083116119732,
+        "LABEL_2": 0.986173965345905
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9653004914028525,
+      "formatted_confidence": "96.53%",
+      "probabilities": {
+        "NEGATIVE": 0.004406677517977752,
+        "NEUTRAL": 0.03029283107916982,
+        "POSITIVE": 0.9653004914028525
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.44%",
+        "NEUTRAL": "3.03%",
+        "POSITIVE": "96.53%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.44%\nNEUTRAL    [=                   ]   3.03%\nPOSITIVE   [=================== ]  96.53%",
+      "raw_logits": null,
+      "latency_ms": 101.03194285641491,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_2",
+      "raw_label_id": 2,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.004406677517977752,
+        "LABEL_1": 0.03029283107916982,
+        "LABEL_2": 0.9653004914028525
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.986173965345905,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9653004914028525,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_93a8a314162b",
+      "sentence_text": "It is not impossible that the movie was great and the acting was top notch.",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790540189.533325,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "POSITIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": -0.0208734739430525,
+    "confidence_delta_pts": -2.08734739430525,
+    "confidence_delta_pp": -2.08734739430525,
+    "formatted_confidence_delta": "-2.09 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)) under meaning-preserving probe.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 101.03194285641491
+  },
+  {
+    "baseline_id": "base_8cea2db9a829",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_655b09534fa8",
+    "seed_text": "The movie was great and the acting was top notch.",
+    "perturbed_text": "The movie was extremely great and the acting was top notch.",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.986173965345905,
+      "formatted_confidence": "98.62%",
+      "probabilities": {
+        "NEGATIVE": 0.0021729515379752622,
+        "NEUTRAL": 0.011653083116119732,
+        "POSITIVE": 0.986173965345905
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.22%",
+        "NEUTRAL": "1.17%",
+        "POSITIVE": "98.62%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.22%\nNEUTRAL    [                    ]   1.17%\nPOSITIVE   [====================]  98.62%",
+      "raw_logits": null,
+      "latency_ms": 166.79470000963192,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_2",
+      "raw_label_id": 2,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0021729515379752622,
+        "LABEL_1": 0.011653083116119732,
+        "LABEL_2": 0.986173965345905
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9886097484491314,
+      "formatted_confidence": "98.86%",
+      "probabilities": {
+        "NEGATIVE": 0.0020100566628737317,
+        "NEUTRAL": 0.009380194887994821,
+        "POSITIVE": 0.9886097484491314
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.20%",
+        "NEUTRAL": "0.94%",
+        "POSITIVE": "98.86%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.20%\nNEUTRAL    [                    ]   0.94%\nPOSITIVE   [====================]  98.86%",
+      "raw_logits": null,
+      "latency_ms": 101.03194285641491,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_2",
+      "raw_label_id": 2,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0020100566628737317,
+        "LABEL_1": 0.009380194887994821,
+        "LABEL_2": 0.9886097484491314
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.986173965345905,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9886097484491314,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_655b09534fa8",
+      "sentence_text": "The movie was extremely great and the acting was top notch.",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790540189.53804,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "POSITIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 0.002435783103226452,
+    "confidence_delta_pts": 0.2435783103226452,
+    "confidence_delta_pp": 0.2435783103226452,
+    "formatted_confidence_delta": "+0.24 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "POLARITY_STRENGTHENED",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Intensifier preserved polarity.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 101.03194285641491
+  },
+  {
+    "baseline_id": "base_8cea2db9a829",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_ad69074f6902",
+    "seed_text": "The movie was great and the acting was top notch.",
+    "perturbed_text": "The movie was somewhat great and the acting was top notch.",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.986173965345905,
+      "formatted_confidence": "98.62%",
+      "probabilities": {
+        "NEGATIVE": 0.0021729515379752622,
+        "NEUTRAL": 0.011653083116119732,
+        "POSITIVE": 0.986173965345905
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.22%",
+        "NEUTRAL": "1.17%",
+        "POSITIVE": "98.62%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.22%\nNEUTRAL    [                    ]   1.17%\nPOSITIVE   [====================]  98.62%",
+      "raw_logits": null,
+      "latency_ms": 166.79470000963192,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_2",
+      "raw_label_id": 2,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0021729515379752622,
+        "LABEL_1": 0.011653083116119732,
+        "LABEL_2": 0.986173965345905
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9832951504346065,
+      "formatted_confidence": "98.33%",
+      "probabilities": {
+        "NEGATIVE": 0.0016322801950149066,
+        "NEUTRAL": 0.015072569370378592,
+        "POSITIVE": 0.9832951504346065
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.16%",
+        "NEUTRAL": "1.51%",
+        "POSITIVE": "98.33%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.16%\nNEUTRAL    [                    ]   1.51%\nPOSITIVE   [====================]  98.33%",
+      "raw_logits": null,
+      "latency_ms": 101.03194285641491,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_2",
+      "raw_label_id": 2,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0016322801950149066,
+        "LABEL_1": 0.015072569370378592,
+        "LABEL_2": 0.9832951504346065
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.986173965345905,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9832951504346065,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_ad69074f6902",
+      "sentence_text": "The movie was somewhat great and the acting was top notch.",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790540189.541965,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "POSITIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": -0.0028788149112984884,
+    "confidence_delta_pts": -0.28788149112984884,
+    "confidence_delta_pp": -0.28788149112984884,
+    "formatted_confidence_delta": "-0.29 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "POLARITY_WEAKENED",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Downtoner preserved polarity (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)).",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 101.03194285641491
+  },
+  {
+    "baseline_id": "base_8cea2db9a829",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_0bcfcb23a772",
+    "seed_text": "The movie was great and the acting was top notch.",
+    "perturbed_text": "The film was great and the acting was top notch.",
+    "perturbation_type": "synonym_substitution",
+    "category": "synonym_substitution",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.986173965345905,
+      "formatted_confidence": "98.62%",
+      "probabilities": {
+        "NEGATIVE": 0.0021729515379752622,
+        "NEUTRAL": 0.011653083116119732,
+        "POSITIVE": 0.986173965345905
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.22%",
+        "NEUTRAL": "1.17%",
+        "POSITIVE": "98.62%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.22%\nNEUTRAL    [                    ]   1.17%\nPOSITIVE   [====================]  98.62%",
+      "raw_logits": null,
+      "latency_ms": 166.79470000963192,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_2",
+      "raw_label_id": 2,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0021729515379752622,
+        "LABEL_1": 0.011653083116119732,
+        "LABEL_2": 0.986173965345905
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9849865251017241,
+      "formatted_confidence": "98.50%",
+      "probabilities": {
+        "NEGATIVE": 0.0021099311713310143,
+        "NEUTRAL": 0.012903543726944907,
+        "POSITIVE": 0.9849865251017241
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.21%",
+        "NEUTRAL": "1.29%",
+        "POSITIVE": "98.50%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.21%\nNEUTRAL    [                    ]   1.29%\nPOSITIVE   [====================]  98.50%",
+      "raw_logits": null,
+      "latency_ms": 101.03194285641491,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_2",
+      "raw_label_id": 2,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0021099311713310143,
+        "LABEL_1": 0.012903543726944907,
+        "LABEL_2": 0.9849865251017241
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.986173965345905,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9849865251017241,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_0bcfcb23a772",
+      "sentence_text": "The film was great and the acting was top notch.",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790540189.546126,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "POSITIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": -0.0011874402441808263,
+    "confidence_delta_pts": -0.11874402441808263,
+    "confidence_delta_pp": -0.11874402441808263,
+    "formatted_confidence_delta": "-0.12 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)) under meaning-preserving probe.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 101.03194285641491
+  },
+  {
+    "baseline_id": "base_8cea2db9a829",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_063fe37511e1",
+    "seed_text": "The movie was great and the acting was top notch.",
+    "perturbed_text": "The movie was great and the acting was top notch, however it was surprisingly bad in comparison.",
+    "perturbation_type": "contrast_negative_append",
+    "category": "contrast_negative_append",
+    "expected_flip": true,
+    "expected_semantic_effect": "EXPECTED_FLIP",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.986173965345905,
+      "formatted_confidence": "98.62%",
+      "probabilities": {
+        "NEGATIVE": 0.0021729515379752622,
+        "NEUTRAL": 0.011653083116119732,
+        "POSITIVE": 0.986173965345905
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.22%",
+        "NEUTRAL": "1.17%",
+        "POSITIVE": "98.62%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.22%\nNEUTRAL    [                    ]   1.17%\nPOSITIVE   [====================]  98.62%",
+      "raw_logits": null,
+      "latency_ms": 166.79470000963192,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_2",
+      "raw_label_id": 2,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0021729515379752622,
+        "LABEL_1": 0.011653083116119732,
+        "LABEL_2": 0.986173965345905
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.4155780425323223,
+      "formatted_confidence": "41.56%",
+      "probabilities": {
+        "NEGATIVE": 0.2702181774247779,
+        "NEUTRAL": 0.31420378004289984,
+        "POSITIVE": 0.4155780425323223
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "27.02%",
+        "NEUTRAL": "31.42%",
+        "POSITIVE": "41.56%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=====               ]  27.02%\nNEUTRAL    [======              ]  31.42%\nPOSITIVE   [========            ]  41.56%",
+      "raw_logits": null,
+      "latency_ms": 101.03194285641491,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_2",
+      "raw_label_id": 2,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.2702181774247779,
+        "LABEL_1": 0.31420378004289984,
+        "LABEL_2": 0.4155780425323223
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "POLARITY_MISMATCH"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.986173965345905,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.4155780425323223,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_063fe37511e1",
+      "sentence_text": "the movie was great and the acting was top notch, however it was surprisingly bad in comparison.",
+      "semantic_polarity": "NEGATIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "REVERSE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEGATIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEGATIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790527401.6895516,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "POSITIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": -0.5705959228135826,
+    "confidence_delta_pts": -57.05959228135826,
+    "confidence_delta_pp": -57.05959228135826,
+    "formatted_confidence_delta": "-57.06 percentage points",
+    "expectation_satisfied": false,
+    "expectation_match": false,
+    "preservation": true,
+    "expected_relation": "POLARITY_REVERSED",
+    "observed_relation": "POLARITY_WEAKENED",
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "Probe introduces a polarity reversal (REVERSE_POLARITY), but model retained the same predicted class and polarity (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)).",
+    "semantic_intent": "REVERSE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 101.03194285641491
+  },
+  {
+    "baseline_id": "base_8cea2db9a829",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+    "probe_id": "prb_1fa8d2280eef",
+    "seed_text": "The movie was great and the acting was top notch.",
+    "perturbed_text": "The movie was great and the acting was top notch, and the overall storyline was engaging.",
+    "perturbation_type": "contrast_positive_append",
+    "category": "contrast_positive_append",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.986173965345905,
+      "formatted_confidence": "98.62%",
+      "probabilities": {
+        "NEGATIVE": 0.0021729515379752622,
+        "NEUTRAL": 0.011653083116119732,
+        "POSITIVE": 0.986173965345905
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.22%",
+        "NEUTRAL": "1.17%",
+        "POSITIVE": "98.62%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.22%\nNEUTRAL    [                    ]   1.17%\nPOSITIVE   [====================]  98.62%",
+      "raw_logits": null,
+      "latency_ms": 166.79470000963192,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_2",
+      "raw_label_id": 2,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0021729515379752622,
+        "LABEL_1": 0.011653083116119732,
+        "LABEL_2": 0.986173965345905
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9886801589271901,
+      "formatted_confidence": "98.87%",
+      "probabilities": {
+        "NEGATIVE": 0.0014593577290962772,
+        "NEUTRAL": 0.009860483343713625,
+        "POSITIVE": 0.9886801589271901
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.15%",
+        "NEUTRAL": "0.99%",
+        "POSITIVE": "98.87%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.15%\nNEUTRAL    [                    ]   0.99%\nPOSITIVE   [====================]  98.87%",
+      "raw_logits": null,
+      "latency_ms": 101.03194285641491,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_2",
+      "raw_label_id": 2,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0014593577290962772,
+        "LABEL_1": 0.009860483343713625,
+        "LABEL_2": 0.9886801589271901
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.986173965345905,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9886801589271901,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_1fa8d2280eef",
+      "sentence_text": "the movie was great and the acting was top notch, and the overall storyline was engaging.",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790527401.6942046,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "POSITIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 0.002506193581285121,
+    "confidence_delta_pts": 0.2506193581285121,
+    "confidence_delta_pp": 0.2506193581285121,
+    "formatted_confidence_delta": "+0.25 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)) under meaning-preserving probe.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 101.03194285641491
+  }
+]

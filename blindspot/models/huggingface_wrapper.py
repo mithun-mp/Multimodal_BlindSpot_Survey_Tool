@@ -14,31 +14,87 @@ logging.getLogger("huggingface_hub").setLevel(logging.ERROR)
 
 logger = logging.getLogger(__name__)
 
-from blindspot.core.types import PredictionResult, ModelMetadata
+from blindspot.core.types import PredictionResult, ModelMetadata, SemanticPolarity
 
 
-def normalize_label_name(label: str, num_classes: int = 2) -> str:
+def map_raw_label_to_semantic_polarity(
+    raw_label: str,
+    raw_id: Optional[int] = None,
+    num_classes: int = 2,
+    model_id: str = "",
+) -> Tuple[str, SemanticPolarity]:
+    """
+    Model-independent semantic representation.
+    Inspects model's actual configuration and mapping.
+    Returns: (normalized_label_string, SemanticPolarity)
+    """
+    raw_clean = str(raw_label).strip()
+    raw_upper = raw_clean.upper()
+
+    # Non-sentiment task labels must NOT be remapped to sentiment
+    if raw_upper in ("FAKE", "REAL", "SPAM", "HAM", "ENTAILMENT", "CONTRADICTION", "TOXIC", "NON_TOXIC", "NON-TOXIC"):
+        return raw_upper, SemanticPolarity.UNKNOWN
+
+    # 1. Check explicit semantic strings
+    if raw_upper in ("POSITIVE", "POS"):
+        return "POSITIVE", SemanticPolarity.POSITIVE
+    elif raw_upper in ("NEGATIVE", "NEG"):
+        return "NEGATIVE", SemanticPolarity.NEGATIVE
+    elif raw_upper in ("NEUTRAL", "NEU"):
+        return "NEUTRAL", SemanticPolarity.NEUTRAL
+
+    # Resolve integer ID from label if not provided
+    if raw_id is None:
+        if raw_upper.isdigit():
+            raw_id = int(raw_upper)
+        elif raw_upper.startswith("LABEL_") and raw_upper[6:].isdigit():
+            raw_id = int(raw_upper[6:])
+
+    # 2. Check known model presets and fine-tuning datasets
+    mid_lower = model_id.lower()
+    
+    # Stanford Sentiment Treebank (SST-2): binary 0=NEGATIVE, 1=POSITIVE
+    if "sst-2" in mid_lower or "sst2" in mid_lower:
+        if raw_id == 0 or raw_upper in ("0", "LABEL_0"):
+            return "NEGATIVE", SemanticPolarity.NEGATIVE
+        elif raw_id == 1 or raw_upper in ("1", "LABEL_1"):
+            return "POSITIVE", SemanticPolarity.POSITIVE
+
+    # Twitter RoBERTa sentiment: 0=NEGATIVE, 1=NEUTRAL, 2=POSITIVE
+    if "twitter-roberta" in mid_lower or "cardiffnlp" in mid_lower:
+        if raw_id == 0 or raw_upper in ("0", "LABEL_0"):
+            return "NEGATIVE", SemanticPolarity.NEGATIVE
+        elif raw_id == 1 or raw_upper in ("1", "LABEL_1"):
+            return "NEUTRAL", SemanticPolarity.NEUTRAL
+        elif raw_id == 2 or raw_upper in ("2", "LABEL_2"):
+            return "POSITIVE", SemanticPolarity.POSITIVE
+
+    # 3. If num_classes == 2
+    if num_classes == 2:
+        if raw_id == 0 or raw_upper in ("0", "LABEL_0"):
+            return "NEGATIVE", SemanticPolarity.NEGATIVE
+        elif raw_id == 1 or raw_upper in ("1", "LABEL_1"):
+            return "POSITIVE", SemanticPolarity.POSITIVE
+
+    # 4. If num_classes == 3
+    if num_classes == 3:
+        if raw_id == 0 or raw_upper in ("0", "LABEL_0"):
+            return "NEGATIVE", SemanticPolarity.NEGATIVE
+        elif raw_id == 1 or raw_upper in ("1", "LABEL_1"):
+            return "NEUTRAL", SemanticPolarity.NEUTRAL
+        elif raw_id == 2 or raw_upper in ("2", "LABEL_2"):
+            return "POSITIVE", SemanticPolarity.POSITIVE
+
+    return raw_upper, SemanticPolarity.UNKNOWN
+
+
+def normalize_label_name(label: str, num_classes: int = 2, model_id: str = "") -> str:
     """
     Standardizes label strings across different model architectures and datasets.
-    E.g. 'LABEL_0' -> 'NEGATIVE' in 2-class, 'LABEL_1' -> 'POSITIVE'.
+    Delegates to map_raw_label_to_semantic_polarity for verified semantic mapping.
     """
-    cleaned = str(label).strip()
-    upper = cleaned.upper()
-
-    if num_classes == 2:
-        if upper in {"LABEL_0", "0", "NEG", "NEGATIVE"}:
-            return "NEGATIVE"
-        if upper in {"LABEL_1", "1", "POS", "POSITIVE"}:
-            return "POSITIVE"
-    elif num_classes == 3:
-        if upper in {"LABEL_0", "0", "NEG", "NEGATIVE"}:
-            return "NEGATIVE"
-        if upper in {"LABEL_1", "1", "NEU", "NEUTRAL"}:
-            return "NEUTRAL"
-        if upper in {"LABEL_2", "2", "POS", "POSITIVE"}:
-            return "POSITIVE"
-
-    return upper
+    norm_lbl, _ = map_raw_label_to_semantic_polarity(label, raw_id=None, num_classes=num_classes, model_id=model_id)
+    return norm_lbl
 
 
 class HuggingFaceWrapper:
@@ -60,9 +116,16 @@ class HuggingFaceWrapper:
         self.load_error: Optional[str] = None
         self.labels: List[str] = ["NEGATIVE", "POSITIVE"]
         self.raw_id2label: Dict[int, str] = {0: "NEGATIVE", 1: "POSITIVE"}
+        self.raw_label2id: Dict[str, int] = {"NEGATIVE": 0, "POSITIVE": 1}
+        self.semantic_polarity_map: Dict[int, SemanticPolarity] = {
+            0: SemanticPolarity.NEGATIVE,
+            1: SemanticPolarity.POSITIVE,
+        }
         self.num_classes: int = 2
         self.parameters_millions: Optional[float] = None
         self.architecture: str = "transformer"
+        self.model_family: str = "transformer"
+        self.tokenizer_name: str = model_name_or_path
         self._load_model()
 
     @staticmethod
@@ -110,15 +173,31 @@ class HuggingFaceWrapper:
             if hasattr(self.pipeline.model, "config"):
                 cfg = self.pipeline.model.config
                 if hasattr(cfg, "id2label") and cfg.id2label:
-                    self.raw_id2label = cfg.id2label
+                    self.raw_id2label = {int(k): str(v) for k, v in cfg.id2label.items()}
+                    self.raw_label2id = {v: k for k, v in self.raw_id2label.items()}
                     self.num_classes = len(self.raw_id2label)
-                    # Normalize labels
-                    self.labels = [
-                        normalize_label_name(self.raw_id2label[i], self.num_classes)
-                        for i in sorted(self.raw_id2label.keys())
-                    ]
+                    
+                    # Normalize labels and semantic polarities per Phase 1 & 2
+                    norm_labels = []
+                    polarity_map = {}
+                    for i in sorted(self.raw_id2label.keys()):
+                        raw_name = self.raw_id2label[i]
+                        norm_name, polarity = map_raw_label_to_semantic_polarity(
+                            raw_name, raw_id=i, num_classes=self.num_classes, model_id=self.model_name
+                        )
+                        norm_labels.append(norm_name)
+                        polarity_map[i] = polarity
+
+                    self.labels = norm_labels
+                    self.semantic_polarity_map = polarity_map
+
                 if hasattr(cfg, "architectures") and cfg.architectures:
                     self.architecture = cfg.architectures[0]
+                    self.model_family = self.architecture
+
+            # Extract tokenizer name
+            if self.pipeline and hasattr(self.pipeline, "tokenizer") and self.pipeline.tokenizer:
+                self.tokenizer_name = getattr(self.pipeline.tokenizer, "name_or_path", self.model_name)
 
             # Estimate model parameters
             if hasattr(self.pipeline.model, "parameters"):
@@ -134,10 +213,13 @@ class HuggingFaceWrapper:
                 logger.warning(f"Could not load real HF pipeline ({e}). Initializing fallback rule-based classifier.")
                 self.pipeline = None
                 self.labels = ["NEGATIVE", "POSITIVE"]
+                self.raw_id2label = {0: "NEGATIVE", 1: "POSITIVE"}
+                self.raw_label2id = {"NEGATIVE": 0, "POSITIVE": 1}
+                self.semantic_polarity_map = {0: SemanticPolarity.NEGATIVE, 1: SemanticPolarity.POSITIVE}
                 self.num_classes = 2
 
     def get_metadata(self) -> ModelMetadata:
-        """Returns structured ModelMetadata."""
+        """Returns structured ModelMetadata adhering to Phase 1 specification."""
         return ModelMetadata(
             model_id=self.model_name,
             architecture=self.architecture,
@@ -149,6 +231,11 @@ class HuggingFaceWrapper:
             verified=True,
             loaded=self.pipeline is not None,
             description=f"Model {self.model_name} with {self.num_classes} classes: {', '.join(self.labels)}",
+            id2label=dict(self.raw_id2label),
+            label2id=dict(self.raw_label2id),
+            model_family=self.model_family,
+            tokenizer_name=self.tokenizer_name,
+            normalized_classes=list(self.labels),
         )
 
     def predict_proba(
@@ -285,7 +372,11 @@ class HuggingFaceWrapper:
         top_idx = int(np.argmax(probs_row))
         confidence = float(probs_row[top_idx])
         label = self.labels[top_idx]
+        raw_lbl = self.raw_id2label.get(top_idx, label)
+        sem_pol = self.semantic_polarity_map.get(top_idx, SemanticPolarity.from_str(label))
+
         probabilities = {self.labels[i]: float(probs_row[i]) for i in range(len(self.labels))}
+        raw_dist = {self.raw_id2label.get(i, self.labels[i]): float(probs_row[i]) for i in range(len(self.labels))}
 
         return PredictionResult(
             label=label,
@@ -295,6 +386,11 @@ class HuggingFaceWrapper:
             model_id=self.model_name,
             device=self.device,
             model_status="READY" if self.pipeline is not None else "HEURISTIC_FALLBACK",
+            raw_label=raw_lbl,
+            raw_label_id=top_idx,
+            raw_probability_distribution=raw_dist,
+            semantic_polarity=sem_pol,
+            normalized_probabilities=probabilities,
         )
 
     def predict_results_batch(self, texts: List[str], batch_size: int = 16) -> List[PredictionResult]:
@@ -315,7 +411,12 @@ class HuggingFaceWrapper:
                 top_idx = int(np.argmax(row))
                 confidence = float(row[top_idx])
                 label = self.labels[top_idx]
+                raw_lbl = self.raw_id2label.get(top_idx, label)
+                sem_pol = self.semantic_polarity_map.get(top_idx, SemanticPolarity.from_str(label))
+
                 probabilities = {self.labels[k]: float(row[k]) for k in range(len(self.labels))}
+                raw_dist = {self.raw_id2label.get(k, self.labels[k]): float(row[k]) for k in range(len(self.labels))}
+
                 results.append(
                     PredictionResult(
                         label=label,
@@ -325,6 +426,11 @@ class HuggingFaceWrapper:
                         model_id=self.model_name,
                         device=self.device,
                         model_status="READY" if self.pipeline is not None else "HEURISTIC_FALLBACK",
+                        raw_label=raw_lbl,
+                        raw_label_id=top_idx,
+                        raw_probability_distribution=raw_dist,
+                        semantic_polarity=sem_pol,
+                        normalized_probabilities=probabilities,
                     )
                 )
 

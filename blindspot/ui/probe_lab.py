@@ -16,6 +16,8 @@ from blindspot.core.types import (
 )
 from blindspot.perturbations.shared import SharedProbeGenerator, infer_semantic_intent, infer_expected_semantic_effect
 from blindspot.perturbations.engine import PerturbationEngine
+from blindspot.semantic import get_semantic_service
+from blindspot.ui.components import render_semantic_reference_panel
 
 SAMPLE_PRESETS = {
     "Literal": "The movie was great and the acting was top notch.",
@@ -312,6 +314,43 @@ def render_probe_lab():
                 st.rerun()
 
     # ==========================================
+    # 03 SEMANTIC GROUND-TRUTH REFERENCE (GEMINI VERIFICATION & HUMAN OVERRIDE)
+    # ==========================================
+    st.markdown(
+        """
+        <div style="background:#141824; border-left:3px solid #38bdf8; padding:8px 12px; margin:20px 0 10px 0;">
+            <strong style="color:#38bdf8; font-family:monospace; font-size:0.9rem;">03 SEMANTIC GROUND-TRUTH REFERENCE (GEMINI VERIFICATION & HUMAN OVERRIDE)</strong>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    selected_probes = [p for p in candidates if st.session_state["workbench_selection"].get(p.probe_id, False)]
+    wb_ref_set = st.session_state.get("workbench_semantic_reference")
+
+    if not selected_probes:
+        st.info("Select candidate probes above to establish and verify canonical semantic references.")
+    else:
+        c_sem1, c_sem2 = st.columns([3, 1])
+        with c_sem1:
+            st.caption("Establish canonical semantic references (POSITIVE, NEGATIVE, NEUTRAL) with Gemini and apply researcher overrides.")
+        with c_sem2:
+            if st.button("⚡ Annotate / Refresh Semantics", key="btn_wb_annotate_semantics", use_container_width=True):
+                with st.spinner("Annotating baseline and selected probes..."):
+                    svc = get_semantic_service()
+                    wb_ref_set = svc.annotate_experiment(
+                        baseline_text=st.session_state["workbench_seed"],
+                        probes=selected_probes,
+                        force_refresh=True,
+                    )
+                    st.session_state["workbench_semantic_reference"] = wb_ref_set
+                    st.success("Semantic reference established!")
+                    st.rerun()
+
+        if wb_ref_set is not None:
+            render_semantic_reference_panel(wb_ref_set, interactive=True, key_prefix="wb_sem")
+
+    # ==========================================
     # 04 STAGE PROBE SET FOR EXPERIMENT
     # ==========================================
     st.markdown(
@@ -323,7 +362,6 @@ def render_probe_lab():
         unsafe_allow_html=True,
     )
 
-    selected_probes = [p for p in candidates if st.session_state["workbench_selection"].get(p.probe_id, False)]
     num_selected = len(selected_probes)
 
     stage_btn_label = f"Send to Experiment Lab ({num_selected} Selected)" if num_selected > 0 else "Send to Experiment Lab"
@@ -333,6 +371,15 @@ def render_probe_lab():
         else:
             for p in selected_probes:
                 p.status = ProbeStatus.VERIFIED.value
+
+            if wb_ref_set is None:
+                svc = get_semantic_service()
+                wb_ref_set = svc.annotate_experiment(
+                    baseline_text=st.session_state["workbench_seed"],
+                    probes=selected_probes,
+                )
+                st.session_state["workbench_semantic_reference"] = wb_ref_set
+
             staged_set = SharedProbeSet(
                 probe_set_id=f"pset_{int(time.time())}",
                 seed_texts=[st.session_state["workbench_seed"]],
@@ -341,6 +388,7 @@ def render_probe_lab():
                 created_at=time.time(),
                 probe_set_version="2.2.0",
                 generator_version="2.2.0",
+                semantic_reference_set=wb_ref_set,
             )
             is_valid, issues = staged_set.validate()
             if not is_valid:

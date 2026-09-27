@@ -1,0 +1,39 @@
+{
+  "experiment_name": "E2E Semantic Ground-Truth Benchmark",
+  "model_ids": [
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "textattack/albert-base-v2-SST-2",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "textattack/bert-base-uncased-SST-2",
+    "cardiffnlp/twitter-roberta-base-sentiment"
+  ],
+  "seed_texts": [
+    "The movie was absolutely fantastic and thrilling."
+  ],
+  "sentence_types": {},
+  "perturbation_types": [
+    "double_negation",
+    "intensity",
+    "contrast_positive_append",
+    "contrast_negative_append",
+    "negation_insertion",
+    "synonym_substitution"
+  ],
+  "explainer_type": "both",
+  "performance_mode": "balanced",
+  "batch_size": null,
+  "random_seed": 42,
+  "confidence_threshold": 0.65,
+  "confidence_sensitivity_threshold_pts": 20.0,
+  "output_dir": "runs",
+  "has_selected_probes": true,
+  "selected_probe_ids": [
+    "prb_976dfaa1ef82",
+    "prb_3308cb2b0de2",
+    "prb_4e98f7c6eaaf",
+    "prb_8f2ad18bd435",
+    "prb_28b5fd3b1fe0",
+    "prb_2f02bf775223",
+    "prb_8a84c80b26ad"
+  ]
+}

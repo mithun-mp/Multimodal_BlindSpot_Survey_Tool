@@ -1,0 +1,41 @@
+{
+  "experiment_name": "Multimodel Robustness Audit",
+  "model_ids": [
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "cardiffnlp/twitter-roberta-base-sentiment",
+    "textattack/albert-base-v2-SST-2",
+    "textattack/bert-base-uncased-SST-2"
+  ],
+  "seed_texts": [
+    "i am not well"
+  ],
+  "sentence_types": {
+    "i am not well": "literal"
+  },
+  "perturbation_types": [
+    "negation_removal",
+    "double_negation",
+    "intensity",
+    "contrast_positive_append",
+    "synonym_substitution",
+    "contrast_negative_append"
+  ],
+  "explainer_type": "both",
+  "performance_mode": "balanced",
+  "batch_size": null,
+  "random_seed": 42,
+  "confidence_threshold": 0.65,
+  "confidence_sensitivity_threshold_pts": 20.0,
+  "output_dir": "runs",
+  "has_selected_probes": true,
+  "selected_probe_ids": [
+    "prb_c8c1e452ce1e",
+    "prb_99363fb2f65a",
+    "prb_5fee9e0c56fc",
+    "prb_fd37a1e79bb7",
+    "prb_597650cbb446",
+    "prb_45d543e2dcef",
+    "prb_3bd1874f39c6"
+  ]
+}

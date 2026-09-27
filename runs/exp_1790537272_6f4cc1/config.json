@@ -1,0 +1,41 @@
+{
+  "experiment_name": "Multimodel 00001",
+  "model_ids": [
+    "distilbert-base-uncased-finetuned-sst-2-english",
+    "textattack/albert-base-v2-SST-2",
+    "textattack/bert-base-uncased-SST-2",
+    "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "cardiffnlp/twitter-roberta-base-sentiment"
+  ],
+  "seed_texts": [
+    "He is a Good boy but very naughty"
+  ],
+  "sentence_types": {
+    "He is a Good boy but very naughty": "literal"
+  },
+  "perturbation_types": [
+    "double_negation",
+    "contrast_negative_append",
+    "synonym_substitution",
+    "negation_insertion",
+    "intensity",
+    "contrast_positive_append"
+  ],
+  "explainer_type": "both",
+  "performance_mode": "balanced",
+  "batch_size": null,
+  "random_seed": 42,
+  "confidence_threshold": 0.65,
+  "confidence_sensitivity_threshold_pts": 20.0,
+  "output_dir": "runs",
+  "has_selected_probes": true,
+  "selected_probe_ids": [
+    "prb_40691ebad054",
+    "prb_83a07c79c82d",
+    "prb_e47fc6c5c6c1",
+    "prb_0a253a786c28",
+    "prb_b0b54e3d1fa3",
+    "prb_67a0966bf0ce",
+    "prb_c550515af7da"
+  ]
+}

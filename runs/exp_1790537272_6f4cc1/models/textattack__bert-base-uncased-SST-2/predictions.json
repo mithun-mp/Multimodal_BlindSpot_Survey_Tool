@@ -1,0 +1,940 @@
+[
+  {
+    "baseline_id": "base_6dc08bea6804",
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_40691ebad054",
+    "seed_text": "He is a Good boy but very naughty",
+    "perturbed_text": "He is not a Good boy but very naughty",
+    "perturbation_type": "negation_insertion",
+    "category": "negation_insertion",
+    "expected_flip": true,
+    "expected_semantic_effect": "EXPECTED_FLIP",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9814519267874734,
+      "formatted_confidence": "98.15%",
+      "probabilities": {
+        "NEGATIVE": 0.018548073212526602,
+        "POSITIVE": 0.9814519267874734
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "1.85%",
+        "POSITIVE": "98.15%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   1.85%\nPOSITIVE   [====================]  98.15%",
+      "raw_logits": null,
+      "latency_ms": 192.27179999870714,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.018548073212526602,
+        "LABEL_1": 0.9814519267874734
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.9455947491287011,
+      "formatted_confidence": "94.56%",
+      "probabilities": {
+        "NEGATIVE": 0.9455947491287011,
+        "POSITIVE": 0.054405250871298855
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "94.56%",
+        "POSITIVE": "5.44%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=================== ]  94.56%\nPOSITIVE   [=                   ]   5.44%",
+      "raw_logits": null,
+      "latency_ms": 279.13410000162133,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_0",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.9455947491287011,
+        "LABEL_1": 0.054405250871298855
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9814519267874734,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9455947491287011,
+    "from_label": "POSITIVE",
+    "to_label": "NEGATIVE",
+    "transition_type": "POSITIVE \u2192 NEGATIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_40691ebad054",
+      "sentence_text": "He is not a Good boy but very naughty",
+      "semantic_polarity": "NEGATIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "REVERSE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEGATIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEGATIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790537111.91594,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "POSITIVE"
+    },
+    "is_flipped": true,
+    "raw_label_flip": true,
+    "polarity_flip": true,
+    "semantic_state_change": true,
+    "confidence_delta": -0.03585717765877228,
+    "confidence_delta_pts": -3.5857177658772277,
+    "confidence_delta_pp": -3.5857177658772277,
+    "formatted_confidence_delta": "-3.59 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": false,
+    "expected_relation": "POLARITY_REVERSED",
+    "observed_relation": "POLARITY_REVERSED",
+    "behavioral_outcome": "EXPECTED_FLIP",
+    "failure_type": "None",
+    "rationale": "Model correctly flipped and changed label (POSITIVE (POSITIVE) \u2192 NEGATIVE (NEGATIVE)) under DIFFERENT_LABEL expectation.",
+    "semantic_intent": "REVERSE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 279.13410000162133
+  },
+  {
+    "baseline_id": "base_6dc08bea6804",
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_83a07c79c82d",
+    "seed_text": "He is a Good boy but very naughty",
+    "perturbed_text": "It is not impossible that he is a Good boy but very naughty",
+    "perturbation_type": "double_negation",
+    "category": "double_negation",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9814519267874734,
+      "formatted_confidence": "98.15%",
+      "probabilities": {
+        "NEGATIVE": 0.018548073212526602,
+        "POSITIVE": 0.9814519267874734
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "1.85%",
+        "POSITIVE": "98.15%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   1.85%\nPOSITIVE   [====================]  98.15%",
+      "raw_logits": null,
+      "latency_ms": 192.27179999870714,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.018548073212526602,
+        "LABEL_1": 0.9814519267874734
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9097260900566435,
+      "formatted_confidence": "90.97%",
+      "probabilities": {
+        "NEGATIVE": 0.09027390994335643,
+        "POSITIVE": 0.9097260900566435
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "9.03%",
+        "POSITIVE": "90.97%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [==                  ]   9.03%\nPOSITIVE   [==================  ]  90.97%",
+      "raw_logits": null,
+      "latency_ms": 279.13410000162133,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.09027390994335643,
+        "LABEL_1": 0.9097260900566435
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9814519267874734,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9097260900566435,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_83a07c79c82d",
+      "sentence_text": "It is not impossible that he is a Good boy but very naughty",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790537111.9234123,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "POSITIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": -0.07172583673082988,
+    "confidence_delta_pts": -7.172583673082988,
+    "confidence_delta_pp": -7.172583673082988,
+    "formatted_confidence_delta": "-7.17 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)) under meaning-preserving probe.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 279.13410000162133
+  },
+  {
+    "baseline_id": "base_6dc08bea6804",
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_e47fc6c5c6c1",
+    "seed_text": "He is a Good boy but very naughty",
+    "perturbed_text": "He is a extremely Good boy but very naughty",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9814519267874734,
+      "formatted_confidence": "98.15%",
+      "probabilities": {
+        "NEGATIVE": 0.018548073212526602,
+        "POSITIVE": 0.9814519267874734
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "1.85%",
+        "POSITIVE": "98.15%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   1.85%\nPOSITIVE   [====================]  98.15%",
+      "raw_logits": null,
+      "latency_ms": 192.27179999870714,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.018548073212526602,
+        "LABEL_1": 0.9814519267874734
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9876955287672798,
+      "formatted_confidence": "98.77%",
+      "probabilities": {
+        "NEGATIVE": 0.012304471232720127,
+        "POSITIVE": 0.9876955287672798
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "1.23%",
+        "POSITIVE": "98.77%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   1.23%\nPOSITIVE   [====================]  98.77%",
+      "raw_logits": null,
+      "latency_ms": 279.13410000162133,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.012304471232720127,
+        "LABEL_1": 0.9876955287672798
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9814519267874734,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9876955287672798,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_e47fc6c5c6c1",
+      "sentence_text": "He is a extremely Good boy but very naughty",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790537111.9326582,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "POSITIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 0.006243601979806446,
+    "confidence_delta_pts": 0.6243601979806446,
+    "confidence_delta_pp": 0.6243601979806446,
+    "formatted_confidence_delta": "+0.62 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "POLARITY_STRENGTHENED",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Intensifier preserved polarity.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 279.13410000162133
+  },
+  {
+    "baseline_id": "base_6dc08bea6804",
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_0a253a786c28",
+    "seed_text": "He is a Good boy but very naughty",
+    "perturbed_text": "He is a somewhat Good boy but very naughty",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9814519267874734,
+      "formatted_confidence": "98.15%",
+      "probabilities": {
+        "NEGATIVE": 0.018548073212526602,
+        "POSITIVE": 0.9814519267874734
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "1.85%",
+        "POSITIVE": "98.15%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   1.85%\nPOSITIVE   [====================]  98.15%",
+      "raw_logits": null,
+      "latency_ms": 192.27179999870714,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.018548073212526602,
+        "LABEL_1": 0.9814519267874734
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9506190696523651,
+      "formatted_confidence": "95.06%",
+      "probabilities": {
+        "NEGATIVE": 0.04938093034763495,
+        "POSITIVE": 0.9506190696523651
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "4.94%",
+        "POSITIVE": "95.06%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=                   ]   4.94%\nPOSITIVE   [=================== ]  95.06%",
+      "raw_logits": null,
+      "latency_ms": 279.13410000162133,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.04938093034763495,
+        "LABEL_1": 0.9506190696523651
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9814519267874734,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9506190696523651,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_0a253a786c28",
+      "sentence_text": "He is a somewhat Good boy but very naughty",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790537111.9399765,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "POSITIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": -0.030832857135108305,
+    "confidence_delta_pts": -3.0832857135108305,
+    "confidence_delta_pp": -3.0832857135108305,
+    "formatted_confidence_delta": "-3.08 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "POLARITY_WEAKENED",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Downtoner preserved polarity (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)).",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 279.13410000162133
+  },
+  {
+    "baseline_id": "base_6dc08bea6804",
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_b0b54e3d1fa3",
+    "seed_text": "He is a Good boy but very naughty",
+    "perturbed_text": "He is a Decent boy but very naughty",
+    "perturbation_type": "synonym_substitution",
+    "category": "synonym_substitution",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9814519267874734,
+      "formatted_confidence": "98.15%",
+      "probabilities": {
+        "NEGATIVE": 0.018548073212526602,
+        "POSITIVE": 0.9814519267874734
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "1.85%",
+        "POSITIVE": "98.15%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   1.85%\nPOSITIVE   [====================]  98.15%",
+      "raw_logits": null,
+      "latency_ms": 192.27179999870714,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.018548073212526602,
+        "LABEL_1": 0.9814519267874734
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.8817947107954631,
+      "formatted_confidence": "88.18%",
+      "probabilities": {
+        "NEGATIVE": 0.11820528920453688,
+        "POSITIVE": 0.8817947107954631
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "11.82%",
+        "POSITIVE": "88.18%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [==                  ]  11.82%\nPOSITIVE   [==================  ]  88.18%",
+      "raw_logits": null,
+      "latency_ms": 279.13410000162133,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.11820528920453688,
+        "LABEL_1": 0.8817947107954631
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9814519267874734,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.8817947107954631,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_b0b54e3d1fa3",
+      "sentence_text": "He is a Decent boy but very naughty",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "MANUAL",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "MANUAL",
+      "model_used": "manual_fallback",
+      "timestamp": 1790537111.9497118,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "POSITIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": -0.09965721599201027,
+    "confidence_delta_pts": -9.965721599201027,
+    "confidence_delta_pp": -9.965721599201027,
+    "formatted_confidence_delta": "-9.97 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)) under meaning-preserving probe.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 279.13410000162133
+  },
+  {
+    "baseline_id": "base_6dc08bea6804",
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_67a0966bf0ce",
+    "seed_text": "He is a Good boy but very naughty",
+    "perturbed_text": "He is a Good boy but very naughty, however he could not repeat that performance.",
+    "perturbation_type": "contrast_negative_append",
+    "category": "contrast_negative_append",
+    "expected_flip": true,
+    "expected_semantic_effect": "EXPECTED_FLIP",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9814519267874734,
+      "formatted_confidence": "98.15%",
+      "probabilities": {
+        "NEGATIVE": 0.018548073212526602,
+        "POSITIVE": 0.9814519267874734
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "1.85%",
+        "POSITIVE": "98.15%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   1.85%\nPOSITIVE   [====================]  98.15%",
+      "raw_logits": null,
+      "latency_ms": 192.27179999870714,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.018548073212526602,
+        "LABEL_1": 0.9814519267874734
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9722930609485887,
+      "formatted_confidence": "97.23%",
+      "probabilities": {
+        "NEGATIVE": 0.0277069390514113,
+        "POSITIVE": 0.9722930609485887
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "2.77%",
+        "POSITIVE": "97.23%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=                   ]   2.77%\nPOSITIVE   [=================== ]  97.23%",
+      "raw_logits": null,
+      "latency_ms": 279.13410000162133,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0277069390514113,
+        "LABEL_1": 0.9722930609485887
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "POLARITY_MISMATCH"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9814519267874734,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9722930609485887,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_67a0966bf0ce",
+      "sentence_text": "He is a Good boy but very naughty, however he could not repeat that performance.",
+      "semantic_polarity": "NEGATIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "REVERSE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "NEGATIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEGATIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790537111.9573195,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "POSITIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": -0.0091588658388847,
+    "confidence_delta_pts": -0.91588658388847,
+    "confidence_delta_pp": -0.91588658388847,
+    "formatted_confidence_delta": "-0.92 percentage points",
+    "expectation_satisfied": false,
+    "expectation_match": false,
+    "preservation": true,
+    "expected_relation": "POLARITY_REVERSED",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "Probe introduces a polarity reversal (REVERSE_POLARITY), but model retained the same predicted class and polarity (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)).",
+    "semantic_intent": "REVERSE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 279.13410000162133
+  },
+  {
+    "baseline_id": "base_6dc08bea6804",
+    "model_id": "textattack/bert-base-uncased-SST-2",
+    "probe_id": "prb_c550515af7da",
+    "seed_text": "He is a Good boy but very naughty",
+    "perturbed_text": "He is a Good boy but very naughty, and he displayed remarkable skill.",
+    "perturbation_type": "contrast_positive_append",
+    "category": "contrast_positive_append",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9814519267874734,
+      "formatted_confidence": "98.15%",
+      "probabilities": {
+        "NEGATIVE": 0.018548073212526602,
+        "POSITIVE": 0.9814519267874734
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "1.85%",
+        "POSITIVE": "98.15%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   1.85%\nPOSITIVE   [====================]  98.15%",
+      "raw_logits": null,
+      "latency_ms": 192.27179999870714,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.018548073212526602,
+        "LABEL_1": 0.9814519267874734
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9993109199914647,
+      "formatted_confidence": "99.93%",
+      "probabilities": {
+        "NEGATIVE": 0.0006890800085352846,
+        "POSITIVE": 0.9993109199914647
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.07%",
+        "POSITIVE": "99.93%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.07%\nPOSITIVE   [====================]  99.93%",
+      "raw_logits": null,
+      "latency_ms": 279.13410000162133,
+      "model_id": "textattack/bert-base-uncased-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.0006890800085352846,
+        "LABEL_1": 0.9993109199914647
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9814519267874734,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9993109199914647,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_c550515af7da",
+      "sentence_text": "He is a Good boy but very naughty, and he displayed remarkable skill.",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "GEMINI_ACCEPTED",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "GEMINI_ACCEPTED",
+      "model_used": "manual_fallback",
+      "timestamp": 1790537111.965367,
+      "prompt_version": "v1.0",
+      "baseline_semantic_polarity": "POSITIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 0.017858993203991314,
+    "confidence_delta_pts": 1.7858993203991314,
+    "confidence_delta_pp": 1.7858993203991314,
+    "formatted_confidence_delta": "+1.79 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)) under meaning-preserving probe.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 279.13410000162133
+  }
+]

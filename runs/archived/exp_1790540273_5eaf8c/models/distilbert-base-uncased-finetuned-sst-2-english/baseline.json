@@ -1,0 +1,75 @@
+{
+  "The movie was great and the acting was top notch.": {
+    "baseline_id": "base_f3d936afa85f",
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "seed_text": "The movie was great and the acting was top notch.",
+    "original_text": "The movie was great and the acting was top notch.",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9998690500135242,
+      "formatted_confidence": "99.99%",
+      "probabilities": {
+        "NEGATIVE": 0.00013094998647581442,
+        "POSITIVE": 0.9998690500135242
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.01%",
+        "POSITIVE": "99.99%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.01%\nPOSITIVE   [====================]  99.99%",
+      "raw_logits": null,
+      "latency_ms": 42.75290000077803,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "POSITIVE",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "NEGATIVE": 0.00013094998647581442,
+        "POSITIVE": 0.9998690500135242
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "raw_label": "POSITIVE",
+    "raw_label_id": 1,
+    "semantic_polarity": "POSITIVE",
+    "confidence": 0.9998690500135242,
+    "full_probability_distribution": {
+      "NEGATIVE": 0.00013094998647581442,
+      "POSITIVE": 0.9998690500135242
+    },
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "POSITIVE",
+    "semantic_reference": {
+      "sentence_id": "baseline",
+      "sentence_text": "The movie was great and the acting was top notch.",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": null,
+      "verification_status": "MANUAL",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "MANUAL",
+      "model_used": "manual_fallback",
+      "timestamp": 1790540189.5199313,
+      "prompt_version": "v1.0"
+    },
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "latency_ms": 42.75290000077803
+  }
+}

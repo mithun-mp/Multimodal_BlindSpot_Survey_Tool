@@ -36,7 +36,13 @@ class ModelSpec:
     default: bool = False
     description: str = ""
     license: str = "Unknown"
+    id2label: Dict[int, str] = field(default_factory=dict)
+    label2id: Dict[str, int] = field(default_factory=dict)
+    model_family: str = "transformer"
+    tokenizer_name: str = ""
+    normalized_classes: List[str] = field(default_factory=list)
     metadata: Dict[str, Any] = field(default_factory=dict)
+
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -52,8 +58,93 @@ class ModelSpec:
             "default": self.default,
             "description": self.description,
             "license": self.license,
+            "id2label": self.id2label,
+            "label2id": self.label2id,
+            "model_family": self.model_family,
+            "tokenizer_name": self.tokenizer_name or self.model_id,
+            "normalized_classes": self.normalized_classes or list(self.labels),
             "metadata": self.metadata,
         }
+
+
+CANONICAL_MODEL_NAMES: Dict[str, Dict[str, Any]] = {
+    "distilbert-base-uncased-finetuned-sst-2-english": {
+        "display_name": "DistilBERT SST-2",
+        "short_name": "DistilBERT SST-2",
+        "abbrev": "DistilBERT",
+        "task_badge": "2-Class (Binary)",
+        "task_space": "2-class",
+        "label_schema": ["NEGATIVE", "POSITIVE"],
+        "provider": "HuggingFace",
+    },
+    "textattack/albert-base-v2-SST-2": {
+        "display_name": "ALBERT Base SST-2",
+        "short_name": "ALBERT SST-2",
+        "abbrev": "ALBERT",
+        "task_badge": "2-Class (Binary)",
+        "task_space": "2-class",
+        "label_schema": ["NEGATIVE", "POSITIVE"],
+        "provider": "TextAttack",
+    },
+    "textattack/bert-base-uncased-SST-2": {
+        "display_name": "BERT Base SST-2",
+        "short_name": "BERT SST-2",
+        "abbrev": "BERT",
+        "task_badge": "2-Class (Binary)",
+        "task_space": "2-class",
+        "label_schema": ["NEGATIVE", "POSITIVE"],
+        "provider": "TextAttack",
+    },
+    "cardiffnlp/twitter-roberta-base-sentiment-latest": {
+        "display_name": "Twitter-RoBERTa (Latest)",
+        "short_name": "Twitter-RoBERTa (Latest)",
+        "abbrev": "Twitter (Latest)",
+        "task_badge": "3-Class (Neg/Neu/Pos)",
+        "task_space": "3-class",
+        "label_schema": ["NEGATIVE", "NEUTRAL", "POSITIVE"],
+        "provider": "CardiffNLP",
+    },
+    "cardiffnlp/twitter-roberta-base-sentiment": {
+        "display_name": "Twitter-RoBERTa (Base)",
+        "short_name": "Twitter-RoBERTa (Base)",
+        "abbrev": "Twitter (Base)",
+        "task_badge": "3-Class (Neg/Neu/Pos)",
+        "task_space": "3-class",
+        "label_schema": ["NEGATIVE", "NEUTRAL", "POSITIVE"],
+        "provider": "CardiffNLP",
+    },
+}
+
+
+def get_model_display_name(model_id: str) -> str:
+    """Returns canonical, publication-ready display name for a model ID."""
+    if not model_id:
+        return "Unknown Model"
+    if model_id in CANONICAL_MODEL_NAMES:
+        return CANONICAL_MODEL_NAMES[model_id]["display_name"]
+    # Check by preset registry if available
+    preset = ModelRegistry.PRESETS.get(model_id) if hasattr(ModelRegistry, "PRESETS") else None
+    if preset and preset.get("name"):
+        return preset["name"]
+    return model_id.split("/")[-1]
+
+
+def get_model_short_name(model_id: str) -> str:
+    """Returns unique, non-colliding short name for tables, matrices, and plot axes."""
+    if not model_id:
+        return "Unknown"
+    if model_id in CANONICAL_MODEL_NAMES:
+        return CANONICAL_MODEL_NAMES[model_id]["short_name"]
+    return model_id.split("/")[-1]
+
+
+def get_model_abbrev(model_id: str) -> str:
+    """Returns ultra-compact unique abbreviation for tight plot ticks."""
+    if not model_id:
+        return "Unk"
+    if model_id in CANONICAL_MODEL_NAMES:
+        return CANONICAL_MODEL_NAMES[model_id]["abbrev"]
+    return model_id.split("/")[-1][:12]
 
 
 class ModelRegistry:
@@ -71,6 +162,11 @@ class ModelRegistry:
             "num_classes": 2,
             "label_names": ["NEGATIVE", "POSITIVE"],
             "architecture": "DistilBertForSequenceClassification",
+            "model_family": "DistilBERT",
+            "tokenizer_name": "distilbert-base-uncased-finetuned-sst-2-english",
+            "id2label": {0: "NEGATIVE", 1: "POSITIVE"},
+            "label2id": {"NEGATIVE": 0, "POSITIVE": 1},
+            "normalized_classes": ["NEGATIVE", "POSITIVE"],
             "parameters_millions": 66.96,
             "default": True,
             "source": "distilbert/distilbert-base-uncased-finetuned-sst-2-english",
@@ -86,6 +182,11 @@ class ModelRegistry:
             "num_classes": 2,
             "label_names": ["NEGATIVE", "POSITIVE"],
             "architecture": "AlbertForSequenceClassification",
+            "model_family": "ALBERT",
+            "tokenizer_name": "textattack/albert-base-v2-SST-2",
+            "id2label": {0: "NEGATIVE", 1: "POSITIVE"},
+            "label2id": {"NEGATIVE": 0, "POSITIVE": 1},
+            "normalized_classes": ["NEGATIVE", "POSITIVE"],
             "parameters_millions": 11.68,
             "default": True,
             "source": "textattack/albert-base-v2-SST-2",
@@ -101,6 +202,11 @@ class ModelRegistry:
             "num_classes": 3,
             "label_names": ["NEGATIVE", "NEUTRAL", "POSITIVE"],
             "architecture": "RobertaForSequenceClassification",
+            "model_family": "RoBERTa",
+            "tokenizer_name": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+            "id2label": {0: "Negative", 1: "Neutral", 2: "Positive"},
+            "label2id": {"Negative": 0, "Neutral": 1, "Positive": 2},
+            "normalized_classes": ["NEGATIVE", "NEUTRAL", "POSITIVE"],
             "parameters_millions": 124.65,
             "default": True,
             "source": "cardiffnlp/twitter-roberta-base-sentiment-latest",
@@ -116,6 +222,11 @@ class ModelRegistry:
             "num_classes": 2,
             "label_names": ["NEGATIVE", "POSITIVE"],
             "architecture": "BertForSequenceClassification",
+            "model_family": "BERT",
+            "tokenizer_name": "textattack/bert-base-uncased-SST-2",
+            "id2label": {0: "LABEL_0", 1: "LABEL_1"},
+            "label2id": {"LABEL_0": 0, "LABEL_1": 1},
+            "normalized_classes": ["NEGATIVE", "POSITIVE"],
             "parameters_millions": 109.48,
             "default": True,
             "source": "textattack/bert-base-uncased-SST-2",
@@ -131,6 +242,11 @@ class ModelRegistry:
             "num_classes": 3,
             "label_names": ["NEGATIVE", "NEUTRAL", "POSITIVE"],
             "architecture": "RobertaForSequenceClassification",
+            "model_family": "RoBERTa",
+            "tokenizer_name": "cardiffnlp/twitter-roberta-base-sentiment",
+            "id2label": {0: "LABEL_0", 1: "LABEL_1", 2: "LABEL_2"},
+            "label2id": {"LABEL_0": 0, "LABEL_1": 1, "LABEL_2": 2},
+            "normalized_classes": ["NEGATIVE", "NEUTRAL", "POSITIVE"],
             "parameters_millions": 124.65,
             "default": True,
             "source": "cardiffnlp/twitter-roberta-base-sentiment",
@@ -147,6 +263,11 @@ class ModelRegistry:
             "num_classes": 2,
             "label_names": ["Fake", "Real"],
             "architecture": "RobertaForSequenceClassification",
+            "model_family": "RoBERTa",
+            "tokenizer_name": "roberta-base-openai-detector",
+            "id2label": {0: "Fake", 1: "Real"},
+            "label2id": {"Fake": 0, "Real": 1},
+            "normalized_classes": ["Fake", "Real"],
             "parameters_millions": 124.65,
             "default": False,
             "source": "openai/roberta-base-openai-detector",
@@ -279,7 +400,12 @@ class ModelRegistry:
             raw_upper = [str(l).strip().upper() for l in raw_labels]
 
             # Reject if raw labels are non-sentiment
-            if any(l in {"FAKE", "REAL"} for l in raw_upper):
+            non_sentiment_terms = {
+                "FAKE", "REAL", "SPAM", "HAM", "ENTAILMENT", "CONTRADICTION",
+                "TOXIC", "SEVERE_TOXIC", "OBSCENE", "THREAT", "INSULT", "IDENTITY_HATE",
+                "AG_NEWS", "WORLD", "SPORTS", "BUSINESS", "SCI/TECH"
+            }
+            if any(l in non_sentiment_terms for l in raw_upper):
                 return (
                     False,
                     f"Model config contains non-sentiment labels: {raw_labels}. Rejected.",
@@ -287,6 +413,7 @@ class ModelRegistry:
                 )
 
             architecture = cfg.architectures[0] if getattr(cfg, "architectures", None) else "transformer"
+            normalized_classes = [normalize_label_name(l, num_classes) for l in raw_labels]
 
             return (
                 True,
@@ -297,7 +424,11 @@ class ModelRegistry:
                     "num_classes": num_classes,
                     "architecture": architecture,
                     "id2label": id2label,
-                    "labels": [normalize_label_name(l, num_classes) for l in raw_labels],
+                    "label2id": {v: k for k, v in id2label.items()} if id2label else {},
+                    "labels": normalized_classes,
+                    "normalized_classes": normalized_classes,
+                    "model_family": spec_dict.get("model_family", architecture),
+                    "tokenizer_name": spec_dict.get("tokenizer_name", model_id),
                 },
             )
 

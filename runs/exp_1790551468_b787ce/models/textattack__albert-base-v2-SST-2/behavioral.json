@@ -1,0 +1,968 @@
+[
+  {
+    "baseline_id": "base_407302bd6219",
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_c8c1e452ce1e",
+    "seed_text": "i am not well",
+    "perturbed_text": "i am well",
+    "perturbation_type": "negation_removal",
+    "category": "negation_removal",
+    "expected_flip": true,
+    "expected_semantic_effect": "EXPECTED_FLIP",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.9940632775037059,
+      "formatted_confidence": "99.41%",
+      "probabilities": {
+        "NEGATIVE": 0.9940632775037059,
+        "POSITIVE": 0.005936722496294017
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.41%",
+        "POSITIVE": "0.59%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.41%\nPOSITIVE   [                    ]   0.59%",
+      "raw_logits": null,
+      "latency_ms": 138.1133000004411,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_0",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.9940632775037059,
+        "LABEL_1": 0.005936722496294017
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9995830447092339,
+      "formatted_confidence": "99.96%",
+      "probabilities": {
+        "NEGATIVE": 0.00041695529076611176,
+        "POSITIVE": 0.9995830447092339
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.04%",
+        "POSITIVE": "99.96%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.04%\nPOSITIVE   [====================]  99.96%",
+      "raw_logits": null,
+      "latency_ms": 102.67658571430209,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.00041695529076611176,
+        "LABEL_1": 0.9995830447092339
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9940632775037059,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9995830447092339,
+    "from_label": "NEGATIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "NEGATIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_c8c1e452ce1e",
+      "sentence_text": "i am well",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.95,
+      "reason": "Expresses a healthy, satisfactory state of well-being.",
+      "ambiguity": "LOW",
+      "semantic_relation_to_baseline": "REVERSE_POLARITY",
+      "verification_status": "HUMAN_VERIFIED",
+      "provider": "GEMINI",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.95,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "HUMAN_VERIFIED",
+      "model_used": "gemini-3.8-flash",
+      "schema_version": "v2.0",
+      "annotation_version": "v2.0",
+      "timestamp": 1790551269.0065176,
+      "prompt_version": "v2.0",
+      "baseline_semantic_polarity": "NEGATIVE"
+    },
+    "is_flipped": true,
+    "raw_label_flip": true,
+    "polarity_flip": true,
+    "semantic_state_change": true,
+    "confidence_delta": 0.005519767205527937,
+    "confidence_delta_pts": 0.5519767205527937,
+    "confidence_delta_pp": 0.5519767205527937,
+    "formatted_confidence_delta": "+0.55 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": false,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "POLARITY_REVERSED",
+    "behavioral_outcome": "EXPECTED_FLIP",
+    "failure_type": "None",
+    "rationale": "Model correctly flipped and changed label (NEGATIVE (NEGATIVE) \u2192 POSITIVE (POSITIVE)) under DIFFERENT_LABEL expectation.",
+    "semantic_intent": "REVERSE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 102.67658571430209
+  },
+  {
+    "baseline_id": "base_407302bd6219",
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_99363fb2f65a",
+    "seed_text": "i am not well",
+    "perturbed_text": "i am not entirely non-well",
+    "perturbation_type": "double_negation",
+    "category": "double_negation",
+    "expected_flip": false,
+    "expected_semantic_effect": "SHIFT_TO_NEUTRAL",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.9940632775037059,
+      "formatted_confidence": "99.41%",
+      "probabilities": {
+        "NEGATIVE": 0.9940632775037059,
+        "POSITIVE": 0.005936722496294017
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.41%",
+        "POSITIVE": "0.59%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.41%\nPOSITIVE   [                    ]   0.59%",
+      "raw_logits": null,
+      "latency_ms": 138.1133000004411,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_0",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.9940632775037059,
+        "LABEL_1": 0.005936722496294017
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.6371889114379883,
+      "formatted_confidence": "63.72%",
+      "probabilities": {
+        "NEGATIVE": 0.6371889114379883,
+        "POSITIVE": 0.3628110885620117
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "63.72%",
+        "POSITIVE": "36.28%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=============       ]  63.72%\nPOSITIVE   [=======             ]  36.28%",
+      "raw_logits": null,
+      "latency_ms": 102.67658571430209,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_0",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.6371889114379883,
+        "LABEL_1": 0.3628110885620117
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "NOT_DIRECTLY_REPRESENTABLE"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9940632775037059,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.6371889114379883,
+    "from_label": "NEGATIVE",
+    "to_label": "NEGATIVE",
+    "transition_type": "NEGATIVE \u2192 NEGATIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_99363fb2f65a",
+      "sentence_text": "i am not entirely non-well",
+      "semantic_polarity": "NEUTRAL",
+      "confidence": 0.7,
+      "reason": "Double negation creates a qualified, ambiguous state indicating partial or slight well-being.",
+      "ambiguity": "MEDIUM",
+      "semantic_relation_to_baseline": "SHIFT_TO_NEUTRAL",
+      "verification_status": "HUMAN_VERIFIED",
+      "provider": "GEMINI",
+      "gemini_polarity": "NEUTRAL",
+      "gemini_confidence": 0.7,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEUTRAL",
+      "verification_source": "HUMAN_VERIFIED",
+      "model_used": "gemini-3.8-flash",
+      "schema_version": "v2.0",
+      "annotation_version": "v2.0",
+      "timestamp": 1790551269.0065389,
+      "prompt_version": "v2.0",
+      "baseline_semantic_polarity": "NEGATIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": -0.35687436606571765,
+    "confidence_delta_pts": -35.687436606571765,
+    "confidence_delta_pp": -35.687436606571765,
+    "formatted_confidence_delta": "-35.69 percentage points",
+    "expectation_satisfied": false,
+    "expectation_match": false,
+    "preservation": true,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "POLARITY_WEAKENED",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "Misweighted",
+    "rationale": "Polarity preserved, but confidence collapsed by 35.69 percentage points under meaning-preserving perturbation.",
+    "semantic_intent": "SHIFT_TO_NEUTRAL",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 102.67658571430209
+  },
+  {
+    "baseline_id": "base_407302bd6219",
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_5fee9e0c56fc",
+    "seed_text": "i am not well",
+    "perturbed_text": "i am extremely not well",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.9940632775037059,
+      "formatted_confidence": "99.41%",
+      "probabilities": {
+        "NEGATIVE": 0.9940632775037059,
+        "POSITIVE": 0.005936722496294017
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.41%",
+        "POSITIVE": "0.59%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.41%\nPOSITIVE   [                    ]   0.59%",
+      "raw_logits": null,
+      "latency_ms": 138.1133000004411,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_0",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.9940632775037059,
+        "LABEL_1": 0.005936722496294017
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.9918692324431542,
+      "formatted_confidence": "99.19%",
+      "probabilities": {
+        "NEGATIVE": 0.9918692324431542,
+        "POSITIVE": 0.00813076755684582
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.19%",
+        "POSITIVE": "0.81%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.19%\nPOSITIVE   [                    ]   0.81%",
+      "raw_logits": null,
+      "latency_ms": 102.67658571430209,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_0",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.9918692324431542,
+        "LABEL_1": 0.00813076755684582
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9940632775037059,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9918692324431542,
+    "from_label": "NEGATIVE",
+    "to_label": "NEGATIVE",
+    "transition_type": "NEGATIVE \u2192 NEGATIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_5fee9e0c56fc",
+      "sentence_text": "i am extremely not well",
+      "semantic_polarity": "NEGATIVE",
+      "confidence": 0.95,
+      "reason": "Intensifier strongly reinforces the negative state of health.",
+      "ambiguity": "LOW",
+      "semantic_relation_to_baseline": "PRESERVE_POLARITY",
+      "verification_status": "HUMAN_VERIFIED",
+      "provider": "GEMINI",
+      "gemini_polarity": "NEGATIVE",
+      "gemini_confidence": 0.95,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEGATIVE",
+      "verification_source": "HUMAN_VERIFIED",
+      "model_used": "gemini-3.8-flash",
+      "schema_version": "v2.0",
+      "annotation_version": "v2.0",
+      "timestamp": 1790551269.0065482,
+      "prompt_version": "v2.0",
+      "baseline_semantic_polarity": "NEGATIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": -0.0021940450605517636,
+    "confidence_delta_pts": -0.21940450605517636,
+    "confidence_delta_pp": -0.21940450605517636,
+    "formatted_confidence_delta": "-0.22 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "POLARITY_STRENGTHENED",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Intensifier preserved polarity.",
+    "semantic_intent": "PRESERVE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 102.67658571430209
+  },
+  {
+    "baseline_id": "base_407302bd6219",
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_fd37a1e79bb7",
+    "seed_text": "i am not well",
+    "perturbed_text": "i am somewhat not well",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.9940632775037059,
+      "formatted_confidence": "99.41%",
+      "probabilities": {
+        "NEGATIVE": 0.9940632775037059,
+        "POSITIVE": 0.005936722496294017
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.41%",
+        "POSITIVE": "0.59%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.41%\nPOSITIVE   [                    ]   0.59%",
+      "raw_logits": null,
+      "latency_ms": 138.1133000004411,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_0",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.9940632775037059,
+        "LABEL_1": 0.005936722496294017
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.9942427564612827,
+      "formatted_confidence": "99.42%",
+      "probabilities": {
+        "NEGATIVE": 0.9942427564612827,
+        "POSITIVE": 0.00575724353871732
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.42%",
+        "POSITIVE": "0.58%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.42%\nPOSITIVE   [                    ]   0.58%",
+      "raw_logits": null,
+      "latency_ms": 102.67658571430209,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_0",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.9942427564612827,
+        "LABEL_1": 0.00575724353871732
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9940632775037059,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9942427564612827,
+    "from_label": "NEGATIVE",
+    "to_label": "NEGATIVE",
+    "transition_type": "NEGATIVE \u2192 NEGATIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_fd37a1e79bb7",
+      "sentence_text": "i am somewhat not well",
+      "semantic_polarity": "NEGATIVE",
+      "confidence": 0.9,
+      "reason": "Downtoner attenuates the degree of illness but maintains negative polarity.",
+      "ambiguity": "LOW",
+      "semantic_relation_to_baseline": "PRESERVE_POLARITY",
+      "verification_status": "HUMAN_VERIFIED",
+      "provider": "GEMINI",
+      "gemini_polarity": "NEGATIVE",
+      "gemini_confidence": 0.9,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEGATIVE",
+      "verification_source": "HUMAN_VERIFIED",
+      "model_used": "gemini-3.8-flash",
+      "schema_version": "v2.0",
+      "annotation_version": "v2.0",
+      "timestamp": 1790551269.0065582,
+      "prompt_version": "v2.0",
+      "baseline_semantic_polarity": "NEGATIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 0.0001794789575767508,
+    "confidence_delta_pts": 0.01794789575767508,
+    "confidence_delta_pp": 0.01794789575767508,
+    "formatted_confidence_delta": "+0.02 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "POLARITY_WEAKENED",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Downtoner preserved polarity (NEGATIVE (NEGATIVE) \u2192 NEGATIVE (NEGATIVE)).",
+    "semantic_intent": "PRESERVE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 102.67658571430209
+  },
+  {
+    "baseline_id": "base_407302bd6219",
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_597650cbb446",
+    "seed_text": "i am not well",
+    "perturbed_text": "i am non well",
+    "perturbation_type": "synonym_substitution",
+    "category": "synonym_substitution",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.9940632775037059,
+      "formatted_confidence": "99.41%",
+      "probabilities": {
+        "NEGATIVE": 0.9940632775037059,
+        "POSITIVE": 0.005936722496294017
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.41%",
+        "POSITIVE": "0.59%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.41%\nPOSITIVE   [                    ]   0.59%",
+      "raw_logits": null,
+      "latency_ms": 138.1133000004411,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_0",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.9940632775037059,
+        "LABEL_1": 0.005936722496294017
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.809938359112466,
+      "formatted_confidence": "80.99%",
+      "probabilities": {
+        "NEGATIVE": 0.809938359112466,
+        "POSITIVE": 0.19006164088753402
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "80.99%",
+        "POSITIVE": "19.01%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [================    ]  80.99%\nPOSITIVE   [====                ]  19.01%",
+      "raw_logits": null,
+      "latency_ms": 102.67658571430209,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_0",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.809938359112466,
+        "LABEL_1": 0.19006164088753402
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9940632775037059,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.809938359112466,
+    "from_label": "NEGATIVE",
+    "to_label": "NEGATIVE",
+    "transition_type": "NEGATIVE \u2192 NEGATIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_597650cbb446",
+      "sentence_text": "i am non well",
+      "semantic_polarity": "NEGATIVE",
+      "confidence": 0.85,
+      "reason": "Unconventional phrasing still clearly indicates an unhealthy or adverse state.",
+      "ambiguity": "LOW",
+      "semantic_relation_to_baseline": "PRESERVE_POLARITY",
+      "verification_status": "HUMAN_VERIFIED",
+      "provider": "GEMINI",
+      "gemini_polarity": "NEGATIVE",
+      "gemini_confidence": 0.85,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEGATIVE",
+      "verification_source": "HUMAN_VERIFIED",
+      "model_used": "gemini-3.8-flash",
+      "schema_version": "v2.0",
+      "annotation_version": "v2.0",
+      "timestamp": 1790551269.0065672,
+      "prompt_version": "v2.0",
+      "baseline_semantic_polarity": "NEGATIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": -0.1841249183912399,
+    "confidence_delta_pts": -18.41249183912399,
+    "confidence_delta_pp": -18.41249183912399,
+    "formatted_confidence_delta": "-18.41 percentage points",
+    "expectation_satisfied": false,
+    "expectation_match": false,
+    "preservation": true,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "POLARITY_WEAKENED",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "Misweighted",
+    "rationale": "Polarity preserved, but confidence collapsed by 18.41 percentage points under meaning-preserving perturbation.",
+    "semantic_intent": "PRESERVE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 102.67658571430209
+  },
+  {
+    "baseline_id": "base_407302bd6219",
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_45d543e2dcef",
+    "seed_text": "i am not well",
+    "perturbed_text": "i am not well, however I could not repeat that performance.",
+    "perturbation_type": "contrast_negative_append",
+    "category": "contrast_negative_append",
+    "expected_flip": false,
+    "expected_semantic_effect": "EXPECTED_PRESERVE",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.9940632775037059,
+      "formatted_confidence": "99.41%",
+      "probabilities": {
+        "NEGATIVE": 0.9940632775037059,
+        "POSITIVE": 0.005936722496294017
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.41%",
+        "POSITIVE": "0.59%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.41%\nPOSITIVE   [                    ]   0.59%",
+      "raw_logits": null,
+      "latency_ms": 138.1133000004411,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_0",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.9940632775037059,
+        "LABEL_1": 0.005936722496294017
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.9707306243752257,
+      "formatted_confidence": "97.07%",
+      "probabilities": {
+        "NEGATIVE": 0.9707306243752257,
+        "POSITIVE": 0.029269375624774233
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "97.07%",
+        "POSITIVE": "2.93%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [=================== ]  97.07%\nPOSITIVE   [=                   ]   2.93%",
+      "raw_logits": null,
+      "latency_ms": 102.67658571430209,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_0",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.9707306243752257,
+        "LABEL_1": 0.029269375624774233
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9940632775037059,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.9707306243752257,
+    "from_label": "NEGATIVE",
+    "to_label": "NEGATIVE",
+    "transition_type": "NEGATIVE \u2192 NEGATIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_45d543e2dcef",
+      "sentence_text": "i am not well, however I could not repeat that performance.",
+      "semantic_polarity": "NEGATIVE",
+      "confidence": 0.85,
+      "reason": "Adversative clause introduces an additional negative evaluation of unrepeatable performance.",
+      "ambiguity": "MEDIUM",
+      "semantic_relation_to_baseline": "PRESERVE_POLARITY",
+      "verification_status": "HUMAN_VERIFIED",
+      "provider": "GEMINI",
+      "gemini_polarity": "NEGATIVE",
+      "gemini_confidence": 0.85,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEGATIVE",
+      "verification_source": "HUMAN_VERIFIED",
+      "model_used": "gemini-3.8-flash",
+      "schema_version": "v2.0",
+      "annotation_version": "v2.0",
+      "timestamp": 1790551269.006579,
+      "prompt_version": "v2.0",
+      "baseline_semantic_polarity": "NEGATIVE"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": -0.023332653128480207,
+    "confidence_delta_pts": -2.3332653128480207,
+    "confidence_delta_pp": -2.3332653128480207,
+    "formatted_confidence_delta": "-2.33 percentage points",
+    "expectation_satisfied": false,
+    "expectation_match": false,
+    "preservation": true,
+    "expected_relation": "POLARITY_REVERSED",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "Probe introduces a polarity reversal (PRESERVE_POLARITY), but model retained the same predicted class and polarity (NEGATIVE (NEGATIVE) \u2192 NEGATIVE (NEGATIVE)).",
+    "semantic_intent": "PRESERVE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 102.67658571430209
+  },
+  {
+    "baseline_id": "base_407302bd6219",
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "probe_id": "prb_3bd1874f39c6",
+    "seed_text": "i am not well",
+    "perturbed_text": "i am not well, and I displayed remarkable skill.",
+    "perturbation_type": "contrast_positive_append",
+    "category": "contrast_positive_append",
+    "expected_flip": true,
+    "expected_semantic_effect": "EXPECTED_FLIP",
+    "original_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.9940632775037059,
+      "formatted_confidence": "99.41%",
+      "probabilities": {
+        "NEGATIVE": 0.9940632775037059,
+        "POSITIVE": 0.005936722496294017
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.41%",
+        "POSITIVE": "0.59%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.41%\nPOSITIVE   [                    ]   0.59%",
+      "raw_logits": null,
+      "latency_ms": 138.1133000004411,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_0",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.9940632775037059,
+        "LABEL_1": 0.005936722496294017
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9784615258528633,
+      "formatted_confidence": "97.85%",
+      "probabilities": {
+        "NEGATIVE": 0.021538474147136676,
+        "POSITIVE": 0.9784615258528633
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "2.15%",
+        "POSITIVE": "97.85%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   2.15%\nPOSITIVE   [====================]  97.85%",
+      "raw_logits": null,
+      "latency_ms": 102.67658571430209,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_1",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.021538474147136676,
+        "LABEL_1": 0.9784615258528633
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "NEGATIVE",
+    "original_confidence": 0.9940632775037059,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9784615258528633,
+    "from_label": "NEGATIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "NEGATIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_3bd1874f39c6",
+      "sentence_text": "i am not well, and I displayed remarkable skill.",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.8,
+      "reason": "The prominent evaluation of displaying remarkable skill outweighs the initial admission of illness.",
+      "ambiguity": "MEDIUM",
+      "semantic_relation_to_baseline": "REVERSE_POLARITY",
+      "verification_status": "HUMAN_VERIFIED",
+      "provider": "GEMINI",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.8,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "HUMAN_VERIFIED",
+      "model_used": "gemini-3.8-flash",
+      "schema_version": "v2.0",
+      "annotation_version": "v2.0",
+      "timestamp": 1790551269.00659,
+      "prompt_version": "v2.0",
+      "baseline_semantic_polarity": "NEGATIVE"
+    },
+    "is_flipped": true,
+    "raw_label_flip": true,
+    "polarity_flip": true,
+    "semantic_state_change": true,
+    "confidence_delta": -0.015601751650842655,
+    "confidence_delta_pts": -1.5601751650842655,
+    "confidence_delta_pp": -1.5601751650842655,
+    "formatted_confidence_delta": "-1.56 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": false,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "POLARITY_REVERSED",
+    "behavioral_outcome": "EXPECTED_FLIP",
+    "failure_type": "None",
+    "rationale": "Model correctly flipped and changed label (NEGATIVE (NEGATIVE) \u2192 POSITIVE (POSITIVE)) under DIFFERENT_LABEL expectation.",
+    "semantic_intent": "REVERSE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 102.67658571430209
+  }
+]

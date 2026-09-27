@@ -1,0 +1,79 @@
+{
+  "i am not well": {
+    "baseline_id": "base_407302bd6219",
+    "model_id": "textattack/albert-base-v2-SST-2",
+    "seed_text": "i am not well",
+    "original_text": "i am not well",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.9940632775037059,
+      "formatted_confidence": "99.41%",
+      "probabilities": {
+        "NEGATIVE": 0.9940632775037059,
+        "POSITIVE": 0.005936722496294017
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.41%",
+        "POSITIVE": "0.59%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.41%\nPOSITIVE   [                    ]   0.59%",
+      "raw_logits": null,
+      "latency_ms": 138.1133000004411,
+      "model_id": "textattack/albert-base-v2-SST-2",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "LABEL_0",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "LABEL_0": 0.9940632775037059,
+        "LABEL_1": 0.005936722496294017
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "raw_label": "LABEL_0",
+    "raw_label_id": 0,
+    "semantic_polarity": "NEGATIVE",
+    "confidence": 0.9940632775037059,
+    "full_probability_distribution": {
+      "NEGATIVE": 0.9940632775037059,
+      "POSITIVE": 0.005936722496294017
+    },
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "NEGATIVE",
+    "semantic_reference": {
+      "sentence_id": "baseline",
+      "sentence_text": "i am not well",
+      "semantic_polarity": "NEGATIVE",
+      "confidence": 0.95,
+      "reason": "Expresses an adverse state of physical or emotional health.",
+      "ambiguity": "LOW",
+      "semantic_relation_to_baseline": "PRESERVE_POLARITY",
+      "verification_status": "HUMAN_VERIFIED",
+      "provider": "GEMINI",
+      "gemini_polarity": "NEGATIVE",
+      "gemini_confidence": 0.95,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEGATIVE",
+      "verification_source": "HUMAN_VERIFIED",
+      "model_used": "gemini-3.8-flash",
+      "schema_version": "v2.0",
+      "annotation_version": "v2.0",
+      "timestamp": 1790551269.0064878,
+      "prompt_version": "v2.0"
+    },
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "latency_ms": 138.1133000004411
+  }
+}

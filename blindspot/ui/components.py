@@ -418,8 +418,19 @@ def render_failure_record(failure: Dict[str, Any], idx: int = 0) -> None:
     # ==========================================
     orig_label_clean = (orig_label or "POSITIVE").upper()
     pert_label_clean = (pert_label or "POSITIVE").upper()
+    sem_ref = failure.get("semantic_reference") or {}
+    sem_pol = sem_ref.get("final_semantic_polarity", "")
+    sem_rel = sem_ref.get("semantic_relation_to_baseline", "")
 
-    if expected_flip:
+    if sem_pol:
+        expected_target_label = sem_pol.upper()
+        if sem_rel:
+            expected_badge_text = f"EXPECTED {sem_rel.upper()}"
+            expected_badge_bg = "#0284c7" if ("REVERSE" in sem_rel.upper() or "SHIFT" in sem_rel.upper()) else "#334155"
+        else:
+            expected_badge_text = f"EXPECTED {sem_pol.upper()}"
+            expected_badge_bg = "#0284c7"
+    elif expected_flip:
         if orig_label_clean == "POSITIVE":
             expected_target_label = "NEGATIVE"
         elif orig_label_clean == "NEGATIVE":
@@ -724,4 +735,211 @@ def render_markdown_with_images(content: str, base_dir: str = "runs"):
     remaining = content[last_idx:].strip()
     if remaining:
         st.markdown(remaining)
+
+
+def render_gemini_usage_card(
+    ref_set: Optional[Any] = None,
+    requests_count: int = 0,
+    cache_hits: int = 0,
+    annotated_count: int = 0,
+    failures: int = 0,
+    retries: int = 0,
+) -> None:
+    """Renders persistent usage and telemetry panel for Gemini Semantic Reference (Section 20)."""
+    if ref_set is not None:
+        cache_hits = getattr(ref_set, "cache_hits", 0)
+        requests_count = getattr(ref_set, "api_requests", 0)
+        annotated_count = len(getattr(ref_set, "probe_annotations", {})) + 1
+        est_tokens = (requests_count * 350) + (annotated_count * 45)
+    else:
+        est_tokens = (requests_count * 350) + (annotated_count * 45)
+
+    html = f"""
+    <div style="background:#0f172a; border:1px solid #1e293b; border-radius:6px; padding:10px 14px; margin:10px 0 14px 0; font-family:monospace; font-size:0.8rem;">
+        <div style="color:#38bdf8; font-weight:bold; margin-bottom:6px;">⚡ GEMINI SEMANTIC REFERENCE USAGE</div>
+        <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px; color:#94a3b8;">
+            <div>Requests this experiment: <strong style="color:#f1f5f9;">{requests_count}</strong></div>
+            <div>Cache hits: <strong style="color:#10b981;">{cache_hits}</strong></div>
+            <div>Sentences annotated: <strong style="color:#e2e8f0;">{annotated_count}</strong></div>
+            <div>API failures: <strong style="color:#e2e8f0;">{failures}</strong></div>
+            <div>Retries: <strong style="color:#e2e8f0;">{retries}</strong></div>
+            <div>Estimated tokens: <strong style="color:#e2e8f0;">~{est_tokens}</strong></div>
+        </div>
+    </div>
+    """
+    st.markdown(html, unsafe_allow_html=True)
+
+
+def render_semantic_reference_panel(
+    ref_set: Any,
+    interactive: bool = True,
+    key_prefix: str = "sem_panel",
+) -> None:
+    """
+    Renders dedicated Semantic Reference card and Human Verification / Override controls
+    per Sections 4, 7, 9, 21, 27 of prompt.
+    """
+    if ref_set is None:
+        st.info("Semantic reference set is not yet established.")
+        return
+
+    base_annot = getattr(ref_set, "baseline_annotation", None)
+    if not base_annot:
+        return
+
+    is_online = getattr(ref_set, "annotation_engine", "manual") == "gemini"
+    status_label = "Connected" if is_online else "Offline (Manual Mode)"
+    status_color = "#10b981" if is_online else "#f59e0b"
+    model_name = getattr(ref_set, "model", "manual")
+    frozen_status = "🔒 FROZEN" if getattr(ref_set, "frozen", False) else "🔓 ACTIVE"
+
+    provider_name = getattr(base_annot, "provider", "NONE")
+    if provider_name == "GEMINI" or is_online:
+        disp_provider = "Google Gemini"
+    elif provider_name == "LOCAL_HEURISTIC":
+        disp_provider = "Local Heuristic"
+    else:
+        disp_provider = "Manual"
+
+    base_conf_str = f"{base_annot.confidence*100:.0f}%" if base_annot.confidence is not None else "N/A"
+    base_gem_conf_str = f"{base_annot.gemini_confidence*100:.0f}%" if base_annot.gemini_confidence is not None else "N/A"
+    base_v_status = base_annot.verification_status.value if hasattr(base_annot.verification_status, "value") else str(base_annot.verification_status)
+    base_ref_title = "Human-Verified Semantic Reference" if base_v_status == "HUMAN_VERIFIED" else ("Human-Overridden Semantic Reference" if base_v_status == "HUMAN_OVERRIDDEN" else "Semantic Reference (Unverified)")
+
+    st.markdown(
+        f"""
+        <div style="background:#141824; border:1px solid #26334d; border-radius:6px; padding:14px 18px; margin:14px 0;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <div style="font-size:0.95rem; font-weight:700; color:#f1f5f9; font-family:monospace; letter-spacing:0.02em;">
+                    SEMANTIC REFERENCE ENGINE
+                </div>
+                <div style="display:flex; gap:8px;">
+                    <span style="background:#0f172a; border:1px solid #1e293b; border-radius:4px; padding:2px 8px; font-size:0.75rem; font-family:monospace; color:#cbd5e1;">
+                        Provider: <strong style="color:#f1f5f9;">{disp_provider}</strong>
+                    </span>
+                    <span style="background:#0f172a; border:1px solid #1e293b; border-radius:4px; padding:2px 8px; font-size:0.75rem; font-family:monospace; color:#cbd5e1;">
+                        Model: <strong style="color:#38bdf8;">{model_name}</strong>
+                    </span>
+                    <span style="background:#0f172a; border:1px solid #1e293b; border-radius:4px; padding:2px 8px; font-size:0.75rem; font-family:monospace;">
+                        <span style="color:{status_color}; font-weight:bold;">●</span> <strong style="color:#f1f5f9;">{status_label}</strong>
+                    </span>
+                    <span style="background:#0f172a; border:1px solid #1e293b; border-radius:4px; padding:2px 8px; font-size:0.75rem; font-family:monospace; color:#94a3b8;">
+                        {frozen_status}
+                    </span>
+                </div>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    # Render telemetry
+    render_gemini_usage_card(ref_set)
+
+    # Baseline Card
+    st.markdown(
+        f"""
+        <div style="background:#0b1329; border:1px solid #1e3a8a; border-radius:6px; padding:12px 16px; margin-bottom:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                <span style="font-size:0.85rem; font-weight:bold; color:#60a5fa; font-family:monospace;">
+                    BASELINE SEMANTIC REFERENCE
+                </span>
+                <span style="font-size:0.75rem; font-family:monospace; color:#cbd5e1;">
+                    Status: <strong style="color:#10b981;">{base_v_status}</strong>
+                </span>
+            </div>
+            <div style="font-size:0.9rem; color:#f1f5f9; margin-bottom:8px;">
+                "{base_annot.sentence_text}"
+            </div>
+            <div style="font-family:monospace; font-size:0.8rem; color:#94a3b8; display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
+                <div>Semantic Polarity: <strong style="color:#38bdf8;">{base_annot.final_semantic_polarity.value}</strong></div>
+                <div>Source: <span style="color:#e2e8f0;">{disp_provider}</span></div>
+                <div>Gemini Confidence: <strong style="color:#e2e8f0;">{base_gem_conf_str}</strong></div>
+                <div>Classification: <strong style="color:#10b981;">{base_ref_title}</strong></div>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    # Baseline Human Override controls
+    if interactive and not getattr(ref_set, "frozen", False):
+        b_col1, b_col2, b_col3, b_col4 = st.columns(4)
+        with b_col1:
+            if st.button("✓ Accept Baseline", key=f"{key_prefix}_accept_base", use_container_width=True):
+                base_annot.accept_gemini()
+                ref_set._recompute_relations()
+                st.rerun()
+        with b_col2:
+            if st.button("Change to POSITIVE", key=f"{key_prefix}_base_pos", use_container_width=True):
+                base_annot.override_human("POSITIVE")
+                ref_set._recompute_relations()
+                st.rerun()
+        with b_col3:
+            if st.button("Change to NEGATIVE", key=f"{key_prefix}_base_neg", use_container_width=True):
+                base_annot.override_human("NEGATIVE")
+                ref_set._recompute_relations()
+                st.rerun()
+        with b_col4:
+            if st.button("Change to NEUTRAL", key=f"{key_prefix}_base_neu", use_container_width=True):
+                base_annot.override_human("NEUTRAL")
+                ref_set._recompute_relations()
+                st.rerun()
+
+    # Probes Reference List
+    probe_annots = getattr(ref_set, "probe_annotations", {})
+    with st.expander(f"Inspect Probe Semantic References ({len(probe_annots)} probes)", expanded=True):
+        for pid, pannot in probe_annots.items():
+            rel_val = getattr(pannot, "semantic_relation_to_baseline", None)
+            rel_str = rel_val.value if rel_val and hasattr(rel_val, "value") else str(rel_val or "PRESERVE_POLARITY")
+            p_final = pannot.final_semantic_polarity.value if hasattr(pannot.final_semantic_polarity, "value") else str(pannot.final_semantic_polarity)
+            p_gem_conf = f"{pannot.gemini_confidence*100:.0f}%" if getattr(pannot, "gemini_confidence", None) is not None else "N/A"
+            p_status = pannot.verification_status.value if hasattr(pannot.verification_status, "value") else str(pannot.verification_status)
+
+            st.markdown(
+                f"""
+                <div style="background:#0f172a; border:1px solid #1e293b; border-radius:4px; padding:10px 14px; margin-bottom:8px; font-family:monospace; font-size:0.8rem;">
+                    <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+                        <span style="color:#38bdf8; font-weight:bold;">PROBE: {pid[:10]}</span>
+                        <span style="color:#94a3b8;">Status: <strong style="color:#f1f5f9;">{p_status}</strong></span>
+                    </div>
+                    <div style="color:#f1f5f9; margin-bottom:6px;">"{pannot.sentence_text}"</div>
+                    <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:8px; color:#94a3b8; font-size:0.75rem;">
+                        <div>Baseline: <strong style="color:#e2e8f0;">{base_annot.final_semantic_polarity.value}</strong></div>
+                        <div>Probe Polarity: <strong style="color:#38bdf8;">{p_final}</strong></div>
+                        <div>Relation: <strong style="color:#10b981;">{rel_str}</strong></div>
+                        <div>Gemini Conf: <strong style="color:#e2e8f0;">{p_gem_conf}</strong></div>
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+            if interactive and not getattr(ref_set, "frozen", False):
+                p_c1, p_c2, p_c3, p_c4, p_c5 = st.columns(5)
+                with p_c1:
+                    if st.button("✓ Accept", key=f"{key_prefix}_acc_{pid}", use_container_width=True):
+                        pannot.accept_gemini()
+                        ref_set._recompute_relations()
+                        st.rerun()
+                with p_c2:
+                    if st.button("➔ POSITIVE", key=f"{key_prefix}_pos_{pid}", use_container_width=True):
+                        pannot.override_human("POSITIVE")
+                        ref_set._recompute_relations()
+                        st.rerun()
+                with p_c3:
+                    if st.button("➔ NEGATIVE", key=f"{key_prefix}_neg_{pid}", use_container_width=True):
+                        pannot.override_human("NEGATIVE")
+                        ref_set._recompute_relations()
+                        st.rerun()
+                with p_c4:
+                    if st.button("➔ NEUTRAL", key=f"{key_prefix}_neu_{pid}", use_container_width=True):
+                        pannot.override_human("NEUTRAL")
+                        ref_set._recompute_relations()
+                        st.rerun()
+                with p_c5:
+                    if st.button("? UNCERTAIN", key=f"{key_prefix}_unc_{pid}", use_container_width=True):
+                        ref_set.mark_probe_uncertain(pid, "Researcher marked ambiguous/context-dependent")
+                        st.rerun()
+
 

@@ -1,0 +1,81 @@
+{
+  "The movie was absolutely fantastic and thrilling.": {
+    "baseline_id": "base_0c32ee613256",
+    "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+    "seed_text": "The movie was absolutely fantastic and thrilling.",
+    "original_text": "The movie was absolutely fantastic and thrilling.",
+    "sentence_type": "literal",
+    "prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9868576466901463,
+      "formatted_confidence": "98.69%",
+      "probabilities": {
+        "NEGATIVE": 0.0044022802928324585,
+        "NEUTRAL": 0.0087400730170212,
+        "POSITIVE": 0.9868576466901463
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.44%",
+        "NEUTRAL": "0.87%",
+        "POSITIVE": "98.69%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.44%\nNEUTRAL    [                    ]   0.87%\nPOSITIVE   [====================]  98.69%",
+      "raw_logits": null,
+      "latency_ms": 611.6605999995954,
+      "model_id": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "positive",
+      "raw_label_id": 2,
+      "raw_probability_distribution": {
+        "negative": 0.0044022802928324585,
+        "neutral": 0.0087400730170212,
+        "positive": 0.9868576466901463
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "NEUTRAL",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "raw_label": "positive",
+    "raw_label_id": 2,
+    "semantic_polarity": "POSITIVE",
+    "confidence": 0.9868576466901463,
+    "full_probability_distribution": {
+      "NEGATIVE": 0.0044022802928324585,
+      "NEUTRAL": 0.0087400730170212,
+      "POSITIVE": 0.9868576466901463
+    },
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "POSITIVE",
+    "semantic_reference": {
+      "sentence_id": "baseline",
+      "sentence_text": "The movie was absolutely fantastic and thrilling.",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": null,
+      "verification_status": "MANUAL",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "MANUAL",
+      "model_used": "manual_fallback",
+      "timestamp": 1790507866.0236247,
+      "prompt_version": "v1.0"
+    },
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "latency_ms": 611.6605999995954
+  }
+}

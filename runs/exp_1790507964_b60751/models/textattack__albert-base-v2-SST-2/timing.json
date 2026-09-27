@@ -1,0 +1,13 @@
+{
+  "model_id": "textattack/albert-base-v2-SST-2",
+  "cache_lookup_ms": 0.0,
+  "model_load_ms": 11396.11,
+  "tokenizer_load_ms": 0.0,
+  "baseline_inference_ms": 0.0,
+  "probe_inference_ms": 196.94,
+  "total_inference_ms": 196.94,
+  "analysis_ms": 2.68,
+  "report_ms": 0.01,
+  "persistence_ms": 0.0,
+  "total_duration_sec": 27.478
+}

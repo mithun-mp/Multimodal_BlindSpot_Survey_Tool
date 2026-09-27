@@ -1,0 +1,933 @@
+[
+  {
+    "baseline_id": "base_f2bd156aafcb",
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_976dfaa1ef82",
+    "seed_text": "The movie was absolutely fantastic and thrilling.",
+    "perturbed_text": "The movie was not absolutely fantastic and thrilling.",
+    "perturbation_type": "negation_insertion",
+    "category": "negation_insertion",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9998857145869248,
+      "formatted_confidence": "99.99%",
+      "probabilities": {
+        "NEGATIVE": 0.00011428541307519427,
+        "POSITIVE": 0.9998857145869248
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.01%",
+        "POSITIVE": "99.99%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.01%\nPOSITIVE   [====================]  99.99%",
+      "raw_logits": null,
+      "latency_ms": 47.50119999516755,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "POSITIVE",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "NEGATIVE": 0.00011428541307519427,
+        "POSITIVE": 0.9998857145869248
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "NEGATIVE",
+      "predicted_label": "NEGATIVE",
+      "confidence": 0.999720408140856,
+      "formatted_confidence": "99.97%",
+      "probabilities": {
+        "NEGATIVE": 0.999720408140856,
+        "POSITIVE": 0.00027959185914399026
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "99.97%",
+        "POSITIVE": "0.03%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====================]  99.97%\nPOSITIVE   [                    ]   0.03%",
+      "raw_logits": null,
+      "latency_ms": 14.262585713627882,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "NEGATIVE",
+      "raw_label_id": 0,
+      "raw_probability_distribution": {
+        "NEGATIVE": 0.999720408140856,
+        "POSITIVE": 0.00027959185914399026
+      },
+      "semantic_polarity": "NEGATIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9998857145869248,
+    "perturbed_label": "NEGATIVE",
+    "perturbed_confidence": 0.999720408140856,
+    "from_label": "POSITIVE",
+    "to_label": "NEGATIVE",
+    "transition_type": "POSITIVE \u2192 NEGATIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_976dfaa1ef82",
+      "sentence_text": "The movie was not absolutely fantastic and thrilling.",
+      "semantic_polarity": "NEGATIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "REVERSE",
+      "verification_status": "MANUAL",
+      "gemini_polarity": "NEGATIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEGATIVE",
+      "verification_source": "MANUAL",
+      "model_used": "manual_fallback",
+      "timestamp": 1790507866.0243986,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": true,
+    "raw_label_flip": true,
+    "polarity_flip": true,
+    "semantic_state_change": true,
+    "confidence_delta": -0.0001653064460687137,
+    "confidence_delta_pts": -0.01653064460687137,
+    "confidence_delta_pp": -0.01653064460687137,
+    "formatted_confidence_delta": "-0.02 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": false,
+    "expected_relation": "POLARITY_REVERSED",
+    "observed_relation": "POLARITY_REVERSED",
+    "behavioral_outcome": "EXPECTED_FLIP",
+    "failure_type": "None",
+    "rationale": "Model correctly flipped and changed label (POSITIVE (POSITIVE) \u2192 NEGATIVE (NEGATIVE)) under DIFFERENT_LABEL expectation.",
+    "semantic_intent": "REVERSE_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 14.262585713627882
+  },
+  {
+    "baseline_id": "base_f2bd156aafcb",
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_3308cb2b0de2",
+    "seed_text": "The movie was absolutely fantastic and thrilling.",
+    "perturbed_text": "It is not impossible that the movie was absolutely fantastic and thrilling.",
+    "perturbation_type": "double_negation",
+    "category": "double_negation",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9998857145869248,
+      "formatted_confidence": "99.99%",
+      "probabilities": {
+        "NEGATIVE": 0.00011428541307519427,
+        "POSITIVE": 0.9998857145869248
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.01%",
+        "POSITIVE": "99.99%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.01%\nPOSITIVE   [====================]  99.99%",
+      "raw_logits": null,
+      "latency_ms": 47.50119999516755,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "POSITIVE",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "NEGATIVE": 0.00011428541307519427,
+        "POSITIVE": 0.9998857145869248
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9998517187900964,
+      "formatted_confidence": "99.99%",
+      "probabilities": {
+        "NEGATIVE": 0.00014828120990366354,
+        "POSITIVE": 0.9998517187900964
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.01%",
+        "POSITIVE": "99.99%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.01%\nPOSITIVE   [====================]  99.99%",
+      "raw_logits": null,
+      "latency_ms": 14.262585713627882,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "POSITIVE",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "NEGATIVE": 0.00014828120990366354,
+        "POSITIVE": 0.9998517187900964
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9998857145869248,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9998517187900964,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_3308cb2b0de2",
+      "sentence_text": "It is not impossible that the movie was absolutely fantastic and thrilling.",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "MANUAL",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "MANUAL",
+      "model_used": "manual_fallback",
+      "timestamp": 1790507866.025281,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": -3.3995796828389935e-05,
+    "confidence_delta_pts": -0.0033995796828389935,
+    "confidence_delta_pp": -0.0033995796828389935,
+    "formatted_confidence_delta": "-0.00 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)) under meaning-preserving probe.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 14.262585713627882
+  },
+  {
+    "baseline_id": "base_f2bd156aafcb",
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_4e98f7c6eaaf",
+    "seed_text": "The movie was absolutely fantastic and thrilling.",
+    "perturbed_text": "The movie was absolutely extremely fantastic and thrilling.",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "strengthen",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9998857145869248,
+      "formatted_confidence": "99.99%",
+      "probabilities": {
+        "NEGATIVE": 0.00011428541307519427,
+        "POSITIVE": 0.9998857145869248
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.01%",
+        "POSITIVE": "99.99%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.01%\nPOSITIVE   [====================]  99.99%",
+      "raw_logits": null,
+      "latency_ms": 47.50119999516755,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "POSITIVE",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "NEGATIVE": 0.00011428541307519427,
+        "POSITIVE": 0.9998857145869248
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9998871377432882,
+      "formatted_confidence": "99.99%",
+      "probabilities": {
+        "NEGATIVE": 0.00011286225671185863,
+        "POSITIVE": 0.9998871377432882
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.01%",
+        "POSITIVE": "99.99%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.01%\nPOSITIVE   [====================]  99.99%",
+      "raw_logits": null,
+      "latency_ms": 14.262585713627882,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "POSITIVE",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "NEGATIVE": 0.00011286225671185863,
+        "POSITIVE": 0.9998871377432882
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9998857145869248,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9998871377432882,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_4e98f7c6eaaf",
+      "sentence_text": "The movie was absolutely extremely fantastic and thrilling.",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "MANUAL",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "MANUAL",
+      "model_used": "manual_fallback",
+      "timestamp": 1790507866.0260298,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 1.4231563634226063e-06,
+    "confidence_delta_pts": 0.00014231563634226063,
+    "confidence_delta_pp": 0.00014231563634226063,
+    "formatted_confidence_delta": "+0.00 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "POLARITY_STRENGTHENED",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Intensifier preserved polarity.",
+    "semantic_intent": "STRENGTHEN_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 14.262585713627882
+  },
+  {
+    "baseline_id": "base_f2bd156aafcb",
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_8f2ad18bd435",
+    "seed_text": "The movie was absolutely fantastic and thrilling.",
+    "perturbed_text": "The movie was absolutely somewhat fantastic and thrilling.",
+    "perturbation_type": "intensity",
+    "category": "intensity",
+    "expected_flip": false,
+    "expected_semantic_effect": "weaken",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9998857145869248,
+      "formatted_confidence": "99.99%",
+      "probabilities": {
+        "NEGATIVE": 0.00011428541307519427,
+        "POSITIVE": 0.9998857145869248
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.01%",
+        "POSITIVE": "99.99%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.01%\nPOSITIVE   [====================]  99.99%",
+      "raw_logits": null,
+      "latency_ms": 47.50119999516755,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "POSITIVE",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "NEGATIVE": 0.00011428541307519427,
+        "POSITIVE": 0.9998857145869248
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9998884043906658,
+      "formatted_confidence": "99.99%",
+      "probabilities": {
+        "NEGATIVE": 0.00011159560933413365,
+        "POSITIVE": 0.9998884043906658
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.01%",
+        "POSITIVE": "99.99%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.01%\nPOSITIVE   [====================]  99.99%",
+      "raw_logits": null,
+      "latency_ms": 14.262585713627882,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "POSITIVE",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "NEGATIVE": 0.00011159560933413365,
+        "POSITIVE": 0.9998884043906658
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9998857145869248,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9998884043906658,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_8f2ad18bd435",
+      "sentence_text": "The movie was absolutely somewhat fantastic and thrilling.",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "MANUAL",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "MANUAL",
+      "model_used": "manual_fallback",
+      "timestamp": 1790507866.0267153,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 2.6898037410738596e-06,
+    "confidence_delta_pts": 0.00026898037410738596,
+    "confidence_delta_pp": 0.00026898037410738596,
+    "formatted_confidence_delta": "+0.00 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "POLARITY_WEAKENED",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Downtoner preserved polarity (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)).",
+    "semantic_intent": "WEAKEN_POLARITY",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 14.262585713627882
+  },
+  {
+    "baseline_id": "base_f2bd156aafcb",
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_28b5fd3b1fe0",
+    "seed_text": "The movie was absolutely fantastic and thrilling.",
+    "perturbed_text": "The film was absolutely fantastic and thrilling.",
+    "perturbation_type": "synonym_substitution",
+    "category": "synonym_substitution",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9998857145869248,
+      "formatted_confidence": "99.99%",
+      "probabilities": {
+        "NEGATIVE": 0.00011428541307519427,
+        "POSITIVE": 0.9998857145869248
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.01%",
+        "POSITIVE": "99.99%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.01%\nPOSITIVE   [====================]  99.99%",
+      "raw_logits": null,
+      "latency_ms": 47.50119999516755,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "POSITIVE",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "NEGATIVE": 0.00011428541307519427,
+        "POSITIVE": 0.9998857145869248
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9998867984414721,
+      "formatted_confidence": "99.99%",
+      "probabilities": {
+        "NEGATIVE": 0.00011320155852787521,
+        "POSITIVE": 0.9998867984414721
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.01%",
+        "POSITIVE": "99.99%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.01%\nPOSITIVE   [====================]  99.99%",
+      "raw_logits": null,
+      "latency_ms": 14.262585713627882,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "POSITIVE",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "NEGATIVE": 0.00011320155852787521,
+        "POSITIVE": 0.9998867984414721
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9998857145869248,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9998867984414721,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_28b5fd3b1fe0",
+      "sentence_text": "The film was absolutely fantastic and thrilling.",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "MANUAL",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "MANUAL",
+      "model_used": "manual_fallback",
+      "timestamp": 1790507866.0273364,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 1.0838545473346173e-06,
+    "confidence_delta_pts": 0.00010838545473346173,
+    "confidence_delta_pp": 0.00010838545473346173,
+    "formatted_confidence_delta": "+0.00 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)) under meaning-preserving probe.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 14.262585713627882
+  },
+  {
+    "baseline_id": "base_f2bd156aafcb",
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_2f02bf775223",
+    "seed_text": "The movie was absolutely fantastic and thrilling.",
+    "perturbed_text": "The movie was absolutely fantastic and thrilling, however it did not be reliably.",
+    "perturbation_type": "contrast_negative_append",
+    "category": "contrast_negative_append",
+    "expected_flip": true,
+    "expected_semantic_effect": "invert",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9998857145869248,
+      "formatted_confidence": "99.99%",
+      "probabilities": {
+        "NEGATIVE": 0.00011428541307519427,
+        "POSITIVE": 0.9998857145869248
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.01%",
+        "POSITIVE": "99.99%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.01%\nPOSITIVE   [====================]  99.99%",
+      "raw_logits": null,
+      "latency_ms": 47.50119999516755,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "POSITIVE",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "NEGATIVE": 0.00011428541307519427,
+        "POSITIVE": 0.9998857145869248
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.7999841690061118,
+      "formatted_confidence": "80.00%",
+      "probabilities": {
+        "NEGATIVE": 0.20001583099388826,
+        "POSITIVE": 0.7999841690061118
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "20.00%",
+        "POSITIVE": "80.00%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [====                ]  20.00%\nPOSITIVE   [================    ]  80.00%",
+      "raw_logits": null,
+      "latency_ms": 14.262585713627882,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "POSITIVE",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "NEGATIVE": 0.20001583099388826,
+        "POSITIVE": 0.7999841690061118
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "POLARITY_MISMATCH"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9998857145869248,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.7999841690061118,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_2f02bf775223",
+      "sentence_text": "The movie was absolutely fantastic and thrilling, however it did not be reliably.",
+      "semantic_polarity": "NEGATIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "REVERSE",
+      "verification_status": "MANUAL",
+      "gemini_polarity": "NEGATIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "NEGATIVE",
+      "verification_source": "MANUAL",
+      "model_used": "manual_fallback",
+      "timestamp": 1790507866.0279634,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": -0.19990154558081297,
+    "confidence_delta_pts": -19.990154558081297,
+    "confidence_delta_pp": -19.990154558081297,
+    "formatted_confidence_delta": "-19.99 percentage points",
+    "expectation_satisfied": false,
+    "expectation_match": false,
+    "preservation": true,
+    "expected_relation": "POLARITY_REVERSED",
+    "observed_relation": "POLARITY_WEAKENED",
+    "behavioral_outcome": "MISSING_FLIP",
+    "failure_type": "Blind",
+    "rationale": "Probe introduces a polarity reversal (SHIFT_CONTRAST), but model retained the same predicted class and polarity (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)).",
+    "semantic_intent": "SHIFT_CONTRAST",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 14.262585713627882
+  },
+  {
+    "baseline_id": "base_f2bd156aafcb",
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_8a84c80b26ad",
+    "seed_text": "The movie was absolutely fantastic and thrilling.",
+    "perturbed_text": "The movie was absolutely fantastic and thrilling, and the overall storyline was engaging.",
+    "perturbation_type": "contrast_positive_append",
+    "category": "contrast_positive_append",
+    "expected_flip": false,
+    "expected_semantic_effect": "preserve",
+    "original_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9998857145869248,
+      "formatted_confidence": "99.99%",
+      "probabilities": {
+        "NEGATIVE": 0.00011428541307519427,
+        "POSITIVE": 0.9998857145869248
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.01%",
+        "POSITIVE": "99.99%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.01%\nPOSITIVE   [====================]  99.99%",
+      "raw_logits": null,
+      "latency_ms": 47.50119999516755,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "POSITIVE",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "NEGATIVE": 0.00011428541307519427,
+        "POSITIVE": 0.9998857145869248
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "perturbed_prediction": {
+      "label": "POSITIVE",
+      "predicted_label": "POSITIVE",
+      "confidence": 0.9998871664800787,
+      "formatted_confidence": "99.99%",
+      "probabilities": {
+        "NEGATIVE": 0.00011283351992128988,
+        "POSITIVE": 0.9998871664800787
+      },
+      "formatted_probabilities": {
+        "NEGATIVE": "0.01%",
+        "POSITIVE": "99.99%"
+      },
+      "formatted_distribution_ascii": "NEGATIVE   [                    ]   0.01%\nPOSITIVE   [====================]  99.99%",
+      "raw_logits": null,
+      "latency_ms": 14.262585713627882,
+      "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+      "device": "cpu",
+      "model_status": "READY",
+      "raw_label": "POSITIVE",
+      "raw_label_id": 1,
+      "raw_probability_distribution": {
+        "NEGATIVE": 0.00011283351992128988,
+        "POSITIVE": 0.9998871664800787
+      },
+      "semantic_polarity": "POSITIVE",
+      "label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "model_label_space": [
+        "NEGATIVE",
+        "POSITIVE"
+      ],
+      "semantic_compatibility": "DIRECTLY_COMPATIBLE"
+    },
+    "original_label": "POSITIVE",
+    "original_confidence": 0.9998857145869248,
+    "perturbed_label": "POSITIVE",
+    "perturbed_confidence": 0.9998871664800787,
+    "from_label": "POSITIVE",
+    "to_label": "POSITIVE",
+    "transition_type": "POSITIVE \u2192 POSITIVE",
+    "model_label_space": [
+      "NEGATIVE",
+      "POSITIVE"
+    ],
+    "semantic_compatibility": "DIRECTLY_COMPATIBLE",
+    "semantic_reference": {
+      "sentence_id": "prb_8a84c80b26ad",
+      "sentence_text": "The movie was absolutely fantastic and thrilling, and the overall storyline was engaging.",
+      "semantic_polarity": "POSITIVE",
+      "confidence": 0.75,
+      "reason": "Manual / offline mode default: please verify or override.",
+      "semantic_relation_to_baseline": "PRESERVE",
+      "verification_status": "MANUAL",
+      "gemini_polarity": "POSITIVE",
+      "gemini_confidence": 0.75,
+      "human_verified_polarity": null,
+      "final_semantic_polarity": "POSITIVE",
+      "verification_source": "MANUAL",
+      "model_used": "manual_fallback",
+      "timestamp": 1790507866.0285997,
+      "prompt_version": "v1.0"
+    },
+    "is_flipped": false,
+    "raw_label_flip": false,
+    "polarity_flip": false,
+    "semantic_state_change": false,
+    "confidence_delta": 1.4518931539253543e-06,
+    "confidence_delta_pts": 0.00014518931539253543,
+    "confidence_delta_pp": 0.00014518931539253543,
+    "formatted_confidence_delta": "+0.00 percentage points",
+    "expectation_satisfied": true,
+    "expectation_match": true,
+    "preservation": true,
+    "expected_relation": "SAME_POLARITY",
+    "observed_relation": "SAME_POLARITY",
+    "behavioral_outcome": "EXPECTED_PRESERVE",
+    "failure_type": "None",
+    "rationale": "Model correctly preserved prediction (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)) under meaning-preserving probe.",
+    "semantic_intent": "PRESERVE_MEANING",
+    "reference_polarity": "UNKNOWN",
+    "linguistic_source_polarity": "UNKNOWN",
+    "model_observed_polarity": "UNKNOWN",
+    "latency_ms": 14.262585713627882
+  }
+]

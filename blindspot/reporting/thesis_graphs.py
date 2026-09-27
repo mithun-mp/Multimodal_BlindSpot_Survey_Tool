@@ -12,6 +12,8 @@ import matplotlib
 matplotlib.use('Agg')  # Headless mode
 import matplotlib.pyplot as plt
 
+from blindspot.models.registry import get_model_short_name
+
 logger = logging.getLogger(__name__)
 
 # Standard publication palette
@@ -76,9 +78,8 @@ class ThesisVisualizer:
         pos_counts = []
         neg_counts = []
         neu_counts = []
-
         for m_id, m_val in models_data.items():
-            short_name = m_id.split("/")[-1][:18]
+            short_name = get_model_short_name(m_id)
             model_names.append(short_name)
             evals = m_val.get("evaluations", []) or m_val.get("probe_results", [])
             p_c, n_c, neu_c = 0, 0, 0
@@ -119,7 +120,7 @@ class ThesisVisualizer:
         if not models_data:
             return out_path
 
-        model_names = [m.split("/")[-1][:18] for m in models_data.keys()]
+        model_names = [get_model_short_name(m) for m in models_data.keys()]
         observed = []
         expected = []
 
@@ -162,7 +163,7 @@ class ThesisVisualizer:
             obs = metrics.get("observed_flip_rate", 0.0) * 100
             exp = metrics.get("expected_flip_rate", 0.0) * 100
             cons = metrics.get("behavioral_consistency", 0.0) * 100
-            short_name = m_id.split("/")[-1][:18]
+            short_name = get_model_short_name(m_id)
 
             ax.scatter(exp, obs, s=max(120, cons * 3), color=colors[idx % len(colors)],
                        edgecolors="black", linewidth=1.2, alpha=0.85, label=f"{short_name} (Cons: {cons:.0f}%)")
@@ -184,7 +185,7 @@ class ThesisVisualizer:
         if not models_data:
             return out_path
 
-        model_names = [m.split("/")[-1][:18] for m in models_data.keys()]
+        model_names = [get_model_short_name(m) for m in models_data.keys()]
         cats = ["Blind", "Spurious", "Misweighted", "Undetermined"]
         cat_counts = {c: [] for c in cats}
 
@@ -261,7 +262,7 @@ class ThesisVisualizer:
         delta_distributions = []
 
         for m_id, m_val in models_data.items():
-            model_names.append(m_id.split("/")[-1][:18])
+            model_names.append(get_model_short_name(m_id))
             evals = m_val.get("evaluations", []) or m_val.get("probe_results", [])
             deltas = [
                 ev.get("confidence_delta_pts", (ev.get("perturbed_confidence", 0.0) - ev.get("original_confidence", 0.0)) * 100)
@@ -299,7 +300,7 @@ class ThesisVisualizer:
             return out_path
 
         probes = probes[:8]
-        model_names = [m.split("/")[-1][:12] for m in models_data.keys()]
+        model_names = [get_model_short_name(m) for m in models_data.keys()]
         x = np.arange(len(probes))
         width = 0.8 / max(1, len(model_names))
 
@@ -338,7 +339,7 @@ class ThesisVisualizer:
             return out_path
 
         probes = probes[:10]
-        model_names = [m.split("/")[-1][:18] for m in models_data.keys()]
+        model_names = [get_model_short_name(m) for m in models_data.keys()]
         matrix = np.zeros((len(model_names), len(probes)))
 
         for i, (m_id, m_val) in enumerate(models_data.items()):
@@ -414,7 +415,7 @@ class ThesisVisualizer:
         if not models_data:
             return out_path
 
-        model_names = [m.split("/")[-1][:18] for m in models_data.keys()]
+        model_names = [get_model_short_name(m) for m in models_data.keys()]
         consistency_scores = []
 
         for m_val in models_data.values():
@@ -446,7 +447,7 @@ class ThesisVisualizer:
             return out_path
 
         matrix = np.ones((n, n)) * 100.0
-        short_names = [m.split("/")[-1][:14] for m in model_ids]
+        short_names = [get_model_short_name(m) for m in model_ids]
 
         for i in range(n):
             for j in range(i + 1, n):
@@ -485,7 +486,7 @@ class ThesisVisualizer:
         if not models_data:
             return out_path
 
-        model_names = [m.split("/")[-1][:18] for m in models_data.keys()]
+        model_names = [get_model_short_name(m) for m in models_data.keys()]
         sensitivity = []  # Flipped when expected to flip
         invariance = []   # Preserved when expected to preserve
 
@@ -521,7 +522,7 @@ class ThesisVisualizer:
         if not models_data:
             return out_path
 
-        model_names = [m.split("/")[-1][:18] for m in models_data.keys()]
+        model_names = [get_model_short_name(m) for m in models_data.keys()]
         metrics_keys = ["Flip Rate", "Consistency", "ECE (x100)"]
 
         fig, axes = plt.subplots(1, 3, figsize=(12, 4), dpi=300)
@@ -558,7 +559,7 @@ class ThesisVisualizer:
         probe_times = []
 
         for m_id, m_val in models_data.items():
-            model_names.append(m_id.split("/")[-1][:18])
+            model_names.append(get_model_short_name(m_id))
             timing = m_val.get("timing", {}) or {}
             load_times.append(timing.get("model_load_ms", 150.0))
             base_times.append(timing.get("baseline_inference_ms", 25.0))

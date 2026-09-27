@@ -38,6 +38,13 @@ from blindspot.explainability.token_attributions import align_token_attributions
 from blindspot.analysis.cross_model import CrossModelAnalyzer
 from blindspot.storage.run_store import RunStore
 from blindspot.reporting.report_generator import ReportGenerator
+from blindspot.semantic import (
+    get_semantic_service,
+    SemanticReferenceSet,
+    SemanticReferenceLabel,
+    SemanticRelation,
+)
+from blindspot.models.registry import get_model_short_name, get_model_display_name
 
 logger = logging.getLogger(__name__)
 
@@ -206,7 +213,68 @@ class ExperimentRunner:
                 self.events.emit("log", level="ERROR", message=err_msg)
                 raise ValueError(err_msg)
 
-            # Create immutable RunPlan per Section 32
+            # Resolve & Freeze Canonical Semantic Ground-Truth Reference (Sections 6, 8, 22, 30)
+            self.current_step = "Resolving canonical semantic ground-truth"
+            self.events.emit("progress", progress=0.12, step=self.current_step)
+            if getattr(probe_set, "semantic_reference_set", None) is None:
+                semantic_svc = get_semantic_service()
+                seed_t = self.config.seed_texts[0] if self.config.seed_texts else ""
+                ref_set = semantic_svc.annotate_experiment(baseline_text=seed_t, probes=probe_set.probes)
+                ref_set.freeze()
+                probe_set.semantic_reference_set = ref_set
+            else:
+                if isinstance(probe_set.semantic_reference_set, dict):
+                    probe_set.semantic_reference_set = SemanticReferenceSet.from_dict(probe_set.semantic_reference_set)
+                if hasattr(probe_set.semantic_reference_set, "freeze"):
+                    probe_set.semantic_reference_set.freeze()
+
+            # Synchronize each probe's reference strictly without mutating semantic truth (Phase 10)
+            ref_set = probe_set.semantic_reference_set
+            base_pol = ref_set.baseline_annotation.final_semantic_polarity
+            for p in probe_set.probes:
+                p_annot = ref_set.probe_annotations.get(p.probe_id)
+                if p_annot:
+                    p.semantic_reference = p_annot.to_dict()
+                    p.reference_polarity = p_annot.final_semantic_polarity.value
+                    sem_rel = p_annot.semantic_relation_to_baseline
+                    rel_val = sem_rel.value if hasattr(sem_rel, "value") else str(sem_rel)
+                    p.semantic_relation = rel_val
+                    probe_pol = p_annot.final_semantic_polarity
+                    
+                    # True polarity flip occurs strictly if both baseline and probe are non-neutral and opposite
+                    is_polar_flip = (
+                        base_pol in (SemanticReferenceLabel.POSITIVE, SemanticReferenceLabel.NEGATIVE)
+                        and probe_pol in (SemanticReferenceLabel.POSITIVE, SemanticReferenceLabel.NEGATIVE)
+                        and base_pol != probe_pol
+                    )
+                    p.expected_flip = is_polar_flip
+                    if is_polar_flip:
+                        p.expected_semantic_effect = "invert"
+                        p.semantic_intent = "REVERSE_POLARITY"
+                        p.expected_label_relation = "DIFFERENT_LABEL"
+                    elif rel_val in ("PRESERVE", "PRESERVE_POLARITY"):
+                        p.expected_semantic_effect = "preserve"
+                        p.semantic_intent = "PRESERVE_POLARITY"
+                        p.expected_label_relation = "SAME_LABEL"
+                    else:
+                        p.expected_semantic_effect = rel_val
+                        p.semantic_intent = rel_val
+                        p.expected_label_relation = "UNCONSTRAINED"
+
+            # Save semantic_reference.json artifact
+            self.run_store.save_semantic_reference(self.experiment_id, probe_set.semantic_reference_set)
+            self.events.emit(
+                "log",
+                level="INFO",
+                message=(
+                    f"[SEMANTIC] Semantic reference frozen: baseline={probe_set.semantic_reference_set.baseline_annotation.final_semantic_polarity.value}, "
+                    f"probes={len(probe_set.semantic_reference_set.probe_annotations)}, "
+                    f"engine={probe_set.semantic_reference_set.annotation_engine}, "
+                    f"cache_hits={probe_set.semantic_reference_set.cache_hits}"
+                ),
+            )
+
+            # Create immutable RunPlan per Phase 11
             run_plan = RunPlan(
                 experiment_id=self.experiment_id,
                 model_ids=list(self.config.model_ids),
@@ -215,6 +283,18 @@ class ExperimentRunner:
                 selected_probe_ids=[p.probe_id for p in probe_set.probes],
                 probe_versions={p.probe_id: getattr(p, "version", 1) for p in probe_set.probes},
                 original_text=self.config.seed_texts[0] if self.config.seed_texts else "",
+                probe_texts={p.probe_id: p.perturbed_text for p in probe_set.probes},
+                semantic_polarity_reference=base_pol.value if hasattr(base_pol, "value") else str(base_pol),
+                probe_semantic_references={
+                    pid: p_ann.to_dict() for pid, p_ann in ref_set.probe_annotations.items()
+                },
+                semantic_relations={
+                    pid: (p_ann.semantic_relation_to_baseline.value if hasattr(p_ann.semantic_relation_to_baseline, "value") else str(p_ann.semantic_relation_to_baseline))
+                    for pid, p_ann in ref_set.probe_annotations.items()
+                },
+                verification_status=ref_set.baseline_annotation.verification_status.value,
+                provider=ref_set.provider,
+                schema_version="v2.0",
                 sentence_type=probe_set.sentence_types.get(self.config.seed_texts[0], "literal") if self.config.seed_texts else "literal",
             )
             self.run_plan = run_plan
@@ -361,9 +441,12 @@ class ExperimentRunner:
                         "flip_rate": eval_results["observed_flip_rate"],
                         "observed_flip_rate": eval_results["observed_flip_rate"],
                         "expected_flip_rate": eval_results["expected_flip_rate"],
+                        "expected_flip_compliance": eval_results.get("expected_flip_compliance", 0.0),
                         "preserve_rate": eval_results["preserve_rate"],
                         "behavioral_consistency": eval_results["behavioral_consistency"],
                         "satisfaction_rate": eval_results["behavioral_consistency"],
+                        "raw_label_flip_rate": eval_results.get("raw_label_flip_rate", 0.0),
+                        "polarity_flip_rate": eval_results.get("polarity_flip_rate", 0.0),
                         "confidence_flip_rate": eval_results["confidence_flip_rate"],
                         "ece": eval_results["ece"],
                         "transition_matrix": eval_results["transition_matrix"],
@@ -610,6 +693,7 @@ class ExperimentRunner:
                 "config": self.config.to_dict(),
                 "run_plan": self.run_plan.to_dict(),
                 "shared_probes": probe_set.to_dict(),
+                "semantic_reference": probe_set.semantic_reference_set.to_dict() if getattr(probe_set, "semantic_reference_set", None) else None,
                 "model_baselines": model_baselines,
                 "pipeline_integrity": {
                     "generated": generated_count,
@@ -676,6 +760,13 @@ class ExperimentRunner:
                     "pipeline_integrity_passed": all_integrity_passed,
                     "run_status": overall_run_status,
                     "analysis_status": overall_analysis_status,
+                    "semantic_reference": {
+                        "engine": probe_set.semantic_reference_set.annotation_engine,
+                        "model": probe_set.semantic_reference_set.model,
+                        "baseline_polarity": probe_set.semantic_reference_set.baseline_annotation.final_semantic_polarity.value,
+                        "cache_hits": probe_set.semantic_reference_set.cache_hits,
+                        "api_requests": probe_set.semantic_reference_set.api_requests,
+                    } if getattr(probe_set, "semantic_reference_set", None) else {},
                     "completed_at": time.time(),
                 },
             )
@@ -792,13 +883,13 @@ class ExperimentRunner:
             if pair:
                 summary_md.append("\n### Pairwise Concordance Matrix")
                 models_list = list(pair.keys())
-                header_str = "| Model | " + " | ".join(f"`{m.split('/')[-1][:12]}`" for m in models_list) + " |"
+                header_str = "| Model | " + " | ".join(f"`{get_model_short_name(m)}`" for m in models_list) + " |"
                 sep_str = "| :--- | " + " | ".join(":---:" for _ in models_list) + " |"
                 summary_md.append(header_str)
                 summary_md.append(sep_str)
                 for m1 in models_list:
                     row_vals = [f"{pair.get(m1, {}).get(m2, 0.0):.1%}" for m2 in models_list]
-                    summary_md.append(f"| `{m1.split('/')[-1][:12]}` | " + " | ".join(row_vals) + " |")
+                    summary_md.append(f"| `{get_model_short_name(m1)}` | " + " | ".join(row_vals) + " |")
 
         summary_md.extend([
             "\n## 7. Pipeline Count Integrity Audit",
@@ -812,6 +903,15 @@ class ExperimentRunner:
                 f"{chk.get('verified')} | {chk.get('planned')} | {chk.get('executed')} | "
                 f"{chk.get('analyzed')} | {chk.get('reported')} | **{res_str}** |"
             )
+
+        summary_md.extend([
+            "\n## 8. Semantic Reference Methodology & Ground-Truth Alignment",
+            "1. **Canonical Semantic Label Space**: Ground-truth polarity is strictly confined to `POSITIVE`, `NEGATIVE`, and `NEUTRAL`. Non-canonical sentiment categories (such as `MIXED`, `AMBIGUOUS`, `SARCASTIC`) are rejected.",
+            "2. **Google Gemini Role**: Gemini operates exclusively as an external semantic annotator/verification layer for baseline and probe sentences. It is **never** a benchmark model, does not forecast model failures, and is strictly prohibited from generating the failure taxonomy.",
+            "3. **Human Verification & Override**: Every semantic reference can be verified and overridden by researchers (`[Accept]` / `[Change]`). Frozen semantic references are strictly immutable during model evaluation.",
+            "4. **Binary vs. Multiclass Alignment**: Binary models (e.g. 2-class SST-2) natively output `NEGATIVE` and `POSITIVE`. When semantic reference is `NEUTRAL`, binary models' forced polarity is recorded as `NOT_DIRECTLY_REPRESENTABLE` (`BINARY_FORCED_POLARITY`), preserving empirical truth rather than falsely modifying the reference.",
+            "5. **Independence of Model Outputs & Rule-Based Taxonomy**: Model predictions remain 100% empirical forward-pass outputs. The failure taxonomy (`Blind`, `Spurious`, `Misweighted`, `Undetermined`) is derived purely by deterministic rule-based behavioral analysis, completely independent of Gemini.",
+        ])
 
         self.run_store.save_report(exp_id, "experiment_summary.md", "\n".join(summary_md))
 
@@ -827,8 +927,8 @@ class ExperimentRunner:
         for m_id in self.config.model_ids:
             short_m = m_id.split("/")[-1]
             evidence_md.append(f"\n## Model: `{short_m}`\n")
-            evidence_md.append("| Probe ID | Category | Original → Perturbed | Baseline | Probe Output | Transition | Δ Conf (pp) | Flip | Outcome | Failure |")
-            evidence_md.append("| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |")
+            evidence_md.append("| Probe ID | Category | Original → Perturbed | Semantic Ref | Baseline | Probe Output | Transition | Δ Conf (pp) | Flip | Outcome | Failure |")
+            evidence_md.append("| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |")
 
             for ev in models_data.get(m_id, {}).get("evaluations", []):
                 pid = ev.get("probe_id", "")[:8]
@@ -844,13 +944,18 @@ class ExperimentRunner:
                 outcome = ev.get("behavioral_outcome", "")
                 ftype = ev.get("failure_type", "None")
 
+                sem_ref = ev.get("semantic_reference") or {}
+                sem_pol = sem_ref.get("final_semantic_polarity", "N/A")
+                sem_rel = sem_ref.get("semantic_relation_to_baseline", "N/A")
+                sem_str = f"{sem_pol} ({sem_rel})"
+
                 orig_pert_str = f"\"{s_text[:25]}...\" → \"{p_text[:25]}...\""
                 base_str = f"{orig_lbl} ({orig_c:.2f})"
                 out_str = f"{pert_lbl} ({pert_c:.2f})"
                 trans_str = f"{orig_lbl} → {pert_lbl}"
 
                 evidence_md.append(
-                    f"| `{pid}` | {pcat} | {orig_pert_str} | {base_str} | {out_str} | {trans_str} | {delta_pts:+.1f} | {is_flip} | `{outcome}` | **{ftype}** |"
+                    f"| `{pid}` | {pcat} | {orig_pert_str} | `{sem_str}` | {base_str} | {out_str} | {trans_str} | {delta_pts:+.1f} | {is_flip} | `{outcome}` | **{ftype}** |"
                 )
 
             evidence_md.append("\n### Probe Rationales & Evidence Notes")

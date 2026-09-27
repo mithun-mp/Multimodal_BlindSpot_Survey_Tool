@@ -1,0 +1,322 @@
+[
+  {
+    "failure_id": "fail_c1dc7273",
+    "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+    "probe_id": "prb_6018c6f404b7",
+    "category": "Blind",
+    "severity": "high",
+    "reason": "Probe introduces a polarity reversal (REVERSE_POLARITY), but model retained the same predicted class and polarity (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)).",
+    "details": "Probe introduces a polarity reversal (REVERSE_POLARITY), but model retained the same predicted class and polarity (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)).",
+    "recommendation": "Augment training data and regularize behavior against negation_insertion perturbations to fix Blind failures.",
+    "evidence": {
+      "original_label": "POSITIVE",
+      "probe_label": "POSITIVE",
+      "original_confidence": 0.9998726445242896,
+      "probe_confidence": 0.6574715571842061,
+      "confidence_delta_pp": -34.240108734008345,
+      "label_transition": "POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)",
+      "raw_label_flip": false,
+      "polarity_flip": false,
+      "semantic_state_change": false,
+      "is_prediction_flip": false,
+      "original_polarity": "POSITIVE",
+      "probe_polarity": "POSITIVE",
+      "expected_relation": "POLARITY_REVERSED",
+      "observed_relation": "POLARITY_WEAKENED",
+      "expected_effect": "INVERT",
+      "semantic_intent": "REVERSE_POLARITY",
+      "threshold_pp": 15.0,
+      "expectation_match": false,
+      "preservation": true,
+      "jaccard_similarity": 0.42857142857142855,
+      "cosine_alignment": 0.3561000029158104,
+      "orig_explanation": {
+        "token_weights": {
+          "notch": -0.048336555778364,
+          "the": -0.018447193408770022,
+          "was": -0.09474123302935285,
+          "top": 0.15547030590246785,
+          "acting": 0.051528318226166325,
+          "movie": 0.04400100899848431,
+          "great": 0.09744277412228677,
+          "and": -0.010969274892278481
+        },
+        "token_attributions": [
+          {
+            "token": "notch",
+            "attribution": -0.048336555778364,
+            "position": 1
+          },
+          {
+            "token": "the",
+            "attribution": -0.018447193408770022,
+            "position": 2
+          },
+          {
+            "token": "was",
+            "attribution": -0.09474123302935285,
+            "position": 3
+          },
+          {
+            "token": "top",
+            "attribution": 0.15547030590246785,
+            "position": 4
+          },
+          {
+            "token": "acting",
+            "attribution": 0.051528318226166325,
+            "position": 5
+          },
+          {
+            "token": "movie",
+            "attribution": 0.04400100899848431,
+            "position": 6
+          },
+          {
+            "token": "great",
+            "attribution": 0.09744277412228677,
+            "position": 7
+          },
+          {
+            "token": "and",
+            "attribution": -0.010969274892278481,
+            "position": 8
+          }
+        ],
+        "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+        "text": "the movie was great and the acting was top notch",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "pert_explanation": {
+        "token_weights": {
+          "notch": -0.11096607703684733,
+          "the": 0.03170798985668649,
+          "not": -0.5370924784766742,
+          "was": 0.024299410722112447,
+          "top": 0.2894092539222936,
+          "acting": 0.006271009309054006,
+          "movie": -0.0448483233516295,
+          "great": 0.050985369039290664,
+          "and": 0.06582333800740385
+        },
+        "token_attributions": [
+          {
+            "token": "notch",
+            "attribution": -0.11096607703684733,
+            "position": 1
+          },
+          {
+            "token": "the",
+            "attribution": 0.03170798985668649,
+            "position": 2
+          },
+          {
+            "token": "not",
+            "attribution": -0.5370924784766742,
+            "position": 3
+          },
+          {
+            "token": "was",
+            "attribution": 0.024299410722112447,
+            "position": 4
+          },
+          {
+            "token": "top",
+            "attribution": 0.2894092539222936,
+            "position": 5
+          },
+          {
+            "token": "acting",
+            "attribution": 0.006271009309054006,
+            "position": 6
+          },
+          {
+            "token": "movie",
+            "attribution": -0.0448483233516295,
+            "position": 7
+          },
+          {
+            "token": "great",
+            "attribution": 0.050985369039290664,
+            "position": 8
+          },
+          {
+            "token": "and",
+            "attribution": 0.06582333800740385,
+            "position": 9
+          }
+        ],
+        "model_id": "distilbert-base-uncased-finetuned-sst-2-english",
+        "text": "the movie was not great and the acting was top notch",
+        "explainer_requested": "both",
+        "explainer_used": "both",
+        "fallback_used": false,
+        "fallback_reason": null,
+        "runtime_ms": 0.0,
+        "random_seed": 42
+      },
+      "aligned_tokens": [
+        {
+          "token": "notch",
+          "orig_token": "notch",
+          "pert_token": "notch",
+          "orig_pos": 1,
+          "pert_pos": 1,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.048336555778364,
+          "pert_val": -0.11096607703684733,
+          "delta": -0.06262952125848333,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "the",
+          "orig_token": "the",
+          "pert_token": "the",
+          "orig_pos": 2,
+          "pert_pos": 2,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.018447193408770022,
+          "pert_val": 0.03170798985668649,
+          "delta": 0.05015518326545651,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "not",
+          "orig_token": null,
+          "pert_token": "not",
+          "orig_pos": null,
+          "pert_pos": 3,
+          "orig_occ": null,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": null,
+          "pert_val": -0.5370924784766742,
+          "delta": null,
+          "polarity_changed": false,
+          "status": "inserted",
+          "is_key_shift": false
+        },
+        {
+          "token": "was",
+          "orig_token": "was",
+          "pert_token": "was",
+          "orig_pos": 3,
+          "pert_pos": 4,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.09474123302935285,
+          "pert_val": 0.024299410722112447,
+          "delta": 0.1190406437514653,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": true
+        },
+        {
+          "token": "top",
+          "orig_token": "top",
+          "pert_token": "top",
+          "orig_pos": 4,
+          "pert_pos": 5,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.15547030590246785,
+          "pert_val": 0.2894092539222936,
+          "delta": 0.13393894801982575,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "acting",
+          "orig_token": "acting",
+          "pert_token": "acting",
+          "orig_pos": 5,
+          "pert_pos": 6,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.051528318226166325,
+          "pert_val": 0.006271009309054006,
+          "delta": -0.04525730891711232,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "movie",
+          "orig_token": "movie",
+          "pert_token": "movie",
+          "orig_pos": 6,
+          "pert_pos": 7,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.04400100899848431,
+          "pert_val": -0.0448483233516295,
+          "delta": -0.0888493323501138,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "great",
+          "orig_token": "great",
+          "pert_token": "great",
+          "orig_pos": 7,
+          "pert_pos": 8,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": 0.09744277412228677,
+          "pert_val": 0.050985369039290664,
+          "delta": -0.04645740508299611,
+          "polarity_changed": false,
+          "status": "aligned",
+          "is_key_shift": false
+        },
+        {
+          "token": "and",
+          "orig_token": "and",
+          "pert_token": "and",
+          "orig_pos": 8,
+          "pert_pos": 9,
+          "orig_occ": 1,
+          "pert_occ": 1,
+          "total_occ": 1,
+          "orig_val": -0.010969274892278481,
+          "pert_val": 0.06582333800740385,
+          "delta": 0.07679261289968234,
+          "polarity_changed": true,
+          "status": "aligned",
+          "is_key_shift": false
+        }
+      ]
+    },
+    "traceable_narrative": "Probe introduces a polarity reversal (REVERSE_POLARITY), but model retained the same predicted class and polarity (POSITIVE (POSITIVE) \u2192 POSITIVE (POSITIVE)).",
+    "original_sentence": "the movie was great and the acting was top notch",
+    "perturbed_sentence": "the movie was not great and the acting was top notch",
+    "original_label": "POSITIVE",
+    "perturbed_label": "POSITIVE",
+    "original_confidence": 0.9998726445242896,
+    "perturbed_confidence": 0.6574715571842061,
+    "confidence_delta_pts": -34.240108734008345,
+    "is_flipped": false,
+    "expected_flip": true,
+    "behavioral_outcome": "MISSING_FLIP"
+  }
+]

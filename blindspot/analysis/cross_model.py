@@ -35,6 +35,11 @@ class CrossModelAnalyzer:
         for model_id, evals in model_evaluations.items():
             for e in evals:
                 pid = e.probe_id
+                sem_ref = getattr(e, "semantic_reference", None) or {}
+                sem_pol = sem_ref.get("final_semantic_polarity", "")
+                sem_rel = sem_ref.get("semantic_relation_to_baseline", "")
+                expected_desc = f"{sem_pol} [{sem_rel}]" if sem_pol else ("FLIP" if e.expected_flip else "PRESERVE")
+
                 if pid not in probes_by_id:
                     probes_by_id[pid] = {
                         "probe_id": pid,
@@ -43,6 +48,10 @@ class CrossModelAnalyzer:
                         "perturbation_type": e.perturbation_type,
                         "expected_flip": e.expected_flip,
                         "expected_semantic_effect": e.expected_semantic_effect,
+                        "expected_polarity": sem_pol,
+                        "expected_relation": sem_rel,
+                        "expected_desc": expected_desc,
+                        "semantic_reference": sem_ref,
                         "models": {},
                     }
 
@@ -57,6 +66,10 @@ class CrossModelAnalyzer:
                     "expectation_satisfied": e.expectation_satisfied,
                     "confidence_delta_pts": e.confidence_delta_pts,
                     "formatted_delta": e.formatted_confidence_delta,
+                    "semantic_compatibility": getattr(e, "semantic_compatibility", "DIRECT_MATCH"),
+                    "from_label": getattr(e, "from_label", e.original_prediction.label),
+                    "to_label": getattr(e, "to_label", e.perturbed_prediction.label),
+                    "transition_type": getattr(e, "transition_type", f"{e.original_prediction.label} -> {e.perturbed_prediction.label}"),
                 }
 
         return list(probes_by_id.values())
